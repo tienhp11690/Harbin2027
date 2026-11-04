@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -1153,6 +1153,201 @@
       text-decoration: none;
     }
 
+        /* Video Theater & GIF Section */
+    .video-theater-container {
+      background: linear-gradient(135deg, rgba(14, 27, 60, 0.95), rgba(8, 16, 40, 0.95));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 12px 40px rgba(0, 242, 254, 0.2);
+      margin-bottom: 30px;
+    }
+
+    .video-theater-screen {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-ice);
+      background: #000;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .video-theater-screen iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-theater-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .video-now-playing {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .live-pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-coral);
+      box-shadow: 0 0 10px var(--accent-coral);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .video-playlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .video-item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .video-item-card:hover, .video-item-card.active {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.2);
+    }
+
+    .video-item-card.active {
+      border-left: 4px solid var(--accent-cyan);
+    }
+
+    .video-thumb-wrap {
+      width: 110px;
+      height: 68px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .video-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-play-btn {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .video-item-card:hover .thumb-play-btn {
+      background: rgba(0, 242, 254, 0.5);
+      color: #03112c;
+    }
+
+    .video-info h5 {
+      font-size: 0.92rem;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .video-info span {
+      font-size: 0.78rem;
+      color: var(--accent-gold);
+    }
+
+    /* GIF Motion Showcase */
+    .gif-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .gif-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gif-img-wrap {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gif-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gif-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .gif-body {
+      padding: 14px 16px;
+    }
+
+    .gif-body h5 {
+      font-size: 0.92rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .gif-body p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
     /* Print styles */
     @media print {
       #snow-canvas, .sticky-nav, .action-bar, .filter-bar {
@@ -1199,6 +1394,7 @@
     <div class="container nav-container">
       <a href="#overview" class="nav-link active">✈ Tổng Quan</a>
       <a href="#gallery" class="nav-link">🏔️ Nguồn Ảnh Điểm Đến</a>
+      <a href="#video-theater" class="nav-link">🎬 Video 4K & GIF</a>
       <a href="#visual-tips" class="nav-link">🎨 Graphic Tips Chuẩn Bị</a>
       <a href="#outfit-lookbook" class="nav-link">👗 Outfit Couple & Phối Màu</a>
       <a href="#photo-ideas" class="nav-link">📸 Ý Tưởng Chụp Ảnh</a>
@@ -1428,6 +1624,163 @@
             <span class="dest-badge">Thượng Hải (Transit Đêm)</span>
             <div class="dest-photo-title">Bến Thượng Hải & Lujiazui</div>
             <div class="dest-photo-sub">Skyline tráng lệ soi bóng sông Hoàng Phố</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- SECTION: 4K VIDEO & GIF HIGHLIGHTS -->
+    <section id="video-theater">
+      <div class="section-header">
+        <span class="section-tag">Thước Phim Chuyển Động</span>
+        <h2 class="section-title">🎬 Rạp Chiếu Phim Mini: Video 4K, Shorts & .GIF Điểm Đến</h2>
+        <p class="section-desc">Trực tiếp xem thước phim flycam 4K, video shorts check-in triệu view và khoảnh khắc động dạng .GIF tái hiện vẻ đẹp kỳ ảo của các kỳ quan mùa đông Đông Bắc Trung Quốc.</p>
+      </div>
+
+      <div class="video-theater-container">
+        <!-- Main Interactive Video Screen -->
+        <div class="video-theater-screen">
+          <iframe id="main-video-frame" src="https://www.youtube-nocookie.com/embed/7HByqKqQQ5c?rel=0" title="Video Highlight Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-theater-meta">
+          <div class="video-now-playing">
+            <span class="live-pulse"></span>
+            <div>
+              <strong id="current-video-title" style="color:#fff; font-size:1.05rem;">[4K Drone] Thế Giới Băng Tuyết Cáp Nhĩ Tân: Toàn Cảnh & Pháo Hoa Giao Thừa</strong>
+              <div style="font-size:0.8rem; color:var(--text-muted);">Bấm chọn các clip bên dưới để đổi video tức thì không cần tải lại trang</div>
+            </div>
+          </div>
+          <div>
+            <a id="external-video-btn" href="https://www.youtube.com/watch?v=7HByqKqQQ5c" target="_blank" class="btn btn-outline" style="font-size:0.82rem; padding:6px 14px;">↗ Mở Trên YouTube Full HD</a>
+          </div>
+        </div>
+
+        <!-- 6 Video Clips Playlist -->
+        <h4 style="color:var(--accent-cyan); font-size:1rem; margin-top:18px;">📺 Danh Sách Video Highlight & Shorts (Bấm để xem):</h4>
+        <div class="video-playlist-grid">
+          <!-- Clip 1: Harbin Ice World -->
+          <div class="video-item-card active" onclick="switchVideo('7HByqKqQQ5c', '[4K Drone] Cáp Nhĩ Tân: Thế Giới Băng Tuyết & Pháo Hoa Giao Thừa', this, 'https://www.youtube.com/watch?v=7HByqKqQQ5c')">
+            <div class="video-thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=300&q=80" alt="Harbin Video">
+              <div class="thumb-play-btn">▶</div>
+            </div>
+            <div class="video-info">
+              <h5>1. Băng Tuyết Đại Thế Giới (Harbin)</h5>
+              <span>🛸 4K Drone • Pháo hoa Giao thừa</span>
+            </div>
+          </div>
+
+          <!-- Clip 2: China Snow Town -->
+          <div class="video-item-card" onclick="switchVideo('hA42LR0Er6M', '[4K Drone] Làng Tuyết Hương: Mái Nấm Tuyết Bồng Bềnh & Phố Lồng Đèn Đỏ', this, 'https://www.youtube.com/watch?v=hA42LR0Er6M')">
+            <div class="video-thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=300&q=80" alt="Snow Town Video">
+              <div class="thumb-play-btn">▶</div>
+            </div>
+            <div class="video-info">
+              <h5>2. Làng Tuyết Hương (Xuexiang)</h5>
+              <span>🍄 4K Drone • Mái nấm tuyết bồng bềnh</span>
+            </div>
+          </div>
+
+          <!-- Clip 3: Changbaishan Tianchi -->
+          <div class="video-item-card" onclick="switchVideo('auYHEZVlGFY', '[4K Cinema] Núi Trường Bạch: Hồ Thiên Trì Miệng Núi Lửa & Thác Băng', this, 'https://www.youtube.com/watch?v=auYHEZVlGFY')">
+            <div class="video-thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=300&q=80" alt="Changbaishan Video">
+              <div class="thumb-play-btn">▶</div>
+            </div>
+            <div class="video-info">
+              <h5>3. Núi Trường Bạch (Thiên Trì)</h5>
+              <span>🏔️ 4K Cinema • Hồ miệng núi lửa 2.189m</span>
+            </div>
+          </div>
+
+          <!-- Clip 4: Devils Drift Rafting -->
+          <div class="video-item-card" onclick="switchVideo('SOTrrT6mO48', '[Vlog Thực Tế] Ma Giới Phiêu Lưu: Chèo Thuyền Khói Sương -25°C', this, 'https://www.youtube.com/watch?v=SOTrrT6mO48')">
+            <div class="video-thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=300&q=80" alt="Rime Rafting Video">
+              <div class="thumb-play-btn">▶</div>
+            </div>
+            <div class="video-info">
+              <h5>4. Ma Giới Rafting (Devil's Drift)</h5>
+              <span>🚣 Chèo thuyền sương băng -25°C • Kèm Short Clip</span>
+            </div>
+          </div>
+
+          <!-- Clip 5: Yabuli Ski Resort -->
+          <div class="video-item-card" onclick="switchVideo('BKAXWkI-ZbY', '[Action Cam & Drone] Trượt Tuyết Á Bố Lực: Lướt Ván Dưới Rừng Thông', this, 'https://www.youtube.com/watch?v=BKAXWkI-ZbY')">
+            <div class="video-thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=300&q=80" alt="Yabuli Ski Video">
+              <div class="thumb-play-btn">▶</div>
+            </div>
+            <div class="video-info">
+              <h5>5. Sân Trượt Tuyết Á Bố Lực (Yabuli)</h5>
+              <span>⛷️ Action Cam POV & Drone đuổi dốc</span>
+            </div>
+          </div>
+
+          <!-- Clip 6: Boiling Water Freeze -->
+          <div class="video-item-card" onclick="switchVideo('xFXjH7sW_AY', '[Slow-Mo 240fps] Hiện Tượng Té Nước Sôi Thành Băng Tuyết Tức Thì', this, 'https://www.youtube.com/watch?v=xFXjH7sW_AY')">
+            <div class="video-thumb-wrap">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=300&q=80" alt="Freezing Water Video">
+              <div class="thumb-play-btn">▶</div>
+            </div>
+            <div class="video-info">
+              <h5>6. Té Nước Sôi Thành Băng (泼水成冰)</h5>
+              <span>❄️ Slow-Motion 240fps • Vũ điệu hoa tuyết</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Motion Animated GIFs Showcase -->
+      <h3 style="color:#fff; font-size:1.3rem; margin: 30px 0 16px;">✨ Khoảnh Khắc Động Dạng .GIF (Live Motion Ambiance)</h3>
+      <div class="gif-showcase-grid">
+        <!-- GIF 1: Pháo hoa lâu đài băng -->
+        <div class="gif-card">
+          <div class="gif-img-wrap">
+            <img src="https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif" alt="Ice Festival Fireworks GIF" loading="lazy">
+            <span class="gif-badge">🔥 LIVE .GIF</span>
+          </div>
+          <div class="gif-body">
+            <h5>Pháo Hoa & Lâu Đài Băng Đăng</h5>
+            <p>Khoảnh khắc pháo hoa rực sáng trên nền các khối băng pha lê điêu khắc tại Cáp Nhĩ Tân đêm đón năm mới.</p>
+          </div>
+        </div>
+
+        <!-- GIF 2: Trượt tuyết tốc độ cao -->
+        <div class="gif-card">
+          <div class="gif-img-wrap">
+            <img src="https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif" alt="Ski Powder Action GIF" loading="lazy">
+            <span class="gif-badge">⛷️ ACTION .GIF</span>
+          </div>
+          <div class="gif-body">
+            <h5>Trượt Tuyết Xé Gió Xuyên Rừng</h5>
+            <p>Cú rẽ ván song song làm tuyết bột champagne bắn tung tóe dưới tán thông tuyết tại Á Bố Lực và Trường Bạch.</p>
+          </div>
+        </div>
+
+        <!-- GIF 3: Sông sương băng Ma Giới -->
+        <div class="gif-card">
+          <div class="gif-img-wrap">
+            <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" alt="Misty Winter River GIF" loading="lazy">
+            <span class="gif-badge">🚣 MYSTICAL .GIF</span>
+          </div>
+          <div class="gif-body">
+            <h5>Khói Sương Bốc Trên Sông Âm 25°C</h5>
+            <p>Hơi nước địa nhiệt cuộn trào gặp không khí đóng băng tạo lớp sương muối huyền bí bao phủ Ma Giới.</p>
+          </div>
+        </div>
+
+        <!-- GIF 4: Tuyết rơi phủ mái nhà -->
+        <div class="gif-card">
+          <div class="gif-img-wrap">
+            <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Snowfall Cabin GIF" loading="lazy">
+            <span class="gif-badge">❄️ FAIRYTALE .GIF</span>
+          </div>
+          <div class="gif-body">
+            <h5>Bông Tuyết Rơi Phủ Làng Cổ Tích</h5>
+            <p>Cảm giác bình yên khi từng bông tuyết mềm mại rơi lất phất trên mái nấm Tuyết Hương và toa xe điện 54.</p>
           </div>
         </div>
       </div>
@@ -2911,6 +3264,21 @@
     }
     drawSnow();
 
+        // Video Switcher for Mini Theater
+    function switchVideo(videoId, title, cardEl, extUrl) {
+      const iframe = document.getElementById('main-video-frame');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+      document.getElementById('current-video-title').innerText = title;
+      const extBtn = document.getElementById('external-video-btn');
+      if (extBtn && extUrl) {
+        extBtn.href = extUrl;
+      }
+      document.querySelectorAll('.video-item-card').forEach(c => c.classList.remove('active'));
+      if (cardEl) {
+        cardEl.classList.add('active');
+      }
+    }
+
     // Toggle Day Accordion
     function toggleDay(header) {
       const card = header.closest('.day-card');
@@ -2979,3 +3347,4 @@
   </script>
 </body>
 </html>
+

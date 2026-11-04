@@ -18,7 +18,10 @@
 
 ## 🌟 Điểm Nổi Bật Được Tích Hợp Trên Trang Web
 
-1. **🏔️ Visual Tour 8 Kỳ Quan Băng Tuyết:** Bộ sưu tập ảnh minh họa chất lượng cao cho Thế giới Băng Tuyết, Làng Tuyết Hương, Đường trượt Á Bố Lực, Chèo thuyền sông sương băng Ma Giới, Rừng tuần lộc Tuyết Lĩnh, Hồ Thiên Trì đỉnh núi lửa, Rừng thông Tịnh Nguyệt Đàm, và Bến Thượng Hải đêm.
+1. **🏔️ Visual Tour & 🎬 Rạp Chiếu Phim Mini (Video 4K, Shorts & .GIF):**
+   - Tích hợp trình phát video tương tác (Interactive Video Player) trực tiếp trên web, xem 6 clip 4K và Shorts chất lượng cao của Cáp Nhĩ Tân, Tuyết Hương, Trường Bạch Sơn, Sông Ma Giới, Trượt tuyết Á Bố Lực và Té nước sôi thành băng.
+   - Kho tư liệu ảnh động .GIF ghi lại những chuyển động chân thực (pháo hoa rực sáng trên lâu đài băng, trượt tuyết xé gió, sương khói bốc trên sông âm 25°C).
+   - Bộ sưu tập ảnh minh họa sắc nét cho toàn bộ 8 điểm đến chính.
 2. **🎨 Cẩm Nang Chuẩn Bị Bằng Graphic:**
    - Sơ đồ giải phẫu 3 lớp chống rét -35°C (Base layer, Mid layer, Outer shell).
    - Hướng dẫn "Dáng đi Chim Cánh Cụt" trên mặt sông băng tránh trượt ngã.
