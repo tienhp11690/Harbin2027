@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -1291,62 +1291,97 @@
       color: var(--accent-gold);
     }
 
-    /* GIF Motion Showcase */
-    .gif-showcase-grid {
+    /* YouTube Shorts 9:16 Vertical Carousel Grid */
+    .shorts-carousel-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
-    .gif-card {
+    .short-card {
       background: var(--bg-card);
       border: 1px solid var(--border-ice);
       border-radius: var(--radius-md);
       overflow: hidden;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
     }
 
-    .gif-img-wrap {
-      height: 180px;
+    .short-card:hover {
+      border-color: var(--accent-coral);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(239, 71, 111, 0.25);
+    }
+
+    .short-screen-wrap {
       position: relative;
+      padding-bottom: 177.77%; /* 9:16 Vertical Video */
+      height: 0;
+      background: #000;
       overflow: hidden;
     }
 
-    .gif-img-wrap img {
+    .short-screen-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border: 0;
     }
 
-    .gif-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.75);
-      border: 1px solid var(--accent-cyan);
-      color: var(--accent-cyan);
+    .short-card-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .short-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(239, 71, 111, 0.2);
+      border: 1px solid var(--accent-coral);
+      color: #ffccd5;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      backdrop-filter: blur(4px);
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      width: fit-content;
     }
 
-    .gif-body {
-      padding: 14px 16px;
-    }
-
-    .gif-body h5 {
-      font-size: 0.92rem;
+    .short-card-body h5 {
+      font-size: 0.95rem;
       color: #fff;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
 
-    .gif-body p {
+    .short-card-body p {
       font-size: 0.8rem;
       color: var(--text-muted);
       line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .short-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-cyan);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .short-link-btn:hover {
+      text-decoration: underline;
+      color: #fff;
     }
     /* Print styles */
     @media print {
@@ -1394,7 +1429,7 @@
     <div class="container nav-container">
       <a href="#overview" class="nav-link active">✈ Tổng Quan</a>
       <a href="#gallery" class="nav-link">🏔️ Nguồn Ảnh Điểm Đến</a>
-      <a href="#video-theater" class="nav-link">🎬 Video 4K & GIF</a>
+      <a href="#video-theater" class="nav-link">🎬 Video 4K & Shorts</a>
       <a href="#visual-tips" class="nav-link">🎨 Graphic Tips Chuẩn Bị</a>
       <a href="#outfit-lookbook" class="nav-link">👗 Outfit Couple & Phối Màu</a>
       <a href="#photo-ideas" class="nav-link">📸 Ý Tưởng Chụp Ảnh</a>
@@ -1733,54 +1768,87 @@
         </div>
       </div>
 
-      <!-- Live Motion Animated GIFs Showcase -->
-      <h3 style="color:#fff; font-size:1.3rem; margin: 30px 0 16px;">✨ Khoảnh Khắc Động Dạng .GIF (Live Motion Ambiance)</h3>
-      <div class="gif-showcase-grid">
-        <!-- GIF 1: Pháo hoa lâu đài băng -->
-        <div class="gif-card">
-          <div class="gif-img-wrap">
-            <img src="https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif" alt="Ice Festival Fireworks GIF" loading="lazy">
-            <span class="gif-badge">🔥 LIVE .GIF</span>
+      <!-- Genuine Vertical YouTube Shorts & Reels Collection -->
+      <h3 style="color:#fff; font-size:1.3rem; margin: 34px 0 16px; display:flex; align-items:center; gap:8px;">
+        <span>📱</span> Tuyển Tập Video Shorts & Reels Trải Nghiệm Thực Tế (Khung Dọc 9:16)
+      </h3>
+      <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:18px;">
+        Xem trực tiếp những thước phim ngắn quay thực tế bằng điện thoại của du khách tại Cáp Nhĩ Tân, Tuyết Hương và Núi Trường Bạch:
+      </p>
+
+      <div class="shorts-carousel-grid">
+        <!-- Short 1: Harbin Ice Slide -->
+        <div class="short-card">
+          <div class="short-screen-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/3GEwLOJlSOc?rel=0" title="Máng Trượt Băng Cáp Nhĩ Tân" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
-          <div class="gif-body">
-            <h5>Pháo Hoa & Lâu Đài Băng Đăng</h5>
-            <p>Khoảnh khắc pháo hoa rực sáng trên nền các khối băng pha lê điêu khắc tại Cáp Nhĩ Tân đêm đón năm mới.</p>
+          <div class="short-card-body">
+            <div>
+              <span class="short-badge">🏰 Cáp Nhĩ Tân</span>
+              <h5>Máng Trượt Băng Dài 500m Siêu Tốc</h5>
+              <p>Trải nghiệm cảm giác mạnh ngồi phao trượt từ đỉnh lâu đài băng xuống lòng công viên.</p>
+            </div>
+            <a href="https://www.youtube.com/shorts/3GEwLOJlSOc" target="_blank" class="short-link-btn">↗ Xem trên YouTube Shorts</a>
           </div>
         </div>
 
-        <!-- GIF 2: Trượt tuyết tốc độ cao -->
-        <div class="gif-card">
-          <div class="gif-img-wrap">
-            <img src="https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif" alt="Ski Powder Action GIF" loading="lazy">
-            <span class="gif-badge">⛷️ ACTION .GIF</span>
+        <!-- Short 2: Harbin Ice Festival Night -->
+        <div class="short-card">
+          <div class="short-screen-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/nzEgpGvkmf0?rel=0" title="Băng Tuyết Đại Thế Giới Về Đêm" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
-          <div class="gif-body">
-            <h5>Trượt Tuyết Xé Gió Xuyên Rừng</h5>
-            <p>Cú rẽ ván song song làm tuyết bột champagne bắn tung tóe dưới tán thông tuyết tại Á Bố Lực và Trường Bạch.</p>
-          </div>
-        </div>
-
-        <!-- GIF 3: Sông sương băng Ma Giới -->
-        <div class="gif-card">
-          <div class="gif-img-wrap">
-            <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" alt="Misty Winter River GIF" loading="lazy">
-            <span class="gif-badge">🚣 MYSTICAL .GIF</span>
-          </div>
-          <div class="gif-body">
-            <h5>Khói Sương Bốc Trên Sông Âm 25°C</h5>
-            <p>Hơi nước địa nhiệt cuộn trào gặp không khí đóng băng tạo lớp sương muối huyền bí bao phủ Ma Giới.</p>
+          <div class="short-card-body">
+            <div>
+              <span class="short-badge">🎆 Băng Đăng Đêm</span>
+              <h5>Băng Tuyết Thế Giới Rực Sáng</h5>
+              <p>Cận cảnh các khối tháp băng pha lê đổi màu rực rỡ và vòng đu quay khổng lồ.</p>
+            </div>
+            <a href="https://www.youtube.com/shorts/nzEgpGvkmf0" target="_blank" class="short-link-btn">↗ Xem trên YouTube Shorts</a>
           </div>
         </div>
 
-        <!-- GIF 4: Tuyết rơi phủ mái nhà -->
-        <div class="gif-card">
-          <div class="gif-img-wrap">
-            <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Snowfall Cabin GIF" loading="lazy">
-            <span class="gif-badge">❄️ FAIRYTALE .GIF</span>
+        <!-- Short 3: China Snow Town Xuexiang -->
+        <div class="short-card">
+          <div class="short-screen-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/nT2DuR3kTlY?rel=0" title="Làng Tuyết Hương Mùa Đông" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
-          <div class="gif-body">
-            <h5>Bông Tuyết Rơi Phủ Làng Cổ Tích</h5>
-            <p>Cảm giác bình yên khi từng bông tuyết mềm mại rơi lất phất trên mái nấm Tuyết Hương và toa xe điện 54.</p>
+          <div class="short-card-body">
+            <div>
+              <span class="short-badge">🍄 Tuyết Hương</span>
+              <h5>Mái Nấm Tuyết & Đèn Lồng Đỏ</h5>
+              <p>Lớp tuyết bồng bềnh đọng trên mái gỗ truyền thống và không khí lễ hội náo nhiệt.</p>
+            </div>
+            <a href="https://www.youtube.com/shorts/nT2DuR3kTlY" target="_blank" class="short-link-btn">↗ Xem trên YouTube Shorts</a>
+          </div>
+        </div>
+
+        <!-- Short 4: Devils Drift Rafting -->
+        <div class="short-card">
+          <div class="short-screen-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/Pcz2PjcUMpw?rel=0" title="Ma Giới Rafting Trường Bạch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="short-card-body">
+            <div>
+              <span class="short-badge">🚣 Trường Bạch Sơn</span>
+              <h5>Chèo Thuyền Sương Băng Ma Giới</h5>
+              <p>Thuyền cao su trôi trên dòng sông địa nhiệt ấm áp giữa rừng thông vụ băng ở -25°C.</p>
+            </div>
+            <a href="https://www.youtube.com/shorts/Pcz2PjcUMpw" target="_blank" class="short-link-btn">↗ Xem trên YouTube Shorts</a>
+          </div>
+        </div>
+
+        <!-- Short 5: Boiling Water to Snow -->
+        <div class="short-card">
+          <div class="short-screen-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/XKZuN503lqo?rel=0" title="Té Nước Sôi Thành Băng" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="short-card-body">
+            <div>
+              <span class="short-badge">❄️ Viral Trend</span>
+              <h5>Té Nước Sôi Thành Băng Tức Thì</h5>
+              <p>Khoảnh khắc nước sôi 90°C vung lên không trung lập tức hóa thành quầng hoa tuyết phát quang.</p>
+            </div>
+            <a href="https://www.youtube.com/shorts/XKZuN503lqo" target="_blank" class="short-link-btn">↗ Xem trên YouTube Shorts</a>
           </div>
         </div>
       </div>
@@ -3347,4 +3415,5 @@
   </script>
 </body>
 </html>
+
 

@@ -18,9 +18,9 @@
 
 ## 🌟 Điểm Nổi Bật Được Tích Hợp Trên Trang Web
 
-1. **🏔️ Visual Tour & 🎬 Rạp Chiếu Phim Mini (Video 4K, Shorts & .GIF):**
-   - Tích hợp trình phát video tương tác (Interactive Video Player) trực tiếp trên web, xem 6 clip 4K và Shorts chất lượng cao của Cáp Nhĩ Tân, Tuyết Hương, Trường Bạch Sơn, Sông Ma Giới, Trượt tuyết Á Bố Lực và Té nước sôi thành băng.
-   - Kho tư liệu ảnh động .GIF ghi lại những chuyển động chân thực (pháo hoa rực sáng trên lâu đài băng, trượt tuyết xé gió, sương khói bốc trên sông âm 25°C).
+1. **🏔️ Visual Tour & 🎬 Rạp Chiếu Phim Mini (Video 4K & Shorts Thực Tế):**
+   - Tích hợp trình phát video tương tác (Interactive Video Player) trực tiếp trên web, xem 6 clip 4K chất lượng cao của Cáp Nhĩ Tân, Tuyết Hương, Trường Bạch Sơn, Sông Ma Giới, Trượt tuyết Á Bố Lực và Té nước sôi thành băng.
+   - Tuyển tập 5 Video YouTube Shorts (khung dọc 9:16) quay thực tế trải nghiệm máng trượt băng 500m, lễ hội băng đêm, mái nấm tuyết, chèo thuyền sương băng Ma Giới và té nước sôi.
    - Bộ sưu tập ảnh minh họa sắc nét cho toàn bộ 8 điểm đến chính.
 2. **🎨 Cẩm Nang Chuẩn Bị Bằng Graphic:**
    - Sơ đồ giải phẫu 3 lớp chống rét -35°C (Base layer, Mid layer, Outer shell).
