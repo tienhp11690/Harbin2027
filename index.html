@@ -1,10 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lß╗ïch Tr├¼nh ─É├┤ng Bß║»c Trung Quß╗æc 12N11─É | C├íp Nh─⌐ T├ón - Tuyß║┐t H╞░╞íng - Tr╞░ß╗¥ng Bß║ích S╞ín</title>
-  <meta name="description" content="Lß╗ïch tr├¼nh chi tiß║┐t 12 ng├áy 11 ─æ├¬m kh├ím ph├í cß║únh tuyß║┐t hoang s╞í ─É├┤ng Bß║»c Trung Quß╗æc: C├íp Nh─⌐ T├ón, L├áng Tuyß║┐t H╞░╞íng, N├║i Tr╞░ß╗¥ng Bß║ích, Tr╞░ß╗¥ng Xu├ón. Tß╗æi ╞░u chi ph├¡ c├┤ng cß╗Öng, hß╗ìc tr╞░ß╗út tuyß║┐t, flycam, gß╗úi ├╜ outfit & ├╜ t╞░ß╗ƒng chß╗Ñp ß║únh couple.">
+  <title>Lịch Trình Đông Bắc Trung Quốc 12N11Đ | Cáp Nhĩ Tân - Tuyết Hương - Trường Bạch Sơn</title>
+  <meta name="description" content="Lịch trình chi tiết 12 ngày 11 đêm khám phá cảnh tuyết hoang sơ Đông Bắc Trung Quốc: Cáp Nhĩ Tân, Làng Tuyết Hương, Núi Trường Bạch, Trường Xuân. Bản đồ tương tác, tối ưu chi phí công cộng, học trượt tuyết, flycam, gợi ý outfit & ý tưởng chụp ảnh couple.">
+  
+  <!-- Leaflet CSS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
     :root {
       --bg-primary: #080e22;
@@ -61,115 +65,6 @@
       z-index: 2;
     }
 
-    /* Header & Hero */
-    header {
-      padding: 60px 0 40px;
-      text-align: center;
-      background: radial-gradient(circle at 50% 20%, rgba(79, 172, 254, 0.18) 0%, transparent 70%);
-      border-bottom: 1px solid var(--border-ice);
-    }
-
-    .badge-flight {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 242, 254, 0.12);
-      border: 1px solid var(--border-glow);
-      color: var(--accent-cyan);
-      padding: 6px 18px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: 2.7rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #ffffff 25%, var(--accent-cyan) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
-      line-height: 1.25;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 850px;
-      margin: 0 auto 28px;
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .stat-pill {
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-ice);
-      padding: 10px 18px;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: var(--shadow-ice);
-    }
-
-    .stat-pill span.icon {
-      font-size: 1.2rem;
-    }
-
-    .action-bar {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      border: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-      color: #03112c;
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: var(--bg-card);
-      color: var(--text-main);
-      border: 1px solid var(--border-ice);
-    }
-
-    .btn-outline:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--accent-cyan);
-    }
-
     /* Sticky Navigation & Mobile Drawer Styles */
     .sticky-nav {
       position: sticky;
@@ -190,7 +85,6 @@
       width: 100%;
     }
 
-    /* Mobile Hamburger Menu Button */
     .mobile-menu-btn {
       display: none;
       align-items: center;
@@ -237,7 +131,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* Desktop Navigation Links */
     .nav-desktop-links {
       display: flex;
       align-items: center;
@@ -253,11 +146,11 @@
     }
 
     .nav-link {
-      padding: 7px 14px;
+      padding: 7px 13px;
       border-radius: 20px;
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 500;
       white-space: nowrap;
       transition: all 0.2s;
@@ -482,179 +375,580 @@
 
     .section-header {
       margin-bottom: 35px;
+      text-align: center;
     }
 
     .section-tag {
-      color: var(--accent-cyan);
-      font-size: 0.85rem;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 6px;
+      letter-spacing: 1.2px;
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid var(--border-glow);
+      margin-bottom: 12px;
     }
 
     .section-title {
       font-size: 2rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
     }
 
     .section-desc {
-      color: var(--text-muted);
       font-size: 1rem;
-      margin-top: 6px;
-      max-width: 800px;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto;
     }
 
-    /* Cards */
+    /* Cards & Glassmorphism */
     .card {
       background: var(--bg-card);
-      backdrop-filter: blur(14px);
       border: 1px solid var(--border-ice);
       border-radius: var(--radius-md);
       padding: 24px;
+      backdrop-filter: blur(12px);
       box-shadow: var(--shadow-ice);
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
     }
 
     .card:hover {
+      background: var(--bg-card-hover);
       border-color: var(--border-glow);
-      box-shadow: 0 10px 32px rgba(0, 242, 254, 0.18);
+      transform: translateY(-2px);
     }
 
-    /* Flight Summary Panel */
+    /* Header / Hero */
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .badge-flight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 214, 160, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(6, 214, 160, 0.4);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 30%, #a0e0ff 70%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 30px;
+    }
+
     .flight-banner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      margin-bottom: 30px;
+      margin-top: 30px;
     }
 
     .flight-card {
-      background: linear-gradient(135deg, rgba(14, 27, 60, 0.95), rgba(12, 24, 58, 0.85));
-      border: 1px solid var(--border-glow);
+      background: linear-gradient(135deg, rgba(14, 27, 60, 0.9), rgba(12, 24, 58, 0.7));
+      border: 1px solid var(--border-ice);
       border-radius: var(--radius-md);
-      padding: 22px;
-      position: relative;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .flight-card h4 {
+      font-size: 0.9rem;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .flight-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .action-bar {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 24px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      border: none;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #040918;
+      box-shadow: 0 4px 18px rgba(0, 242, 254, 0.35);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(0, 242, 254, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: #fff;
+    }
+
+    /* INTERACTIVE MAP STYLES */
+    .map-wrapper-card {
+      background: linear-gradient(135deg, rgba(14, 27, 60, 0.95), rgba(8, 16, 40, 0.95));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
       overflow: hidden;
+      position: relative;
     }
 
-    .flight-card::after {
-      content: "Γ£ê";
-      position: absolute;
-      right: 15px;
-      bottom: 10px;
-      font-size: 4.5rem;
-      opacity: 0.05;
-      pointer-events: none;
-    }
-
-    .flight-header {
+    .map-day-pills {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 4px 2px 14px;
+    }
+    .map-day-pills::-webkit-scrollbar {
+      display: none;
     }
 
-    .flight-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 12px;
-      background: rgba(79, 172, 254, 0.2);
-      color: var(--accent-cyan);
+    .map-day-pill {
+      padding: 8px 16px;
+      border-radius: 22px;
+      background: rgba(14, 27, 60, 0.85);
+      border: 1px solid var(--border-ice);
+      color: #dce7f8;
+      font-size: 0.86rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      outline: none;
+    }
+    .map-day-pill:hover {
+      background: rgba(0, 242, 254, 0.18);
+      border-color: var(--accent-cyan);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .map-day-pill.active {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.3), rgba(79, 172, 254, 0.35));
+      border-color: var(--accent-cyan);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.45);
     }
 
-    .flight-route-flow {
+    .map-floating-bar {
+      padding: 12px 16px;
+      background: rgba(6, 12, 30, 0.9);
+      border-bottom: 1px solid var(--border-ice);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 16px 0;
-      text-align: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      z-index: 500;
     }
 
-    .route-node .code {
-      font-size: 1.4rem;
-      font-weight: 800;
+    .map-layer-toggles {
+      display: flex;
+      gap: 6px;
+    }
+
+    .map-layer-btn {
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #dce5f8;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .map-layer-btn.active, .map-layer-btn:hover {
+      background: rgba(0, 242, 254, 0.22);
+      border-color: var(--accent-cyan);
       color: #fff;
     }
 
-    .route-node .city {
-      font-size: 0.85rem;
+    .map-current-focus {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .map-current-focus strong {
+      color: var(--accent-gold);
+    }
+
+    .map-reset-btn {
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .map-reset-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    #trip-map {
+      width: 100%;
+      height: 560px;
+      background: #060b18;
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      #trip-map {
+        height: 420px;
+      }
+    }
+
+    .map-legend-bar {
+      padding: 10px 16px;
+      background: rgba(6, 12, 30, 0.95);
+      border-top: 1px solid var(--border-ice);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
-    .route-arrow {
-      flex: 1;
-      padding: 0 12px;
+    .legend-item {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: var(--accent-blue);
-      font-size: 0.8rem;
-    }
-
-    .route-line {
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-      margin: 4px 0;
-      position: relative;
-    }
-
-    .layover-pill {
-      background: rgba(255, 209, 102, 0.15);
-      border: 1px dashed var(--accent-gold);
-      color: var(--accent-gold);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 8px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
     }
 
-    /* Destination Visual Showcase Gallery */
+    /* Custom Leaflet Map Pin */
+    .leaflet-popup-content-wrapper {
+      background: linear-gradient(135deg, rgba(14, 27, 60, 0.96), rgba(8, 16, 40, 0.96)) !important;
+      border: 1px solid var(--border-glow) !important;
+      border-radius: 14px !important;
+      color: #f0f4fc !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+    }
+    .leaflet-popup-tip {
+      background: rgba(14, 27, 60, 0.96) !important;
+    }
+    .leaflet-container a.leaflet-popup-close-button {
+      color: #fff !important;
+      padding: 6px !important;
+    }
+
+    .custom-map-pin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(8, 16, 40, 0.92);
+      border: 2px solid var(--accent-cyan);
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.7);
+      font-size: 1.15rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .custom-map-pin:hover {
+      transform: scale(1.22);
+      box-shadow: 0 0 22px rgba(0, 242, 254, 0.95);
+      border-color: #fff;
+    }
+    .custom-map-pin.active-pin {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 22px rgba(255, 209, 102, 0.9);
+      transform: scale(1.25);
+    }
+
+    /* Floating Modal Detail Popup */
+    .map-detail-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 7, 20, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .map-detail-modal.active {
+      display: flex;
+    }
+
+    .map-modal-card {
+      background: linear-gradient(180deg, #0e1b3c 0%, #081026 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+      max-width: 660px;
+      width: 100%;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: modalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.92) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .map-modal-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-ice);
+      background: rgba(0, 242, 254, 0.05);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .map-modal-day-badge {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .map-modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .map-modal-route {
+      font-size: 0.86rem;
+      color: var(--accent-gold);
+      margin-top: 4px;
+    }
+    .map-modal-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .map-modal-close-btn:hover {
+      background: rgba(255, 75, 75, 0.35);
+      border-color: rgba(255, 75, 75, 0.6);
+    }
+
+    .map-modal-body {
+      padding: 20px 22px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .map-modal-body::-webkit-scrollbar {
+      width: 5px;
+    }
+    .map-modal-body::-webkit-scrollbar-thumb {
+      background: rgba(0, 242, 254, 0.25);
+      border-radius: 4px;
+    }
+
+    .map-modal-img-wrap {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-ice);
+    }
+    .map-modal-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .map-modal-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      font-size: 0.8rem;
+      color: #e0e9f8;
+    }
+
+    .map-modal-slots-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .modal-time-slot {
+      display: flex;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid var(--accent-cyan);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+    }
+    .modal-time-badge {
+      font-weight: 700;
+      color: var(--accent-cyan);
+      white-space: nowrap;
+      min-width: 90px;
+    }
+
+    .map-modal-tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .map-modal-tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .modal-tip-box {
+      background: rgba(0, 242, 254, 0.06);
+      border: 1px solid var(--border-ice);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.83rem;
+      color: #dce5f8;
+    }
+    .modal-tip-box h5 {
+      color: var(--accent-gold);
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+
+    .map-modal-footer {
+      padding: 14px 22px;
+      border-top: 1px solid var(--border-ice);
+      background: rgba(5, 10, 24, 0.9);
+    }
+    .map-modal-goto-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      border: none;
+      color: #040918;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .map-modal-goto-btn:hover {
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+      transform: translateY(-1px);
+    }
+
+    /* Destination Gallery */
     .dest-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 18px;
-      margin-bottom: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
 
     .dest-photo-card {
       position: relative;
       border-radius: var(--radius-md);
       overflow: hidden;
+      height: 310px;
       border: 1px solid var(--border-ice);
-      background: #000;
-      height: 240px;
       box-shadow: var(--shadow-ice);
-      transition: all 0.35s ease;
-      cursor: pointer;
-    }
-
-    .dest-photo-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-cyan);
-      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.3);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .dest-photo-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
-      opacity: 0.85;
+      transition: transform 0.6s ease;
+    }
+
+    .dest-photo-card:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.35);
+      transform: translateY(-4px);
     }
 
     .dest-photo-card:hover img {
       transform: scale(1.08);
-      opacity: 1;
     }
 
     .dest-photo-overlay {
@@ -662,768 +956,42 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 16px;
-      background: linear-gradient(180deg, transparent 0%, rgba(5, 12, 30, 0.95) 85%);
+      padding: 20px 16px 16px;
+      background: linear-gradient(to top, rgba(8, 14, 34, 0.96) 0%, rgba(8, 14, 34, 0.6) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .dest-badge {
-      display: inline-block;
+      align-self: flex-start;
+      padding: 3px 10px;
+      border-radius: 12px;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 10px;
-      background: rgba(0, 242, 254, 0.25);
+      background: rgba(0, 242, 254, 0.2);
       color: var(--accent-cyan);
-      margin-bottom: 4px;
-      backdrop-filter: blur(4px);
+      border: 1px solid var(--border-glow);
     }
 
     .dest-photo-title {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
     }
 
     .dest-photo-sub {
-      font-size: 0.8rem;
-      color: var(--accent-gold);
-    }
-
-    /* Graphic Tips & Infographics */
-    .graphic-tips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
-      margin-bottom: 30px;
-    }
-
-    .graphic-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .graphic-card .badge-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 14px;
-      background: rgba(0, 242, 254, 0.15);
-      border: 1px solid var(--border-glow);
-    }
-
-    .graphic-card h4 {
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    /* 3-Layer Visual Anatomy */
-    .layer-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 16px 0;
-    }
-
-    .layer-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
-      border-left: 4px solid var(--accent-cyan);
-    }
-
-    .layer-num {
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--accent-cyan);
-      min-width: 32px;
-    }
-
-    .layer-content h6 {
-      font-size: 0.88rem;
-      color: #fff;
-    }
-
-    .layer-content p {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
-    /* Penguin Walk Visual */
-    .penguin-visual {
-      background: rgba(0, 31, 84, 0.35);
-      border-radius: var(--radius-sm);
-      padding: 14px;
-      margin: 14px 0;
-      border: 1px dashed var(--accent-blue);
-    }
-
-    .penguin-step {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-    }
-
-    .penguin-step:last-child {
-      margin-bottom: 0;
-    }
-
-    .penguin-step span.emoji {
-      font-size: 1.2rem;
-    }
-
-    /* Outfit Lookbook Styles */
-    .lookbook-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
-    .outfit-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-
-    .outfit-card:hover {
-      border-color: var(--accent-gold);
-      transform: translateY(-4px);
-    }
-
-    .outfit-img-wrap {
-      height: 220px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .outfit-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-
-    .outfit-card:hover .outfit-img-wrap img {
-      transform: scale(1.05);
-    }
-
-    .outfit-body {
-      padding: 20px;
-    }
-
-    .outfit-palette {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .swatch {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      display: inline-block;
-    }
-
-    .outfit-body h4 {
-      font-size: 1.15rem;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .outfit-body p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Couple Photography Masterclass */
-    .photo-idea-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 30px;
-    }
-
-    .photo-idea-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .photo-idea-card:hover {
-      border-color: var(--accent-coral);
-    }
-
-    .photo-preview {
-      height: 200px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .photo-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo-tag-pill {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      border: 1px solid rgba(255, 209, 102, 0.4);
-    }
-
-    .photo-idea-content {
-      padding: 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .photo-idea-content h4 {
-      font-size: 1.15rem;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .photo-specs {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.8rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      color: var(--accent-cyan);
-    }
-
-    /* Timeline Day Filter Buttons */
-    .filter-bar {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
-
-    .filter-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      color: var(--text-muted);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--accent-blue);
-      color: #fff;
-      border-color: var(--accent-blue);
-    }
-
-    /* Day Accordion / Card */
-    .days-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .day-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-
-    .day-card.highlight {
-      border-color: var(--border-glow);
-    }
-
-    .day-header {
-      padding: 18px 24px;
-      background: rgba(14, 27, 60, 0.85);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-      gap: 16px;
-    }
-
-    .day-header:hover {
-      background: var(--bg-card-hover);
-    }
-
-    .day-header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .day-number {
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-      color: #03112c;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 6px 14px;
-      border-radius: 12px;
-      min-width: 75px;
-      text-align: center;
-    }
-
-    .day-title-group h3 {
-      font-size: 1.15rem;
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .day-title-group .day-route {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .day-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .tag-transit { background: rgba(79, 172, 254, 0.2); color: var(--accent-cyan); }
-    .tag-drone { background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald); }
-    .tag-ski { background: rgba(255, 209, 102, 0.2); color: var(--accent-gold); }
-    .tag-scenic { background: rgba(239, 71, 111, 0.2); color: var(--accent-coral); }
-
-    .day-toggle-icon {
-      font-size: 1.2rem;
-      color: var(--accent-cyan);
-      transition: transform 0.3s;
-    }
-
-    .day-card.open .day-toggle-icon {
-      transform: rotate(180deg);
-    }
-
-    .day-body {
-      padding: 24px;
-      display: none;
-      border-top: 1px solid rgba(79, 172, 254, 0.15);
-      background: rgba(6, 15, 38, 0.55);
-    }
-
-    .day-card.open .day-body {
-      display: block;
-    }
-
-    /* Embedded photo inside day */
-    .day-photo-banner {
-      margin-bottom: 20px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      height: 220px;
-      position: relative;
-      border: 1px solid var(--border-ice);
-    }
-
-    .day-photo-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .day-photo-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 14px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(4px);
-      font-size: 0.8rem;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Sub-timeline inside day */
-    .sub-timeline {
-      position: relative;
-      padding-left: 24px;
-      margin-bottom: 20px;
-    }
-
-    .sub-timeline::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: rgba(79, 172, 254, 0.25);
-    }
-
-    .time-slot {
-      position: relative;
-      margin-bottom: 18px;
-    }
-
-    .time-slot::before {
-      content: "";
-      position: absolute;
-      left: -24px;
-      top: 6px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-cyan);
-      box-shadow: 0 0 8px var(--accent-cyan);
-    }
-
-    .time-slot .slot-time {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent-cyan);
-      margin-bottom: 2px;
-    }
-
-    .time-slot .slot-content {
-      font-size: 0.95rem;
-      color: #e2e8f5;
-    }
-
-    .day-extra-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .extra-box {
-      background: rgba(14, 27, 60, 0.6);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-    }
-
-    .extra-box h5 {
-      font-size: 0.88rem;
-      color: var(--accent-cyan);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .extra-box p, .extra-box ul {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .extra-box ul {
-      padding-left: 18px;
-    }
-
-    /* Public Transit Flow Map */
-    .transit-step-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .transit-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      position: relative;
-    }
-
-    .transit-card .step-badge {
-      display: inline-block;
-      background: rgba(0, 242, 254, 0.15);
-      border: 1px solid var(--border-glow);
-      color: var(--accent-cyan);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .transit-card h4 {
-      font-size: 1.1rem;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    .transit-spec {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 12px 0;
-      padding: 12px;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 8px;
-      font-size: 0.85rem;
-    }
-
-    .spec-item span.label {
-      color: var(--text-muted);
-      display: block;
-      font-size: 0.75rem;
-    }
-
-    .spec-item span.val {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .chinese-phrase-box {
-      margin-top: 10px;
-      padding: 10px;
-      background: rgba(79, 172, 254, 0.08);
-      border-left: 3px solid var(--accent-blue);
-      border-radius: 0 6px 6px 0;
-      font-size: 0.85rem;
-    }
-
-    .chinese-phrase-box .cn {
-      font-weight: 700;
-      color: var(--accent-gold);
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-    }
-
-    .chinese-phrase-box .pinyin {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    /* Guides Section (Drone & Ski) */
-    .guide-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .guide-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-ice);
-      border-radius: var(--radius-md);
-      padding: 26px;
-    }
-
-    .guide-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-    }
-
-    .guide-list {
-      list-style: none;
-    }
-
-    .guide-list li {
-      margin-bottom: 14px;
-      padding-left: 26px;
-      position: relative;
-      font-size: 0.92rem;
-      color: #dae4f5;
-    }
-
-    .guide-list li::before {
-      content: "Γ£ö";
-      position: absolute;
-      left: 0;
-      color: var(--accent-cyan);
-      font-weight: bold;
-    }
-
-    .warning-box {
-      background: rgba(239, 71, 111, 0.12);
-      border: 1px solid var(--accent-coral);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 0.88rem;
-      color: #ffccd5;
-    }
-
-    .tip-box {
-      background: rgba(6, 214, 160, 0.12);
-      border: 1px solid var(--accent-emerald);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 0.88rem;
-      color: #c7f9cc;
-    }
-
-    /* Cost Table & Calculator */
-    .budget-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 25px;
-    }
-
-    .table-container {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-
-    th {
-      background: rgba(0, 31, 84, 0.9);
-      color: var(--accent-cyan);
-      padding: 12px 16px;
-      border-bottom: 2px solid var(--border-glow);
-    }
-
-    td {
-      padding: 12px 16px;
-      border-bottom: 1px solid rgba(79, 172, 254, 0.1);
-      color: #dae4f5;
-    }
-
-    tr:hover td {
-      background: rgba(79, 172, 254, 0.05);
-    }
-
-    .total-row td {
-      font-weight: 800;
-      color: var(--accent-gold);
-      border-top: 2px solid var(--border-glow);
-      font-size: 1.05rem;
-    }
-
-    .budget-calc-box {
-      background: linear-gradient(135deg, rgba(14, 27, 60, 0.95), rgba(12, 24, 58, 0.95));
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      text-align: center;
-    }
-
-    .budget-calc-box h4 {
-      font-size: 1.15rem;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-
-    .calc-amount-cny {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--accent-cyan);
-      line-height: 1.1;
-    }
-
-    .calc-amount-vnd {
-      font-size: 1.25rem;
-      color: var(--accent-gold);
-      margin-top: 6px;
-      font-weight: 600;
-    }
-
-    .calc-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 14px;
-      line-height: 1.4;
-    }
-
-    /* Checklist & Apps */
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 12px;
-      font-size: 0.9rem;
-      color: #e2e8f5;
-      cursor: pointer;
-    }
-
-    .check-item input[type="checkbox"] {
-      margin-top: 4px;
-      accent-color: var(--accent-cyan);
-      transform: scale(1.2);
-      cursor: pointer;
-    }
-
-    /* Footer */
-    footer {
-      padding: 50px 0 30px;
-      text-align: center;
-      background: #050a18;
-      border-top: 1px solid var(--border-ice);
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    footer a {
-      color: var(--accent-cyan);
-      text-decoration: none;
-    }
-
-        /* Video Theater & Shorts Section */
+    /* Video Theater & Shorts Section */
     .video-theater-container {
       background: linear-gradient(135deg, rgba(14, 27, 60, 0.95), rgba(8, 16, 40, 0.95));
       border: 1px solid var(--border-glow);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      box-shadow: 0 12px 40px rgba(0, 242, 254, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
       margin-bottom: 30px;
     }
 
@@ -1432,10 +1000,9 @@
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
       border: 1px solid var(--border-ice);
-      background: #000;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
     }
 
     .video-theater-screen iframe {
@@ -1451,11 +1018,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 16px;
+      padding: 14px 4px 6px;
+      border-bottom: 1px solid var(--border-ice);
+      margin-bottom: 16px;
       flex-wrap: wrap;
-      gap: 12px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 10px;
     }
 
     .video-now-playing {
@@ -1470,54 +1037,43 @@
       border-radius: 50%;
       background: var(--accent-coral);
       box-shadow: 0 0 10px var(--accent-coral);
-      animation: pulse 1.5s infinite;
+      animation: pulse 1.8s infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.8; }
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 71, 111, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(239, 71, 111, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 71, 111, 0); }
     }
 
     .video-playlist-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
     }
 
     .video-item-card {
-      background: var(--bg-card);
+      background: rgba(10, 20, 48, 0.8);
       border: 1px solid var(--border-ice);
       border-radius: var(--radius-sm);
-      padding: 12px;
-      display: flex;
-      gap: 14px;
-      align-items: center;
+      overflow: hidden;
       cursor: pointer;
       transition: all 0.25s ease;
-      text-decoration: none;
-      color: inherit;
+      display: flex;
+      flex-direction: column;
     }
 
     .video-item-card:hover, .video-item-card.active {
-      background: var(--bg-card-hover);
       border-color: var(--accent-cyan);
+      background: rgba(0, 242, 254, 0.12);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.2);
-    }
-
-    .video-item-card.active {
-      border-left: 4px solid var(--accent-cyan);
     }
 
     .video-thumb-wrap {
-      width: 110px;
-      height: 68px;
-      border-radius: 6px;
-      overflow: hidden;
-      flex-shrink: 0;
       position: relative;
+      height: 95px;
+      overflow: hidden;
     }
 
     .video-thumb-wrap img {
@@ -1526,65 +1082,70 @@
       object-fit: cover;
     }
 
-    .thumb-play-btn {
+    .video-duration {
       position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      bottom: 4px;
+      right: 4px;
+      background: rgba(0, 0, 0, 0.8);
       color: #fff;
-      font-size: 1.1rem;
-      transition: all 0.2s;
+      font-size: 0.7rem;
+      padding: 1px 5px;
+      border-radius: 4px;
     }
 
-    .video-item-card:hover .thumb-play-btn {
-      background: rgba(0, 242, 254, 0.5);
-      color: #03112c;
+    .video-item-info {
+      padding: 8px 10px;
     }
 
-    .video-info h5 {
-      font-size: 0.92rem;
+    .video-item-tag {
+      font-size: 0.68rem;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .video-item-info h5 {
+      font-size: 0.82rem;
       color: #fff;
-      margin-bottom: 4px;
-      line-height: 1.35;
+      margin: 2px 0;
+      line-height: 1.3;
     }
 
-    .video-info span {
-      font-size: 0.78rem;
-      color: var(--accent-gold);
+    .video-item-info p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.3;
     }
 
-    /* YouTube Shorts 9:16 Vertical Carousel Grid */
+    /* Shorts Grid */
     .shorts-carousel-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
     }
 
     .short-card {
-      background: var(--bg-card);
+      background: rgba(14, 27, 60, 0.85);
       border: 1px solid var(--border-ice);
       border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       transition: all 0.3s ease;
+      box-shadow: var(--shadow-ice);
     }
 
     .short-card:hover {
-      border-color: var(--accent-coral);
+      border-color: var(--accent-gold);
       transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(239, 71, 111, 0.25);
     }
 
     .short-screen-wrap {
       position: relative;
-      padding-bottom: 177.77%; /* 9:16 Vertical Video */
+      padding-bottom: 177.78%; /* 9:16 Aspect Ratio */
       height: 0;
       background: #000;
-      overflow: hidden;
     }
 
     .short-screen-wrap iframe {
@@ -1597,66 +1158,606 @@
     }
 
     .short-card-body {
-      padding: 14px;
+      padding: 12px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      flex: 1;
+      gap: 8px;
     }
 
     .short-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(239, 71, 111, 0.2);
-      border: 1px solid var(--accent-coral);
-      color: #ffccd5;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
+      color: var(--accent-gold);
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-bottom: 6px;
-      width: fit-content;
+      text-transform: uppercase;
     }
 
     .short-card-body h5 {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #fff;
-      margin-bottom: 6px;
-      line-height: 1.35;
+      margin: 2px 0;
     }
 
     .short-card-body p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 10px;
+      line-height: 1.35;
     }
 
     .short-link-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      color: var(--accent-cyan);
-      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 0.78rem;
       font-weight: 600;
       text-decoration: none;
+      transition: all 0.2s;
     }
 
     .short-link-btn:hover {
-      text-decoration: underline;
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #fff;
+    }
+
+    /* Graphic Tips Section */
+    .graphic-tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+    }
+
+    .graphic-card {
+      background: linear-gradient(135deg, rgba(14, 27, 60, 0.85), rgba(9, 18, 42, 0.85));
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .graphic-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .graphic-card h4 {
+      font-size: 1.15rem;
       color: #fff;
     }
+
+    .layer-item {
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      border-left: 3px solid var(--accent-cyan);
+      margin-top: 6px;
+    }
+
+    .layer-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 2px;
+    }
+
+    /* Lookbook Section */
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .lookbook-card {
+      background: rgba(14, 27, 60, 0.85);
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-ice);
+    }
+
+    .palette-swatches {
+      display: flex;
+      height: 48px;
+    }
+
+    .swatch {
+      flex: 1;
+      height: 100%;
+    }
+
+    .lookbook-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .lookbook-style-tag {
+      font-size: 0.74rem;
+      color: var(--accent-gold);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .lookbook-body h4 {
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .lookbook-body p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Couple Photo Ideas */
+    .photo-idea-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-card {
+      background: linear-gradient(135deg, rgba(14, 27, 60, 0.9), rgba(10, 20, 48, 0.9));
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pose-step-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent-coral);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .photo-card h4 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .pose-desc {
+      font-size: 0.88rem;
+      color: #dce7f8;
+      line-height: 1.45;
+    }
+
+    .camera-tip {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      background: rgba(0, 242, 254, 0.08);
+      border-left: 2px solid var(--accent-cyan);
+      padding: 6px 10px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 4px;
+    }
+
+    /* Timeline Container & Day Cards */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(14, 27, 60, 0.7);
+      border: 1px solid var(--border-ice);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(0, 242, 254, 0.2);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .day-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .day-card.highlight {
+      border-color: rgba(255, 209, 102, 0.5);
+      box-shadow: 0 0 25px rgba(255, 209, 102, 0.15);
+    }
+
+    .day-header {
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.02);
+      transition: background 0.2s;
+    }
+
+    .day-header:hover {
+      background: rgba(0, 242, 254, 0.06);
+    }
+
+    .day-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .day-number {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      background: rgba(0, 242, 254, 0.12);
+      padding: 6px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glow);
+      white-space: nowrap;
+    }
+
+    .day-title-group h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .day-title-group .day-route {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .day-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .tag-transit { background: rgba(79, 172, 254, 0.15); color: var(--accent-blue); border: 1px solid rgba(79, 172, 254, 0.3); }
+    .tag-scenic { background: rgba(255, 209, 102, 0.15); color: var(--accent-gold); border: 1px solid rgba(255, 209, 102, 0.3); }
+    .tag-drone { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+    .tag-ski { background: rgba(239, 71, 111, 0.15); color: var(--accent-coral); border: 1px solid rgba(239, 71, 111, 0.3); }
+
+    .day-toggle-icon {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+      margin-left: 8px;
+    }
+
+    .day-card.open .day-toggle-icon {
+      transform: rotate(180deg);
+      color: var(--accent-cyan);
+    }
+
+    .day-body {
+      display: none;
+      padding: 0 24px 24px;
+      border-top: 1px solid rgba(79, 172, 254, 0.12);
+    }
+
+    .day-card.open .day-body {
+      display: block;
+    }
+
+    .day-photo-banner {
+      width: 100%;
+      height: 220px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 18px 0;
+      position: relative;
+      border: 1px solid var(--border-ice);
+    }
+
+    .day-photo-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .day-photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px;
+      background: linear-gradient(transparent, rgba(8, 14, 34, 0.9));
+      font-size: 0.85rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sub-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .time-slot {
+      display: flex;
+      gap: 16px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--accent-cyan);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .slot-time {
+      font-weight: 700;
+      color: var(--accent-cyan);
+      white-space: nowrap;
+      min-width: 95px;
+      font-size: 0.9rem;
+    }
+
+    .slot-content {
+      font-size: 0.9rem;
+      color: #e0e9f8;
+      line-height: 1.5;
+    }
+
+    .day-extra-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .extra-box {
+      background: rgba(0, 242, 254, 0.05);
+      border: 1px solid var(--border-ice);
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+    }
+
+    .extra-box h5 {
+      color: var(--accent-gold);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Guides & Rules */
+    .guide-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .guide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-ice);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .guide-card h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guide-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .guide-list li {
+      position: relative;
+      padding-left: 20px;
+      line-height: 1.5;
+    }
+
+    .guide-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .warning-box {
+      background: rgba(239, 71, 111, 0.12);
+      border: 1px solid var(--accent-coral);
+      padding: 14px;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #ffccd5;
+    }
+
+    .tip-box {
+      background: rgba(6, 214, 160, 0.12);
+      border: 1px solid var(--accent-emerald);
+      padding: 14px;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #d8f3dc;
+    }
+
+    /* Budget Table */
+    .budget-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(79, 172, 254, 0.15);
+    }
+
+    th {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.8px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .total-row {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--accent-gold);
+      background: rgba(255, 209, 102, 0.08);
+    }
+
+    .budget-calc-box {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.1));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .calc-amount-cny {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--accent-cyan);
+      margin: 10px 0;
+    }
+
+    .calc-amount-vnd {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    .calc-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+      line-height: 1.4;
+    }
+
+    /* Checklist */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 4px;
+      accent-color: var(--accent-cyan);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 50px 0 80px;
+      text-align: center;
+      border-top: 1px solid rgba(79, 172, 254, 0.15);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
     /* Print styles */
     @media print {
-      #snow-canvas, .sticky-nav, .action-bar, .filter-bar {
+      #snow-canvas, .sticky-nav, .action-bar, .filter-bar, .mobile-drawer, .drawer-overlay {
         display: none !important;
       }
       body {
         background: #fff !important;
         color: #000 !important;
       }
-      .card, .day-card, .flight-card, .outfit-card, .graphic-card {
+      .card, .day-card, .flight-card {
         border: 1px solid #ccc !important;
         background: #fff !important;
         color: #000 !important;
@@ -1674,7 +1775,7 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .flight-banner, .guide-columns, .budget-grid {
+      .flight-banner, .guide-columns, .budget-grid, .day-extra-grid {
         grid-template-columns: 1fr;
       }
       h1 {
@@ -1727,6 +1828,9 @@
       <div class="drawer-group-label">Mục Tổng Quan & Tư Liệu</div>
       <a href="#overview" class="drawer-link active" onclick="closeDrawer()">
         <span>✈️</span> <span>Tổng Quan Chuyến Đi</span>
+      </a>
+      <a href="#interactive-map" class="drawer-link" onclick="closeDrawer()">
+        <span>🗺️</span> <span>Bản Đồ Tương Tác 12N11Đ</span>
       </a>
       <a href="#gallery" class="drawer-link" onclick="closeDrawer()">
         <span>📸</span> <span>Nguồn Ảnh Điểm Đến (8 Kỳ Quan)</span>
@@ -1795,6 +1899,7 @@
       <!-- Desktop Links (Visible only on > 900px) -->
       <div class="nav-desktop-links">
         <a href="#overview" class="nav-link active">✈ Tổng Quan</a>
+        <a href="#interactive-map" class="nav-link">🗺️ Bản Đồ</a>
         <a href="#gallery" class="nav-link">🏔️ Nguồn Ảnh</a>
         <a href="#video-theater" class="nav-link">🎬 Video 4K & Shorts</a>
         <a href="#visual-tips" class="nav-link">🎨 Graphic Tips</a>
@@ -1830,16 +1935,16 @@
 
       <!-- 8 Điểm Tham Quan Trọng Điểm Badge Cloud -->
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin: 18px 0 24px;">
-        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">🏰 Băng Tuyết Đại Thế Giới</span>
-        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">⛪ Nhà Thờ Thánh Sophia</span>
-        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">🏮 Phố Cổ Trung Ương</span>
-        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">🌊 Sông Tùng Hoa Đóng Băng</span>
-        <span class="route-step" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff;">☀️ Đảo Mặt Trời (Tuyết Bác Hội)</span>
-        <span class="route-step" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff;">🏰 Trang Viên Volga (Lâu Đài Nga)</span>
-        <span class="route-step" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff;">🐯 Công Viên Hổ Siberia</span>
-        <span class="route-step" style="background:rgba(6,214,160,0.15); border:1px solid var(--accent-emerald); color:#fff;">🍄 Làng Tuyết Hương Cổ Tích</span>
-        <span class="route-step" style="background:rgba(239,71,111,0.15); border:1px solid var(--accent-coral); color:#fff;">⛷️ Trượt Tuyết Á Bố Lực & Trường Bạch</span>
-        <span class="route-step" style="background:rgba(181,23,158,0.2); border:1px solid var(--accent-purple); color:#fff;">🛶 Ma Giới Rafting & Onsen Núi Lửa</span>
+        <span class="tag" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff; font-size:0.82rem; padding:6px 12px;">🏰 Băng Tuyết Đại Thế Giới</span>
+        <span class="tag" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff; font-size:0.82rem; padding:6px 12px;">⛪ Nhà Thờ Thánh Sophia</span>
+        <span class="tag" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff; font-size:0.82rem; padding:6px 12px;">🏮 Phố Cổ Trung Ương</span>
+        <span class="tag" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff; font-size:0.82rem; padding:6px 12px;">🌊 Sông Tùng Hoa Đóng Băng</span>
+        <span class="tag" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff; font-size:0.82rem; padding:6px 12px;">☀️ Đảo Mặt Trời (Tuyết Bác Hội)</span>
+        <span class="tag" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff; font-size:0.82rem; padding:6px 12px;">🏰 Trang Viên Volga (Lâu Đài Nga)</span>
+        <span class="tag" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff; font-size:0.82rem; padding:6px 12px;">🐯 Công Viên Hổ Siberia</span>
+        <span class="tag" style="background:rgba(6,214,160,0.15); border:1px solid var(--accent-emerald); color:#fff; font-size:0.82rem; padding:6px 12px;">🍄 Làng Tuyết Hương Cổ Tích</span>
+        <span class="tag" style="background:rgba(239,71,111,0.15); border:1px solid var(--accent-coral); color:#fff; font-size:0.82rem; padding:6px 12px;">⛷️ Trượt Tuyết Á Bố Lực & Trường Bạch</span>
+        <span class="tag" style="background:rgba(181,23,158,0.2); border:1px solid var(--accent-purple); color:#fff; font-size:0.82rem; padding:6px 12px;">🛶 Ma Giới Rafting & Onsen Núi Lửa</span>
       </div>
 
       <!-- Flight Summary Cards -->
@@ -1852,18 +1957,18 @@
               12:25 (30/12) HAN ➔ 16:30 PVG (Thượng Hải)
             </div>
             <div style="text-align: right;">
-              <span class="badge" style="background: rgba(0, 242, 254, 0.2); color: var(--accent-cyan);">Transit Thượng Hải 21h15m</span><br>
-              <small>Thưởng ngoạn đêm The Bund & Bến Thượng Hải</small>
+              <span class="tag tag-transit">Transit Thượng Hải 21h15m</span><br>
+              <small style="color:var(--text-muted)">Thưởng ngoạn đêm The Bund & Bến Thượng Hải</small>
             </div>
           </div>
-          <div class="flight-row" style="margin-top: 10px;">
+          <div class="flight-row" style="margin-top: 14px;">
             <div>
               <strong>CA-8571</strong> (Airbus A321)<br>
               13:45 (31/12) PVG ➔ 16:40 HRB (Cáp Nhĩ Tân)
             </div>
             <div style="text-align: right;">
-              <span class="badge" style="background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald);">Đến đúng Đêm Giao Thừa</span><br>
-              <small>Đón Tết Dương Lịch 2027 trên Phố Trung Ương</small>
+              <span class="tag tag-scenic">Đến Đêm Giao Thừa</span><br>
+              <small style="color:var(--text-muted)">Đón Tết Dương Lịch 2027 trên Phố Trung Ương</small>
             </div>
           </div>
         </div>
@@ -1876,18 +1981,18 @@
               12:40 (10/01) CGQ ➔ 14:40 PEK (Bắc Kinh)
             </div>
             <div style="text-align: right;">
-              <span class="badge" style="background: rgba(255, 209, 102, 0.2); color: var(--accent-gold);">Transit Bắc Kinh 9h30m</span><br>
-              <small>Check-in Vương Phủ Tỉnh & Vịt quay Bắc Kinh</small>
+              <span class="tag tag-scenic">Transit Bắc Kinh 9h30m</span><br>
+              <small style="color:var(--text-muted)">Check-in Vương Phủ Tỉnh & Vịt quay Bắc Kinh</small>
             </div>
           </div>
-          <div class="flight-row" style="margin-top: 10px;">
+          <div class="flight-row" style="margin-top: 14px;">
             <div>
               <strong>CA-883</strong> (Airbus A321neo)<br>
               00:10 (11/01) PEK ➔ 03:15 HAN (Hà Nội)
             </div>
             <div style="text-align: right;">
-              <span class="badge" style="background: rgba(79, 172, 254, 0.2); color: var(--accent-blue);">Về đến Hà Nội rạng sáng</span><br>
-              <small>Kết thúc hành trình an toàn, trọn vẹn</small>
+              <span class="tag tag-transit">Về đến Hà Nội rạng sáng</span><br>
+              <small style="color:var(--text-muted)">Kịp nghỉ ngơi bắt đầu tuần làm việc mới</small>
             </div>
           </div>
         </div>
@@ -1907,6 +2012,99 @@
       </div>
     </header>
 
+    <!-- SECTION: INTERACTIVE ITINERARY MAP -->
+    <section id="interactive-map">
+      <div class="section-header">
+        <span class="section-tag">Bản Đồ Hành Trình Trực Quan</span>
+        <h2 class="section-title">🗺️ Bản Đồ Tương Tác 12 Ngày 11 Đêm</h2>
+        <p class="section-desc">Theo dõi toàn cảnh lộ trình di chuyển giữa các điểm đến theo từng ngày. Bấm vào bất kỳ ngày nào hoặc click trực tiếp vào các điểm mốc trên bản đồ để xem popup thông tin chi tiết.</p>
+      </div>
+
+      <!-- Day Selector Filter Bar -->
+      <div class="map-day-pills" id="map-day-selector">
+        <button class="map-day-pill active" onclick="showMapDay('all')">🌐 Toàn Tuyến (12N11Đ)</button>
+        <button class="map-day-pill" onclick="showMapDay(1)">Ngày 1: HN ✈️ Thượng Hải</button>
+        <button class="map-day-pill" onclick="showMapDay(2)">Ngày 2: Thượng Hải ✈️ Cáp Nhĩ Tân</button>
+        <button class="map-day-pill" onclick="showMapDay(3)">Ngày 3: Cáp Nhĩ Tân Bờ Bắc</button>
+        <button class="map-day-pill" onclick="showMapDay(4)">Ngày 4: Volga Manor Cổ Tích</button>
+        <button class="map-day-pill" onclick="showMapDay(5)">Ngày 5: Á Bố Lực ➔ Tuyết Hương</button>
+        <button class="map-day-pill" onclick="showMapDay(6)">Ngày 6: Tuyết Hương ➔ Trường Bạch</button>
+        <button class="map-day-pill" onclick="showMapDay(7)">Ngày 7: Đỉnh Hồ Thiên Trì</button>
+        <button class="map-day-pill" onclick="showMapDay(8)">Ngày 8: Ma Giới & Trượt Tuyết 2</button>
+        <button class="map-day-pill" onclick="showMapDay(9)">Ngày 9: Tuyết Lĩnh Tuần Lộc</button>
+        <button class="map-day-pill" onclick="showMapDay(10)">Ngày 10: Trường Bạch ➔ Trường Xuân</button>
+        <button class="map-day-pill" onclick="showMapDay(11)">Ngày 11: Tịnh Nguyệt Đàm</button>
+        <button class="map-day-pill" onclick="showMapDay(12)">Ngày 12: Trường Xuân ✈️ Bắc Kinh ✈️ HN</button>
+      </div>
+
+      <!-- Map Container Box -->
+      <div class="map-wrapper-card">
+        <!-- Floating Controls inside Map -->
+        <div class="map-floating-bar">
+          <div class="map-layer-toggles">
+            <button id="btn-layer-dark" class="map-layer-btn active" onclick="setMapLayer('dark')">🌑 Bản Đồ Đêm Băng</button>
+            <button id="btn-layer-sat" class="map-layer-btn" onclick="setMapLayer('sat')">🛰️ Ảnh Vệ Tinh Địa Hình</button>
+          </div>
+          <div class="map-current-focus" id="map-current-focus-text">
+            <span>📍 Đang hiển thị:</span> <strong>Toàn Cảnh Hành Trình 12N11Đ</strong>
+          </div>
+          <button class="map-reset-btn" onclick="showMapDay('all')" title="Đặt lại góc nhìn toàn cảnh">🔄 Reset Toàn Cảnh</button>
+        </div>
+
+        <!-- The Leaflet Map Div -->
+        <div id="trip-map"></div>
+
+        <!-- Map Legend Bar -->
+        <div class="map-legend-bar">
+          <div class="legend-item"><span class="legend-dot" style="background:#00f2fe;"></span> <span>✈️ Chặng Bay Quốc Tế & Nội Địa</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#ffd166;"></span> <span>🚆 Tàu Cao Tốc CRH G-Train</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#06d6a0;"></span> <span>🚌 Xe Buýt Mùa Đông Xuyên Rừng</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#ef476f;"></span> <span>🏰 8 Kỳ Quan Tham Quan Trọng Điểm</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Day Detail Modal Popup -->
+    <div id="map-detail-modal" class="map-detail-modal" onclick="closeMapModal(event)">
+      <div class="map-modal-card" onclick="event.stopPropagation()">
+        <div class="map-modal-header">
+          <div>
+            <span class="map-modal-day-badge" id="modal-day-badge">NGÀY 3 • THỨ SÁU (01/01)</span>
+            <h3 class="map-modal-title" id="modal-day-title">Cáp Nhĩ Tân Kỳ Quan • Tam Giác Băng Tuyết Bờ Bắc</h3>
+            <div class="map-modal-route" id="modal-day-route">Sông Tùng Hoa ➔ Đảo Mặt Trời ➔ Công Viên Hổ Siberia ➔ Băng Tuyết Đại Thế Giới</div>
+          </div>
+          <button class="map-modal-close-btn" onclick="closeMapModal()" aria-label="Đóng popup">✕</button>
+        </div>
+        
+        <div class="map-modal-body">
+          <div class="map-modal-img-wrap">
+            <img id="modal-day-img" src="" alt="Day Highlight Photo">
+            <div class="map-modal-img-caption" id="modal-day-caption"></div>
+          </div>
+
+          <div class="map-modal-slots-list" id="modal-day-slots">
+            <!-- Dynamically populated slots -->
+          </div>
+
+          <div class="map-modal-tips-grid">
+            <div class="modal-tip-box">
+              <h5>🚄 Phương Tiện & Di Chuyển</h5>
+              <div id="modal-day-transit"></div>
+            </div>
+            <div class="modal-tip-box">
+              <h5>💡 Trải Nghiệm Điểm Nhấn</h5>
+              <div id="modal-day-highlight"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-modal-footer">
+          <button class="map-modal-goto-btn" id="modal-goto-btn" onclick="jumpToTimelineDay()">
+            <span>📖</span> <span>Xem Chi Tiết Giờ Giấc Trong Timeline ⬇</span>
+          </button>
+        </div>
+      </div>
+    </div>
     <!-- SECTION 1: PHOTO GALLERY - 12 ICONIC DESTINATIONS -->
     <section id="gallery">
       <div class="section-header">
@@ -2478,7 +2676,6 @@
         </div>
       </div>
     </section>
-
     <!-- SECTION 6: DETAILED 12-DAY TIMELINE -->
     <section id="itinerary">
       <div class="section-header">
@@ -2498,7 +2695,7 @@
       <div class="timeline-container">
 
         <!-- DAY 1 -->
-        <div class="day-card" data-category="transit">
+        <div class="day-card" id="day-1" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 1</span>
@@ -2553,7 +2750,7 @@
         </div>
 
         <!-- DAY 2 -->
-        <div class="day-card" data-category="transit">
+        <div class="day-card" id="day-2" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 2</span>
@@ -2612,7 +2809,7 @@
         </div>
 
         <!-- DAY 3 -->
-        <div class="day-card" data-category="drone">
+        <div class="day-card" id="day-3" data-category="drone">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 3</span>
@@ -2676,7 +2873,7 @@
         </div>
 
         <!-- DAY 4 -->
-        <div class="day-card" data-category="scenic">
+        <div class="day-card" id="day-4" data-category="scenic">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 4</span>
@@ -2741,7 +2938,7 @@
         </div>
 
         <!-- DAY 5 -->
-        <div class="day-card" data-category="ski">
+        <div class="day-card" id="day-5" data-category="ski">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 5</span>
@@ -2810,7 +3007,7 @@
         </div>
 
         <!-- DAY 6 -->
-        <div class="day-card" data-category="transit">
+        <div class="day-card" id="day-6" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 6</span>
@@ -2872,7 +3069,7 @@
         </div>
 
         <!-- DAY 7 -->
-        <div class="day-card" data-category="drone">
+        <div class="day-card" id="day-7" data-category="drone">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 7</span>
@@ -2933,7 +3130,7 @@
         </div>
 
         <!-- DAY 8 -->
-        <div class="day-card" data-category="ski">
+        <div class="day-card" id="day-8" data-category="ski">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 8</span>
@@ -2996,7 +3193,7 @@
         </div>
 
         <!-- DAY 9 -->
-        <div class="day-card" data-category="drone">
+        <div class="day-card" id="day-9" data-category="drone">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 9</span>
@@ -3055,7 +3252,7 @@
         </div>
 
         <!-- DAY 10 -->
-        <div class="day-card" data-category="transit">
+        <div class="day-card" id="day-10" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 10</span>
@@ -3114,7 +3311,7 @@
         </div>
 
         <!-- DAY 11 -->
-        <div class="day-card" data-category="drone">
+        <div class="day-card" id="day-11" data-category="drone">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 11</span>
@@ -3168,7 +3365,7 @@
         </div>
 
         <!-- DAY 12 -->
-        <div class="day-card highlight" data-category="transit">
+        <div class="day-card highlight" id="day-12" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 12</span>
@@ -3235,128 +3432,139 @@
 
       </div>
     </section>
-
-    <!-- SECTION 7: TRANSIT & TRANSPORTATION GUIDE -->
     <section id="transit">
       <div class="section-header">
-        <span class="section-tag">Phương Tiện Công Cộng</span>
-        <h2 class="section-title">Sơ Đồ Tàu Cao Tốc & Xe Buýt Mùa Đông (Tiết Kiệm Tối Đa)</h2>
-        <p class="section-desc">Toàn bộ 1.200km đường bộ tuyết trắng được kết nối bằng tàu cao tốc CRH và xe buýt liên tỉnh chuyên tuyến an toàn tuyệt đối trước bão tuyết.</p>
+        <span class="section-tag">Tối Ưu Ngân Sách Đi Lại</span>
+        <h2 class="section-title">Sơ Đồ Phương Tiện Công Cộng Tối Đa</h2>
+        <p class="section-desc">Không cần tốn hàng chục triệu thuê xe riêng (bao xe) lái trên đường băng trơn trượt nguy hiểm. Hệ thống tàu cao tốc CRH và xe buýt du lịch Đông Bắc hiện đại, đúng giờ 100% và cực kỳ rẻ.</p>
       </div>
 
-      <!-- Route Cards -->
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:18px;">
+      <div class="transit-step-grid">
+
         <!-- Chặng 1 -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span class="tag tag-transit">Tàu Cao Tốc CRH</span>
-            <strong style="color:var(--accent-cyan); font-size:1.1rem;">54 RMB (~190k đ)</strong>
+        <div class="transit-card">
+          <span class="step-badge">CHẶNG 1 • AIRPORT BUS</span>
+          <h4>Sân Bay Cáp Nhĩ Tân ➔ Phố Trung Ương</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted)">Xe buýt chính hãng sân bay chạy liên tục mỗi 30 phút, có sưởi ấm, an toàn.</p>
+          <div class="transit-spec">
+            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">~50 - 60 phút</span></div>
+            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">20 RMB (~70k VND)</span></div>
+            <div class="spec-item"><span class="label">Tuyến:</span><span class="val">Airport Bus Tuyến 3</span></div>
+            <div class="spec-item"><span class="label">So với taxi:</span><span class="val">Tiết kiệm 85%</span></div>
           </div>
-          <h4>Cáp Nhĩ Tân ➔ Á Bố Lực Tây</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Ga Cáp Nhĩ Tân (哈尔滨站) ➔ Ga Á Bố Lực Tây (亚布力西站)</p>
-          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
-            <li><strong>Thời gian chạy:</strong> 1 giờ 10 phút (vận tốc 250km/h).</li>
-            <li><strong>Tần suất:</strong> Hơn 15 chuyến/ngày.</li>
-            <li><strong>Chuyển tiếp:</strong> Xe bus trung chuyển miễn phí đưa thẳng từ ga vào khu trượt tuyết.</li>
-          </ul>
+          <div class="chinese-phrase-box">
+            <div class="cn">机场大巴3号线 到 中央大街</div>
+            <div class="pinyin">Jīchǎng dàbā sān hào xiàn dào Zhōngyāng Dàjiē</div>
+            <div style="font-size:0.8rem; color:#fff; margin-top:2px;">(Đưa lái xe hoặc nhân viên bán vé nếu cần)</div>
+          </div>
         </div>
 
         <!-- Chặng 2 -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span class="tag tag-scenic">Bus Du Lịch Tuyến</span>
-            <strong style="color:var(--accent-gold); font-size:1.1rem;">~ 80 RMB (~280k đ)</strong>
+        <div class="transit-card">
+          <span class="step-badge">CHẶNG 2 • TÀU CAO TỐC CRH</span>
+          <h4>Cáp Nhĩ Tân ➔ Á Bố Lực Tây (Yabuli)</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted)">Tàu viên đạn G-train lướt băng tốc độ 250km/h, ấm áp, có ổ cắm sạc pin.</p>
+          <div class="transit-spec">
+            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">1 giờ 10 phút</span></div>
+            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">54 RMB (~190k VND)</span></div>
+            <div class="spec-item"><span class="label">Ga đi / đến:</span><span class="val">Harbin ➔ Yabuli Xi</span></div>
+            <div class="spec-item"><span class="label">Tần suất:</span><span class="val">15+ chuyến/ngày</span></div>
           </div>
-          <h4>Á Bố Lực ➔ Làng Tuyết Hương</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Sảnh Khu Du Lịch Á Bố Lực ➔ Cổng Làng Tuyết Hương (雪乡)</p>
-          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
-            <li><strong>Thời gian chạy:</strong> Khoảng 2 tiếng (đường cao tốc tuyết).</li>
-            <li><strong>Khởi hành:</strong> Các chuyến buổi chiều (13:30, 15:00).</li>
-            <li><strong>Tiện nghi:</strong> Xe có sưởi ấm toàn bộ, trả khách ngay cổng mua vé vào làng.</li>
-          </ul>
+          <div class="chinese-phrase-box">
+            <div class="cn">哈尔滨站 ➔ 亚布力西站 (高铁二等座)</div>
+            <div class="pinyin">Hā'ěrbīn zhàn ➔ Yàbùlì Xī zhàn</div>
+          </div>
         </div>
 
         <!-- Chặng 3 -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span class="tag tag-transit">Bus Xuyên Rừng Tuyết</span>
-            <strong style="color:var(--accent-emerald); font-size:1.1rem;">~ 150 RMB (~520k đ)</strong>
+        <div class="transit-card">
+          <span class="step-badge">CHẶNG 3 • BUS TRỰC THÔNG</span>
+          <h4>Á Bố Lực ➔ Làng Tuyết Hương (Xuexiang)</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted)">Tuyến xe buýt du lịch chính thức mùa đông chạy thẳng từ khu trượt tuyết vào làng.</p>
+          <div class="transit-spec">
+            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">~2 giờ</span></div>
+            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">~80 RMB (~280k VND)</span></div>
+            <div class="spec-item"><span class="label">Khởi hành:</span><span class="val">10:00, 13:00, 15:00</span></div>
+            <div class="spec-item"><span class="label">Điểm đón:</span><span class="val">Yabuli Ski Center</span></div>
           </div>
-          <h4>Tuyết Hương ➔ Nhị Đạo Bạch Hà</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Bãi Xe Cổng Lớn Tuyết Hương ➔ Thị Trấn Nhị Đạo Bạch Hà (Erdaobaihe)</p>
-          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
-            <li><strong>Thời gian chạy:</strong> 5.5 tiếng (nghỉ ăn trưa tại trạm dừng).</li>
-            <li><strong>Tuyến đặc biệt:</strong> Xe chạy thẳng mùa đông duy nhất kết nối 2 điểm danh thắng.</li>
-            <li><strong>Đặt vé:</strong> Nhờ homestay Tuyết Hương đặt trước 1 ngày qua app Chuxing 365.</li>
-          </ul>
+          <div class="chinese-phrase-box">
+            <div class="cn">亚布力 到 中国雪乡 旅游直通车</div>
+            <div class="pinyin">Yàbùlì dào Zhōngguó Xuěxiāng zhítōngchē</div>
+          </div>
         </div>
 
         <!-- Chặng 4 -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span class="tag tag-transit">Tàu Cao Tốc G-Train</span>
-            <strong style="color:var(--accent-cyan); font-size:1.1rem;">117 RMB (~410k đ)</strong>
+        <div class="transit-card">
+          <span class="step-badge">CHẶNG 4 • BUS LIÊN TỈNH MÙA ĐÔNG</span>
+          <h4>Tuyết Hương ➔ Nhị Đạo Bạch Hà (Trường Bạch)</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted)">Xe buýt chạy thẳng liên tỉnh qua đèo tuyết, không cần trung chuyển hành lý cồng kềnh.</p>
+          <div class="transit-spec">
+            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">~5.5 - 6 giờ</span></div>
+            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">~150 RMB (~525k VND)</span></div>
+            <div class="spec-item"><span class="label">Giờ xuất phát:</span><span class="val">08:30 sáng hằng ngày</span></div>
+            <div class="spec-item"><span class="label">Điểm đến:</span><span class="val">Erdaobaihe Town</span></div>
           </div>
-          <h4>Trường Bạch Sơn ➔ Trường Xuân</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Ga Trường Bạch Sơn (长白山站) ➔ Ga Trường Xuân (长春站)</p>
-          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
-            <li><strong>Thời gian chạy:</strong> 2 giờ 17 phút (chuyến G8133).</li>
-            <li><strong>Đặc điểm:</strong> Tàu chạy cực kỳ êm ái, ngắm tuyết rơi qua cửa kính toàn cảnh.</li>
-            <li><strong>Khách sạn:</strong> Trả ngay trung tâm Trường Xuân, nối thẳng mạng lưới Metro.</li>
-          </ul>
+          <div class="chinese-phrase-box">
+            <div class="cn">雪乡 到 二道白河 (长白山北坡) 直通大巴</div>
+            <div class="pinyin">Xuěxiāng dào Èrdàobáihé zhítōng dàbā</div>
+          </div>
         </div>
 
         <!-- Chặng 5 -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span class="tag tag-scenic">Tàu 9 Phút Siêu Tốc</span>
-            <strong style="color:var(--accent-coral); font-size:1.1rem;">8.5 RMB (~30k đ)</strong>
+        <div class="transit-card">
+          <span class="step-badge">CHẶNG 5 • TÀU CAO TỐC CRH</span>
+          <h4>Trường Bạch Sơn ➔ Trường Xuân (Changchun)</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted)">Tuyến đường sắt cao tốc Thẩm Giai mới khánh thành nối thẳng chân núi vào thủ phủ Cát Lâm.</p>
+          <div class="transit-spec">
+            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">2 giờ 17 phút</span></div>
+            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">117 RMB (~410k VND)</span></div>
+            <div class="spec-item"><span class="label">Mã tàu:</span><span class="val">G8133 / G8125</span></div>
+            <div class="spec-item"><span class="label">Ga đi / đến:</span><span class="val">Changbaishan ➔ Changchun</span></div>
           </div>
-          <h4>Ga Trường Xuân ➔ Sân Bay Long Gia</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Ga Trường Xuân ➔ Ga Sân Bay Long Gia (CGQ - 龙嘉站)</p>
-          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
-            <li><strong>Thời gian chạy:</strong> ĐÚNG 9 PHÚT!</li>
-            <li><strong>Tiện lợi:</strong> Cửa ra hầm tàu thông thẳng lên sảnh check-in Terminal 2.</li>
-            <li><strong>An toàn:</strong> Không bao giờ lo tắc đường hay trễ chuyến bay.</li>
-          </ul>
+          <div class="chinese-phrase-box">
+            <div class="cn">长白山站 ➔ 长春站 (高铁二等座)</div>
+            <div class="pinyin">Chángbáishān zhàn ➔ Chángchūn zhàn</div>
+          </div>
         </div>
 
-        <!-- Chặng 6: Di Chuyển Nội Thành Harbin -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span class="tag tag-transit">Metro Tuyến 2 & Taxi</span>
-            <strong style="color:var(--accent-cyan); font-size:1.1rem;">3 - 15 RMB / chặng</strong>
+        <!-- Chặng 6 -->
+        <div class="transit-card">
+          <span class="step-badge">CHẶNG 6 • TÀU SIÊU TỐC SÂN BAY</span>
+          <h4>Ga Trường Xuân ➔ Ga Sân Bay Long Gia</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted)">Tàu cao tốc chạy thẳng vào tầng hầm nhà ga sân bay quốc tế Long Gia.</p>
+          <div class="transit-spec">
+            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">9 PHÚT DUY NHẤT</span></div>
+            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">8.5 RMB (~30k VND)</span></div>
+            <div class="spec-item"><span class="label">Tần suất:</span><span class="val">25+ chuyến/ngày</span></div>
+            <div class="spec-item"><span class="label">Tiện ích:</span><span class="val">Không tắc đường, ấm áp</span></div>
           </div>
-          <h4>Di Chuyển Điểm Đến Cáp Nhĩ Tân</h4>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Metro Tuyến 2 kết nối Phố Trung Ương ➔ Đảo Mặt Trời ➔ Băng Tuyết Đại Thế Giới</p>
-          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
-            <li><strong>Đảo Mặt Trời & Ice World:</strong> Đi Metro Line 2 (3 RMB) đến tận cửa cổng.</li>
-            <li><strong>Công Viên Hổ Siberia:</strong> Taxi từ Đảo Mặt Trời chỉ 10 phút (~15 RMB).</li>
-            <li><strong>Trang Viên Volga:</strong> Xe buýt du lịch từ Nhà thờ Sophia (08:30) hoặc DiDi/taxi ~60 RMB.</li>
-          </ul>
+          <div class="chinese-phrase-box">
+            <div class="cn">长春站 ➔ 龙嘉站 (长吉城际铁路)</div>
+            <div class="pinyin">Chángchūn zhàn ➔ Lóngjiā zhàn</div>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- SECTION 8: DRONE COLD-WEATHER SURVIVAL GUIDE -->
+    <!-- SECTION 7: DRONE WINTER GUIDE -->
     <section id="drone-guide">
       <div class="section-header">
-        <span class="section-tag">Cẩm Nang Sinh Tồn Thiết Bị</span>
-        <h2 class="section-title">Bí Quyết Vận Hành Flycam Trong Giá Rét -30°C</h2>
-        <p class="section-desc">Kinh nghiệm thực chiến bảo vệ pin, chống đông cứng cánh quạt và cài đặt góc quay điện ảnh đỉnh cao.</p>
+        <span class="section-tag">Kỹ Thuật Săn Cảnh Tuyết</span>
+        <h2 class="section-title">Cẩm Nang Bay Flycam Xứ Lạnh (-20°C Đến -35°C)</h2>
+        <p class="section-desc">Kinh nghiệm sống còn để bảo vệ máy bay, chống tụt pin rơi tự do và quay được những cú máy điện ảnh vô giá.</p>
       </div>
 
       <div class="guide-columns">
         <div class="guide-card">
-          <h3><span>🛸</span> Quy Định & Tọa Độ Bay Đẹp Nhất</h3>
+          <h3><span>🛡️</span> Pháp Lý & Vùng Cấm Bay (No-Fly Zone)</h3>
           <ul class="guide-list">
-            <li><strong>Quy định đăng ký UOM tại Trung Quốc:</strong> Thiết bị bay không người lái (UAV) có trọng lượng trên 250g phải đăng ký mã QR trên hệ thống quản lý bay CAAC UOM (uom.caac.gov.cn). Các dòng máy nhẹ dưới 249g (như DJI Mini 3/4 Pro) được miễn giảm thủ tục nhưng vẫn phải tuân thủ vùng cấm bay (No-Fly Zone).</li>
-            <li><strong>Vùng hạn chế bay:</strong> Tuyệt đối không bay gần khu vực biên giới Trung - Triều tại núi Trường Bạch, khu quân sự hoặc các trạm phát sóng viễn thông công suất lớn.</li>
-            <li><strong>Các tọa độ bay flycam đẹp ngoạn mục nhất trong chuyến đi:</strong>
-              <br>• Đỉnh Dương Thảo Sơn & Làng Tuyết Hương lúc bình minh
-              <br>• Hồ Thiên Trì & Rừng thông tuyết Trường Bạch Sơn
-              <br>• Rừng nguyên sinh Tuyết Lĩnh (Xueling) tuyết sâu 2 mét
-              <br>• Sông Tùng Hoa đóng băng & Đảo Mặt Trời (Cáp Nhĩ Tân)
+            <li><strong>Đăng ký CAAC UOM:</strong> Bắt buộc đăng ký số seri flycam trên hệ thống chính thức của Cục Hàng không Dân dụng TQ (<code>uom.caac.gov.cn</code>) bằng số hộ chiếu. Hoàn toàn miễn phí và nhận mã QR dán lên drone sau 10 phút.</li>
+            <li><strong>Khu vực cấm bay tuyệt đối:</strong> Bán kính 10-15km quanh sân bay Harbin Taiping, sân bay Changchun Longjia, và <em>vùng đỉnh miệng núi lửa Hồ Thiên Trì (Trường Bạch Sơn)</em> do là ranh giới đường biên giới quốc gia giáp Triều Tiên (có radar giám sát).</li>
+            <li><strong>Khu vực bay tự do đẹp nhất:</strong>
+              <br>• Rừng nguyên sinh Tuyết Lĩnh (Xueling)
+              <br>• Dương Thảo Sơn / Đỉnh Tuyết Hương (sáng sớm săn mây)
+              <br>• Sông Tùng Hoa đóng băng (Cáp Nhĩ Tân)
               <br>• Ma Giới Rime Rafting (sương khói bốc trên mặt sông)
               <br>• Công viên hồ tuyết Tịnh Nguyệt Đàm (Trường Xuân)
             </li>
@@ -3386,7 +3594,7 @@
       </div>
     </section>
 
-    <!-- SECTION 9: SKIING MASTER PLAN -->
+    <!-- SECTION 8: SKIING MASTER PLAN -->
     <section id="ski-guide">
       <div class="section-header">
         <span class="section-tag">Chinh Phục Dốc Tuyết</span>
@@ -3399,7 +3607,7 @@
         <div class="guide-card">
           <h3><span>⛷️</span> Lộ Trình Học 2 Giai Đoạn</h3>
           <ul class="guide-list">
-            <li><strong>Buổi 1 (Ngày 5 tại Á Bố Lực - Yabuli):</strong>
+            <li><strong>Buổi 1 (Ngày 4 tại Á Bố Lực - Yabuli):</strong>
               <br>• <em>Thời lượng:</em> 3 - 4 tiếng tại dốc sơ cấp (Magic Carpet).
               <br>• <em>Bài học 1:</em> Làm quen với trọng lượng giày trượt (Ski boots rất cứng, luôn gập gối để cẳng chân tì vào lưỡi gà của giày).
               <br>• <em>Bài học 2 - Phanh bánh Pizza (Snowplow / Wedge):</em> Mở rộng hai gót chân ra ngoài tạo mũi ván hình chữ V khép hờ, nghiêng cạnh ván trong cạo tuyết để giảm tốc độ hoặc dừng lại theo ý muốn.
@@ -3439,12 +3647,12 @@
       </div>
     </section>
 
-    <!-- SECTION 10: BUDGET & CALCULATOR -->
+    <!-- SECTION 9: BUDGET & CALCULATOR -->
     <section id="budget">
       <div class="section-header">
         <span class="section-tag">Kế Hoạch Tài Chính</span>
         <h2 class="section-title">Bảng Dự Toán Chi Phí & Tối Ưu Ngân Sách (2 Người)</h2>
-        <p class="section-desc">Chi phí thực tế bằng việc sử dụng tối đa phương tiện công cộng, kết hợp đầy đủ 8 điểm danh lam thắng cảnh và thưởng thức trọn vẹn đặc sản địa phương (Chưa bao gồm vé máy bay đã mua).</p>
+        <p class="section-desc">Chi phí thực tế bằng việc sử dụng tối đa phương tiện công cộng, ở khách sạn chuỗi chất lượng và thưởng thức trọn vẹn đặc sản địa phương (Chưa bao gồm vé máy bay đã mua).</p>
       </div>
 
       <div class="budget-grid">
@@ -3461,33 +3669,33 @@
             <tbody>
               <tr>
                 <td><strong>Tàu cao tốc & Xe buýt</strong></td>
-                <td>Bus sân bay, Tàu CRH 3 chặng, Bus Tuyết Hương - Trường Bạch, Metro Line 2 & Line 3, taxi ngắn</td>
-                <td>~ 1.150 RMB</td>
-                <td>~ 4.025.000 đ</td>
+                <td>Bus sân bay, Tàu CRH 3 chặng, Bus Tuyết Hương - Trường Bạch, Metro</td>
+                <td>~ 1.100 RMB</td>
+                <td>~ 3.850.000 đ</td>
               </tr>
               <tr>
                 <td><strong>Khách sạn & Homestay (11 đêm)</strong></td>
-                <td>KS Thượng Hải (1đ), Cáp Nhĩ Tân (3đ - gồm đêm 02/01), Khang Tuyết Hương (1đ), Onsen Trường Bạch (4đ), Trường Xuân (2đ)</td>
-                <td>~ 3.050 RMB</td>
-                <td>~ 10.675.000 đ</td>
+                <td>KS Thượng Hải (1đ), Cáp Nhĩ Tân (2đ), Khang Tuyết Hương (2đ), Onsen Trường Bạch (4đ), Trường Xuân (2đ)</td>
+                <td>~ 3.200 RMB</td>
+                <td>~ 11.200.000 đ</td>
               </tr>
               <tr>
-                <td><strong>Vé tham quan 8 kỳ quan</strong></td>
-                <td>Băng Tuyết Đại Thế Giới (x2), Đảo Mặt Trời Tuyết Bác Hội (x2), Công viên Hổ Siberia xe lồng (x2), Trang viên Volga (x2), Vé Tuyết Hương + xe sườn, Vé Núi Trường Bạch + Xe 4WD Thiên Trì (x2), Tịnh Nguyệt Đàm</td>
-                <td>~ 2.500 RMB</td>
-                <td>~ 8.750.000 đ</td>
+                <td><strong>Vé tham quan & Thắng cảnh</strong></td>
+                <td>Băng Tuyết Thế Giới (x2), Vé Tuyết Hương + xe sườn, Vé Núi Trường Bạch + Xe 4WD Thiên Trì (x2), Tịnh Nguyệt Đàm</td>
+                <td>~ 2.100 RMB</td>
+                <td>~ 7.350.000 đ</td>
               </tr>
               <tr>
                 <td><strong>Trượt tuyết & Trải nghiệm</strong></td>
-                <td>Thuê ván trượt Á Bố Lực 3h (x2), Trượt tuyết Trường Bạch Sơn (x2), Ma Giới Rafting (x2), Tắm Onsen khoáng nóng ngoài trời</td>
+                <td>Thuê ván trượt Á Bố Lực 3h (x2), Trượt tuyết Trường Bạch Sơn (x2), Ma Giới Rafting (x2), Tắm Onsen khoáng nóng</td>
                 <td>~ 1.500 RMB</td>
                 <td>~ 5.250.000 đ</td>
               </tr>
               <tr>
                 <td><strong>Ăn uống & Đặc sản (12 ngày)</strong></td>
-                <td>Lẩu cừu nồi đồng, Vịt quay Bắc Kinh, Tiểu long bao Thượng Hải, Súp gà sâm Trường Bạch, Thịt nướng Triều Tiên, Ăn vặt đường phố (~185 RMB/ngày/2 người)</td>
-                <td>~ 2.220 RMB</td>
-                <td>~ 7.770.000 đ</td>
+                <td>Lẩu nồi gang, Vịt quay Bắc Kinh, Tiểu long bao, Thịt nướng Triều Tiên, Ăn vặt đường phố (~180 RMB/ngày/2 người)</td>
+                <td>~ 2.200 RMB</td>
+                <td>~ 7.700.000 đ</td>
               </tr>
               <tr>
                 <td><strong>SIM / eSIM 4G & Dự phòng</strong></td>
@@ -3497,9 +3705,9 @@
               </tr>
               <tr class="total-row">
                 <td>TỔNG CỘNG (2 NGƯỜI)</td>
-                <td>12 Ngày 11 Đêm Trọn Gói 8 Kỳ Quan</td>
-                <td>~ 10.920 RMB</td>
-                <td>~ 38.220.000 đ</td>
+                <td>12 Ngày 11 Đêm</td>
+                <td>~ 10.600 RMB</td>
+                <td>~ 37.100.000 đ</td>
               </tr>
             </tbody>
           </table>
@@ -3507,18 +3715,18 @@
 
         <div class="budget-calc-box">
           <h4>Ước Tính Trung Bình Mỗi Người</h4>
-          <div class="calc-amount-cny">~ 5.460 RMB</div>
-          <div class="calc-amount-vnd">≈ 19.110.000 VNĐ / Người</div>
+          <div class="calc-amount-cny">~ 5.300 RMB</div>
+          <div class="calc-amount-vnd">≈ 18.550.000 VNĐ / Người</div>
           <p class="calc-note">
             <em>(Tỷ giá tạm tính: 1 RMB ≈ 3.500 VNĐ)</em><br><br>
-            💡 <strong>Tối ưu tài chính vượt trội:</strong>
-            Việc ở 3 đêm tại Cáp Nhĩ Tân (khách sạn tiện nghi giá hợp lý ~250 RMB/đêm) thay vì ở 2 đêm tại Tuyết Hương (homestay dịp lễ giá ~700-800 RMB/đêm) vừa giúp bạn khám phá thêm trọn vẹn <strong>Trang Viên Volga, Đảo Mặt Trời và Công Viên Hổ Siberia</strong>, vừa giữ tổng ngân sách cả chuyến đi ở mức cực kỳ tiết kiệm chỉ ~19 triệu VNĐ/người!
+            💡 <strong>So sánh với đi tour hoặc bao xe riêng:</strong>
+            Nếu thuê xe riêng có tài xế cho chặng đường tuyết 1.200km này, chi phí xe riêng lên tới 1.200 - 1.500 RMB/ngày (tổng riêng tiền xe mất hơn 50 triệu VNĐ!). Sử dụng tàu cao tốc CRH và xe tuyến vừa an toàn tuyệt đối trước bão tuyết, vừa tiết kiệm được hơn 60% tổng chi phí chuyến đi.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 11: CHECKLIST & ESSENTIAL APPS -->
+    <!-- SECTION 10: CHECKLIST & ESSENTIAL APPS -->
     <section id="checklist">
       <div class="section-header">
         <span class="section-tag">Chuẩn Bị Lên Đường</span>
@@ -3562,7 +3770,7 @@
       </div>
     </section>
 
-    <!-- SECTION 12: CHINESE PHRASEBOOK FLASHCARDS -->
+    <!-- SECTION 11: CHINESE PHRASEBOOK FLASHCARDS -->
     <section>
       <div class="section-header">
         <span class="section-tag">Thẻ Giao Tiếp Bỏ Túi</span>
@@ -3571,20 +3779,6 @@
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
-        <div class="card" style="padding:16px;">
-          <div style="font-size:0.8rem; color:var(--text-muted);">Đi Trang viên Volga:</div>
-          <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin:4px 0;">请送我们去伏尔加庄园。</div>
-          <div style="font-size:0.85rem; color:var(--accent-cyan);">Qǐng sòng wǒmen qù Fú'ěrjiā Zhuāngyuán.</div>
-          <div style="font-size:0.85rem; color:#fff; margin-top:2px;">(Làm ơn chở chúng tôi đến Trang viên Volga.)</div>
-        </div>
-
-        <div class="card" style="padding:16px;">
-          <div style="font-size:0.8rem; color:var(--text-muted);">Đi Công viên Hổ Siberia:</div>
-          <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin:4px 0;">请送我们去东北虎林园。</div>
-          <div style="font-size:0.85rem; color:var(--accent-cyan);">Qǐng sòng wǒmen qù Dōngběi Hǔlínyuán.</div>
-          <div style="font-size:0.85rem; color:#fff; margin-top:2px;">(Làm ơn chở chúng tôi đến Công viên Hổ Siberia.)</div>
-        </div>
-
         <div class="card" style="padding:16px;">
           <div style="font-size:0.8rem; color:var(--text-muted);">Hỏi xe buýt đi Tuyết Hương:</div>
           <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin:4px 0;">请问去雪乡的大巴在哪里坐？</div>
@@ -3625,33 +3819,14 @@
 
   </div>
 
-  <!-- Snow Canvas Animation & Interactive Script -->
+  <!-- Leaflet Map JS CDN -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Complete Interactive Scripts -->
   <script>
-    // Mobile Drawer Open / Close Functions
-    function openDrawer() {
-      const drawer = document.getElementById('mobile-drawer');
-      const overlay = document.getElementById('drawer-overlay');
-      if (drawer) drawer.classList.add('open');
-      if (overlay) overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDrawer() {
-      const drawer = document.getElementById('mobile-drawer');
-      const overlay = document.getElementById('drawer-overlay');
-      if (drawer) drawer.classList.remove('open');
-      if (overlay) overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close drawer when pressing Escape
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeDrawer();
-      }
-    });
-
-    // Snowfall Canvas Effect
+    /* ========================================================
+       1. SNOWFALL CANVAS EFFECT
+       ======================================================== */
     const canvas = document.getElementById('snow-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
@@ -3712,11 +3887,33 @@
     }
     drawSnow();
 
-    // Video Switcher for Mini Theater
+    /* ========================================================
+       2. MOBILE DRAWER NAVIGATION
+       ======================================================== */
+    function openDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer) drawer.classList.add('open');
+      document.body.classList.add('drawer-open');
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer) drawer.classList.remove('open');
+      document.body.classList.remove('drawer-open');
+    }
+
+    /* ========================================================
+       3. VIDEO THEATER SWITCHER
+       ======================================================== */
     function switchVideo(videoId, title, cardEl, extUrl) {
       const iframe = document.getElementById('main-video-frame');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
-      document.getElementById('current-video-title').innerText = title;
+      if (iframe) {
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+      }
+      const titleEl = document.getElementById('current-video-title');
+      if (titleEl) {
+        titleEl.innerText = title;
+      }
       const extBtn = document.getElementById('external-video-btn');
       if (extBtn && extUrl) {
         extBtn.href = extUrl;
@@ -3727,13 +3924,16 @@
       }
     }
 
-    // Toggle Day Accordion
+    /* ========================================================
+       4. TIMELINE ACCORDION & FILTER
+       ======================================================== */
     function toggleDay(header) {
       const card = header.closest('.day-card');
-      card.classList.toggle('open');
+      if (card) {
+        card.classList.toggle('open');
+      }
     }
 
-    // Expand All Days
     function expandAllDays() {
       const allCards = document.querySelectorAll('.day-card');
       const allOpen = Array.from(allCards).every(c => c.classList.contains('open'));
@@ -3746,11 +3946,12 @@
       });
     }
 
-    // Filter Days
     function filterDays(category) {
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
 
       const cards = document.querySelectorAll('.day-card');
       cards.forEach(card => {
@@ -3767,22 +3968,650 @@
       });
     }
 
-    // Copy Link Helper
     function copyShareLink() {
       const url = "https://tienhp11690.github.io/Harbin2027/";
-      navigator.clipboard.writeText(url).then(() => {
-        alert('Đã copy link trang web: ' + url + '\nBạn có thể dán vào tin nhắn để gửi cho bạn bè!');
-      }).catch(() => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Đã copy link trang web: ' + url + '\nBạn có thể dán vào tin nhắn để gửi cho người đồng hành!');
+        }).catch(() => {
+          prompt('Copy đường link bên dưới để chia sẻ:', url);
+        });
+      } else {
         prompt('Copy đường link bên dưới để chia sẻ:', url);
+      }
+    }
+
+    /* ========================================================
+       5. INTERACTIVE TRIP MAP ENGINE (LEAFLET.JS)
+       ======================================================== */
+    const dayRouteData = {
+      1: {
+        dayNum: 1,
+        badge: "NGÀY 1 • THỨ TƯ (30/12/2026)",
+        title: "Hà Nội ✈️ Thượng Hải • Hoàng Hôn Bến Thượng Hải & Đêm Phố Đông",
+        route: "Hà Nội (HAN) ➔ Thượng Hải (PVG) ➔ Bến Thượng Hải (The Bund) ➔ Phố Nam Kinh",
+        img: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=80",
+        caption: "Bến Thượng Hải (The Bund) lộng lẫy trong ánh đèn vàng kim cổ điển đối diện Phố Đông",
+        center: [31.2397, 121.4900],
+        zoom: 12,
+        transit: "✈️ Chặng bay quốc tế HAN - PVG ~3h30p. Từ PVG về trung tâm bằng Maglev (430km/h) hoặc Metro Tuyến 2.",
+        highlight: "Ngắm Tháp Minh Châu Phương Đông rực sáng từ The Bund lúc 18:00 và dạo phố đi bộ Nam Kinh không ngủ.",
+        slots: [
+          { time: "06:30 - 10:15", title: "Bay Hà Nội (HAN) ➔ Sân bay Phố Đông Thượng Hải (PVG)", desc: "Nhập cảnh, nhận hành lý, kích hoạt eSIM và thẻ tàu điện Metro." },
+          { time: "11:30 - 14:00", title: "Nhận phòng khách sạn & Nghỉ ngơi nhẹ", desc: "Khách sạn khu vực Hoàng Phố / gần ga Nam Kinh Đông Lộ thuận tiện đi bộ." },
+          { time: "15:00 - 17:30", title: "Dạo Phố Đi Bộ Nam Kinh (Nanjing East Rd)", desc: "Thưởng thức bánh bao nướng Shengjianbao, trà sữa Heytea." },
+          { time: "18:00 - 21:00", title: "Check-in Bến Thượng Hải (The Bund) & Du Thuyền Hoàng Phố", desc: "Chụp ảnh couple phong cách điện ảnh với hậu cảnh tháp truyền hình Đông Phương Minh Châu rực rỡ." }
+        ],
+        points: [
+          { lat: 21.2212, lng: 105.8072, label: "Hà Nội (HAN)", icon: "🛫" },
+          { lat: 31.1443, lng: 121.8083, label: "Sân Bay Phố Đông (PVG)", icon: "🛬" },
+          { lat: 31.2397, lng: 121.4900, label: "Bến Thượng Hải (The Bund)", icon: "🌆" },
+          { lat: 31.2345, lng: 121.4780, label: "Phố Đi Bộ Nam Kinh", icon: "🛍️" }
+        ],
+        path: [[21.2212, 105.8072], [31.1443, 121.8083], [31.2345, 121.4780], [31.2397, 121.4900]]
+      },
+      2: {
+        dayNum: 2,
+        badge: "NGÀY 2 • THỨ NĂM (31/12/2026)",
+        title: "Thượng Hải ✈️ Cáp Nhĩ Tân • Nhà Thờ Sophia & Đêm Phố Trung Ương",
+        route: "Thượng Hải (PVG) ➔ Cáp Nhĩ Tân (HRB) ➔ Phố Trung Ương ➔ Nhà Thờ Thánh Sophia",
+        img: "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+        caption: "Nhà thờ Saint Sophia cổ kính rực rỡ dưới màn tuyết trắng đêm giao thừa",
+        center: [45.7725, 126.6230],
+        zoom: 13,
+        transit: "✈️ Chặng bay nội địa PVG - HRB ~3h. Xe buýt sân bay Airport Bus Tuyến 3 (20 RMB) về thẳng phố đi bộ.",
+        highlight: "Ăn kem Mã Điệt Nhĩ (Madieer) giữa trời -20°C, chiêm ngưỡng kiến trúc Byzantine Nhà thờ Sophia cổ kính.",
+        slots: [
+          { time: "07:30 - 11:30", title: "Bay Thượng Hải ➔ Cáp Nhĩ Tân (Sân bay HRB Taiping)", desc: "Trải nghiệm hạ cánh xuống vùng băng tuyết cực Bắc, thay trang phục 3 lớp chống lạnh." },
+          { time: "12:30 - 14:00", title: "Airport Bus Tuyến 3 về Phố Trung Ương & Check-in KS", desc: "Nghỉ ngơi, sạc điện thoại và dán miếng giữ nhiệt chuẩn bị dạo phố đêm." },
+          { time: "15:00 - 17:30", title: "Khám phá Nhà Thờ Thánh Sophia (Saint Sophia Cathedral)", desc: "Chiêm ngưỡng mái vòm 'củ hành' tráng lệ, đàn chim bồ câu bay lượn và nghệ sĩ violin đường phố." },
+          { time: "18:00 - 21:30", title: "Dạo Phố Cổ Trung Ương & Thưởng Thức Bữa Tối Nga", desc: "Thịt nướng Nga, xúc xích đỏ Cáp Nhĩ Tân, bánh mì Khleb và kem que Madieer giòn tuyết." }
+        ],
+        points: [
+          { lat: 45.6234, lng: 126.2503, label: "Sân Bay HRB Taiping", icon: "🛬" },
+          { lat: 45.7686, lng: 126.6272, label: "Nhà Thờ Thánh Sophia", icon: "⛪" },
+          { lat: 45.7750, lng: 126.6210, label: "Phố Đi Bộ Trung Ương", icon: "🏛️" }
+        ],
+        path: [[45.6234, 126.2503], [45.7686, 126.6272], [45.7750, 126.6210]]
+      },
+      3: {
+        dayNum: 3,
+        badge: "NGÀY 3 • THỨ SÁU (01/01/2027)",
+        title: "Cáp Nhĩ Tân Kỳ Quan • Tam Giác Băng Tuyết Bờ Bắc & Băng Tuyết Đại Thế Giới",
+        route: "Sông Tùng Hoa ➔ Đảo Mặt Trời (Sun Island) ➔ Công Viên Hổ Siberia ➔ Băng Tuyết Đại Thế Giới",
+        img: "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=1200&q=80",
+        caption: "Băng Tuyết Đại Thế Giới (Ice and Snow World) - Thành phố băng pha lê lớn nhất hành tinh rực sáng",
+        center: [45.7850, 126.5900],
+        zoom: 12,
+        transit: "🚡 Cáp treo vượt sông Tùng Hoa + 🚇 Metro Tuyến 2 (Ga Ice & Snow World lối ra số 3 kết nối thẳng cổng).",
+        highlight: "Trượt máng băng dài 521m, đu quay khổng lồ ngắm toàn cảnh lâu đài băng kỳ vĩ, ngắm hổ Siberia vồ mồi trên tuyết.",
+        slots: [
+          { time: "08:30 - 11:00", title: "Băng qua Sông Tùng Hoa & Điêu Khắc Tuyết Đảo Mặt Trời", desc: "Dạo bước trên mặt sông Tùng Hoa đóng băng dày 1m, check-in quần thể điêu khắc tuyết khổng lồ Sun Island." },
+          { time: "11:30 - 14:00", title: "Thám hiểm Công Viên Hổ Siberia (Siberian Tiger Park)", desc: "Đi xe bus bọc thép đặc chủng ngắm bầy hổ Siberia dũng mãnh săn mồi trên thung lũng tuyết trắng." },
+          { time: "15:00 - 21:30", title: "Băng Tuyết Đại Thế Giới (Harbin Ice and Snow World)", desc: "Đỉnh cao của chuyến đi: các lâu đài băng pha lê lung linh sắc màu, trượt máng băng siêu tốc và xem biểu diễn nghệ thuật băng." }
+        ],
+        points: [
+          { lat: 45.7820, lng: 126.6180, label: "Sông Tùng Hoa Đóng Băng", icon: "⛸️" },
+          { lat: 45.7950, lng: 126.5920, label: "Đảo Mặt Trời Sun Island", icon: "⛄" },
+          { lat: 45.8150, lng: 126.6200, label: "Công Viên Hổ Siberia", icon: "🐅" },
+          { lat: 45.7800, lng: 126.5650, label: "Băng Tuyết Đại Thế Giới", icon: "🏰" }
+        ],
+        path: [[45.7820, 126.6180], [45.7950, 126.5920], [45.8150, 126.6200], [45.7800, 126.5650]]
+      },
+      4: {
+        dayNum: 4,
+        badge: "NGÀY 4 • THỨ BẢY (02/01/2027)",
+        title: "Trang Viên Volga Nga Cổ Tích & Phố Cổ Baroque Lão Đạo Ngoại",
+        route: "Khách Sạn ➔ Trang Viên Volga Manor ➔ Phố Cổ Baroque Lão Đạo Ngoại ➔ Lẩu Nồi Gang",
+        img: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80",
+        caption: "Lâu đài phong cách Nga giữa rừng thông phủ tuyết tại Trang viên Volga",
+        center: [45.7100, 126.7800],
+        zoom: 11,
+        transit: "🚌 Xe bus du lịch từ phố Trung Ương đến Volga Manor (40 phút) hoặc Didi gọi xe liên quận.",
+        highlight: "Trượt phao tuyết từ đỉnh lâu đài Nga cổ kính, thử rượu vodka đựng trong ly làm bằng băng lạnh ngắt.",
+        slots: [
+          { time: "08:30 - 13:30", title: "Trang Viên Volga (Volga Manor) Lãng Mạn", desc: "Quần thể lâu đài Nga, nhà thờ Thánh Nicholas phục chế bằng gỗ quý, trải nghiệm trượt phao tuyết từ mái lâu đài." },
+          { time: "14:30 - 17:30", title: "Phố Cổ Baroque Lão Đạo Ngoại (Daowai Old Baroque)", desc: "Khu phố di sản giao thoa độc đáo giữa kiến trúc Baroque Châu Âu và hoa văn chạm trổ tứ hợp viện Trung Hoa cổ." },
+          { time: "18:00 - 21:00", title: "Thưởng Thức Lẩu Nồi Gang Đông Bắc & Chuẩn Bị Hành Lý", desc: "Xì xụp nồi lẩu cá chép sông Tùng Hoa hầm ngô bánh bao trên bàn sưởi ấm, sẵn sàng sáng mai đi tàu tuyết." }
+        ],
+        points: [
+          { lat: 45.7750, lng: 126.6210, label: "Phố Trung Ương", icon: "🏨" },
+          { lat: 45.6375, lng: 126.9200, label: "Trang Viên Volga Manor", icon: "🏰" },
+          { lat: 45.7890, lng: 126.6580, label: "Phố Cổ Lão Đạo Ngoại", icon: "🏮" }
+        ],
+        path: [[45.7750, 126.6210], [45.6375, 126.9200], [45.7890, 126.6580]]
+      },
+      5: {
+        dayNum: 5,
+        badge: "NGÀY 5 • CHỦ NHẬT (03/01/2027)",
+        title: "Cáp Nhĩ Tân 🚆 Tàu CRH ➔ Trượt Tuyết Á Bố Lực (Yabuli Ski Resort)",
+        route: "Ga Cáp Nhĩ Tân ➔ Ga Á Bố Lực Tây ➔ Khu Trượt Tuyết Quốc Gia Á Bố Lực",
+        img: "https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=1200&q=80",
+        caption: "Dốc tuyết tiêu chuẩn Olympic tại khu trượt tuyết Á Bố Lực - Yabuli",
+        center: [45.2800, 127.5300],
+        zoom: 9,
+        transit: "🚆 Tàu cao tốc CRH G-train từ Harbin Station đi Yabuli Xi (54 RMB, chỉ mất 1h10p, tàu chạy 250km/h).",
+        highlight: "Trải nghiệm trượt tuyết tại khu nghỉ dưỡng trượt tuyết lớn nhất Trung Quốc, đi cáp treo ngắm toàn cảnh rừng tuyết.",
+        slots: [
+          { time: "07:30 - 09:00", title: "Tàu Cao Tốc CRH Cáp Nhĩ Tân ➔ Á Bố Lực Tây (Yabuli Xi)", desc: "Tàu viên đạn lướt băng tốc độ cao, ngắm cánh đồng tuyết trắng xóa hai bên đường ray." },
+          { time: "09:30 - 15:30", title: "Trượt Tuyết & Thuê Đồ Tại Sân Trượt Á Bố Lực", desc: "Nhận ván trượt, giày trượt, mũ bảo hiểm; thuê HLV 1-kèm-2 trong 2 tiếng để nắm vững kỹ thuật phanh chữ V và rẽ tuyết." },
+          { time: "16:30 - 20:30", title: "Nghỉ ngơi tại Yabuli Ski Resort & Tắm Nước Nóng", desc: "Thư giãn cơ bắp sau ngày trượt tuyết đầu tiên, thưởng thức trà gừng nóng và gà hầm nấm rừng." }
+        ],
+        points: [
+          { lat: 45.7600, lng: 126.6300, label: "Ga Cáp Nhĩ Tân", icon: "🚆" },
+          { lat: 44.7800, lng: 128.4400, label: "Khu Trượt Tuyết Á Bố Lực", icon: "⛷️" }
+        ],
+        path: [[45.7600, 126.6300], [44.7800, 128.4400]]
+      },
+      6: {
+        dayNum: 6,
+        badge: "NGÀY 6 • THỨ HAI (04/01/2027)",
+        title: "Á Bố Lực 🚌 Bus Tuyến ➔ Làng Cổ Tích Tuyết Hương (China Snow Town)",
+        route: "Á Bố Lực ➔ Tuyết Lộ Đại Thung Lũng ➔ Cổng Làng Tuyết Hương ➔ Phố Tuyết Vận (Xueyun Dajie)",
+        img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+        caption: "Những ngôi nhà nấm tuyết bồng bềnh dưới ánh đèn lồng đỏ đặc trưng Làng Tuyết Hương",
+        center: [44.6500, 128.6500],
+        zoom: 10,
+        transit: "🚌 Xe buýt du lịch trực thông mùa đông Á Bố Lực - Tuyết Hương (80 RMB, chạy 2 tiếng qua đèo tuyết).",
+        highlight: "Check-in những ngôi nhà 'nấm tuyết' dày 50-80cm, phố đèn lồng đỏ Tuyết Vận Đại Giới rực rỡ trong khói chiều.",
+        slots: [
+          { time: "09:30 - 12:00", title: "Xe Buýt Mùa Đông Á Bố Lực ➔ Làng Tuyết Hương (Xuexiang)", desc: "Đi xuyên qua thung lũng tuyết Đại Thung Lũng phong cảnh ngoạn mục như tranh thủy mặc." },
+          { time: "12:30 - 14:30", title: "Nhận phòng Homestay Khang Giường Sưởi Truyền Thống", desc: "Trải nghiệm nằm sưởi ấm trên giường sưởi đất nung kiểu Đông Bắc cổ truyền, nếm bánh bao nếp." },
+          { time: "15:30 - 18:00", title: "Dạo Cầu Gỗ Ngắm Mái Nhà Nấm Tuyết (Snow Mushroom)", desc: "Lớp tuyết dẻo tự nhiên bám trên mái nhà tạo hình cây nấm khổng lồ, chụp ảnh khi hoàng hôn vừa buông." },
+          { time: "18:30 - 21:30", title: "Lễ Hội Đèn Lồng Đỏ Phố Tuyết Vận & Múa Ương Ca Dân Gian", desc: "Hàng trăm đèn lồng đỏ thắp sáng con đường tuyết trắng, đoàn múa Yangko diễu hành và pháo hoa rộn ràng." }
+        ],
+        points: [
+          { lat: 44.7800, lng: 128.4400, label: "Á Bố Lực", icon: "📍" },
+          { lat: 44.5380, lng: 128.8680, label: "Làng Tuyết Hương Xuexiang", icon: "🍄" }
+        ],
+        path: [[44.7800, 128.4400], [44.5380, 128.8680]]
+      },
+      7: {
+        dayNum: 7,
+        badge: "NGÀY 7 • THỨ BA (05/01/2027)",
+        title: "Bình Minh Đỉnh Tuyết Hương 🚌 Chuyến Xe Xuyên Rừng ➔ Núi Trường Bạch",
+        route: "Đỉnh Dương Thảo Sơn ➔ Làng Tuyết Hương ➔ Tuyến Bus Mùa Đông ➔ Thị Trấn Nhị Đạo Bạch Hà",
+        img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+        caption: "Bình minh dát vàng trên thung lũng tuyết trắng nguyên sơ",
+        center: [43.5000, 128.5000],
+        zoom: 8,
+        transit: "🚌 Xe buýt du lịch liên tỉnh Tuyết Hương - Nhị Đạo Bạch Hà (150 RMB, chạy 5.5 tiếng qua cung đường biên giới kỳ vĩ).",
+        highlight: "Săn bình minh dát vàng đỉnh Dương Thảo Sơn trên xe mô tô tuyết (Snowmobile), tắm Onsen khoáng nóng chân núi lửa Trường Bạch.",
+        slots: [
+          { time: "06:00 - 08:00", title: "Lên Xe Mô Tô Tuyết Săn Bình Minh Dương Thảo Sơn", desc: "Mô tô tuyết xé gió đưa lên đỉnh núi cao 1.250m đón ánh rạng đông đầu tiên soi rọi biển sương mù tuyết." },
+          { time: "08:30 - 14:00", title: "Bus Tuyến Tuyết Hương ➔ Nhị Đạo Bạch Hà (Erdaobaihe)", desc: "Hành trình xe buýt chạy qua những cánh rừng thông tuyết nguyên sinh giáp ranh Cát Lâm và Hắc Long Giang." },
+          { time: "14:30 - 17:00", title: "Check-in Khách Sạn Onsen Khoáng Nóng Trường Bạch", desc: "Nhận phòng khách sạn suối khoáng tự nhiên, chuẩn bị trang thiết bị cho ngày chinh phục đỉnh Thiên Trì." },
+          { time: "17:30 - 21:00", title: "Tắm Suối Nước Nóng Ngoài Trời & Ăn Thịt Nướng Triều Tiên", desc: "Ngâm mình trong làn nước khoáng 40°C giữa khi tuyết rơi lất phất quanh người, thưởng thức thịt bò nướng than hoa." }
+        ],
+        points: [
+          { lat: 44.5380, lng: 128.8680, label: "Làng Tuyết Hương", icon: "🍄" },
+          { lat: 44.5800, lng: 128.8200, label: "Đỉnh Dương Thảo Sơn", icon: "🌄" },
+          { lat: 42.4380, lng: 128.1150, label: "Thị Trấn Nhị Đạo Bạch Hà", icon: "♨️" }
+        ],
+        path: [[44.5380, 128.8680], [44.5800, 128.8200], [42.4380, 128.1150]]
+      },
+      8: {
+        dayNum: 8,
+        badge: "NGÀY 8 • THỨ TƯ (06/01/2027)",
+        title: "Chinh Phục Đỉnh Núi Trường Bạch • Hồ Thiên Trì & Thác Băng Tụ Long",
+        route: "Trung Tâm Bắc Pha ➔ Xe Chuyên Dụng 4WD ➔ Miệng Núi Lửa Hồ Thiên Trì ➔ Thác Băng Trường Bạch",
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        caption: "Mặt Hồ Thiên Trì trên đỉnh núi lửa Trường Bạch đóng băng xanh thẳm huyền ảo",
+        center: [42.1000, 128.0800],
+        zoom: 11,
+        transit: "🚐 Xe bus bảo tồn khu sinh thái + Xe địa hình chuyên dụng 4WD leo 72 khúc cua tay áo lên đỉnh 2.600m.",
+        highlight: "Chiêm ngưỡng 'Mắt Ngọc Trời' Hồ Thiên Trì trên miệng núi lửa linh thiêng, ăn trứng luộc nước suối khoáng 83°C.",
+        slots: [
+          { time: "07:30 - 08:30", title: "Khởi Hành Vào Cổng Khu Thắng Cảnh Núi Trường Bạch Bắc Pha", desc: "Quét hộ chiếu vào cổng, lên xe bus sinh thái di chuyển vào trung tâm bảo tồn thiên nhiên quốc gia." },
+          { time: "09:00 - 11:30", title: "Chinh Phục Đỉnh Miệng Núi Lửa Hồ Thiên Trì (Tianchi)", desc: "Xe 4WD gầm rú vượt dốc tuyết lên đỉnh 2.600m. Chiêm ngưỡng mặt hồ băng xanh biếc nằm giữa 16 đỉnh núi đá phủ tuyết." },
+          { time: "12:00 - 14:00", title: "Suối Nước Nóng Tụ Long & Thác Nước Băng Khổng Lồ", desc: "Hơi nước bốc khói nghi ngút ở -25°C từ suối khoáng lưu huỳnh Tụ Long, nếm trứng gà luộc lòng đào mềm mịn và chiêm ngưỡng cột băng thác nước Trường Bạch." },
+          { time: "14:30 - 17:00", title: "Hồ Lục Uyên Đàm & Rừng Bạch Dương Ngân Tuyết", desc: "Mặt hồ màu ngọc bích phẳng lặng bao quanh bởi rặng thông đá ngàn năm tuổi." }
+        ],
+        points: [
+          { lat: 42.4380, lng: 128.1150, label: "Nhị Đạo Bạch Hà", icon: "📍" },
+          { lat: 42.0040, lng: 128.0580, label: "Hồ Thiên Trì (Tianchi)", icon: "🌋" },
+          { lat: 42.0450, lng: 128.0650, label: "Thác Nước Băng & Suối Tụ Long", icon: "🧊" }
+        ],
+        path: [[42.4380, 128.1150], [42.0450, 128.0650], [42.0040, 128.0580]]
+      },
+      9: {
+        dayNum: 9,
+        badge: "NGÀY 9 • THỨ NĂM (07/01/2027)",
+        title: "Thuyền Phao Sông Âm Ma Giới & Trượt Tuyết Chuyên Nghiệp Trường Bạch",
+        route: "Khu Sinh Thái Ma Giới ➔ Thuyền Phao Rafting ➔ Sân Trượt Tuyết Hòa Bình ➔ Suối Nước Nóng",
+        img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+        caption: "Sương mù ma mị cuộn trào trên mặt sông Ma Giới không bao giờ đóng băng",
+        center: [42.4300, 128.1500],
+        zoom: 12,
+        transit: "🚕 Didi hoặc xe đưa đón của homestay đưa ra bến bè phao Ma Giới (chỉ 15 phút từ thị trấn).",
+        highlight: "Ngồi thuyền phao trôi giữa làn sương mù ma mị trên dòng sông địa nhiệt 25°C, trượt tuyết buổi 2 nâng cao tốc độ.",
+        slots: [
+          { time: "06:00 - 08:30", title: "Đi Thuyền Phao Trôi Sông Ma Giới (Mojie Rime Rafting)", desc: "Sông địa nhiệt ấm áp không bao giờ đóng băng, hơi nước gặp khí lạnh bốc cuộn thành sương mù thần tiên phủ kín cành cây đóng băng rime." },
+          { time: "09:30 - 15:30", title: "Buổi Trượt Tuyết Thứ 2 Tại Sân Trượt Hòa Bình Trường Bạch", desc: "Áp dụng kỹ thuật đã học ở Á Bố Lực: tự tin lướt trên đường trượt trung cấp, dùng gậy Insta360 quay những cú rẽ tuyết tuyệt đẹp." },
+          { time: "16:30 - 20:30", title: "Thưởng Thức Lẩu Canh Gà Nhân Sâm Núi & Nghỉ Ngơi", desc: "Nhân sâm tươi Trường Bạch hầm cùng gà thả đồi, bồi bổ năng lượng và giữ ấm thân nhiệt trọn vẹn." }
+        ],
+        points: [
+          { lat: 42.4900, lng: 128.1600, label: "Sông Ma Giới Rafting", icon: "🚣" },
+          { lat: 42.3600, lng: 128.1400, label: "Sân Trượt Tuyết Hòa Bình", icon: "⛷️" },
+          { lat: 42.4380, lng: 128.1150, label: "Thị Trấn Nhị Đạo Bạch Hà", icon: "🏨" }
+        ],
+        path: [[42.4900, 128.1600], [42.3600, 128.1400], [42.4380, 128.1150]]
+      },
+      10: {
+        dayNum: 10,
+        badge: "NGÀY 10 • THỨ SÁU (08/01/2027)",
+        title: "Khu Rừng Cổ Tích Tuyết Lĩnh Tuần Lộc 🚆 Tàu CRH ➔ Trường Xuân (Changchun)",
+        route: "Rừng Tuyết Lĩnh (Xueling) ➔ Trại Tuần Lộc ➔ Ga Trường Bạch Sơn ➔ Ga Trường Xuân",
+        img: "https://images.unsplash.com/photo-1543946207-39bd91e70ca7?auto=format&fit=crop&w=1200&q=80",
+        caption: "Gặp gỡ những chú tuần lộc đáng yêu giữa rừng thông tuyết trắng Tuyết Lĩnh",
+        center: [43.1500, 126.8000],
+        zoom: 9,
+        transit: "🚆 Tuyến tàu cao tốc CRH Thẩm Giai mới khánh thành từ Ga Changbaishan về Ga Changchun (117 RMB, 2h17p).",
+        highlight: "Cho đàn tuần lộc ăn rêu trắng giữa rừng thông ngập tuyết dày 1 mét, chụp ảnh couple phong cách thần thoại Bắc Âu.",
+        slots: [
+          { time: "08:00 - 12:30", title: "Khám Phá Rừng Nguyên Sinh Tuyết Lĩnh (Xueling Reindeer)", desc: "Chụp ảnh cùng bầy tuần lộc hiền lành, thử đi xe ngựa kéo tuyết (Marache) luồn lách qua rừng bạch dương phủ tuyết dày." },
+          { time: "13:30 - 14:15", title: "Về Thị Trấn, Thu Dọn Hành Lý & Ra Ga Tàu Cao Tốc", desc: "Check-out khách sạn, di chuyển ra Ga Tàu Cao Tốc Trường Bạch Sơn mới tinh và siêu hiện đại." },
+          { time: "14:48 - 17:05", title: "Tàu CRH G8133 Trường Bạch Sơn ➔ Ga Trường Xuân (Changchun)", desc: "Tàu lướt êm ru qua bình nguyên Cát Lâm rộng lớn, đến thẳng trung tâm thủ phủ công nghiệp Trường Xuân." },
+          { time: "18:00 - 21:00", title: "Nhận Phòng Khách Sạn & Khám Phá Ẩm Thực Phố Quế Lâm", desc: "Dạo chợ đêm Quế Lâm Lộ, thưởng thức bánh nướng chảo, thịt xiên nướng Đông Bắc thơm lừng." }
+        ],
+        points: [
+          { lat: 42.5800, lng: 128.6200, label: "Rừng Tuyết Lĩnh Tuần Lộc", icon: "🦌" },
+          { lat: 42.4250, lng: 128.1050, label: "Ga Tàu Trường Bạch Sơn", icon: "🚆" },
+          { lat: 43.9100, lng: 125.3200, label: "Ga Tàu Trường Xuân", icon: "🚉" }
+        ],
+        path: [[42.5800, 128.6200], [42.4250, 128.1050], [43.9100, 125.3200]]
+      },
+      11: {
+        dayNum: 11,
+        badge: "NGÀY 11 • THỨ BẢY (09/01/2027)",
+        title: "Kỳ Quan Hồ Băng Tịnh Nguyệt Đàm & Điêu Khắc Tuyết Lớn Thứ Hai",
+        route: "Tàu Điện Nhẹ Tuyến 3 ➔ Hồ Băng Tịnh Nguyệt Đàm ➔ Hoàng Cung Mãn Châu Quốc ➔ Chợ Đêm",
+        img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+        caption: "Hồ băng Tịnh Nguyệt Đàm (Jingyuetan) ngút ngàn rừng thông lá kim tuyết phủ",
+        center: [43.8500, 125.3800],
+        zoom: 12,
+        transit: "🚊 Tàu điện nhẹ Changchun Light Rail Tuyến 3 chạy thẳng từ trung tâm đến cổng công viên Tịnh Nguyệt Đàm (3 RMB).",
+        highlight: "Dạo bước trên mặt hồ băng rộng lớn ngút ngàn, chiêm ngưỡng quần thể điêu khắc tuyết tinh xảo không đông đúc.",
+        slots: [
+          { time: "08:30 - 13:00", title: "Khám Phá Công Viên Rừng Hồ Băng Tịnh Nguyệt Đàm (Jingyuetan)", desc: "Check-in cụm điêu khắc tuyết khổng lồ Vasa Snow, dạo bộ giữa rừng thông tuyết và mặt hồ băng trắng xoá tinh khôi." },
+          { time: "14:00 - 17:00", title: "Bảo Tàng Hoàng Cung Mãn Châu Quốc (Puppet Emperor's Palace)", desc: "Tham quan nơi ở của vị hoàng đế cuối cùng Phổ Nghi, tìm hiểu một giai đoạn lịch sử cận đại đầy biến động." },
+          { time: "18:00 - 21:00", title: "Bữa Tối Thịnh Soạn & Chuẩn Bị Vali Chặng Về", desc: "Thưởng thức món thịt hầm chua cay Đông Bắc và chuẩn bị hành lý cho ngày bay về Hà Nội." }
+        ],
+        points: [
+          { lat: 43.9100, lng: 125.3200, label: "Trung Tâm Trường Xuân", icon: "🏨" },
+          { lat: 43.7850, lng: 125.4450, label: "Hồ Băng Tịnh Nguyệt Đàm", icon: "🌲" },
+          { lat: 43.9050, lng: 125.3400, label: "Hoàng Cung Mãn Châu Quốc", icon: "👑" }
+        ],
+        path: [[43.9100, 125.3200], [43.7850, 125.4450], [43.9050, 125.3400]]
+      },
+      12: {
+        dayNum: 12,
+        badge: "NGÀY 12 • CHỦ NHẬT (10/01/2027)",
+        title: "Trường Xuân ✈️ Bắc Kinh ✈️ Hà Nội • Kết Thúc Chuyến Đi Cổ Tích",
+        route: "Ga Trường Xuân ➔ Sân Bay Long Gia (CGQ) ✈️ Bắc Kinh (PEK) ✈️ Hà Nội (HAN)",
+        img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=80",
+        caption: "Bắc Kinh cổ kính và khép lại hành trình 12 ngày Đông Bắc tuyệt đẹp",
+        center: [32.0000, 116.0000],
+        zoom: 5,
+        transit: "🚆 Tàu siêu tốc sân bay Changchun ➔ Longjia (9 phút, 8.5 RMB) + ✈️ 2 chặng bay CGQ - PEK và PEK - HAN.",
+        highlight: "Thưởng thức Vịt quay Bắc Kinh truyền thống tại sân bay Thủ đô, hạ cánh an toàn tại Hà Nội với hàng nghìn bức ảnh để đời.",
+        slots: [
+          { time: "07:30 - 08:00", title: "Tàu Siêu Tốc Đi Thẳng Ga Sân Bay Long Gia (9 Phút)", desc: "Đi tàu cao tốc liên thành phố từ Ga Trường Xuân chui thẳng vào nhà ga sân bay Long Gia CGQ, siêu nhanh và không lo kẹt xe." },
+          { time: "10:00 - 12:15", title: "Bay Trường Xuân (CGQ) ➔ Bắc Kinh (PEK / PKX)", desc: "Ngắm dãy núi Yến Sơn phủ tuyết từ ô cửa sổ máy bay khi tiếp cận vùng trời thủ đô." },
+          { time: "12:45 - 15:30", title: "Nối Chuyến Tại Bắc Kinh & Thưởng Thức Vịt Quay", desc: "Thưởng thức món Vịt Quay Bắc Kinh trứ danh với lớp da giòn rụm và mua quà lưu niệm." },
+          { time: "16:30 - 20:00", title: "Chặng Bay Quốc Tế Bắc Kinh ➔ Hà Nội (HAN)", desc: "Hạ cánh an toàn tại Sân bay Quốc tế Nội Bài, kết thúc chuyến phiêu lưu 12 ngày 11 đêm Đông Bắc Trung Quốc hoàn hảo." }
+        ],
+        points: [
+          { lat: 43.9960, lng: 125.6850, label: "Sân Bay Long Gia (CGQ)", icon: "🛫" },
+          { lat: 40.0799, lng: 116.6031, label: "Sân Bay Bắc Kinh (PEK)", icon: "🛬" },
+          { lat: 21.2212, lng: 105.8072, label: "Hà Nội (HAN)", icon: "🏠" }
+        ],
+        path: [[43.9960, 125.6850], [40.0799, 116.6031], [21.2212, 105.8072]]
+      }
+    };
+
+    // Overview hubs for 'all' mode
+    const overviewHubs = [
+      { lat: 21.2212, lng: 105.8072, name: "Hà Nội (Điểm Xuất Phát & Kết Thúc)", type: "hub", icon: "🇻🇳", day: 1 },
+      { lat: 31.2397, lng: 121.4900, name: "Thượng Hải (Quá Cảnh & Phố Đông)", type: "hub", icon: "🏙️", day: 1 },
+      { lat: 45.7725, 126.6230, name: "Cáp Nhĩ Tân (Thủ Phủ Băng Đăng)", type: "hub", icon: "❄️", day: 2 },
+      { lat: 44.7800, 128.4400, name: "Á Bố Lực (Thánh Địa Trượt Tuyết)", type: "hub", icon: "⛷️", day: 5 },
+      { lat: 44.5380, 128.8680, name: "Làng Tuyết Hương (Xuexiang Fairy Town)", type: "hub", icon: "🍄", day: 6 },
+      { lat: 42.0040, 128.0580, name: "Núi Trường Bạch & Hồ Thiên Trì", type: "hub", icon: "🌋", day: 8 },
+      { lat: 43.9100, 125.3200, name: "Trường Xuân (Hồ Băng Tịnh Nguyệt Đàm)", type: "hub", icon: "🌲", day: 10 },
+      { lat: 39.9140, 116.4110, name: "Bắc Kinh (Quá Cảnh Chặng Về)", type: "hub", icon: "🦆", day: 12 }
+    ];
+
+    let tripMap = null;
+    let darkTileLayer = null;
+    let satTileLayer = null;
+    let activeDayMarkers = [];
+    let activeDayPolylines = [];
+    let overviewElements = [];
+    let currentActiveDay = 'all';
+
+    function initTripMap() {
+      const mapEl = document.getElementById('trip-map');
+      if (!mapEl) return;
+
+      tripMap = L.map('trip-map', {
+        center: [36.0, 122.0],
+        zoom: 5,
+        zoomControl: true,
+        scrollWheelZoom: false
+      });
+
+      // CartoDB Dark Matter
+      darkTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+      });
+
+      // Esri Satellite
+      satTileLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri World Imagery',
+        maxZoom: 18
+      });
+
+      darkTileLayer.addTo(tripMap);
+
+      // Render default overview
+      renderOverviewMap();
+    }
+
+    function createPinIcon(iconText, badgeNum, isHighlight = false) {
+      return L.divIcon({
+        className: 'custom-map-pin',
+        html: `
+          <div class="pin-marker-box ${isHighlight ? 'pin-marker-highlight' : ''}">
+            <span class="pin-icon-emoji">${iconText}</span>
+            ${badgeNum ? `<span class="pin-badge-num">${badgeNum}</span>` : ''}
+          </div>
+        `,
+        iconSize: [36, 36],
+        iconAnchor: [18, 18],
+        popupAnchor: [0, -20]
       });
     }
 
-    // Smooth Scroll for Nav Links & Drawer Links
+    function clearMapLayers() {
+      activeDayMarkers.forEach(m => tripMap.removeLayer(m));
+      activeDayMarkers = [];
+      activeDayPolylines.forEach(p => tripMap.removeLayer(p));
+      activeDayPolylines = [];
+      overviewElements.forEach(item => tripMap.removeLayer(item));
+      overviewElements = [];
+    }
+
+    function renderOverviewMap() {
+      clearMapLayers();
+      currentActiveDay = 'all';
+
+      // 1. Draw connecting inter-city legs
+      // Flight HAN -> PVG
+      const p1 = L.polyline([[21.2212, 105.8072], [31.2397, 121.4900]], {
+        color: '#00f2fe', weight: 3, dashArray: '8, 8', opacity: 0.8
+      }).addTo(tripMap).bindTooltip("✈️ Chặng 1: Hà Nội ➔ Thượng Hải (Bay)", { sticky: true });
+      overviewElements.push(p1);
+
+      // Flight PVG -> HRB
+      const p2 = L.polyline([[31.2397, 121.4900], [45.7725, 126.6230]], {
+        color: '#00f2fe', weight: 3, dashArray: '8, 8', opacity: 0.8
+      }).addTo(tripMap).bindTooltip("✈️ Chặng 2: Thượng Hải ➔ Cáp Nhĩ Tân (Bay)", { sticky: true });
+      overviewElements.push(p2);
+
+      // Train HRB -> Yabuli
+      const p3 = L.polyline([[45.7725, 126.6230], [44.7800, 128.4400]], {
+        color: '#ffd166', weight: 4, opacity: 0.95
+      }).addTo(tripMap).bindTooltip("🚆 Tàu cao tốc CRH: Cáp Nhĩ Tân ➔ Á Bố Lực (1h10p)", { sticky: true });
+      overviewElements.push(p3);
+
+      // Bus Yabuli -> Xuexiang
+      const p4 = L.polyline([[44.7800, 128.4400], [44.5380, 128.8680]], {
+        color: '#06d6a0', weight: 4, opacity: 0.95
+      }).addTo(tripMap).bindTooltip("🚌 Xe buýt tuyết: Á Bố Lực ➔ Tuyết Hương (2h)", { sticky: true });
+      overviewElements.push(p4);
+
+      // Bus Xuexiang -> Changbaishan
+      const p5 = L.polyline([[44.5380, 128.8680], [42.0040, 128.0580]], {
+        color: '#06d6a0', weight: 4, opacity: 0.95
+      }).addTo(tripMap).bindTooltip("🚌 Xe buýt liên tỉnh: Tuyết Hương ➔ Trường Bạch Sơn (5.5h)", { sticky: true });
+      overviewElements.push(p5);
+
+      // Train Changbaishan -> Changchun
+      const p6 = L.polyline([[42.0040, 128.0580], [43.9100, 125.3200]], {
+        color: '#ffd166', weight: 4, opacity: 0.95
+      }).addTo(tripMap).bindTooltip("🚆 Tàu cao tốc CRH: Trường Bạch Sơn ➔ Trường Xuân (2h17p)", { sticky: true });
+      overviewElements.push(p6);
+
+      // Flight Changchun -> Beijing
+      const p7 = L.polyline([[43.9100, 125.3200], [39.9140, 116.4110]], {
+        color: '#00f2fe', weight: 3, dashArray: '8, 8', opacity: 0.8
+      }).addTo(tripMap).bindTooltip("✈️ Chặng 3: Trường Xuân ➔ Bắc Kinh (Bay)", { sticky: true });
+      overviewElements.push(p7);
+
+      // Flight Beijing -> Hanoi
+      const p8 = L.polyline([[39.9140, 116.4110], [21.2212, 105.8072]], {
+        color: '#00f2fe', weight: 3, dashArray: '8, 8', opacity: 0.8
+      }).addTo(tripMap).bindTooltip("✈️ Chặng 4: Bắc Kinh ➔ Hà Nội (Về đích)", { sticky: true });
+      overviewElements.push(p8);
+
+      // 2. Hub Markers
+      overviewHubs.forEach(hub => {
+        const marker = L.marker([hub.lat, hub.lng], {
+          icon: createPinIcon(hub.icon, null, true)
+        }).addTo(tripMap);
+
+        marker.bindPopup(`
+          <div style="font-family:inherit; min-width:180px;">
+            <div style="font-weight:700; color:#00f2fe; margin-bottom:4px;">${hub.name}</div>
+            <button onclick="showMapDay(${hub.day})" style="background:#00f2fe; color:#080e22; border:none; padding:4px 10px; border-radius:6px; font-weight:700; cursor:pointer; font-size:0.75rem; margin-top:4px;">
+              Xem Chi Tiết Ngày ${hub.day} ➔
+            </button>
+          </div>
+        `);
+        overviewElements.push(marker);
+      });
+
+      // Fit bounds to whole itinerary
+      tripMap.fitBounds([[20.5, 105.0], [46.8, 130.5]], { padding: [30, 30] });
+
+      // Focus text
+      const focusText = document.getElementById('map-current-focus-text');
+      if (focusText) {
+        focusText.innerHTML = `<span>📍 Đang hiển thị:</span> <strong>Toàn Cảnh Hành Trình 12N11Đ</strong>`;
+      }
+    }
+
+    function showMapDay(day) {
+      // Update Day Selector UI
+      const pills = document.querySelectorAll('.map-day-pill');
+      pills.forEach(p => p.classList.remove('active'));
+
+      if (day === 'all') {
+        const allPill = pills[0];
+        if (allPill) allPill.classList.add('active');
+        renderOverviewMap();
+        closeMapModal();
+        return;
+      }
+
+      const dayNum = parseInt(day, 10);
+      currentActiveDay = dayNum;
+
+      // Highlight active pill
+      pills.forEach(p => {
+        if (p.textContent.includes(`Ngày ${dayNum}:`)) {
+          p.classList.add('active');
+        }
+      });
+
+      clearMapLayers();
+      const data = dayRouteData[dayNum];
+      if (!data) return;
+
+      // Update focus text
+      const focusText = document.getElementById('map-current-focus-text');
+      if (focusText) {
+        focusText.innerHTML = `<span>📍 Đang hiển thị:</span> <strong>Ngày ${dayNum}: ${data.title}</strong>`;
+      }
+
+      // Draw Path
+      if (data.path && data.path.length > 1) {
+        const polyline = L.polyline(data.path, {
+          color: '#00f2fe',
+          weight: 5,
+          opacity: 0.95,
+          lineJoin: 'round'
+        }).addTo(tripMap);
+        activeDayPolylines.push(polyline);
+      }
+
+      // Add Markers
+      const bounds = [];
+      data.points.forEach((pt, idx) => {
+        bounds.push([pt.lat, pt.lng]);
+        const marker = L.marker([pt.lat, pt.lng], {
+          icon: createPinIcon(pt.icon, idx + 1, true)
+        }).addTo(tripMap);
+
+        marker.bindPopup(`
+          <div style="font-family:inherit; min-width:180px;">
+            <div style="font-size:0.75rem; color:#ffd166; font-weight:700;">Điểm ${idx + 1} • Ngày ${dayNum}</div>
+            <div style="font-weight:700; color:#fff; margin:2px 0 6px 0;">${pt.label}</div>
+            <button onclick="openMapModal(${dayNum})" style="background:#00f2fe; color:#080e22; border:none; padding:4px 10px; border-radius:6px; font-weight:700; cursor:pointer; font-size:0.75rem;">
+              Xem Lịch Trình Ngày ➔
+            </button>
+          </div>
+        `);
+
+        marker.on('click', () => {
+          openMapModal(dayNum);
+        });
+
+        activeDayMarkers.push(marker);
+      });
+
+      // Fit or fly map
+      if (bounds.length > 1) {
+        tripMap.fitBounds(bounds, { padding: [60, 60], maxZoom: 13, duration: 1 });
+      } else if (bounds.length === 1) {
+        tripMap.flyTo(bounds[0], data.zoom || 12, { duration: 1 });
+      }
+
+      // Pop open modal
+      openMapModal(dayNum);
+    }
+
+    function setMapLayer(type) {
+      if (!tripMap) return;
+      const btnDark = document.getElementById('btn-layer-dark');
+      const btnSat = document.getElementById('btn-layer-sat');
+
+      if (type === 'sat') {
+        if (tripMap.hasLayer(darkTileLayer)) tripMap.removeLayer(darkTileLayer);
+        satTileLayer.addTo(tripMap);
+        if (btnSat) btnSat.classList.add('active');
+        if (btnDark) btnDark.classList.remove('active');
+      } else {
+        if (tripMap.hasLayer(satTileLayer)) tripMap.removeLayer(satTileLayer);
+        darkTileLayer.addTo(tripMap);
+        if (btnDark) btnDark.classList.add('active');
+        if (btnSat) btnSat.classList.remove('active');
+      }
+    }
+
+    /* ========================================================
+       6. FLOATING DAY DETAIL MODAL POPUP
+       ======================================================== */
+    function openMapModal(dayNum) {
+      const data = dayRouteData[dayNum];
+      if (!data) return;
+      currentActiveDay = dayNum;
+
+      document.getElementById('modal-day-badge').innerText = data.badge;
+      document.getElementById('modal-day-title').innerText = data.title;
+      document.getElementById('modal-day-route').innerText = data.route;
+
+      const imgEl = document.getElementById('modal-day-img');
+      if (imgEl) {
+        imgEl.src = data.img;
+        imgEl.alt = data.title;
+      }
+      document.getElementById('modal-day-caption').innerText = data.caption;
+
+      const slotsContainer = document.getElementById('modal-day-slots');
+      if (slotsContainer) {
+        let slotsHtml = '';
+        data.slots.forEach(slot => {
+          slotsHtml += `
+            <div class="modal-slot-item">
+              <span class="modal-slot-time">${slot.time}</span>
+              <div class="modal-slot-content">
+                <strong>${slot.title}</strong>
+                <p>${slot.desc}</p>
+              </div>
+            </div>
+          `;
+        });
+        slotsContainer.innerHTML = slotsHtml;
+      }
+
+      document.getElementById('modal-day-transit').innerHTML = `<p style="font-size:0.85rem; color:#e0e8f8; margin:0;">${data.transit}</p>`;
+      document.getElementById('modal-day-highlight').innerHTML = `<p style="font-size:0.85rem; color:#ffd166; margin:0;">${data.highlight}</p>`;
+
+      const modal = document.getElementById('map-detail-modal');
+      if (modal) {
+        modal.classList.add('show');
+      }
+    }
+
+    function closeMapModal(e) {
+      if (e && e.target && e.target.classList.contains('map-modal-card')) {
+        return;
+      }
+      const modal = document.getElementById('map-detail-modal');
+      if (modal) {
+        modal.classList.remove('show');
+      }
+    }
+
+    function jumpToTimelineDay() {
+      closeMapModal();
+      const targetId = 'day-' + currentActiveDay;
+      const targetCard = document.getElementById(targetId);
+      if (targetCard) {
+        targetCard.classList.add('open');
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Highlight flash
+        targetCard.style.outline = "2px solid var(--accent-cyan)";
+        targetCard.style.boxShadow = "0 0 25px rgba(0, 242, 254, 0.45)";
+        setTimeout(() => {
+          targetCard.style.outline = "";
+          targetCard.style.boxShadow = "";
+        }, 2200);
+      }
+    }
+
+    // Keyboard ESC listener
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDrawer();
+        closeMapModal();
+      }
+    });
+
+    /* ========================================================
+       7. SMOOTH SCROLL & ACTIVE LINK TRACKER
+       ======================================================== */
     document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
       link.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         if (targetId && targetId.startsWith('#')) {
           e.preventDefault();
+          closeDrawer();
           const target = document.querySelector(targetId);
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -3793,26 +4622,16 @@
       });
     });
 
-    // Update active nav link on scroll
-    window.addEventListener('scroll', function() {
-      const sections = document.querySelectorAll('section, header');
-      let currentId = '';
-      const scrollPos = window.scrollY + 120;
-      sections.forEach(sec => {
-        const id = sec.getAttribute('id');
-        if (id && sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
-          currentId = id;
-        }
-      });
-      if (currentId) {
-        document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
-          if (link.getAttribute('href') === '#' + currentId) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
+    // Window load & resize
+    window.addEventListener('load', () => {
+      initTripMap();
+      setTimeout(() => {
+        if (tripMap) tripMap.invalidateSize();
+      }, 500);
+    });
+
+    window.addEventListener('resize', () => {
+      if (tripMap) tripMap.invalidateSize();
     });
   </script>
 </body>
