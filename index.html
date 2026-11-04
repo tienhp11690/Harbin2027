@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lịch Trình Đông Bắc Trung Quốc 12N11Đ | Cáp Nhĩ Tân - Tuyết Hương - Trường Bạch Sơn</title>
-  <meta name="description" content="Lịch trình chi tiết 12 ngày 11 đêm khám phá cảnh tuyết hoang sơ Đông Bắc Trung Quốc: Cáp Nhĩ Tân, Làng Tuyết Hương, Núi Trường Bạch, Trường Xuân. Tối ưu chi phí công cộng, học trượt tuyết, flycam, gợi ý outfit & ý tưởng chụp ảnh couple.">
+  <title>Lß╗ïch Tr├¼nh ─É├┤ng Bß║»c Trung Quß╗æc 12N11─É | C├íp Nh─⌐ T├ón - Tuyß║┐t H╞░╞íng - Tr╞░ß╗¥ng Bß║ích S╞ín</title>
+  <meta name="description" content="Lß╗ïch tr├¼nh chi tiß║┐t 12 ng├áy 11 ─æ├¬m kh├ím ph├í cß║únh tuyß║┐t hoang s╞í ─É├┤ng Bß║»c Trung Quß╗æc: C├íp Nh─⌐ T├ón, L├áng Tuyß║┐t H╞░╞íng, N├║i Tr╞░ß╗¥ng Bß║ích, Tr╞░ß╗¥ng Xu├ón. Tß╗æi ╞░u chi ph├¡ c├┤ng cß╗Öng, hß╗ìc tr╞░ß╗út tuyß║┐t, flycam, gß╗úi ├╜ outfit & ├╜ t╞░ß╗ƒng chß╗Ñp ß║únh couple.">
   <style>
     :root {
       --bg-primary: #080e22;
@@ -170,35 +170,94 @@
       border-color: var(--accent-cyan);
     }
 
-    /* Sticky Navigation */
+    /* Sticky Navigation & Mobile Drawer Styles */
     .sticky-nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(8, 14, 34, 0.92);
-      backdrop-filter: blur(14px);
+      z-index: 900;
+      background: rgba(8, 14, 34, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-ice);
-      padding: 12px 0;
+      padding: 10px 0;
     }
 
-    .nav-container {
+    .nav-inner {
       display: flex;
-      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* Mobile Hamburger Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 242, 254, 0.12);
+      border: 1px solid var(--border-glow);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+      outline: none;
+    }
+
+    .mobile-menu-btn:hover, .mobile-menu-btn:active {
+      background: rgba(0, 242, 254, 0.25);
+      border-color: var(--accent-cyan);
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+    }
+
+    .hamburger-icon span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-cyan);
+      border-radius: 2px;
+    }
+
+    .nav-mobile-title {
+      display: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-desktop-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       overflow-x: auto;
       scrollbar-width: none;
-      padding: 4px 0;
+      padding: 2px 0;
+      flex: 1;
     }
 
-    .nav-container::-webkit-scrollbar {
+    .nav-desktop-links::-webkit-scrollbar {
       display: none;
     }
 
     .nav-link {
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 20px;
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       white-space: nowrap;
       transition: all 0.2s;
@@ -208,6 +267,211 @@
       background: rgba(0, 242, 254, 0.15);
       color: var(--accent-cyan);
       border: 1px solid var(--border-glow);
+    }
+
+    .nav-print-shortcut {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-print-shortcut:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    /* Left Side Mobile Drawer & Overlay */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 7, 20, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 320px;
+      max-width: 86vw;
+      height: 100vh;
+      height: 100dvh;
+      background: linear-gradient(180deg, #09122a 0%, #050b1a 100%);
+      border-right: 1px solid var(--border-glow);
+      box-shadow: 10px 0 40px rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      transform: translateX(-100%);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-ice);
+      background: rgba(0, 242, 254, 0.05);
+    }
+
+    .drawer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .drawer-brand-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6));
+    }
+
+    .drawer-brand-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .drawer-brand-sub {
+      font-size: 0.76rem;
+      color: var(--accent-cyan);
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .drawer-close-btn:hover {
+      background: rgba(255, 75, 75, 0.35);
+      border-color: rgba(255, 75, 75, 0.6);
+    }
+
+    .drawer-nav-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .drawer-nav-list::-webkit-scrollbar {
+      width: 4px;
+    }
+    .drawer-nav-list::-webkit-scrollbar-thumb {
+      background: rgba(0, 242, 254, 0.2);
+      border-radius: 4px;
+    }
+
+    .drawer-group-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-cyan);
+      padding: 12px 12px 4px;
+      opacity: 0.85;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: #dce5f8;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .drawer-link:hover, .drawer-link.active {
+      background: rgba(0, 242, 254, 0.14);
+      color: var(--accent-cyan);
+      border-color: var(--border-glow);
+      transform: translateX(4px);
+    }
+
+    .drawer-footer {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border-ice);
+      background: rgba(5, 10, 24, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drawer-footer-badge {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+    }
+
+    .drawer-footer-btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      border: none;
+      color: #040918;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .drawer-footer-btn:hover {
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.45);
     }
 
     /* Main Sections */
@@ -277,7 +541,7 @@
     }
 
     .flight-card::after {
-      content: "✈";
+      content: "Γ£ê";
       position: absolute;
       right: 15px;
       bottom: 10px;
@@ -1010,7 +1274,7 @@
     }
 
     .guide-list li::before {
-      content: "✔";
+      content: "Γ£ö";
       position: absolute;
       left: 0;
       color: var(--accent-cyan);
@@ -1416,6 +1680,25 @@
       h1 {
         font-size: 2rem;
       }
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+      .nav-mobile-title {
+        display: block;
+      }
+      .nav-desktop-links {
+        display: none !important;
+      }
+      .nav-print-shortcut {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (min-width: 901px) {
+      .drawer-overlay, .mobile-drawer {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -1424,21 +1707,111 @@
   <!-- Falling Snow Canvas Background -->
   <canvas id="snow-canvas"></canvas>
 
-  <!-- Sticky Navbar -->
+  <!-- Mobile Left Side Drawer Overlay -->
+  <div id="drawer-overlay" class="drawer-overlay" onclick="closeDrawer()" aria-hidden="true"></div>
+
+  <!-- Mobile Left Side Sliding Drawer Menu -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Menu lịch trình di động">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="drawer-brand-icon">❄️</span>
+        <div>
+          <div class="drawer-brand-title">Đông Bắc 2027</div>
+          <div class="drawer-brand-sub">12N11Đ Băng Tuyết & Trượt Tuyết</div>
+        </div>
+      </div>
+      <button class="drawer-close-btn" onclick="closeDrawer()" aria-label="Đóng menu">✕</button>
+    </div>
+
+    <nav class="drawer-nav-list">
+      <div class="drawer-group-label">Mục Tổng Quan & Tư Liệu</div>
+      <a href="#overview" class="drawer-link active" onclick="closeDrawer()">
+        <span>✈️</span> <span>Tổng Quan Chuyến Đi</span>
+      </a>
+      <a href="#gallery" class="drawer-link" onclick="closeDrawer()">
+        <span>📸</span> <span>Nguồn Ảnh Điểm Đến (8 Kỳ Quan)</span>
+      </a>
+      <a href="#video-theater" class="drawer-link" onclick="closeDrawer()">
+        <span>🎬</span> <span>Rạp Phim 4K & Shorts Thực Tế</span>
+      </a>
+      <a href="#visual-tips" class="drawer-link" onclick="closeDrawer()">
+        <span>🎨</span> <span>Graphic Tips Chuẩn Bị & Đồ Ấm</span>
+      </a>
+      <a href="#outfit-lookbook" class="drawer-link" onclick="closeDrawer()">
+        <span>👗</span> <span>Lookbook Outfit & Phối Màu Couple</span>
+      </a>
+      <a href="#photo-ideas" class="drawer-link" onclick="closeDrawer()">
+        <span>📸</span> <span>6 Ý Tưởng Chụp Ảnh Couple</span>
+      </a>
+
+      <div class="drawer-group-label">Hành Trình & Cẩm Nang Chuyên Sâu</div>
+      <a href="#itinerary" class="drawer-link" onclick="closeDrawer()">
+        <span>📅</span> <span>Lịch Trình Chi Tiết 12N11Đ</span>
+      </a>
+      <a href="#transit" class="drawer-link" onclick="closeDrawer()">
+        <span>🚄</span> <span>Sơ Đồ Tàu CRH & Phương Tiện</span>
+      </a>
+      <a href="#drone-guide" class="drawer-link" onclick="closeDrawer()">
+        <span>🛸</span> <span>Cẩm Nang Flycam Âm 30°C</span>
+      </a>
+      <a href="#ski-guide" class="drawer-link" onclick="closeDrawer()">
+        <span>⛷️</span> <span>Giáo Trình 2 Buổi Học Trượt Tuyết</span>
+      </a>
+      <a href="#budget" class="drawer-link" onclick="closeDrawer()">
+        <span>💰</span> <span>Bảng Dự Toán Chi Phí Tối Ưu</span>
+      </a>
+      <a href="#checklist" class="drawer-link" onclick="closeDrawer()">
+        <span>🎒</span> <span>Checklist Đồ Đạc & Apps Cần Cài</span>
+      </a>
+    </nav>
+
+    <div class="drawer-footer">
+      <div class="drawer-footer-badge">
+        <span>✈️</span>
+        <div>Chuyến bay Air China: CA-704 & CA-883</div>
+      </div>
+      <button class="drawer-footer-btn" onclick="window.print(); closeDrawer()">
+        <span>🖨️</span> <span>In Hoặc Lưu Lịch Trình (PDF)</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Sticky Navbar (Desktop Horizontal / Mobile Bar with Left Menu Toggle) -->
   <div class="sticky-nav">
-    <div class="container nav-container">
-      <a href="#overview" class="nav-link active">✈ Tổng Quan</a>
-      <a href="#gallery" class="nav-link">🏔️ Nguồn Ảnh Điểm Đến</a>
-      <a href="#video-theater" class="nav-link">🎬 Video 4K & Shorts</a>
-      <a href="#visual-tips" class="nav-link">🎨 Graphic Tips Chuẩn Bị</a>
-      <a href="#outfit-lookbook" class="nav-link">👗 Outfit Couple & Phối Màu</a>
-      <a href="#photo-ideas" class="nav-link">📸 Ý Tưởng Chụp Ảnh</a>
-      <a href="#itinerary" class="nav-link">📅 Lịch Trình 12N11Đ</a>
-      <a href="#transit" class="nav-link">🚄 Tàu & Phương Tiện</a>
-      <a href="#drone-guide" class="nav-link">🛸 Cẩm Nang Flycam</a>
-      <a href="#ski-guide" class="nav-link">⛷️ Học Trượt Tuyết</a>
-      <a href="#budget" class="nav-link">💰 Dự Toán Chi Phí</a>
-      <a href="#checklist" class="nav-link">🎒 Checklist & Apps</a>
+    <div class="container nav-inner">
+      <!-- Mobile Toggle Button (Visible only on <= 900px) -->
+      <button class="mobile-menu-btn" onclick="openDrawer()" aria-label="Mở danh mục lịch trình">
+        <div class="hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span>Menu Lịch Trình</span>
+      </button>
+
+      <!-- Mobile Title (Visible only on <= 900px) -->
+      <div class="nav-mobile-title">❄️ Đông Bắc 2027</div>
+
+      <!-- Desktop Links (Visible only on > 900px) -->
+      <div class="nav-desktop-links">
+        <a href="#overview" class="nav-link active">✈ Tổng Quan</a>
+        <a href="#gallery" class="nav-link">🏔️ Nguồn Ảnh</a>
+        <a href="#video-theater" class="nav-link">🎬 Video 4K & Shorts</a>
+        <a href="#visual-tips" class="nav-link">🎨 Graphic Tips</a>
+        <a href="#outfit-lookbook" class="nav-link">👗 Outfit Couple</a>
+        <a href="#photo-ideas" class="nav-link">📸 Ý Tưởng Chụp</a>
+        <a href="#itinerary" class="nav-link">📅 Lịch Trình 12N11Đ</a>
+        <a href="#transit" class="nav-link">🚄 Tàu & Xe</a>
+        <a href="#drone-guide" class="nav-link">🛸 Flycam</a>
+        <a href="#ski-guide" class="nav-link">⛷️ Trượt Tuyết</a>
+        <a href="#budget" class="nav-link">💰 Chi Phí</a>
+        <a href="#checklist" class="nav-link">🎒 Checklist</a>
+      </div>
+
+      <!-- Quick PDF Print Shortcut -->
+      <button class="nav-print-shortcut" onclick="window.print()" title="In hoặc lưu lịch trình dưới dạng PDF">
+        <span>🖨️</span> <span>PDF</span>
+      </button>
     </div>
   </div>
 
@@ -1447,7 +1820,7 @@
     <!-- Header / Hero Section -->
     <header id="overview">
       <div class="badge-flight">
-        <span>✈</span> Đã Book Vé Khứ Hồi: 30/12 - 11/01 (2 Người)
+        <span>✈️</span> Đã Book Vé Khứ Hồi: 30/12 - 11/01 (2 Người)
       </div>
       <h1>CHUYẾN ĐI ĐÔNG BẮC TUYẾT TRẮNG 12N11Đ</h1>
       <p class="hero-subtitle">
@@ -1455,216 +1828,217 @@
         <em>Tối ưu săn cảnh tuyết hoang sơ, quay flycam xứ lạnh, học trượt tuyết, gợi ý outfit phối màu & ý tưởng chụp ảnh couple</em>
       </p>
 
-      <div class="hero-stats">
-        <div class="stat-pill"><span class="icon">👥</span> <strong>2 Người</strong> (Couple / Bạn thân)</div>
-        <div class="stat-pill"><span class="icon">❄️</span> Nhiệt độ: <strong>-15°C đến -35°C</strong></div>
-        <div class="stat-pill"><span class="icon">🚄</span> Phương tiện: <strong>Tàu cao tốc CRH + Xe buýt liên tuyến</strong></div>
-        <div class="stat-pill"><span class="icon">🛸</span> Drone: <strong>DJI Flycam (UOM CAAC)</strong></div>
-        <div class="stat-pill"><span class="icon">⛷️</span> Trượt tuyết: <strong>Á Bố Lực + Trường Bạch Sơn</strong></div>
+      <!-- 8 Điểm Tham Quan Trọng Điểm Badge Cloud -->
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin: 18px 0 24px;">
+        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">🏰 Băng Tuyết Đại Thế Giới</span>
+        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">⛪ Nhà Thờ Thánh Sophia</span>
+        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">🏮 Phố Cổ Trung Ương</span>
+        <span class="route-step" style="background:rgba(0,242,254,0.15); border:1px solid var(--accent-cyan); color:#fff;">🌊 Sông Tùng Hoa Đóng Băng</span>
+        <span class="route-step" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff;">☀️ Đảo Mặt Trời (Tuyết Bác Hội)</span>
+        <span class="route-step" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff;">🏰 Trang Viên Volga (Lâu Đài Nga)</span>
+        <span class="route-step" style="background:rgba(255,209,102,0.18); border:1px solid var(--accent-gold); color:#fff;">🐯 Công Viên Hổ Siberia</span>
+        <span class="route-step" style="background:rgba(6,214,160,0.15); border:1px solid var(--accent-emerald); color:#fff;">🍄 Làng Tuyết Hương Cổ Tích</span>
+        <span class="route-step" style="background:rgba(239,71,111,0.15); border:1px solid var(--accent-coral); color:#fff;">⛷️ Trượt Tuyết Á Bố Lực & Trường Bạch</span>
+        <span class="route-step" style="background:rgba(181,23,158,0.2); border:1px solid var(--accent-purple); color:#fff;">🛶 Ma Giới Rafting & Onsen Núi Lửa</span>
       </div>
 
+      <!-- Flight Summary Cards -->
+      <div class="flight-banner">
+        <div class="flight-card">
+          <h4><span>🛫</span> CHẶNG ĐI: HÀ NỘI ➔ CÁP NHĨ TÂN (HRB)</h4>
+          <div class="flight-row">
+            <div>
+              <strong>CA-704</strong> (Airbus A321)<br>
+              12:25 (30/12) HAN ➔ 16:30 PVG (Thượng Hải)
+            </div>
+            <div style="text-align: right;">
+              <span class="badge" style="background: rgba(0, 242, 254, 0.2); color: var(--accent-cyan);">Transit Thượng Hải 21h15m</span><br>
+              <small>Thưởng ngoạn đêm The Bund & Bến Thượng Hải</small>
+            </div>
+          </div>
+          <div class="flight-row" style="margin-top: 10px;">
+            <div>
+              <strong>CA-8571</strong> (Airbus A321)<br>
+              13:45 (31/12) PVG ➔ 16:40 HRB (Cáp Nhĩ Tân)
+            </div>
+            <div style="text-align: right;">
+              <span class="badge" style="background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald);">Đến đúng Đêm Giao Thừa</span><br>
+              <small>Đón Tết Dương Lịch 2027 trên Phố Trung Ương</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="flight-card">
+          <h4><span>🛬</span> CHẶNG VỀ: TRƯỜNG XUÂN (CGQ) ➔ HÀ NỘI</h4>
+          <div class="flight-row">
+            <div>
+              <strong>CA-1628</strong> (Boeing 737 MAX 8)<br>
+              12:40 (10/01) CGQ ➔ 14:40 PEK (Bắc Kinh)
+            </div>
+            <div style="text-align: right;">
+              <span class="badge" style="background: rgba(255, 209, 102, 0.2); color: var(--accent-gold);">Transit Bắc Kinh 9h30m</span><br>
+              <small>Check-in Vương Phủ Tỉnh & Vịt quay Bắc Kinh</small>
+            </div>
+          </div>
+          <div class="flight-row" style="margin-top: 10px;">
+            <div>
+              <strong>CA-883</strong> (Airbus A321neo)<br>
+              00:10 (11/01) PEK ➔ 03:15 HAN (Hà Nội)
+            </div>
+            <div style="text-align: right;">
+              <span class="badge" style="background: rgba(79, 172, 254, 0.2); color: var(--accent-blue);">Về đến Hà Nội rạng sáng</span><br>
+              <small>Kết thúc hành trình an toàn, trọn vẹn</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Bar -->
       <div class="action-bar">
-        <button class="btn btn-primary" onclick="window.print()">🖨️ In / Lưu file PDF</button>
-        <button class="btn btn-outline" onclick="copyShareLink()">🔗 Copy Link Chia Sẻ</button>
-        <button class="btn btn-outline" onclick="expandAllDays()">📖 Mở Toàn Bộ 12 Ngày</button>
+        <button class="btn btn-primary" onclick="window.print()">
+          <span>🖨️</span> In / Lưu Lịch Trình (PDF)
+        </button>
+        <button class="btn btn-secondary" onclick="expandAllDays()">
+          <span>📂</span> Mở / Đóng Toàn Bộ 12 Ngày
+        </button>
+        <button class="btn btn-secondary" onclick="copyShareLink()">
+          <span>🔗</span> Copy Link Chia Sẻ
+        </button>
       </div>
     </header>
 
-    <!-- Flight Information Cards (Already Booked) -->
-    <section>
-      <div class="section-header">
-        <span class="section-tag">Vé Máy Bay Đã Book</span>
-        <h2 class="section-title">Chi Tiết Lịch Bay Khứ Hồi (Air China)</h2>
-        <p class="section-desc">Hành trình đã bao gồm 2 chặng transit dài (21h15m tại Thượng Hải & 9h30m tại Bắc Kinh) tạo cơ hội khám phá thêm 2 siêu đô thị lớn nhất Trung Quốc mà không phát sinh thêm vé máy bay!</p>
-      </div>
-
-      <div class="flight-banner">
-        <!-- Chặng Đi -->
-        <div class="flight-card">
-          <div class="flight-header">
-            <span class="flight-tag">CHUYẾN ĐI (HANOI ➔ HARBIN)</span>
-            <span style="font-size:0.85rem; color:var(--text-muted)">PNR: PF7VJV</span>
-          </div>
-          <div class="flight-route-flow">
-            <div class="route-node">
-              <div class="code">HAN</div>
-              <div class="city">Hà Nội (Nội Bài)</div>
-              <div style="font-size:0.8rem; color:var(--accent-cyan); font-weight:700">12:25 • 30/12</div>
-            </div>
-            <div class="route-arrow">
-              <div>CA-704 (A321)</div>
-              <div class="route-line"></div>
-              <div>3h 05m bay</div>
-            </div>
-            <div class="route-node">
-              <div class="code">PVG</div>
-              <div class="city">Thượng Hải (Phố Đông)</div>
-              <div style="font-size:0.8rem; color:var(--accent-cyan); font-weight:700">16:30 • 30/12</div>
-            </div>
-          </div>
-          <div class="layover-pill">
-            <span>⏱️</span> Transit Thượng Hải: <strong>21 giờ 15 phút</strong> (Khám phá đêm Bến Thượng Hải & Phố đi bộ Nam Kinh)
-          </div>
-          <div class="flight-route-flow" style="margin-top: 16px;">
-            <div class="route-node">
-              <div class="code">PVG</div>
-              <div class="city">Thượng Hải T2</div>
-              <div style="font-size:0.8rem; color:var(--accent-cyan); font-weight:700">13:45 • 31/12</div>
-            </div>
-            <div class="route-arrow">
-              <div>CA-8571 (A321)</div>
-              <div class="route-line"></div>
-              <div>2h 55m bay</div>
-            </div>
-            <div class="route-node">
-              <div class="code">HRB</div>
-              <div class="city">Cáp Nhĩ Tân (Thái Bình)</div>
-              <div style="font-size:0.8rem; color:var(--accent-cyan); font-weight:700">16:40 • 31/12</div>
-            </div>
-          </div>
-          <p style="font-size:0.8rem; color:var(--accent-gold); margin-top:8px;">🎆 Đón Đêm Giao Thừa Tết Dương Lịch 31/12 tại Xứ Sở Băng Cáp Nhĩ Tân!</p>
-        </div>
-
-        <!-- Chặng Về -->
-        <div class="flight-card">
-          <div class="flight-header">
-            <span class="flight-tag" style="background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald);">CHUYẾN VỀ (CHANGCHUN ➔ HANOI)</span>
-            <span style="font-size:0.85rem; color:var(--text-muted)">PNR: QT1G6W</span>
-          </div>
-          <div class="flight-route-flow">
-            <div class="route-node">
-              <div class="code">CGQ</div>
-              <div class="city">Trường Xuân (Long Gia)</div>
-              <div style="font-size:0.8rem; color:var(--accent-emerald); font-weight:700">12:40 • 10/01</div>
-            </div>
-            <div class="route-arrow">
-              <div>CA-1628 (737 MAX 8)</div>
-              <div class="route-line"></div>
-              <div>2h 00m bay</div>
-            </div>
-            <div class="route-node">
-              <div class="code">PEK</div>
-              <div class="city">Bắc Kinh (Thủ Đô)</div>
-              <div style="font-size:0.8rem; color:var(--accent-emerald); font-weight:700">14:40 • 10/01</div>
-            </div>
-          </div>
-          <div class="layover-pill" style="border-color: var(--accent-emerald); color: var(--accent-emerald); background: rgba(6, 214, 160, 0.1);">
-            <span>⏱️</span> Transit Bắc Kinh: <strong>9 giờ 30 phút</strong> (Tàu điện vào phố ăn Vịt Quay & ngắm Sân vận động Tổ Chim)
-          </div>
-          <div class="flight-route-flow" style="margin-top: 16px;">
-            <div class="route-node">
-              <div class="code">PEK</div>
-              <div class="city">Bắc Kinh T3</div>
-              <div style="font-size:0.8rem; color:var(--accent-emerald); font-weight:700">00:10 • 11/01</div>
-            </div>
-            <div class="route-arrow">
-              <div>CA-883 (A321neo)</div>
-              <div class="route-line"></div>
-              <div>4h 05m bay</div>
-            </div>
-            <div class="route-node">
-              <div class="code">HAN</div>
-              <div class="city">Hà Nội (Nội Bài)</div>
-              <div style="font-size:0.8rem; color:var(--accent-emerald); font-weight:700">03:15 • 11/01</div>
-            </div>
-          </div>
-          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px;">🛬 Về tới Hà Nội rạng sáng Thứ Hai (11/01), kịp nghỉ ngơi lấy lại sức.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 1: DESTINATION PHOTO GALLERY -->
+    <!-- SECTION 1: PHOTO GALLERY - 12 ICONIC DESTINATIONS -->
     <section id="gallery">
       <div class="section-header">
-        <span class="section-tag">Hình Ảnh Minh Họa Điểm Đến</span>
-        <h2 class="section-title">Visual Tour: 8 Kỳ Quan Băng Tuyết Trong Chuyến Đi</h2>
-        <p class="section-desc">Bộ sưu tập hình ảnh thực tế chất lượng cao đại diện cho vẻ đẹp kỳ ảo của các điểm dừng chân chính trong hành trình 12 ngày.</p>
+        <span class="section-tag">Thư Viện Hình Ảnh</span>
+        <h2 class="section-title">📸 Nguồn Ảnh Minh Họa 12 Điểm Đến Kỳ Quan Mùa Đông</h2>
+        <p class="section-desc">Bộ sưu tập hình ảnh thực tế chất lượng cao đại diện cho 8 thắng cảnh trọng điểm tại Cáp Nhĩ Tân, Tuyết Hương, Núi Trường Bạch và Trường Xuân.</p>
       </div>
 
       <div class="dest-gallery-grid">
-        <!-- 1. Cáp Nhĩ Tân -->
+        <!-- 1. Băng Tuyết Đại Thế Giới -->
         <div class="dest-photo-card">
           <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Harbin Ice and Snow World" loading="lazy">
           <div class="dest-photo-overlay">
             <span class="dest-badge">Cáp Nhĩ Tân (哈尔滨)</span>
-            <div class="dest-photo-title">Thế Giới Băng Tuyết</div>
-            <div class="dest-photo-sub">Lâu đài băng pha lê điêu khắc rực sáng</div>
+            <div class="dest-photo-title">1. Băng Tuyết Đại Thế Giới</div>
+            <div class="dest-photo-sub">Lâu đài băng pha lê điêu khắc khổng lồ rực sáng</div>
           </div>
         </div>
 
-        <!-- 2. Làng Tuyết Hương -->
+        <!-- 2. Nhà Thờ Thánh Sophia -->
+        <div class="dest-photo-card">
+          <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=80" alt="Saint Sophia Cathedral Harbin" loading="lazy">
+          <div class="dest-photo-overlay">
+            <span class="dest-badge">Cáp Nhĩ Tân (哈尔滨)</span>
+            <div class="dest-photo-title">2. Nhà Thờ Thánh Sophia</div>
+            <div class="dest-photo-sub">Kiến trúc Chính Thống giáo Nga dát vàng trong tuyết đêm</div>
+          </div>
+        </div>
+
+        <!-- 3. Phố Cổ Trung Ương -->
+        <div class="dest-photo-card">
+          <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80" alt="Zhongyang Dajie Harbin" loading="lazy">
+          <div class="dest-photo-overlay">
+            <span class="dest-badge">Cáp Nhĩ Tân (哈尔滨)</span>
+            <div class="dest-photo-title">3. Phố Cổ Trung Ương (Zhongyang)</div>
+            <div class="dest-photo-sub">Phố đi bộ lát đá Baroque Nga, kem Madie'er tuyết</div>
+          </div>
+        </div>
+
+        <!-- 4. Sông Tùng Hoa Đóng Băng -->
+        <div class="dest-photo-card">
+          <img src="https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=800&q=80" alt="Songhua River Frozen Ice" loading="lazy">
+          <div class="dest-photo-overlay">
+            <span class="dest-badge">Cáp Nhĩ Tân (哈尔滨)</span>
+            <div class="dest-photo-title">4. Sông Tùng Hoa Đóng Băng</div>
+            <div class="dest-photo-sub">Mặt sông băng dày 1m, cầu sắt Trung Đông trăm năm</div>
+          </div>
+        </div>
+
+        <!-- 5. Đảo Mặt Trời - Tuyết Bác Hội -->
+        <div class="dest-photo-card">
+          <img src="https://images.unsplash.com/photo-1516431883659-655d41c09bf9?auto=format&fit=crop&w=800&q=80" alt="Sun Island International Snow Sculpture" loading="lazy">
+          <div class="dest-photo-overlay">
+            <span class="dest-badge">Cáp Nhĩ Tân (太阳岛)</span>
+            <div class="dest-photo-title">5. Đảo Mặt Trời (Sun Island)</div>
+            <div class="dest-photo-sub">Triển lãm điêu khắc tượng tuyết trắng quốc tế lớn nhất thế giới</div>
+          </div>
+        </div>
+
+        <!-- 6. Trang Viên Volga (Volga Manor) -->
+        <div class="dest-photo-card">
+          <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Volga Manor Russian Castle" loading="lazy">
+          <div class="dest-photo-overlay">
+            <span class="dest-badge">Cáp Nhĩ Tân (伏尔加庄园)</span>
+            <div class="dest-photo-title">6. Trang Viên Volga (Volga Manor)</div>
+            <div class="dest-photo-sub">Lâu đài Pavlov cổ tích Nga, quán bar hầm rượu Vodka bằng băng</div>
+          </div>
+        </div>
+
+        <!-- 7. Công Viên Hổ Siberia -->
+        <div class="dest-photo-card">
+          <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80" alt="Siberian Tiger in Snow" loading="lazy">
+          <div class="dest-photo-overlay">
+            <span class="dest-badge">Cáp Nhĩ Tân (东北虎林园)</span>
+            <div class="dest-photo-title">7. Công Viên Hổ Siberia</div>
+            <div class="dest-photo-sub">Chúa sơn lâm dũng mãnh giữa bão tuyết hoang dã Siberia</div>
+          </div>
+        </div>
+
+        <!-- 8. Làng Tuyết Hương -->
         <div class="dest-photo-card">
           <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="China Snow Town Xuexiang" loading="lazy">
           <div class="dest-photo-overlay">
             <span class="dest-badge">Tuyết Hương (中国雪乡)</span>
-            <div class="dest-photo-title">Mái Nhà Nấm Tuyết Cổ Tích</div>
-            <div class="dest-photo-sub">Lồng đèn đỏ rực rỡ trong sương tuyết</div>
+            <div class="dest-photo-title">8. Làng Tuyết Hương (Xuexiang)</div>
+            <div class="dest-photo-sub">Mái nhà nấm tuyết bồng bềnh & lồng đèn đỏ huyền thoại</div>
           </div>
         </div>
 
-        <!-- 3. Trượt Tuyết Á Bố Lực -->
+        <!-- 9. Trượt Tuyết Á Bố Lực -->
         <div class="dest-photo-card">
           <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=800&q=80" alt="Yabuli Ski Resort" loading="lazy">
           <div class="dest-photo-overlay">
             <span class="dest-badge">Á Bố Lực (亚布力)</span>
-            <div class="dest-photo-title">Đường Trượt Tuyết Dưới Rừng Thông</div>
-            <div class="dest-photo-sub">Thiên đường học trượt tuyết chuẩn quốc tế</div>
+            <div class="dest-photo-title">9. Trượt Tuyết Á Bố Lực (Yabuli)</div>
+            <div class="dest-photo-sub">Khu nghỉ dưỡng trượt tuyết chuẩn Olympic lớn nhất Trung Quốc</div>
           </div>
         </div>
 
-        <!-- 4. Ma Giới Rafting -->
+        <!-- 10. Ma Giới Rafting -->
         <div class="dest-photo-card">
-          <img src="https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=800&q=80" alt="Devils Drift Rime Rafting" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Devils Drift Rime Rafting" loading="lazy">
           <div class="dest-photo-overlay">
-            <span class="dest-badge">Ma Giới (魔界漂流)</span>
-            <div class="dest-photo-title">Chèo Thuyền Khói Sương & Vụ Băng</div>
-            <div class="dest-photo-sub">Dòng sông địa nhiệt không bao giờ đóng băng</div>
+            <span class="dest-badge">Trường Bạch (魔界漂流)</span>
+            <div class="dest-photo-title">10. Ma Giới Rafting Trên Băng</div>
+            <div class="dest-photo-sub">Chèo thuyền hơi trôi sương khói mờ ảo giữa rừng vũ băng -25°C</div>
           </div>
         </div>
 
-        <!-- 5. Tuyết Lĩnh Hoang Dã -->
+        <!-- 11. Núi Trường Bạch Thiên Trì -->
         <div class="dest-photo-card">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Xueling Reindeer" loading="lazy">
-          <div class="dest-photo-overlay">
-            <span class="dest-badge">Tuyết Lĩnh (雪岭)</span>
-            <div class="dest-photo-title">Rừng Tuyết Sâu & Tuần Lộc Cực Bắc</div>
-            <div class="dest-photo-sub">Tuyết dày 2m hoang sơ như xứ Lapland</div>
-          </div>
-        </div>
-
-        <!-- 6. Núi Trường Bạch Thiên Trì -->
-        <div class="dest-photo-card">
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Changbaishan Tianchi Crater" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Changbaishan Tianchi Crater Lake" loading="lazy">
           <div class="dest-photo-overlay">
             <span class="dest-badge">Trường Bạch Sơn (长白山)</span>
-            <div class="dest-photo-title">Hồ Miệng Núi Lửa Thiên Trì</div>
-            <div class="dest-photo-sub">Đỉnh thiêng 2.189m bao bọc 16 đỉnh tuyết</div>
+            <div class="dest-photo-title">11. Núi Trường Bạch - Thiên Trì</div>
+            <div class="dest-photo-sub">Hồ miệng núi lửa đóng băng linh thiêng trên đỉnh cao 2.189m</div>
           </div>
         </div>
 
-        <!-- 7. Tịnh Nguyệt Đàm Trường Xuân -->
+        <!-- 12. Tịnh Nguyệt Đàm Trường Xuân -->
         <div class="dest-photo-card">
           <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?auto=format&fit=crop&w=800&q=80" alt="Jingyuetan Changchun" loading="lazy">
           <div class="dest-photo-overlay">
             <span class="dest-badge">Trường Xuân (长春)</span>
-            <div class="dest-photo-title">Biển Rừng Thông Tịnh Nguyệt Đàm</div>
-            <div class="dest-photo-sub">Hồ băng 4.3km² và 100km² thông tuyết phủ</div>
-          </div>
-        </div>
-
-        <!-- 8. Thượng Hải The Bund -->
-        <div class="dest-photo-card">
-          <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="Shanghai The Bund Night" loading="lazy">
-          <div class="dest-photo-overlay">
-            <span class="dest-badge">Thượng Hải (Transit Đêm)</span>
-            <div class="dest-photo-title">Bến Thượng Hải & Lujiazui</div>
-            <div class="dest-photo-sub">Skyline tráng lệ soi bóng sông Hoàng Phố</div>
+            <div class="dest-photo-title">12. Biển Rừng Tịnh Nguyệt Đàm</div>
+            <div class="dest-photo-sub">Hồ băng 4.3km² và 100km² rừng thông tuyết phủ nguyên sinh</div>
           </div>
         </div>
       </div>
     </section>
 
-        <!-- SECTION: 4K VIDEO & SHORTS HIGHLIGHTS -->
+    <!-- SECTION 2: 4K VIDEO THEATER & YOUTUBE SHORTS -->
     <section id="video-theater">
       <div class="section-header">
         <span class="section-tag">Thước Phim Chuyển Động</span>
@@ -1682,12 +2056,12 @@
           <div class="video-now-playing">
             <span class="live-pulse"></span>
             <div>
-              <strong id="current-video-title" style="color:#fff; font-size:1.05rem;">[4K Drone] Thế Giới Băng Tuyết Cáp Nhĩ Tân: Toàn Cảnh & Pháo Hoa Giao Thừa</strong>
-              <div style="font-size:0.8rem; color:var(--text-muted);">Bấm chọn các clip bên dưới để đổi video tức thì không cần tải lại trang</div>
+              <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Đang phát clip:</span>
+              <div id="current-video-title" style="color:#fff; font-weight:700; font-size:1.05rem;">Băng Tuyết Đại Thế Giới Cáp Nhĩ Tân 4K Flycam</div>
             </div>
           </div>
           <div>
-            <a id="external-video-btn" href="https://www.youtube.com/watch?v=7HByqKqQQ5c" target="_blank" class="btn btn-outline" style="font-size:0.82rem; padding:6px 14px;">↗ Mở Trên YouTube Full HD</a>
+            <a id="external-video-btn" href="https://www.youtube.com/watch?v=7HByqKqQQ5c" target="_blank" class="short-link-btn" style="background:rgba(255,255,255,0.08);">Mở trên YouTube ↗</a>
           </div>
         </div>
 
@@ -1695,74 +2069,80 @@
         <h4 style="color:var(--accent-cyan); font-size:1rem; margin-top:18px;">📺 Danh Sách Video Highlight & Shorts (Bấm để xem):</h4>
         <div class="video-playlist-grid">
           <!-- Clip 1: Harbin Ice World -->
-          <div class="video-item-card active" onclick="switchVideo('7HByqKqQQ5c', '[4K Drone] Cáp Nhĩ Tân: Thế Giới Băng Tuyết & Pháo Hoa Giao Thừa', this, 'https://www.youtube.com/watch?v=7HByqKqQQ5c')">
+          <div class="video-item-card active" onclick="switchVideo('7HByqKqQQ5c', 'Băng Tuyết Đại Thế Giới Cáp Nhĩ Tân 4K Flycam', this, 'https://www.youtube.com/watch?v=7HByqKqQQ5c')">
             <div class="video-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=300&q=80" alt="Harbin Video">
-              <div class="thumb-play-btn">▶</div>
+              <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=400&q=70" alt="Harbin Ice World 4K">
+              <span class="video-duration">03:45</span>
             </div>
-            <div class="video-info">
-              <h5>1. Băng Tuyết Đại Thế Giới (Harbin)</h5>
-              <span>🛸 4K Drone • Pháo hoa Giao thừa</span>
+            <div class="video-item-info">
+              <span class="video-item-tag">Flycam 4K</span>
+              <h5>Cáp Nhĩ Tân Ice World</h5>
+              <p>Quang cảnh toàn cảnh lâu đài băng pha lê và máng trượt từ flycam trên cao.</p>
             </div>
           </div>
 
-          <!-- Clip 2: China Snow Town -->
-          <div class="video-item-card" onclick="switchVideo('hA42LR0Er6M', '[4K Drone] Làng Tuyết Hương: Mái Nấm Tuyết Bồng Bềnh & Phố Lồng Đèn Đỏ', this, 'https://www.youtube.com/watch?v=hA42LR0Er6M')">
+          <!-- Clip 2: Xuexiang Snow Town -->
+          <div class="video-item-card" onclick="switchVideo('hA42LR0Er6M', 'Làng Tuyết Hương (China Snow Town) Cổ Tích Flycam', this, 'https://www.youtube.com/watch?v=hA42LR0Er6M')">
             <div class="video-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=300&q=80" alt="Snow Town Video">
-              <div class="thumb-play-btn">▶</div>
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=70" alt="Xuexiang Drone">
+              <span class="video-duration">04:12</span>
             </div>
-            <div class="video-info">
-              <h5>2. Làng Tuyết Hương (Xuexiang)</h5>
-              <span>🍄 4K Drone • Mái nấm tuyết bồng bềnh</span>
+            <div class="video-item-info">
+              <span class="video-item-tag">Drone Cinematic</span>
+              <h5>Làng Tuyết Hương Tuyết Phủ</h5>
+              <p>Mái nhà nấm tuyết tròn múp míp và thung lũng tuyết bồng bềnh lúc hoàng hôn.</p>
             </div>
           </div>
 
           <!-- Clip 3: Changbaishan Tianchi -->
-          <div class="video-item-card" onclick="switchVideo('auYHEZVlGFY', '[4K Cinema] Núi Trường Bạch: Hồ Thiên Trì Miệng Núi Lửa & Thác Băng', this, 'https://www.youtube.com/watch?v=auYHEZVlGFY')">
+          <div class="video-item-card" onclick="switchVideo('auYHEZVlGFY', 'Đỉnh Núi Trường Bạch & Hồ Thiên Trì Mùa Đông', this, 'https://www.youtube.com/watch?v=auYHEZVlGFY')">
             <div class="video-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=300&q=80" alt="Changbaishan Video">
-              <div class="thumb-play-btn">▶</div>
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=70" alt="Changbaishan Tianchi">
+              <span class="video-duration">05:20</span>
             </div>
-            <div class="video-info">
-              <h5>3. Núi Trường Bạch (Thiên Trì)</h5>
-              <span>🏔️ 4K Cinema • Hồ miệng núi lửa 2.189m</span>
+            <div class="video-item-info">
+              <span class="video-item-tag">Kỳ Quan Tự Nhiên</span>
+              <h5>Hồ Thiên Trì Trường Bạch</h5>
+              <p>Hồ núi lửa đóng băng trắng muốt bao bọc bởi 16 đỉnh núi đá sừng sững.</p>
             </div>
           </div>
 
-          <!-- Clip 4: Devils Drift Rafting -->
-          <div class="video-item-card" onclick="switchVideo('SOTrrT6mO48', '[Vlog Thực Tế] Ma Giới Phiêu Lưu: Chèo Thuyền Khói Sương -25°C', this, 'https://www.youtube.com/watch?v=SOTrrT6mO48')">
+          <!-- Clip 4: Devils Drift Rime Rafting -->
+          <div class="video-item-card" onclick="switchVideo('SOTrrT6mO48', 'Ma Giới Rafting: Chèo Thuyền Khói Sương & Vụ Băng', this, 'https://www.youtube.com/watch?v=SOTrrT6mO48')">
             <div class="video-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=300&q=80" alt="Rime Rafting Video">
-              <div class="thumb-play-btn">▶</div>
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=70" alt="Ma Gioi Rafting">
+              <span class="video-duration">02:50</span>
             </div>
-            <div class="video-info">
-              <h5>4. Ma Giới Rafting (Devil's Drift)</h5>
-              <span>🚣 Chèo thuyền sương băng -25°C • Kèm Short Clip</span>
+            <div class="video-item-info">
+              <span class="video-item-tag">Trải Nghiệm Độc Bản</span>
+              <h5>Ma Giới Chèo Thuyền Sương Băng</h5>
+              <p>Thuyền cao su trôi lững lờ trên dòng sông địa nhiệt âm 25°C sương khói kỳ ảo.</p>
             </div>
           </div>
 
           <!-- Clip 5: Yabuli Ski Resort -->
-          <div class="video-item-card" onclick="switchVideo('BKAXWkI-ZbY', '[Action Cam & Drone] Trượt Tuyết Á Bố Lực: Lướt Ván Dưới Rừng Thông', this, 'https://www.youtube.com/watch?v=BKAXWkI-ZbY')">
+          <div class="video-item-card" onclick="switchVideo('BKAXWkI-ZbY', 'Trượt Tuyết Á Bố Lực (Yabuli Ski Resort) Nền Tảng', this, 'https://www.youtube.com/watch?v=BKAXWkI-ZbY')">
             <div class="video-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=300&q=80" alt="Yabuli Ski Video">
-              <div class="thumb-play-btn">▶</div>
+              <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=400&q=70" alt="Yabuli Skiing">
+              <span class="video-duration">03:30</span>
             </div>
-            <div class="video-info">
-              <h5>5. Sân Trượt Tuyết Á Bố Lực (Yabuli)</h5>
-              <span>⛷️ Action Cam POV & Drone đuổi dốc</span>
+            <div class="video-item-info">
+              <span class="video-item-tag">Thể Thao Mùa Đông</span>
+              <h5>Á Bố Lực Trượt Tuyết Rừng Thông</h5>
+              <p>Kỹ năng lướt ván và khung cảnh dốc tuyết bột tuyệt đẹp chuẩn Olympic.</p>
             </div>
           </div>
 
-          <!-- Clip 6: Boiling Water Freeze -->
-          <div class="video-item-card" onclick="switchVideo('xFXjH7sW_AY', '[Slow-Mo 240fps] Hiện Tượng Té Nước Sôi Thành Băng Tuyết Tức Thì', this, 'https://www.youtube.com/watch?v=xFXjH7sW_AY')">
+          <!-- Clip 6: Poshui Chengbing Slow-Mo -->
+          <div class="video-item-card" onclick="switchVideo('xFXjH7sW_AY', 'Nghi Thức Té Nước Sôi Hóa Băng Tuyết Slow-Motion', this, 'https://www.youtube.com/watch?v=xFXjH7sW_AY')">
             <div class="video-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=300&q=80" alt="Freezing Water Video">
-              <div class="thumb-play-btn">▶</div>
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=400&q=70" alt="Poshui Chengbing">
+              <span class="video-duration">01:45</span>
             </div>
-            <div class="video-info">
-              <h5>6. Té Nước Sôi Thành Băng (泼水成冰)</h5>
-              <span>❄️ Slow-Motion 240fps • Vũ điệu hoa tuyết</span>
+            <div class="video-item-info">
+              <span class="video-item-tag">Check-in Triệu View</span>
+              <h5>Té Nước Sôi Thành Băng Tuyết</h5>
+              <p>Quầng hoa tuyết phát quang bung tỏa trong nắng sớm âm 30 độ C siêu thực.</p>
             </div>
           </div>
         </div>
@@ -1784,7 +2164,7 @@
           </div>
           <div class="short-card-body">
             <div>
-              <span class="short-badge">🏰 Cáp Nhĩ Tân</span>
+              <span class="short-badge">🎢 Cáp Nhĩ Tân</span>
               <h5>Máng Trượt Băng Dài 500m Siêu Tốc</h5>
               <p>Trải nghiệm cảm giác mạnh ngồi phao trượt từ đỉnh lâu đài băng xuống lòng công viên.</p>
             </div>
@@ -1799,7 +2179,7 @@
           </div>
           <div class="short-card-body">
             <div>
-              <span class="short-badge">🎆 Băng Đăng Đêm</span>
+              <span class="short-badge">🏰 Băng Đăng Đêm</span>
               <h5>Băng Tuyết Thế Giới Rực Sáng</h5>
               <p>Cận cảnh các khối tháp băng pha lê đổi màu rực rỡ và vòng đu quay khổng lồ.</p>
             </div>
@@ -1829,9 +2209,9 @@
           </div>
           <div class="short-card-body">
             <div>
-              <span class="short-badge">🚣 Trường Bạch Sơn</span>
+              <span class="short-badge">🛶 Trường Bạch Sơn</span>
               <h5>Chèo Thuyền Sương Băng Ma Giới</h5>
-              <p>Thuyền cao su trôi trên dòng sông địa nhiệt ấm áp giữa rừng thông vụ băng ở -25°C.</p>
+              <p>Thuyền cao su trôi trên dòng sông địa nhiệt ấm áp giữa rừng thông vũ băng ở -25°C.</p>
             </div>
             <a href="https://www.youtube.com/shorts/Pcz2PjcUMpw" target="_blank" class="short-link-btn">↗ Xem trên YouTube Shorts</a>
           </div>
@@ -1854,376 +2234,319 @@
       </div>
     </section>
 
-    <!-- SECTION 2: GRAPHIC PREPARATION TIPS -->
+    <!-- SECTION 3: GRAPHIC PREPARATION TIPS -->
     <section id="visual-tips">
       <div class="section-header">
         <span class="section-tag">Infographic & Graphic Tips</span>
-        <h2 class="section-title">Cẩm Nang Chuẩn Bị Bằng Đồ Họa Trực Quan</h2>
-        <p class="section-desc">Những nguyên tắc vàng giúp bạn vượt qua nhiệt độ âm 35 độ C an toàn, bảo vệ đồ công nghệ và di chuyển thăng bằng trên băng.</p>
+        <h2 class="section-title">🎒 Graphic Tips Chuẩn Bị Cho Chuyến Đi Tuyết -30°C</h2>
+        <p class="section-desc">Hướng dẫn trực quan bằng graphic cards giúp bạn chuẩn bị trang phục, bảo quản thiết bị điện tử và sinh tồn an toàn trong cái lạnh khắc nghiệt.</p>
       </div>
 
       <div class="graphic-tips-grid">
-        <!-- Graphic 1: 3-Layer Thermal Anatomy -->
+        <!-- Tip 1: 3-Layer Warmth -->
         <div class="graphic-card">
-          <div class="badge-icon">🧥</div>
-          <h4>Sơ Đồ 3 Lớp Chống Lạnh (-35°C)</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">Quy tắc phân tầng nhiệt học giúp giữ ấm cơ thể tuyệt đối mà vẫn thoải mái vận động trượt tuyết.</p>
-          
-          <div class="layer-stack">
-            <div class="layer-row">
-              <div class="layer-num">L1</div>
-              <div class="layer-content">
-                <h6>Lớp Sát Da (Base Layer) • Thoát Ẩm</h6>
-                <p>Đồ lót giữ nhiệt Heattech Ultra Warm hoặc len Merino. <em>Không mặc cotton vì thấm mồ hôi gây nhiễm lạnh phổi!</em></p>
-              </div>
-            </div>
-            <div class="layer-row" style="border-left-color: var(--accent-gold);">
-              <div class="layer-num" style="color:var(--accent-gold);">L2</div>
-              <div class="layer-content">
-                <h6>Lớp Giữa (Mid Layer) • Khóa Nhiệt</h6>
-                <p>Áo nỉ lông cừu Fleece, áo len dày cổ lọ hoặc áo phao lông vũ siêu nhẹ (Light Down) tạo khoang bẫy khí ấm.</p>
-              </div>
-            </div>
-            <div class="layer-row" style="border-left-color: var(--accent-coral);">
-              <div class="layer-num" style="color:var(--accent-coral);">L3</div>
-              <div class="layer-content">
-                <h6>Lớp Ngoài Cùng (Outer Shell) • Cản Gió & Tuyết</h6>
-                <p>Áo khoác phao lông vũ chống thấm nước (chỉ số fill power 700+) có mũ trùm dày + Quần trượt tuyết chống thấm gió.</p>
-              </div>
-            </div>
+          <div class="graphic-icon-wrap" style="background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan);">
+            🧥
           </div>
-          <div style="font-size:0.8rem; color:var(--accent-emerald); margin-top:8px;">
-            👟 <strong>Phụ kiện dưới chân:</strong> Tất len dày + Miếng dán giữ nhiệt bàn chân + Giày đi tuyết lót lông cao cổ.
+          <h4>Quy Tắc Mặc 3 Lớp Chuẩn Bắc Cực</h4>
+          <p>Đừng mặc 1 chiếc áo quá dày! Bí quyết giữ ấm là bẫy các lớp không khí cách nhiệt giữa 3 lớp áo:</p>
+          <div class="layer-item">
+            <span class="layer-badge">LỚP 1 (SÁT DA)</span>
+            <div><strong>Thấm hút & Giữ nhiệt:</strong> Đồ lót giữ nhiệt công nghệ cao (Heattech Ultra Warm / Len Merino). Tuyệt đối tránh cotton vì giữ mồ hôi gây nhiễm lạnh.</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge">LỚP 2 (CÁCH NHIỆT)</span>
+            <div><strong>Giữ ấm cốt lõi:</strong> Áo len cổ lọ dày, áo nỉ lông cừu (fleece) hoặc áo khoác lông vũ mỏng nhẹ (Down jacket 800+ fill power).</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge">LỚP 3 (CHỐNG GIÓ)</span>
+            <div><strong>Khiên bảo vệ:</strong> Áo khoác phao dáng dài có mũ viền lông chống gió tuyết + Quần trượt tuyết chống thấm nước Gore-Tex.</div>
           </div>
         </div>
 
-        <!-- Graphic 2: Penguin Walk on Ice -->
+        <!-- Tip 2: Penguin Walk Technique -->
         <div class="graphic-card">
-          <div class="badge-icon">🐧</div>
-          <h4>"Dáng Đi Chim Cánh Cụt" Trên Băng</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">Mặt sông Tùng Hoa và lối đi Tuyết Hương đóng băng siêu trơn. Tuyệt đối đi đúng kỹ thuật để tránh ngã trượt chấn thương!</p>
-
-          <div class="penguin-visual">
-            <div class="penguin-step">
-              <span class="emoji">🦶</span>
-              <div><strong>Tiếp xúc trọn lòng bàn chân:</strong> Đặt cả bàn chân phẳng xuống đất, tuyệt đối không tiếp đất bằng gót chân trước.</div>
-            </div>
-            <div class="penguin-step">
-              <span class="emoji">📐</span>
-              <div><strong>Hạ thấp trọng tâm:</strong> Hơi chùng đầu gối, nghiêng nhẹ người về phía trước, bước những bước ngắn 20-30cm.</div>
-            </div>
-            <div class="penguin-step">
-              <span class="emoji">👐</span>
-              <div><strong>Hai tay để tự do bên ngoài:</strong> Không đút hai tay vào túi áo khoác để giữ thăng bằng phản xạ khi mất đà.</div>
-            </div>
-            <div class="penguin-step">
-              <span class="emoji">⚙️</span>
-              <div><strong>Vũ khí bí mật:</strong> Gắn bộ đế đinh cao su (Ice Spikes / Crampons mua 10 tệ) vào đáy giày khi đi dạo.</div>
-            </div>
+          <div class="graphic-icon-wrap" style="background: rgba(6, 214, 160, 0.15); color: var(--accent-emerald);">
+            🐧
+          </div>
+          <h4>Kỹ Thuật "Dáng Đi Chim Cánh Cụt"</h4>
+          <p>Đường phố Cáp Nhĩ Tân và Tuyết Hương bị nén thành lớp băng đen (Black Ice) trơn như gương! Để không bị trượt ngã:</p>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald);">TRỌNG TÂM</span>
+            <div>Hơi ngả người về phía trước, giữ trọng tâm cơ thể dồn thẳng lên bàn chân tiếp đất (không ngửa người ra sau).</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald);">BƯỚC CHÂN</span>
+            <div>Bước những bước ngắn, mũi chân hơi bẹt ra ngoài hình chữ V, tiếp đất bằng cả bàn chân phẳng thay vì dẫm bằng gót.</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(6, 214, 160, 0.2); color: var(--accent-emerald);">GIÀY & ĐẾ ĐINH</span>
+            <div>Mang giày cổ cao lót lông ấm, mua thêm bộ đế đinh gai chống trượt cao su (Crampons đinh ~15 RMB) gắn vào đế giày khi đi đường băng.</div>
           </div>
         </div>
 
-        <!-- Graphic 3: Cold Electronics Protection -->
+        <!-- Tip 3: Device Survival in Extreme Cold -->
         <div class="graphic-card">
-          <div class="badge-icon">🔋</div>
-          <h4>Bí Quyết Bảo Vệ Điện Thoại & Flycam</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">Nhiệt độ âm 20°C - 35°C là "kẻ thù số 1" của pin Lithium và thấu kính quang học.</p>
+          <div class="graphic-icon-wrap" style="background: rgba(255, 209, 102, 0.15); color: var(--accent-gold);">
+            🔋
+          </div>
+          <h4>Cứu Điện Thoại & Camera Khỏi Sập Nguồn</h4>
+          <p>Pin Lithium ở -30°C giảm hơn 70% hiệu suất điện hóa, iPhone có thể sập nguồn trong 60 giây khi đưa ra ngoài gió:</p>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(255, 209, 102, 0.2); color: var(--accent-gold);">DÁN GIỮ NHIỆT</span>
+            <div>Dán 1 miếng giữ nhiệt ấm (Body warmer patch) vào lưng ốp điện thoại hoặc ốp máy ảnh để duy trì nguồn nhiệt liên tục.</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(255, 209, 102, 0.2); color: var(--accent-gold);">TÚI ÁO TRONG</span>
+            <div>Chụp xong lập tức cất điện thoại vào túi áo ngực trong cùng (nơi hấp thụ nhiệt độ 37°C của cơ thể). Luôn mang theo pin sạc dự phòng trong túi áo ấm.</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(255, 209, 102, 0.2); color: var(--accent-gold);">CHỐNG NGƯNG TỤ</span>
+            <div>Trước khi bước từ trời lạnh vào phòng sưởi ấm, cho máy ảnh/flycam vào túi zip nilon kín 30 phút để hơi nước không đọng vào bo mạch và ống kính.</div>
+          </div>
+        </div>
 
-          <ul style="padding-left:18px; font-size:0.85rem; color:#dae4f5; line-height:1.6;">
-            <li><strong>Dán miếng giữ nhiệt sau ốp điện thoại:</strong> Ngăn iPhone/Android tụt pin từ 80% về 0% sập nguồn trong 3 phút.</li>
-            <li><strong>Pin Flycam để trong túi áo sát người:</strong> Thân nhiệt 37°C giữ ấm pin sẵn sàng cất cánh an toàn.</li>
-            <li><strong>Quy tắc túi zip 30 phút (Chống đọng sương):</strong> Khi từ ngoài trời âm bước vào phòng ấm có lò sưởi, máy ảnh bị đọng sương mù mịt. Bọc máy ảnh/drone vào túi zip kín trước khi bước vào phòng, để nguyên 30 phút cho cân bằng nhiệt!</li>
-            <li><strong>Sạc dự phòng hàng không:</strong> Dung lượng dưới 20.000mAh (dưới 100Wh) có in rõ thông số công suất trên vỏ để qua an ninh sân bay TQ.</li>
-          </ul>
+        <!-- Tip 4: Specialty Spots Tips (Tiger Park & Volga Manor) -->
+        <div class="graphic-card">
+          <div class="graphic-icon-wrap" style="background: rgba(239, 71, 111, 0.15); color: var(--accent-coral);">
+            🏰
+          </div>
+          <h4>Mẹo Tham Quan Volga Manor & Công Viên Hổ</h4>
+          <p>Bí quyết để trải nghiệm trọn vẹn và an toàn tại các điểm tham quan độc đáo của Cáp Nhĩ Tân:</p>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(239, 71, 111, 0.2); color: var(--accent-coral);">VOLGA MANOR</span>
+            <div>Nên đến từ 09:00 để chụp ảnh kiến trúc lâu đài với ánh nắng ban mai tinh khiết. Trải nghiệm máng trượt tuyết từ nóc lâu đài và ghé quán bar băng uống vodka trong ly băng thật!</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(239, 71, 111, 0.2); color: var(--accent-coral);">CÔNG VIÊN HỔ</span>
+            <div>Chọn loại vé xe lồng bọc thép đặc chủng (惊险车 - Jingxian Che) để xe đi thẳng vào giữa bầy hổ hoang dã. Chuẩn bị ống kính tele hoặc điện thoại zoom 3x-5x để bắt trọn cảnh hổ vồ mồi trên tuyết.</div>
+          </div>
+          <div class="layer-item">
+            <span class="layer-badge" style="background: rgba(239, 71, 111, 0.2); color: var(--accent-coral);">ĐẢO MẶT TRỜ</span>
+            <div>Triển lãm Tuyết Bác Hội có tượng tuyết trắng tinh khiết, hãy bật giảm sáng EV -0.3 đến -0.7 để ảnh chụp không bị cháy sáng mất chi tiết điêu khắc.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: COUPLE OUTFIT & COLOR PALETTES -->
+    <!-- SECTION 4: COUPLE OUTFIT LOOKBOOK -->
     <section id="outfit-lookbook">
       <div class="section-header">
-        <span class="section-tag">Fashion Lookbook</span>
-        <h2 class="section-title">Gợi Ý Outfit Mùa Đông & Bảng Phối Màu Couple</h2>
-        <p class="section-desc">Trên nền tuyết trắng tinh khôi, sự kết hợp trang phục hài hòa của hai bạn sẽ biến mỗi bức ảnh kỷ niệm thành trang bìa tạp chí thời trang.</p>
+        <span class="section-tag">Lookbook Mùa Đông</span>
+        <h2 class="section-title">👗 Gợi Ý Outfit Mùa Đông & Bảng Phối Màu Couple</h2>
+        <p class="section-desc">Phối màu trang phục đôi hài hòa, ăn ảnh trên nền tuyết trắng tinh khôi và nổi bật giữa các kỳ quan lâu đài băng đăng.</p>
       </div>
 
       <div class="lookbook-grid">
-        <!-- Palette 1: Xmas & Cranberry -->
-        <div class="outfit-card">
-          <div class="outfit-img-wrap">
-            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" alt="Couple in snow" loading="lazy">
+        <!-- Palette 1: White & Pastel Ice -->
+        <div class="lookbook-card">
+          <div class="palette-swatches">
+            <span class="swatch" style="background:#ffffff;" title="Trắng Tuyết"></span>
+            <span class="swatch" style="background:#d8f3dc;" title="Xanh Băng Nhạt"></span>
+            <span class="swatch" style="background:#a7c957;" title="Xanh Xô Thơm"></span>
+            <span class="swatch" style="background:#495057;" title="Xám Tro Đậm"></span>
           </div>
-          <div class="outfit-body">
-            <div class="outfit-palette">
-              <span class="swatch" style="background:#b7094c;"></span>
-              <span class="swatch" style="background:#f8f9fa;"></span>
-              <span class="swatch" style="background:#2b2d42;"></span>
-            </div>
-            <h4>1. "Xmas & Cranberry" (Đỏ Rực & Trắng Kem)</h4>
-            <p><strong>Nữ:</strong> Áo khoác phao dáng dài màu Đỏ Noel hoặc Đỏ Rượu Vang, mũ len trắng kem quả bông, khăn quàng to bản.<br>
-            <strong>Nam:</strong> Áo khoác phao màu Xanh Navy hoặc Đen than, nhấn khăn quàng len sọc caro đỏ-trắng.<br>
-            ✨ <em>Hiệu ứng:</em> Nổi bần bật trên nền tuyết trắng Tuyết Hương và đèn lồng đỏ đêm Giao Thừa!</p>
-          </div>
-        </div>
-
-        <!-- Palette 2: Nordic Minimalist -->
-        <div class="outfit-card">
-          <div class="outfit-img-wrap">
-            <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80" alt="Nordic Snow Style" loading="lazy">
-          </div>
-          <div class="outfit-body">
-            <div class="outfit-palette">
-              <span class="swatch" style="background:#c68b59;"></span>
-              <span class="swatch" style="background:#f4ece1;"></span>
-              <span class="swatch" style="background:#2d4030;"></span>
-            </div>
-            <h4>2. "Nordic Earth Tone" (Nâu Camel & Be Sữa)</h4>
-            <p><strong>Tone chủ đạo:</strong> Màu nâu lạc đà (Camel), be ấm áp, xanh rêu rừng thông và trắng sữa.<br>
-            <strong>Phong cách:</strong> Áo khoác dạ cừu có lót lông cổ áo, quần nỉ ống suông ấm áp, bịt tai lông xù.<br>
-            ✨ <em>Hiệu ứng:</em> Sang trọng, vintage cổ điển kiểu Bắc Âu, cực kỳ ăn khớp với cảnh rừng tuần lộc Tuyết Lĩnh và ga tàu Trường Xuân.</p>
+          <div class="lookbook-body">
+            <span class="lookbook-style-tag">Phong Cách 1: Tinh Khôi Cổ Tích</span>
+            <h4>White & Pastel Mint Couple</h4>
+            <p><strong>Nữ:</strong> Áo khoác phao lông vũ màu trắng ngà hoặc xanh ngọc pastel, mũ len lông cừu trắng tinh, bịt tai lông xù.<br>
+            <strong>Nam:</strong> Áo phao lông vũ xám tro hoặc xanh pastel đồng điệu, khăn len dệt kim to bản.<br>
+            <strong>Hiệu ứng:</strong> Tạo cảm giác thanh lịch, trong trẻo như hai nhân vật bước ra từ bộ phim ngôn tình mùa đông tại Làng Tuyết Hương.</p>
           </div>
         </div>
 
-        <!-- Palette 3: Ski Sport Neon & Cobalt -->
-        <div class="outfit-card">
-          <div class="outfit-img-wrap">
-            <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=800&q=80" alt="Ski outfit" loading="lazy">
+        <!-- Palette 2: High Contrast Red -->
+        <div class="lookbook-card">
+          <div class="palette-swatches">
+            <span class="swatch" style="background:#d90429;" title="Đỏ Rực"></span>
+            <span class="swatch" style="background:#ef233c;" title="Đỏ Cờ"></span>
+            <span class="swatch" style="background:#2b2d42;" title="Xanh Đen Navy"></span>
+            <span class="swatch" style="background:#ffffff;" title="Trắng"></span>
           </div>
-          <div class="outfit-body">
-            <div class="outfit-palette">
-              <span class="swatch" style="background:#0077b6;"></span>
-              <span class="swatch" style="background:#ff7b00;"></span>
-              <span class="swatch" style="background:#00f2fe;"></span>
-            </div>
-            <h4>3. "Ski Sport Neon" (Xanh Cobalt & Cam Rực)</h4>
-            <p><strong>Trang phục trượt tuyết:</strong> Đồ trượt tuyết form thể thao hiện đại, một người tone Xanh Cobalt mạnh mẽ, một người tone Cam Neon hoặc Vàng tươi.<br>
-            <strong>Phụ kiện:</strong> Kính trượt tuyết tráng gương đa sắc phản chiếu ánh mặt trời.<br>
-            ✨ <em>Hiệu ứng:</em> Giúp máy quay flycam và camera hành trình dễ dàng nhận diện và khóa nét bắt trọn từng cú trượt tốc độ cao.</p>
+          <div class="lookbook-body">
+            <span class="lookbook-style-tag">Phong Cách 2: Tương Phản Triệu View</span>
+            <h4>Bold Red & Deep Navy Accent</h4>
+            <p><strong>Nữ:</strong> Áo dạ đỏ rực hoặc áo choàng đỏ viền lông trắng tuyết, mũ beret đỏ hoặc khăn quàng len đỏ thắm nổi bật.<br>
+            <strong>Nam:</strong> Áo phao dày màu xanh đen (Navy) hoặc đen tuyền kết hợp khăn quàng đỏ đôi với bạn gái.<br>
+            <strong>Hiệu ứng:</strong> Màu đỏ tạo sự tương phản cực mạnh với nền tuyết trắng xóa và rừng thông, máy ảnh bắt nét siêu đẹp từ khoảng cách xa!</p>
           </div>
         </div>
 
-        <!-- Palette 4: Russian Retro Chic -->
-        <div class="outfit-card">
-          <div class="outfit-img-wrap">
-            <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80" alt="Russian Winter Style" loading="lazy">
+        <!-- Palette 3: Royal Russian Winter (Volga Manor & Saint Sophia) -->
+        <div class="lookbook-card">
+          <div class="palette-swatches">
+            <span class="swatch" style="background:#582f0e;" title="Nâu Da Bò"></span>
+            <span class="swatch" style="background:#7f4f24;" title="Nâu Caramel"></span>
+            <span class="swatch" style="background:#ede0d4;" title="Beige Kem"></span>
+            <span class="swatch" style="background:#1b263b;" title="Xanh Đen"></span>
           </div>
-          <div class="outfit-body">
-            <div class="outfit-palette">
-              <span class="swatch" style="background:#3a0ca3;"></span>
-              <span class="swatch" style="background:#8338ec;"></span>
-              <span class="swatch" style="background:#ffd166;"></span>
-            </div>
-            <h4>4. "Russian Retro Chic" (Đông Âu & Mũ Lông Ushanka)</h4>
-            <p><strong>Điểm nhấn:</strong> Mũ lông Nga Ushanka có vạt che tai lông dày, áo khoác măng tô lót lông cừu, bốt da cao cổ lót nỉ.<br>
-            <strong>Phụ kiện couple:</strong> Cốc cà phê giữ nhiệt kim loại bốc khói, kem que Madieer.<br>
-            ✨ <em>Hiệu ứng:</em> Check-in hoàn hảo trước Nhà thờ Thánh Sophia và dãy phố Baroque cổ kính Cáp Nhĩ Tân.</p>
+          <div class="lookbook-body">
+            <span class="lookbook-style-tag">Phong Cách 3: Quý Tộc Cổ Điển Nga</span>
+            <h4>Vintage Caramel & Wool Coat</h4>
+            <p><strong>Nữ:</strong> Áo măng tô dạ màu camel / be kem dáng dài, khăn choàng len cashmere họa tiết cổ điển, mũ nồi beret.<br>
+            <strong>Nam:</strong> Áo khoác dạ nâu đậm cổ lông, găng tay da màu nâu cà phê, giày bốt da phong trần.<br>
+            <strong>Hiệu ứng:</strong> Check-in cực kỳ sang trọng tại Nhà thờ Thánh Sophia, Phố Cổ Trung Ương và Trang viên Volga như quý tộc châu Âu.</p>
+          </div>
+        </div>
+
+        <!-- Palette 4: Sporty Ski Duo -->
+        <div class="lookbook-card">
+          <div class="palette-swatches">
+            <span class="swatch" style="background:#ffb703;" title="Vàng Neon"></span>
+            <span class="swatch" style="background:#fb8500;" title="Cam Năng Động"></span>
+            <span class="swatch" style="background:#023047;" title="Xanh Thẫm"></span>
+            <span class="swatch" style="background:#219ebc;" title="Xanh Biển Sáng"></span>
+          </div>
+          <div class="lookbook-body">
+            <span class="lookbook-style-tag">Phong Cách 4: Năng Động Trượt Tuyết</span>
+            <h4>Vibrant Sporty Ski Couple</h4>
+            <p><strong>Nữ:</strong> Bộ đồ trượt tuyết màu cam neon hoặc vàng rực, kính trượt tuyết gương tráng cầu vồng (goggle), mũ bảo hiểm trắng.<br>
+            <strong>Nam:</strong> Bộ đồ trượt tuyết phối màu xanh cobalt / cam, kính trượt tuyết tráng gương titan phản quang.<br>
+            <strong>Hiệu ứng:</strong> Đem lại năng lượng trẻ trung bùng nổ trong các cảnh quay flycam tốc độ cao và camera hành trình tại Á Bố Lực & Trường Bạch.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: COUPLE PHOTOGRAPHY PLAYBOOK -->
+    <!-- SECTION 5: COUPLE PHOTOGRAPHY PLAYBOOK -->
     <section id="photo-ideas">
       <div class="section-header">
         <span class="section-tag">Playbook Sống Ảo Triệu View</span>
-        <h2 class="section-title">6 Ý Tưởng Chụp Ảnh & Video Couple Check-In Để Đời</h2>
+        <h2 class="section-title">📸 6 Ý Tưởng Chụp Ảnh & Video Couple Check-In Để Đời</h2>
         <p class="section-desc">Gợi ý cách tạo dáng (pose), thông số cài đặt camera, góc chụp điện ảnh và khung giờ vàng săn ánh sáng huyền diệu.</p>
       </div>
 
       <div class="photo-idea-grid">
-        <!-- Idea 1: Poshui Chengbing -->
-        <div class="photo-idea-card">
-          <div class="photo-preview">
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Water freeze effect" loading="lazy">
-            <span class="photo-tag-pill">🔥 VIRAL SỐ 1</span>
-          </div>
-          <div class="photo-idea-content">
-            <div>
-              <h4>1. Té Nước Sôi Thành Băng Tuyết (泼水成冰)</h4>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                Đứng cạnh nhau lúc bình minh (06:30 - 07:15) khi ánh nắng vàng xuyên qua lớp sương sớm. Cả hai cùng cầm cốc nước sôi 90°C vung tay vòng tròn qua đầu ngược chiều kim đồng hồ. Nước sôi lập tức đóng băng thành hàng nghìn quầng sáng phát quang bung tỏa như đuôi công xòe cánh!
-              </p>
-            </div>
-            <div class="photo-specs">
-              <div><strong>Góc chụp:</strong> Ngược sáng (Backlight) hạ góc thấp</div>
-              <div><strong>Thông số:</strong> 1/2000s hoặc Slow-mo 240fps</div>
-            </div>
+        <!-- Pose 1: Boiling Water to Ice -->
+        <div class="photo-card">
+          <div class="pose-step-badge">POSE 1 • VIRAL HOÁ BĂNG</div>
+          <h4>Té Nước Sôi Thành Quầng Tuyết Đôi</h4>
+          <p class="pose-desc">Hai bạn đứng cạnh nhau quay lưng về phía mặt trời mọc (ngược sáng), mỗi người cầm 1 bình giữ nhiệt chứa nước sôi 90°C. Cùng lúc vung tay theo hình vòng cung từ dưới lên trên qua đầu.</p>
+          <div class="camera-tip">
+            <strong>Thông số camera:</strong> Bật chế độ Slow-Motion 120fps/240fps trên iPhone/Android, khóa nét vào người, chọn góc chụp thấp để lấy trọn vẹn quầng hoa tuyết bung tỏa trên nền trời xanh thẫm.
           </div>
         </div>
 
-        <!-- Idea 2: Snow Angels & Trail Dash -->
-        <div class="photo-idea-card">
-          <div class="photo-preview">
-            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Snow Angels Drone" loading="lazy">
-            <span class="photo-tag-pill">🛸 FLYCAM TOP-DOWN</span>
-          </div>
-          <div class="photo-idea-content">
-            <div>
-              <h4>2. Thiên Thần Tuyết & Nắm Tay Chạy Xuyên Rừng</h4>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                Tại Tuyết Lĩnh, chọn dốc tuyết bột tinh khôi chưa có dấu chân người. Cả hai cùng nằm ngửa quạt tay chân tạo cánh thiên thần tuyết; hoặc nắm tay nhau vừa chạy vừa cười, lớp tuyết champagne bay tung tóe dưới ánh nắng trưa rực rỡ.
-              </p>
-            </div>
-            <div class="photo-specs">
-              <div><strong>Góc chụp:</strong> Flycam 90° Top-down kéo xa dần</div>
-              <div><strong>Khoảnh khắc:</strong> Nắng sớm 09:30 - 11:00</div>
-            </div>
+        <!-- Pose 2: Snowflake Fairy in Snow Town -->
+        <div class="photo-card">
+          <div class="pose-step-badge">POSE 2 • CỔ TÍCH TUYẾT HƯƠNG</div>
+          <h4>Nắm Tay Nhìn Nhau Dưới Mái Nấm Tuyết</h4>
+          <p class="pose-desc">Đứng trên sàn gỗ Bổng Chùy Sơn lúc hoàng hôn 16:30 khi các dãy đèn lồng đỏ đồng loạt bật sáng. Bạn trai đứng ôm nhẹ eo bạn gái từ phía sau, cả hai cùng nhìn xuống thung lũng tuyết bồng bềnh.</p>
+          <div class="camera-tip">
+            <strong>Góc máy:</strong> Chụp tele 2x - 3x (tiêu cự 50mm-85mm) tạo hiệu ứng xóa phông mịt mù, làm các đốm đèn lồng đỏ phía sau biến thành những vòng tròn bokeh lấp lánh lung linh.
           </div>
         </div>
 
-        <!-- Idea 3: Blue Hour Snow Town -->
-        <div class="photo-idea-card">
-          <div class="photo-preview">
-            <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Blue hour cabin" loading="lazy">
-            <span class="photo-tag-pill">🌆 GIỜ XANH HUYỀN ẢO</span>
-          </div>
-          <div class="photo-idea-content">
-            <div>
-              <h4>3. Mái Nhà Cổ Tích Lồng Đèn Đỏ (Giờ Xanh)</h4>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                Đứng trên sàn gỗ Bổng Chùy Sơn nhìn xuống thung lũng Tuyết Hương đúng 16:30 khi trời chạng vạng chuyển màu xanh thẫm (Blue Hour) và tất cả dãy đèn lồng đỏ đồng loạt bật sáng. Hai bạn đứng tựa vào nhau, ngắm nhìn ngôi làng ấm áp bốc khói lam chiều.
-              </p>
-            </div>
-            <div class="photo-specs">
-              <div><strong>Góc chụp:</strong> Góc rộng 24mm bao trọn thung lũng</div>
-              <div><strong>Bí quyết:</strong> Bật chế độ chụp đêm Night Mode</div>
-            </div>
+        <!-- Pose 3: Parallel Skiing Follow-Cam -->
+        <div class="photo-card">
+          <div class="pose-step-badge">POSE 3 • XÉ GIÓ TRƯỢT TUYẾT</div>
+          <h4>Cú Lướt Song Song Cùng Gậy Selfie Tàng Hình</h4>
+          <p class="pose-desc">Hai bạn trượt song song nhau ở khoảng cách 1.5 mét trên dốc tuyết thoai thoải giữa rừng thông. Bạn trai cầm camera Insta360 hoặc gậy selfie kéo dài hướng về phía trước bắt trọn biểu cảm phấn khích của cả hai.</p>
+          <div class="camera-tip">
+            <strong>Kỹ thuật:</strong> Chọn chế độ 5.7K 30fps hoặc 4K 60fps để bắt trọn từng hạt tuyết bắn tung tóe dưới mũi ván trượt khi hai bạn cùng rẽ ngoặt theo hình chữ S.
           </div>
         </div>
 
-        <!-- Idea 4: Devil's Drift Mist Rafting -->
-        <div class="photo-idea-card">
-          <div class="photo-preview">
-            <img src="https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=800&q=80" alt="Rime Rafting Mist" loading="lazy">
-            <span class="photo-tag-pill">🚣 PHIM ĐIỆN ẢNH</span>
-          </div>
-          <div class="photo-idea-content">
-            <div>
-              <h4>4. Thuyền Trôi Giữa Sông Sương Băng Ma Giới</h4>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                Ngồi trên thuyền cao su trôi lững lờ trên dòng nước ấm giữa trời âm 25°C. Hơi nước bốc lên bảng lảng, hai bên bờ là rặng thông bọc sương muối trắng toát. Một người chèo nhẹ, một người đưa tay chạm cành cây đóng băng rủ xuống mặt nước.
-              </p>
-            </div>
-            <div class="photo-specs">
-              <div><strong>Góc chụp:</strong> Flycam lướt trên làn khói mờ ảo</div>
-              <div><strong>Thời gian:</strong> 06:45 - 07:45 sáng sớm</div>
-            </div>
+        <!-- Pose 4: Hot Spring Falling Snow -->
+        <div class="photo-card">
+          <div class="pose-step-badge">POSE 4 • SUỐI NƯỚC NÓNG THẦN TIÊN</div>
+          <h4>Ngâm Onsen Khói Mù Giữa Trời Tuyết Rơi</h4>
+          <p class="pose-desc">Tại bể khoáng nóng ngoài trời ở Nhị Đạo Bạch Hà, ngâm mình trong làn nước ấm 42°C nghi ngút khói, hai bạn tựa vào mép đá phủ tuyết, nâng ly trà gừng nóng cụng ly giữa lúc tuyết đang rơi lất phất trên mái tóc.</p>
+          <div class="camera-tip">
+            <strong>Lưu ý:</strong> Bọc điện thoại bằng túi chống nước chuyên dụng, chụp ngược sáng qua làn khói bốc lên để tạo cảm giác mờ ảo thần tiên như đang ở suối nước nóng Nhật Bản.
           </div>
         </div>
 
-        <!-- Idea 5: Ski Slope Romance -->
-        <div class="photo-idea-card">
-          <div class="photo-preview">
-            <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=800&q=80" alt="Ski Slope Couple" loading="lazy">
-            <span class="photo-tag-pill">⛷️ COUPLE TRƯỢT TUYẾT</span>
-          </div>
-          <div class="photo-idea-content">
-            <div>
-              <h4>5. Chạm Gậy Trượt Tuyết Trên Đỉnh Dốc Núi</h4>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                Đứng cạnh nhau trên đỉnh dốc trượt tuyết Trường Bạch Sơn hoặc Á Bố Lực. Hai đôi ván trượt xếp thành hình chữ V khép góc, hai bạn đeo kính trượt tuyết tráng gương soi bóng bầu trời xanh, cụng hai đầu gậy trượt tuyết vào nhau ăn mừng hoàn thành cú trượt!
-              </p>
-            </div>
-            <div class="photo-specs">
-              <div><strong>Góc chụp:</strong> Góc thấp từ chân ván hất lên</div>
-              <div><strong>Thiết bị:</strong> Action Cam / Gậy 360 tàng hình</div>
-            </div>
+        <!-- Pose 5: Snow Angel in Deep Wilderness -->
+        <div class="photo-card">
+          <div class="pose-step-badge">POSE 5 • HOANG DÃ NGUYÊN SINH</div>
+          <h4>Thiên Thần Tuyết & Flycam Top-Down 90°</h4>
+          <p class="pose-desc">Tại bãi tuyết trắng nguyên sơ dày 2 mét ở Tuyết Lĩnh, hai bạn nằm ngửa trên tuyết và vung tay chân tạo hình "Thiên Thần Tuyết" (Snow Angel), sau đó nắm tay nhau mỉm cười nhìn thẳng lên trời cao.</p>
+          <div class="camera-tip">
+            <strong>Flycam:</strong> Cho drone bay vuông góc 90° hướng thẳng xuống (Top-down) ở độ cao 15 mét, sau đó bấm nút bay thẳng lên cao dần (Rocket shot) để mở rộng khung cảnh rừng tuyết bao la vô tận.
           </div>
         </div>
 
-        <!-- Idea 6: Retro Green Tram Line 54 -->
-        <div class="photo-idea-card">
-          <div class="photo-preview">
-            <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=80" alt="Retro Tram Winter" loading="lazy">
-            <span class="photo-tag-pill">🚋 HOÀI NIỆM ĐIỆN ẢNH</span>
-          </div>
-          <div class="photo-idea-content">
-            <div>
-              <h4>6. Đợi Chuyến Tàu Điện 54 Giữa Trời Tuyết Rơi</h4>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                Tại trạm xe điện cổ Trường Xuân, hai người đứng chung một chiếc ô trong suốt, quấn chung một chiếc khăn len to bản. Phía sau lưng là toa tàu điện màu xanh hoài niệm lướt tới qua hàng cây tuyết rơi trắng xóa, mang đậm hơi thở bộ phim truyền hình nổi tiếng.
-              </p>
-            </div>
-            <div class="photo-specs">
-              <div><strong>Góc chụp:</strong> Chân dung tiêu cự 50mm - 85mm</div>
-              <div><strong>Bí quyết:</strong> Ô trong suốt bắt tuyết rơi rất thơ</div>
-            </div>
+        <!-- Pose 6: Russian Castle Romance -->
+        <div class="photo-card">
+          <div class="pose-step-badge">POSE 6 • HOÀNG GIA CHÂU ÂU</div>
+          <h4>Dạo Bước Bên Lâu Đài Volga Manor & Sophia</h4>
+          <p class="pose-desc">Hai bạn khoác áo dạ thanh lịch, tay cầm ly cà phê nóng bốc khói, cùng dạo bước bên lâu đài Pavlov hoặc trước cổng Nhà thờ Thánh Sophia với đàn chim bồ câu trắng bay lượn trên nền trời tuyết.</p>
+          <div class="camera-tip">
+            <strong>Bí quyết:</strong> Mua 1 túi hạt ngô cho bồ câu (10 RMB), tung nhẹ lên cao để đàn chim sà xuống quanh hai bạn đúng lúc bấm chụp liên tục (Burst mode) bắt trọn khoảnh khắc tự nhiên nhất!
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: DETAILED 12-DAY ITINERARY -->
+    <!-- SECTION 6: DETAILED 12-DAY TIMELINE -->
     <section id="itinerary">
       <div class="section-header">
-        <span class="section-tag">Lịch Trình Chi Tiết</span>
-        <h2 class="section-title">Hành Trình 12 Ngày 11 Đêm Thực Tế</h2>
-        <p class="section-desc">Bấm vào từng ngày để xem ảnh minh họa, mốc giờ chi tiết, địa điểm bay flycam, giáo trình trượt tuyết và hướng dẫn phương tiện công cộng.</p>
+        <span class="section-tag">Hành Trình Chi Tiết</span>
+        <h2 class="section-title">Lịch Trình 12 Ngày 11 Đêm Thực Tế & Tối Ưu</h2>
+        <p class="section-desc">Lồng ghép hoàn hảo 8 kỳ quan trọng điểm, tối ưu chi phí công cộng, học trượt tuyết 2 buổi và bảo tồn thể lực tốt nhất.</p>
       </div>
 
-      <!-- Category Filter -->
+      <!-- Category Filter Buttons -->
       <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterDays('all')">Toàn bộ 12 Ngày</button>
+        <button class="filter-btn active" onclick="filterDays('all')">✨ Toàn Bộ 12 Ngày</button>
         <button class="filter-btn" onclick="filterDays('ski')">⛷️ Ngày Có Trượt Tuyết</button>
-        <button class="filter-btn" onclick="filterDays('drone')">🛸 Tọa Độ Săn Flycam Đỉnh</button>
-        <button class="filter-btn" onclick="filterDays('transit')">🚄 Ngày Di Chuyển Liên Tỉnh</button>
+        <button class="filter-btn" onclick="filterDays('drone')">🛸 Tọa Độ Bay Flycam Đỉnh</button>
+        <button class="filter-btn" onclick="filterDays('transit')">🚆 Ngày Di Chuyển Liên Tỉnh</button>
       </div>
 
-      <div class="days-list">
+      <div class="timeline-container">
 
         <!-- DAY 1 -->
-        <div class="day-card open highlight" data-category="transit">
+        <div class="day-card" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 1</span>
               <div class="day-title-group">
                 <h3>Thứ Tư (30/12): Hà Nội ➔ Thượng Hải (Transit Đêm Huyền Ảo)</h3>
-                <div class="day-route">HAN ➔ PVG | Khám phá Bến Thượng Hải & Nam Kinh Lộ về đêm</div>
+                <div class="day-route">HAN ➔ PVG (16:30) | Bến Thượng Hải (The Bund) • Tháp Truyền Hình Minh Châu</div>
               </div>
             </div>
             <div class="day-tags">
-              <span class="tag tag-transit">Transit 21h15m</span>
+              <span class="tag tag-transit">Bay Quốc Tế</span>
+              <span class="tag tag-scenic">Transit 21h15m</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="The Bund Shanghai" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="Shanghai The Bund" loading="lazy">
               <div class="day-photo-caption">
-                <span>🌆 Bến Thượng Hải (The Bund) & Tháp Đông Phương Minh Châu rực sáng soi bóng sông Hoàng Phố</span>
-                <span>Metro Line 2 thẳng từ sân bay</span>
+                <span>🌆 Bến Thượng Hải (The Bund) lung linh ánh đèn phản chiếu bên dòng sông Hoàng Phố</span>
+                <span>Thượng Hải (Shanghai)</span>
               </div>
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
                 <div class="slot-time">09:30 - 12:25</div>
-                <div class="slot-content">Có mặt tại Sân bay Nội Bài T2, làm thủ tục chuyến bay CA-704 đi Thượng Hải.</div>
+                <div class="slot-content">Có mặt tại Sân bay Nội Bài (T2), làm thủ tục lên chuyến bay <strong>Air China CA-704 (12:25 - 16:30)</strong> đi Thượng Hải. Ăn trưa tiêu chuẩn trên máy bay.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">16:30 - 17:30</div>
-                <div class="slot-content">Hạ cánh Sân bay Quốc tế Phố Đông Thượng Hải (PVG - T2). Làm thủ tục nhập cảnh Trung Quốc (sử dụng visa Trung Quốc hoặc diện quá cảnh 24h/144h). Gửi hành lý to tại sân bay hoặc mang vali nhỏ.</div>
+                <div class="slot-time">16:30 - 18:00</div>
+                <div class="slot-content">Hạ cánh <strong>Sân bay Quốc tế Phố Đông Thượng Hải (PVG - Terminal 2)</strong>. Làm thủ tục nhập cảnh và lấy hành lý. Đổi thẻ SIM / kích hoạt eSIM 4G Trung Quốc.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">17:45 - 18:45</div>
-                <div class="slot-content"><strong>Phương tiện công cộng tối ưu:</strong> Đi tàu điện ngầm <strong>Metro Line 2 (Tuyến 2 màu xanh lá)</strong> từ Sân bay Phố Đông thẳng vào ga <strong>East Nanjing Road (Nam Kinh Đông Lộ)</strong> (giá vé chỉ 7 RMB ~ 25k VND, hoặc trải nghiệm tàu đệm từ Maglev 40-50 RMB).</div>
+                <div class="slot-time">18:00 - 19:30</div>
+                <div class="slot-content">Trải nghiệm <strong>Tàu đệm từ Maglev (Shanghai Maglev Train)</strong> tốc độ 300 - 430 km/h từ sân bay về ga Longyang Road (chỉ 8 phút, giá vé 40 RMB khi xuất trình vé máy bay) ➔ chuyển Metro Line 2 về khách sạn nhận phòng gần khu vực Phố Đông / Bến Thượng Hải.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">19:00 - 22:30</div>
-                <div class="slot-content">Đi bộ dọc theo <strong>Bến Thượng Hải (The Bund - 外滩)</strong> ngắm toàn cảnh tháp truyền hình Đông Phương Minh Châu và các tòa nhà chọc trời Lujiazui rực sáng soi bóng sông Hoàng Phố. Thưởng thức bánh bao Tiểu Long Bao (小笼包) tại phố đi bộ Nam Kinh.</div>
-              </div>
-              <div class="time-slot">
-                <div class="slot-time">23:00</div>
-                <div class="slot-content">Nghỉ đêm tại khách sạn gần trục Metro Line 2 (khu vực Chuansha gần sân bay hoặc quận Hoàng Phố) để sáng hôm sau ra sân bay thuận tiện nhất.</div>
+                <div class="slot-time">19:30 - 22:30</div>
+                <div class="slot-content">Dạo bước trên <strong>Bến Thượng Hải (The Bund - 外滩)</strong> ngắm toàn cảnh các tòa nhà tài chính kiến trúc châu Âu cổ điển đối diện tổ hợp chọc trời Lujiazui rực sáng qua sông Hoàng Phố. Thưởng thức bữa tối bánh bao nước Tiểu Long Bao (Xiao Long Bao - 小笼包) trứ danh.</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🚇 Mẹo Tiết Kiệm Công Cộng</h5>
-                <p>Từ PVG vào Bến Thượng Hải chỉ mất 7 tệ bằng Metro Line 2. Tải sẵn app Alipay đã add thẻ ngân hàng Visa/Mastercard là quét mã qua cổng ga tự động không cần xếp hàng mua vé.</p>
+                <h5>🚇 Mẹo Đi Lại Thượng Hải</h5>
+                <p>Cài sẵn ứng dụng Alipay hoặc quét mã QR metro trên ứng dụng để đi tàu điện ngầm cực kỳ tiện lợi, không cần xếp hàng mua vé giấy.</p>
               </div>
               <div class="extra-box">
                 <h5>🏨 Khách Sạn Gợi Ý</h5>
-                <p>Khách sạn chuỗi All Seasons (全季), Hanting (汉庭) quanh ga Chuansha (川沙) hoặc East Nanjing Road. Giá phòng ~200 - 280 RMB/đêm (phòng đôi 2 người).</p>
+                <p>Nên chọn khách sạn nằm ngay trên trục Metro Line 2 (như khu vực ga People's Square hoặc East Nanjing Road) để sáng hôm sau đi thẳng 1 tuyến tàu ra lại sân bay Pudong T2.</p>
               </div>
             </div>
           </div>
@@ -2236,7 +2559,7 @@
               <span class="day-number">NGÀY 2</span>
               <div class="day-title-group">
                 <h3>Thứ Năm (31/12): Thượng Hải ➔ Cáp Nhĩ Tân (Đón Giao Thừa Băng Tuyết)</h3>
-                <div class="day-route">PVG ➔ HRB (16:40) | Phố Trung Ương • Nhà Thờ Sophia • Countdown New Year</div>
+                <div class="day-route">PVG ➔ HRB (16:40) | Phố Cổ Trung Ương • Nhà Thờ Thánh Sophia • Countdown Đêm Giao Thừa</div>
               </div>
             </div>
             <div class="day-tags">
@@ -2256,11 +2579,11 @@
             <div class="sub-timeline">
               <div class="time-slot">
                 <div class="slot-time">08:00 - 11:00</div>
-                <div class="slot-content">Ăn sáng kiểu Thượng Hải (bánh chiên Shengjianbao, sữa đậu nành). Dạo quanh Dự Viên (Yuyuan Garden) hoặc bờ sông Phố Đông.</div>
+                <div class="slot-content">Ăn sáng kiểu Thượng Hải (bánh chiên Shengjianbao, sữa đậu nành nóng). Dạo quanh Dự Viên (Yuyuan Garden) hoặc dạo phố Nam Kinh mua sắm nhẹ nhàng.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">11:30 - 13:45</div>
-                <div class="slot-content">Đi Metro Line 2 về lại Pudong Airport T2. Làm thủ tục bay chuyến <strong>CA-8571 (13:45 - 16:40)</strong> thẳng đi Cáp Nhĩ Tân.</div>
+                <div class="slot-content">Đi Metro Line 2 về lại Pudong Airport T2. Làm thủ tục lên chuyến bay <strong>Air China CA-8571 (13:45 - 16:40)</strong> bay thẳng đi Cáp Nhĩ Tân.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">16:40 - 18:00</div>
@@ -2268,11 +2591,11 @@
               </div>
               <div class="time-slot">
                 <div class="slot-time">18:30 - 21:00</div>
-                <div class="slot-content">Nhận phòng khách sạn tại khu vực Quận Đạo Lý (gần Phố Trung Ương). Đi bộ trên <strong>Phố Cổ Trung Ương (中央大街 - Zhongyang Pedestrian Street)</strong> ngắm kiến trúc Baroque Nga phủ tuyết, ăn kem que Madieer (马迭尔冰棍) nổi tiếng giữa trời âm 20 độ, nếm xúc xích nướng Harbin.</div>
+                <div class="slot-content">Nhận phòng khách sạn tại khu vực Quận Đạo Lý (gần Phố Trung Ương). Đi dạo trên <strong>Phố Cổ Trung Ương (中央大街 - Zhongyang Pedestrian Street)</strong> ngắm kiến trúc Baroque Nga phủ tuyết, ăn kem que Madieer (马迭尔冰棍) nổi tiếng giữa trời âm 20 độ, nếm xúc xích nướng Harbin thơm lừng.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">21:30 - 00:30</div>
-                <div class="slot-content">Chiêm ngưỡng <strong>Nhà Thờ Thánh Sophia (圣索菲亚大教堂)</strong> lung linh ánh vàng trên nền tuyết trắng tinh khôi. Hòa mình vào không khí đón Giao Thừa Tết Dương Lịch 2027 cùng hàng nghìn du khách quốc tế!</div>
+                <div class="slot-content">Chiêm ngưỡng <strong>Nhà Thờ Thánh Sophia (圣索菲亚大教堂)</strong> lung linh ánh vàng trên nền tuyết trắng tinh khôi. Hòa mình vào không khí đón Giao Thừa Tết Dương Lịch 2027 cùng hàng nghìn du khách quốc tế giữa tiếng chuông ngân vang!</div>
               </div>
             </div>
             <div class="day-extra-grid">
@@ -2294,8 +2617,8 @@
             <div class="day-header-left">
               <span class="day-number">NGÀY 3</span>
               <div class="day-title-group">
-                <h3>Thứ Sáu (01/01): Cáp Nhĩ Tân Kỳ Ảo • Thế Giới Băng Tuyết</h3>
-                <div class="day-route">Sông Tùng Hoa đóng băng ➔ Cầu Sắt Trăm Năm ➔ Băng Tuyết Đại Thế Giới</div>
+                <h3>Thứ Sáu (01/01): Cáp Nhĩ Tân Kỳ Quan • Tam Giác Băng Tuyết Bờ Bắc</h3>
+                <div class="day-route">Sông Tùng Hoa ➔ Đảo Mặt Trời (Tuyết Bác Hội) ➔ Công Viên Hổ Siberia ➔ Băng Tuyết Đại Thế Giới</div>
               </div>
             </div>
             <div class="day-tags">
@@ -2314,45 +2637,117 @@
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
-                <div class="slot-time">07:00 - 09:00</div>
-                <div class="slot-content">Dạo chợ sáng <strong>Hồng Chuyên (Hongzhuan Morning Market - 红专街早市)</strong>: thưởng thức bánh quẩy khổng lồ dầu nóng hổi, sữa đậu nành tươi, bánh nướng Đông Bắc, lê đông lạnh (冻梨) và hồng đông lạnh (冻柿子).</div>
+                <div class="slot-time">07:30 - 09:00</div>
+                <div class="slot-content">Dạo chợ sáng <strong>Hồng Chuyên (Hongzhuan Morning Market - 红专街早市)</strong>: thưởng thức bánh quẩy khổng lồ nóng hổi, sữa đậu nành tươi, bánh nướng Đông Bắc, lê đông lạnh (冻梨) và hồng đông lạnh (冻柿子).</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">09:30 - 12:00</div>
-                <div class="slot-content">Đi bộ ra <strong>Sông Tùng Hoa đóng băng (松花江)</strong>: trải nghiệm mặt sông hóa thành lớp băng khổng lồ dày cả mét. Đi dạo trên <strong>Cầu sắt thế kỷ Trung Đông (滨洲铁路桥)</strong>.<br>
-                🛸 <em>TỌA ĐỘ BAY FLYCAM 1:</em> Đứng từ bờ sông hoặc mép cầu phóng flycam dọc lòng sông băng rộng thênh thang, quay toàn cảnh cây cầu sắt cổ kính và các tảng băng xanh nguyên khối được kéo từ đáy sông.</div>
+                <div class="slot-time">09:00 - 11:30</div>
+                <div class="slot-content"><strong>SÔNG TÙNG HOA ĐÓNG BĂNG & ĐẢO MẶT TRỜ:</strong><br>
+                Đi bộ ra mặt băng <strong>Sông Tùng Hoa (松花江)</strong> ngay cuối Phố Trung Ương: trải nghiệm mặt sông hóa thành sân băng tự nhiên khổng lồ dày 1 mét, thử trượt phao băng, xe đẩy băng. Sau đó bắt <strong>Metro Line 2 sang ga Đảo Mặt Trời (太阳岛站)</strong> tham quan <strong>Triển Lãm Điêu Khắc Tuyết Quốc Tế (太阳岛雪博会 - Sun Island Snow Expo)</strong> chiêm ngưỡng những đại tượng tuyết trắng tinh xảo khổng lồ cao tới 30m dưới nắng ban mai rực rỡ.<br>
+                🛸 <em>TỌA ĐỘ BAY FLYCAM 1:</em> Bay flycam dọc bờ sông băng và không gian tuyết trắng Đảo Mặt Trời để có những thước phim toàn cảnh tinh khiết.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">13:30 - 20:30</div>
-                <div class="slot-content">Bắt <strong>Metro Line 2</strong> thẳng đến ga <strong>Ice & Snow World (冰雪大世界站)</strong>. Giá vé tàu điện ngầm chỉ 3 RMB!<br>
-                Khám phá công viên băng đăng vĩ đại nhất hành tinh: Trượt máng băng dài 500m (Đại hoạt thê), ngồi đu quay khổng lồ ngắm toàn cảnh, check-in các tòa lâu đài băng pha lê điêu khắc tinh xảo khi đèn LED bật sáng lúc hoàng hôn 16:00.</div>
+                <div class="slot-time">11:45 - 13:45</div>
+                <div class="slot-content"><strong>CÔNG VIÊN HỔ SIBERIA (东北虎林园 - SIBERIAN TIGER PARK):</strong><br>
+                Từ Đảo Mặt Trời bắt taxi ngắn 10 phút (~15 RMB) sang Công viên Hổ Siberia lớn nhất thế giới. Lên xe lồng bọc thép đặc chủng đi xuyên qua các phân khu rừng tuyết tự nhiên nơi hàng trăm cá thể hổ Siberia dũng mãnh sinh sống. Tận mắt chứng kiến bầy chúa sơn lâm to lớn khoác lớp lông mùa đông dày rậm đuổi bắt mồi và nhảy vồ trên tuyết trắng xóa – cảnh tượng ngoạn mục không thể tìm thấy ở đâu khác!</div>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">14:00 - 20:30</div>
+                <div class="slot-content"><strong>HARBIN ICE & SNOW WORLD (BĂNG TUYẾT ĐẠI THẾ GIỚI - 冰雪大世界):</strong><br>
+                Đi taxi ngắn hoặc Metro Line 2 về thẳng ga <strong>Ice & Snow World (冰雪大世界站)</strong>.<br>
+                Vào cổng lúc 14:00 khi còn ánh sáng ban ngày để xếp hàng chơi <strong>Máng trượt băng siêu tốc dài 500m (Đại hoạt thê)</strong> và ngồi <strong>Đu quay khổng lồ Bông Tuyết</strong> ngắm trọn vẹn toàn cảnh công viên. Từ 16:00 khi hoàng hôn buông xuống, toàn bộ hàng triệu khối băng pha lê đồng loạt bừng sáng rực rỡ với đủ sắc màu LED kỳ ảo như một thế giới thần tiên ngoài hành tinh!</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">21:00</div>
-                <div class="slot-content">Bắt Metro Line 2 về lại khách sạn. Ăn tối lẩu thịt dê nhúng nồi đồng (铜锅涮肉) hoặc sườn sốt chua ngọt Quách Bao Nhục (锅包肉).</div>
+                <div class="slot-content">Bắt Metro Line 2 về lại khách sạn. Thưởng thức bữa tối <strong>Lẩu thịt dê nhúng nồi đồng Đông Bắc (铜锅涮肉)</strong> hoặc sườn heo sốt chua ngọt Quách Bao Nhục (锅包肉) nóng hổi.</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🛸 Lưu Ý Flycam Tại Thế Giới Băng Tuyết</h5>
-                <p>Khu vực trung tâm công viên rất đông người và có thiết bị phá sóng/hạn chế bay. Khuyên bạn nên bay bên ngoài mép bờ sông hoặc đảo Thái Dương nhìn sang để đảm bảo an toàn tuyệt đối và có góc bao quát hùng vĩ nhất.</p>
+                <h5>🎟️ Mẹo Đặt Vé Băng Tuyết Đại Thế Giới</h5>
+                <p>Nên đặt vé trước qua Trip.com hoặc mini app WeChat từ 1-2 tuần trước (giá ~328 RMB). Quét mã xếp hàng chơi máng trượt băng 500m ngay khi vừa bước qua cửa soát vé để không phải đợi lâu.</p>
               </div>
               <div class="extra-box">
-                <h5>🎟️ Mẹo Đặt Vé Băng Tuyết Đại Thế Giới</h5>
-                <p>Nên đặt vé trước qua WeChat mini program hoặc Trip.com từ 1-2 tuần trước (giá ~328 RMB/người). Hãy vào cổng từ 13:30 để ngắm được cả cảnh băng trong suốt ban ngày lẫn ánh đèn lung linh ban đêm.</p>
+                <h5>🐯 Lưu Ý Tại Công Viên Hổ</h5>
+                <p>Giữ chặt điện thoại/máy ảnh khi chụp qua khe lưới bảo vệ của xe lồng. Không thò ngón tay ra ngoài lưới để đảm bảo an toàn tuyệt đối trước móng vuốt của bầy hổ.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- DAY 4 -->
-        <div class="day-card" data-category="ski">
+        <div class="day-card" data-category="scenic">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 4</span>
               <div class="day-title-group">
-                <h3>Thứ Bảy (02/01): Tàu Cao Tốc Đi Á Bố Lực (Học Trượt Tuyết) ➔ Làng Tuyết Hương</h3>
-                <div class="day-route">Harbin ➔ Yabuli Ski Resort (Tàu CRH 1h10m) ➔ Xuexiang (Bus 2h)</div>
+                <h3>Thứ Bảy (02/01): Cổ Tích Nga Ngoại Ô & Hoàng Hôn Sông Băng</h3>
+                <div class="day-route">Trang Viên Volga (Volga Manor) ➔ Cầu Sắt Thế Kỷ Trung Đông ➔ Phố Đi Bộ & Sophia</div>
+              </div>
+            </div>
+            <div class="day-tags">
+              <span class="tag tag-scenic">Lâu Đài Cổ Tích</span>
+              <span class="tag tag-drone">Góc Sống Ảo VIP</span>
+              <span class="day-toggle-icon">▼</span>
+            </div>
+          </div>
+          <div class="day-body">
+            <div class="day-photo-banner">
+              <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Volga Manor Castle Snow" loading="lazy">
+              <div class="day-photo-caption">
+                <span>🏰 Lâu đài Pavlov cổ kính giữa xứ sở tuyết trắng Trang Viên Volga (Volga Manor)</span>
+                <span>Ngoại ô Cáp Nhĩ Tân (Xiangfang District)</span>
+              </div>
+            </div>
+            <div class="sub-timeline">
+              <div class="time-slot">
+                <div class="slot-time">08:30 - 13:00</div>
+                <div class="slot-content"><strong>KHÁM PHÁ TRANG VIÊN VOLGA (VOLGA MANOR - 伏尔加庄园):</strong><br>
+                Đón xe buýt du lịch chuyên tuyến (hoặc DiDi/taxi ~60 RMB, 40 phút) đến Trang viên Volga – khu nghỉ dưỡng văn hóa Nga 4A tráng lệ phủ đầy tuyết trắng.
+                <ul style="margin: 8px 0; padding-left: 20px; font-size: 0.9rem;">
+                  <li>Check-in <strong>Lâu đài Pavlov (巴甫洛夫城堡)</strong> soi bóng bên hồ nước đóng băng tuyệt đẹp.</li>
+                  <li>Chiêm ngưỡng <strong>Nhà thờ gỗ Thánh Nicholas (圣尼古拉大教堂)</strong> phục dựng tinh xảo theo nguyên mẫu di sản thế kỷ 19 không dùng đinh.</li>
+                  <li>Ghé thăm <strong>Quán bar hầm rượu Vodka bằng băng (伏特加冰酒吧)</strong>: thử cảm giác nhấp ngụm rượu Vodka Nga ấm nồng trong những chiếc ly làm hoàn toàn bằng băng tuyết nguyên khối!</li>
+                  <li>Thử cảm giác mạnh với <strong>Máng trượt phao tuyết từ đỉnh tháp lâu đài Nga (城堡雪圈)</strong> uốn lượn xuống bãi tuyết trắng.</li>
+                  <li>Chụp bộ ảnh Lookbook Couple phong cách quý tộc hoàng gia Nga mùa đông cổ điển.</li>
+                </ul>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">13:00 - 14:00</div>
+                <div class="slot-content">Thưởng thức bữa trưa đậm chất Tây phương tại <strong>Nhà hàng Kim Hoàn (Gold Ring Restaurant - 金环西餐厅)</strong> bên trong Volga Manor với súp củ dền đỏ Borscht nóng sốt, bánh mì lúa mạch đen nướng bơ tỏi và thịt bò hầm kiểu Nga.</div>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">14:30 - 17:30</div>
+                <div class="slot-content"><strong>HOÀNG HÔN CẦU SẮT TRĂM NĂM & NHÀ THỜ SOPHIA BAN NGÀY:</strong><br>
+                Xe đưa về lại trung tâm thành phố. Đi dạo trên <strong>Cầu sắt thế kỷ Trung Đông (滨洲铁路桥 - Binzhou Railway Bridge)</strong> với đoạn sàn kính nhìn xuyên xuống dòng sông Tùng Hoa đóng băng cuồn cuộn dưới ánh hoàng hôn rực lửa.<br>
+                Quay lại Quảng trường Nhà thờ Thánh Sophia chụp ảnh cùng đàn chim bồ câu bay lượn quanh mái vòm củ hành trong ánh nắng vàng mật chiều tà.</div>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">18:30 - 21:00</div>
+                <div class="slot-content">Mua sắm quà lưu niệm Nga, socola búp bê Matryoshka trên Phố Trung Ương. Ăn tối lẩu thịt nướng Đông Bắc, về khách sạn kiểm tra hành lý, chuẩn bị cho chặng tàu cao tốc sáng mai đi học trượt tuyết tại Á Bố Lực!</div>
+              </div>
+            </div>
+            <div class="day-extra-grid">
+              <div class="extra-box">
+                <h5>🚌 Di Chuyển Đến Volga Manor</h5>
+                <p>Có chuyến xe buýt du lịch trực thông khởi hành hàng ngày từ Quảng trường Nhà thờ Sophia lúc 08:30 sáng, hoặc đặt taxi DiDi đi lại chỉ khoảng 60-70 RMB/chiều (tiết kiệm khi đi 2 người).</p>
+              </div>
+              <div class="extra-box">
+                <h5>📸 Mẹo Trang Phục Volga Manor</h5>
+                <p>Nơi đây mang đậm nét cổ tích hoàng gia Nga, bạn nên mặc áo dạ dáng dài màu be / nâu camel / đỏ burgundy kết hợp mũ beret lông để có những bức ảnh sang trọng như đang ở Saint Petersburg.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div class="day-card" data-category="ski">
+          <div class="day-header" onclick="toggleDay(this)">
+            <div class="day-header-left">
+              <span class="day-number">NGÀY 5</span>
+              <div class="day-title-group">
+                <h3>Chủ Nhật (03/01): Tàu Cao Tốc Đi Á Bố Lực (Học Trượt Tuyết) ➔ Làng Tuyết Hương</h3>
+                <div class="day-route">Harbin ➔ Yabuli Ski Resort (Tàu CRH 1h10m) ➔ Xuexiang (Bus 2h) | Đêm Đèn Lồng Nấm Tuyết</div>
               </div>
             </div>
             <div class="day-tags">
@@ -2375,30 +2770,30 @@
                 <div class="slot-content">Trả phòng khách sạn, đi metro đến Ga Cáp Nhĩ Tân (哈尔滨站). Lên chuyến tàu cao tốc <strong>G-train (G3923 hoặc tương đương) khởi hành ~07:30 đi ga Á Bố Lực Tây (亚布力西站 - Yabuli Xi)</strong>. Thời gian tàu chạy chỉ 1 giờ 10 phút (Giá vé hạng 2: 54 RMB ~ 190k VND).</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">08:45 - 13:30</div>
-                <div class="slot-content">Xe buýt trung chuyển miễn phí/xe bus địa phương đưa từ ga Á Bố Lực Tây đến <strong>Khu Trượt Tuyết Á Bố Lực (Yabuli Ski Resort - 亚布力新体委滑雪场)</strong>.<br>
-                ⛷️ <strong>BUỔI HỌC TRƯỢT TUYẾT SỐ 1 (Nhập Môn & Khởi Động):</strong>
+                <div class="slot-time">08:45 - 13:00</div>
+                <div class="slot-content">Xe buýt trung chuyển miễn phí/xe tuyến đưa từ ga Á Bố Lực Tây đến <strong>Khu Trượt Tuyết Á Bố Lực (Yabuli Ski Resort - 亚布力新体委滑雪场)</strong>.<br>
+                ⛷️ <strong>BUỔI HỌC TRƯỢT TUYẾT SỐ 1 (Nhập Môn & Khởi Động An Toàn):</strong>
                 <ul style="margin: 8px 0; padding-left: 20px; font-size: 0.9rem;">
-                  <li>Thuê đồ trượt tuyết: Ván trượt (Ski), Giày trượt chuyên dụng, Gậy, Mũ bảo hiểm, Kính râm chống tuyết.</li>
-                  <li>Học các tư thế trụ vững, cách đứng lên khi ngã an toàn trên tuyết.</li>
+                  <li>Thuê đồ trượt tuyết đầy đủ: Ván trượt (Ski), Giày trượt chuyên dụng, Gậy trượt, Mũ bảo hiểm, Kính râm chống tuyết.</li>
+                  <li>Học các tư thế giữ thăng bằng cơ bản, cách đứng lên khi ngã an toàn trên tuyết mềm.</li>
                   <li>Kỹ thuật phanh hình chữ V / Phanh bánh Pizza (Snowplow): Giúp hãm tốc độ và dừng lại hoàn toàn theo ý muốn trên dốc nhập môn (Green slope).</li>
-                  <li>Tập chuyển trọng tâm để uốn lượn hình chữ S cơ bản.</li>
-                  <li>Gắn Action Cam (GoPro/Insta360) lên mũ hoặc gậy selfie tàng hình để ghi lại những cú trượt đầu tiên!</li>
+                  <li>Tập chuyển trọng tâm chân trái / chân phải để uốn lượn hình chữ S cơ bản.</li>
+                  <li>Gắn Action Cam (GoPro/Insta360) lên mũ hoặc gậy selfie tàng hình để ghi lại những cú trượt đầu đời!</li>
                 </ul>
                 </div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">13:30 - 14:30</div>
+                <div class="slot-time">13:00 - 14:00</div>
                 <div class="slot-content">Nghỉ ngơi, ăn trưa tô mì cay nóng sốt hoặc cơm trộn tại nhà hàng chân dốc trượt tuyết.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">15:00 - 17:00</div>
+                <div class="slot-time">14:00 - 16:00</div>
                 <div class="slot-content">Bắt <strong>Tuyến Xe Buýt Trực Thông Á Bố Lực - Tuyết Hương (雪乡直通车)</strong> xuất phát từ sảnh du lịch Á Bố Lực đi thẳng vào cổng Làng Tuyết Hương (China Snow Town). Thời gian di chuyển ~2 tiếng (Giá vé: ~80 RMB/người).</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">17:30 - 21:30</div>
+                <div class="slot-time">16:30 - 21:30</div>
                 <div class="slot-content">Đến <strong>Làng Tuyết Hương (中国雪乡 - Xuexiang)</strong>. Nhận phòng homestay nhà nệm sưởi truyền thống (Đông Bắc Hỏa Khang - 火炕).<br>
-                Tối đến, ngôi làng bừng sáng huyền ảo như thế giới cổ tích: Hàng trăm mái nhà phủ những "cây nấm tuyết" tròn xoe mập mạp, treo lồng đèn đỏ rực rỡ. Đi dạo trên <strong>Sạn đạo gỗ Bổng Chùy Sơn (棒槌山栈道)</strong> ngắm toàn cảnh thung lũng tuyết từ trên cao. Xem đoàn diễu hành nhảy Ương Ca (东北秧歌) náo nhiệt.</div>
+                Tối đến, ngôi làng bừng sáng huyền ảo như thế giới cổ tích: Hàng trăm mái nhà phủ những "cây nấm tuyết" tròn xoe mập mạp, treo lồng đèn đỏ rực rỡ. Đi dạo trên <strong>Sạn đạo gỗ Bổng Chùy Sơn (棒槌山栈道)</strong> ngắm toàn cảnh thung lũng tuyết từ trên cao. Xem đoàn diễu hành nhảy Ương Ca (东北秧歌) náo nhiệt, thưởng thức khoai lang nướng thơm lừng.</div>
               </div>
             </div>
             <div class="day-extra-grid">
@@ -2414,77 +2809,19 @@
           </div>
         </div>
 
-        <!-- DAY 5 -->
-        <div class="day-card" data-category="drone">
-          <div class="day-header" onclick="toggleDay(this)">
-            <div class="day-header-left">
-              <span class="day-number">NGÀY 5</span>
-              <div class="day-title-group">
-                <h3>Chủ Nhật (03/01): Tuyết Hương Hoang Sơ • Đỉnh Núi Dương Thảo & Bão Tuyết Trắng</h3>
-                <div class="day-route">Bình minh Đại Đỉnh Tử Sơn ➔ Dương Thảo Sơn ➔ Rừng Tuyết Nguyên Sinh</div>
-              </div>
-            </div>
-            <div class="day-tags">
-              <span class="tag tag-drone">Thiên Đường Flycam</span>
-              <span class="tag tag-scenic">Tuyết Hoang Sơ</span>
-              <span class="day-toggle-icon">▼</span>
-            </div>
-          </div>
-          <div class="day-body">
-            <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Snow Town Fairytale" loading="lazy">
-              <div class="day-photo-caption">
-                <span>🍄 Thung lũng Tuyết Hương huyền ảo như thế giới cổ tích Andersen</span>
-                <span>Bình minh đỉnh Dương Thảo Sơn 1.235m</span>
-              </div>
-            </div>
-            <div class="sub-timeline">
-              <div class="time-slot">
-                <div class="slot-time">05:30 - 08:30</div>
-                <div class="slot-content"><strong>SĂN BÌNH MINH TRÊN ĐỈNH NÚI DƯƠNG THẢO SƠN (羊草山) / ĐẠI ĐỈNH TỬ SƠN:</strong><br>
-                Đi xe trượt tuyết bánh xích (Snowcat) hoặc mô tô tuyết băng rừng lên đỉnh cao 1.235m đón những tia nắng đầu tiên xuyên qua biển mây.<br>
-                🛸 <em>TỌA ĐỘ BAY FLYCAM 2 (ĐỈNH CAO NHẤT ĐÔNG BẮC):</em>
-                Toàn bộ rừng thông Taiga và rừng bạch dương Siberian bọc trong lớp băng giá (Vụ băng - 玉树琼花), tuyết tự nhiên dày 1.5 - 2 mét không một dấu chân người! Góc quay từ trên cao nhìn xuống dòng mây trôi bồng bềnh là kiệt tác điện ảnh mùa đông.</div>
-              </div>
-              <div class="time-slot">
-                <div class="slot-time">09:00 - 11:30</div>
-                <div class="slot-content">Ăn sáng bánh bao nóng tại homestay. Trải nghiệm nghi thức chụp ảnh <strong>"Té nước sôi thành băng tuyết" (泼水成冰)</strong>: ném ca nước sôi 90°C lên không trung tạo thành quầng sáng hoa tuyết bung tỏa tuyệt đẹp trong nhiệt độ -30°C.</div>
-              </div>
-              <div class="time-slot">
-                <div class="slot-time">13:00 - 16:30</div>
-                <div class="slot-content">Trekking theo đường mòn xuyên rừng hoang sơ kết nối giữa Tuyết Hương và Tuyết Cốc (Xuegu trail). Tuyết mềm xốp tự nhiên như bột phấn (Champagne Powder Snow), tha hồ quay video nằm trượt trên dốc tuyết tự nhiên, quay gimbal hoặc drone bám theo bước chân lội tuyết ngập đầu gối.</div>
-              </div>
-              <div class="time-slot">
-                <div class="slot-time">18:00 - 20:30</div>
-                <div class="slot-content">Thưởng thức món đặc sản <strong>Lẩu nồi gang Đông Bắc (东北铁锅炖)</strong>: nồi gang khổng lồ hầm thịt ngỗng tuyết hoặc sườn heo hầm đậu que và khoai tây, viền bánh ngô vàng ruộm dán quanh miệng nồi sôi sùng sục.</div>
-              </div>
-            </div>
-            <div class="day-extra-grid">
-              <div class="extra-box">
-                <h5>🛸 Quy Tắc Giữ Ấm Pin Flycam Tại Dương Thảo Sơn</h5>
-                <p>Nhiệt độ đỉnh núi có thể xuống -32°C kèm gió! Luôn để các cục pin dự phòng trong túi áo ngực sát người. Khi bật máy bay, cho drone lơ lửng tại chỗ ở độ cao 2m trong 1 phút để cell pin tự làm nóng trước khi bay cao vút.</p>
-              </div>
-              <div class="extra-box">
-                <h5>📸 Góc Quay Chậm Đắt Giá (Slow-motion)</h5>
-                <p>Bật 120fps hoặc 240fps trên điện thoại khi chụp cảnh té nước sôi hoặc khi chạy nhảy tung lớp bột tuyết mịn màng dưới ánh nắng sớm mai rực rỡ.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- DAY 6 -->
         <div class="day-card" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 6</span>
               <div class="day-title-group">
-                <h3>Thứ Hai (04/01): Tuyết Hương ➔ Chân Núi Trường Bạch (Nhị Đạo Bạch Hà)</h3>
-                <div class="day-route">Xuexiang ➔ Changbaishan (Bus 5.5h) | Thị Trấn Rừng Thông • Tắm Onsen Tuyết Rơi</div>
+                <h3>Thứ Hai (04/01): Tuyết Hương Hoang Sơ ➔ Chân Núi Trường Bạch (Nhị Đạo Bạch Hà)</h3>
+                <div class="day-route">Bình minh Tuyết Hương ➔ Bus Xuyên Rừng Tuyết (5.5h) ➔ Onsen Núi Lửa 42°C</div>
               </div>
             </div>
             <div class="day-tags">
-              <span class="tag tag-transit">Xe Tuyến Xuyên Rừng</span>
-              <span class="tag tag-scenic">Onsen Núi Lửa</span>
+              <span class="tag tag-drone">Bình Minh Nấm Tuyết</span>
+              <span class="tag tag-transit">Bus Xuyên Rừng</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
@@ -2498,8 +2835,14 @@
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
+                <div class="slot-time">06:00 - 08:00</div>
+                <div class="slot-content"><strong>SĂN BÌNH MINH NẤM TUYẾT & TÉ NƯỚC SÔI THÀNH BĂNG:</strong><br>
+                Đón những tia nắng ban mai đầu ngày rọi xuống những mái nhà nấm tuyết bồng bềnh chưa tan vết chân người. Trải nghiệm nghi thức chụp ảnh <strong>"Té nước sôi thành băng tuyết" (泼水成冰)</strong> tạo thành quầng sáng hoa tuyết bung tỏa tuyệt đẹp trong nhiệt độ -30°C.<br>
+                🛸 <em>TỌA ĐỘ BAY FLYCAM 2:</em> Phóng drone từ mép thung lũng nhìn bao quát toàn cảnh ngôi làng tuyết cổ tích bốc khói lam chiều trong ánh nắng ban mai.</div>
+              </div>
+              <div class="time-slot">
                 <div class="slot-time">08:00 - 08:30</div>
-                <div class="slot-content">Tạm biệt Tuyết Hương trong làn sương khói lam chiều ban sớm. Ra bãi xe trung tâm Tuyết Hương lên chuyến <strong>Xe Buýt Liên Tỉnh Trực Tiếp Tuyết Hương ➔ Trường Bạch Sơn (二道白河 - Erdaobaihe)</strong>.</div>
+                <div class="slot-content">Ăn sáng bánh bao nóng tại homestay. Trả phòng, ra bãi xe trung tâm Tuyết Hương lên chuyến <strong>Xe Buýt Mùa Đông Trực Tiếp Tuyết Hương ➔ Trường Bạch Sơn (二道白河 - Erdaobaihe)</strong>.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">08:30 - 14:00</div>
@@ -2529,59 +2872,61 @@
         </div>
 
         <!-- DAY 7 -->
-        <div class="day-card" data-category="scenic">
+        <div class="day-card" data-category="drone">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 7</span>
               <div class="day-title-group">
                 <h3>Thứ Ba (05/01): Chinh Phục Núi Trường Bạch • Hồ Thiên Trì & Đại Thác Băng</h3>
-                <div class="day-route">Bắc Pha Trường Bạch Sơn ➔ Hồ Miệng Núi Lửa Thiên Trì ➔ Rừng Đáy Khe Cốc</div>
+                <div class="day-route">Dốc Bắc Trường Bạch Sơn ➔ Hồ Miệng Núi Lửa Thiên Trì ➔ Thác Băng & Suối Nóng</div>
               </div>
             </div>
             <div class="day-tags">
+              <span class="tag tag-drone">Hồ Thiên Trì 2.189m</span>
               <span class="tag tag-scenic">Kỳ Quan Thế Giới</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Changbaishan Crater Peak" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Changbaishan Tianchi Crater" loading="lazy">
               <div class="day-photo-caption">
-                <span>🏔️ Hồ miệng núi lửa Thiên Trì trên đỉnh Trường Bạch 2.189m – ranh giới tự nhiên Trung - Triều</span>
-                <span>Xe chuyên dụng 4WD leo đỉnh</span>
+                <span>🏔️ Hồ Thiên Trì trên đỉnh núi lửa Trường Bạch linh thiêng đóng băng trắng muốt</span>
+                <span>Độ cao 2.189m so với mực nước biển</span>
               </div>
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
                 <div class="slot-time">07:30 - 08:30</div>
-                <div class="slot-content">Bắt xe buýt công cộng từ thị trấn ra Trung tâm Du khách Bắc Pha Trường Bạch Sơn (长白山北景区集散中心). Lên xe buýt sinh thái thân thiện môi trường của khu bảo tồn đi lên núi.</div>
+                <div class="slot-content">Bắt xe buýt công cộng hoặc taxi từ Erdaobaihe đến Trung tâm Phân phối Du khách Dốc Bắc Trường Bạch Sơn (长白山北景区游客集散中心).</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">09:00 - 11:30</div>
-                <div class="slot-content">Đổi sang xe chuyên dụng 2 cầu 4WD vượt qua hàng chục khúc cua tay áo quanh co phủ tuyết để lên đỉnh cao 2.189m.<br>
-                <strong>CHIÊM NGƯỠNG HỒ THIÊN TRÌ (长白山天池):</strong> Miệng núi lửa sâu thẳm biến thành mặt gương băng khổng lồ màu ngọc bích, bao bọc bởi 16 đỉnh núi tuyết sừng sững gác biên giới giữa Trung Quốc và Triều Tiên. Gió trên đỉnh núi thổi cực mạnh, nhiệt độ cảm nhận có thể tới -38°C!</div>
+                <div class="slot-time">08:30 - 11:30</div>
+                <div class="slot-content">Lên xe Eco-bus xuyên rừng rồi đổi sang xe chuyên dụng 4 cầu leo dốc (xe việt dã 80 RMB) vượt qua những khúc cua tay áo nghẹt thở phủ đầy băng tuyết để lên đỉnh cao 2.189m.<br>
+                Chiêm ngưỡng <strong>Hồ Miệng Núi Lửa Thiên Trì (天池 - Heavenly Lake)</strong>: Hồ nước sâu đóng băng trắng xóa nằm lọt thỏm giữa 16 đỉnh núi đá phủ băng sừng sững. Tỷ lệ mở cửa ngắm Thiên Trì mùa đông chỉ khoảng 60% do gió bão – được ngắm Thiên Trì là điềm may mắn cực lớn!</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">12:00 - 13:30</div>
-                <div class="slot-content">Xuống chân dốc, tham quan <strong>Bãi Suối Khoáng Nóng Tụ Long (聚龙温泉群)</strong>: các mạch nước khoáng sôi 83°C sủi bọt ngùn ngụt giữa những tảng băng tuyết lạnh giá, tạo thành các dải khoáng thạch màu vàng, đỏ kỳ vĩ. Nếm thử món trứng luộc suối khoáng lòng đào (温泉煮鸡蛋) béo ngậy.</div>
+                <div class="slot-time">12:00 - 14:00</div>
+                <div class="slot-content">Xuống núi tham quan <strong>Cụm Suối Nước Nóng Tụ Long (聚龙温泉群)</strong>: những cột nước nóng 83°C bốc khói ngùn ngụt giữa nền tuyết âm 25°C, để lại các vệt khoáng chất ngũ sắc tuyệt đẹp. Thưởng thức đặc sản <strong>Trứng luộc lòng đào suối nước nóng (温泉煮鸡蛋)</strong> béo ngậy.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">13:45 - 16:00</div>
-                <div class="slot-content">Chiêm ngưỡng <strong>Thác Trường Bạch (长白瀑布)</strong> đóng băng thành cột băng vĩ đại cao 68m, dạo bước qua <strong>Hồ Lục Uyên Đàm (绿渊潭)</strong> nước xanh màu ngọc bích và đi sâu vào <strong>Rừng Nguyên Sinh Cốc Để Sâm Lâm (地下森林 - Rừng Dưới Đáy Vực)</strong> với những cây tùng tuyết cổ thụ hàng trăm năm tuổi.</div>
+                <div class="slot-time">14:00 - 16:30</div>
+                <div class="slot-content">Đi bộ dọc đường sàn gỗ ngắm <strong>Đại Thác Nước Trường Bạch (长白瀑布)</strong> đóng băng thành cột băng khổng lồ cao 68m, và <strong>Hồ Lục Uyên Đàm (绿渊潭)</strong> với dòng thác băng màu ngọc bích kỳ ảo.<br>
+                🛸 <em>TỌA ĐỘ BAY FLYCAM 3:</em> Bay lướt qua hẻm núi thác băng và rừng thông tuyết bọc trong màn khói sương suối nóng.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">17:30 - 20:00</div>
-                <div class="slot-content">Trở về thị trấn Erdaobaihe. Thưởng thức bữa tối ẩm thực Triều Tiên (Yanbian Korean Food): Cơm trộn thố đá nướng, canh kim chi bò cay nồng và thịt xiên nướng than hoa.</div>
+                <div class="slot-time">18:00 - 20:30</div>
+                <div class="slot-content">Thưởng thức món đặc sản <strong>Thịt nướng Triều Tiên (朝鲜族烤肉)</strong> tại phố ẩm thực Nhị Đạo Bạch Hà: thịt bò ướp đậm đà nướng xèo xèo cuốn lá kê, kim chi cay giòn và mì lạnh (Naengmyeon).</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>⚠️ Quy Định Flycam Tại Thiên Trì</h5>
-                <p>Khu vực hồ Thiên Trì là vùng biên giới quốc gia, nghiêm cấm bay flycam. Tuy nhiên từ chân núi, khu vực rừng nguyên sinh và các thung lũng tuyết bên ngoài khu vực cấm đều có thể quay gimbal/flycam cảnh quang đãng rực rỡ.</p>
+                <h5>🎟️ Mẹo Mua Vé Núi Trường Bạch</h5>
+                <p>Bắt buộc đặt vé trước 3-7 ngày qua tài khoản chính thức WeChat "长白山" (Vé vào cổng + Xe bus sinh thái: ~225 RMB; Vé xe chuyên dụng lên đỉnh Thiên Trì: 80 RMB mua trực tiếp trên app khi có thông báo Thiên Trì mở cửa sáng hôm đó).</p>
               </div>
               <div class="extra-box">
-                <h5>🧤 Trang Phục Leo Đỉnh Thiên Trì</h5>
-                <p>Phải có miếng dán giữ nhiệt bàn chân (dán dưới tất), bịt tai, mũ trùm ninja bịt kín mặt và kính trượt tuyết chống lóa mắt phản chiếu từ tuyết.</p>
+                <h5>🧥 Chống Gió Đỉnh Thiên Trì</h5>
+                <p>Gió trên đỉnh núi lửa giật cấp 7-8 cực kỳ buốt lạnh. Hãy kéo kín khóa áo gió, đeo kính râm chống chói tuyết và trùm kín mũ len.</p>
               </div>
             </div>
           </div>
@@ -2594,7 +2939,7 @@
               <span class="day-number">NGÀY 8</span>
               <div class="day-title-group">
                 <h3>Thứ Tư (06/01): Ma Giới Rafting Trên Băng ➔ Học Trượt Tuyết Nâng Cao & Quay Phim</h3>
-                <div class="day-route">Ma Giới Phiêu Lưu (Rime Rafting) ➔ Sân Trượt Tuyết Hòa Bình / Vạn Đạt Trường Bạch</div>
+                <div class="day-route">Sương muối Ma Giới Rafting ➔ Khu Trượt Tuyết Hòa Bình / Vạn Đạt (Buổi 2)</div>
               </div>
             </div>
             <div class="day-tags">
@@ -2605,10 +2950,10 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=800&q=80" alt="Devils drift rime" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Ma Gioi Rafting" loading="lazy">
               <div class="day-photo-caption">
-                <span>🚣 Ma Giới Phiêu Lưu (Devil's Drift) – chèo thuyền cao su trên dòng sông địa nhiệt phủ vụ băng trắng toát</span>
-                <span>Khung giờ vàng bình minh 06:30 - 08:00</span>
+                <span>🛶 Ma Giới Rafting (魔界漂流) – chèo thuyền cao su trên dòng sông địa nhiệt sương khói ngút ngàn</span>
+                <span>Nhiệt độ nước ấm áp giữa trời âm 25°C</span>
               </div>
             </div>
             <div class="sub-timeline">
@@ -2616,7 +2961,7 @@
                 <div class="slot-time">06:00 - 08:30</div>
                 <div class="slot-content"><strong>CHÈO THUYỀN CAO SU TRÊN DÒNG SÔNG KHÔNG ĐÓNG BĂNG "MA GIỚI" (魔界漂流 - Devil's Drift / Rime Rafting):</strong><br>
                 Một trong những trải nghiệm kỳ ảo nhất thế giới: ngồi trên thuyền hơi trôi chầm chậm dọc dòng sông địa nhiệt ấm áp giữa trời âm 25°C. Hơi nước bốc lên mù mịt gặp lạnh kết tinh thành lớp sương muối trắng tinh (vụ băng - rime) bao phủ toàn bộ cành cây hai bên bờ.<br>
-                🛸 <em>TỌA ĐỘ BAY FLYCAM 3 (SIÊU THỰC):</em> Bay flycam lướt trên làn khói sương bốc lên mặt nước, bắt trọn khoảnh khắc chiếc thuyền trôi qua rừng cây ngập sương băng trắng như cảnh trong phim Avatar hay Chúa Tể Chiếc Nhẫn!</div>
+                🛸 <em>TỌA ĐỘ BAY FLYCAM 4 (SIÊU THỰC):</em> Bay flycam lướt trên làn khói sương bốc lên mặt nước, bắt trọn khoảnh khắc chiếc thuyền trôi qua rừng cây ngập sương băng trắng như cảnh trong phim Avatar!</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">09:30 - 15:30</div>
@@ -2639,12 +2984,12 @@
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🚣 Mẹo Đi Ma Giới Phiêu Lưu (Rime Rafting)</h5>
-                <p>Hiện tượng sương băng (vụ băng) xuất hiện đẹp nhất từ 6h30 đến 8h00 sáng khi mặt trời vừa ló rạng và độ ẩm bốc lên cao nhất. Phải đi sớm để không bị đông đoàn du lịch lớn.</p>
+                <h5>🛶 Đi Ma Giới Rafting Sớm</h5>
+                <p>Phải có mặt tại bến thuyền trước 06:30 sáng! Khi mặt trời vừa mọc, chênh lệch nhiệt độ giữa nước ngầm ấm và không khí lạnh nhất tạo nên làn sương khói dày đặc nhất và các cành cây bám đầy sương muối tinh khôi.</p>
               </div>
               <div class="extra-box">
-                <h5>⛷️ Lợi Thế Của Sân Trượt Hòa Bình (Heping)</h5>
-                <p>Nằm ngay gần thị trấn Erdaobaihe, đường trượt băng qua rừng thông nguyên sinh tuyệt đẹp và có đài quan sát nhìn thẳng về đỉnh Trường Bạch. Giá thuê đồ và vé cáp treo chỉ bằng 50% so với resort cao cấp.</p>
+                <h5>⛷️ Tuyết Bột Trường Bạch</h5>
+                <p>Tuyết ở dãy Trường Bạch được mệnh danh là tuyết bột champagne (Champagne powder snow) – cực kỳ mềm xốp, trượt rất êm ái và không bị đau khi ngã.</p>
               </div>
             </div>
           </div>
@@ -2656,50 +3001,54 @@
             <div class="day-header-left">
               <span class="day-number">NGÀY 9</span>
               <div class="day-title-group">
-                <h3>Thứ Năm (07/01): Tuyết Lĩnh Hoang Dã (Xueling) • Rừng Tuần Lộc Cực Bắc</h3>
-                <div class="day-route">Tuyết Lĩnh ➔ Rừng Thông Độn Tuyết Sâu 2m ➔ Xe Trượt Tuyết Tuần Lộc</div>
+                <h3>Thứ Năm (07/01): Tuyết Lĩnh Hoang Dã (Xueling) ➔ Rừng Tuần Lộc Cực Bắc</h3>
+                <div class="day-route">Tuyết Lĩnh (Xueling) ➔ Rừng Thông Tuyết Dày 2m ➔ Cho Tuần Lộc Ăn Rêu Tuyết</div>
               </div>
             </div>
             <div class="day-tags">
-              <span class="tag tag-drone">Rừng Tuyết Hoang Dã</span>
-              <span class="tag tag-scenic">Tuần Lộc Cực Bắc</span>
+              <span class="tag tag-drone">Bạch Dương Xứ Lapland</span>
+              <span class="tag tag-scenic">Tuyết Hoang Dã</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Xueling wild reindeer" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Xueling Reindeer" loading="lazy">
               <div class="day-photo-caption">
-                <span>🦌 Rừng tuyết sâu Tuyết Lĩnh (Xueling) – gặp gỡ đàn tuần lộc Bắc Âu giữa thiên nhiên hoang sơ</span>
-                <span>Tuyết dày 1-2 mét tinh khôi</span>
+                <span>🦌 Bầy tuần lộc gặm rêu giữa rừng thông tuyết nguyên sơ Tuyết Lĩnh (Xueling)</span>
+                <span>Khung cảnh tựa xứ sở thần tiên Lapland Bắc Âu</span>
               </div>
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
-                <div class="slot-time">08:00 - 09:30</div>
-                <div class="slot-content">Bắt xe buýt hoặc ghép xe (carpool) từ Nhị Đạo Bạch Hà đi <strong>Tuyết Lĩnh (雪岭 - Xueling)</strong> – khu vực được mệnh danh là nơi có tuyết hoang sơ và đẹp tự nhiên nhất toàn bộ vùng Đông Bắc.</div>
+                <div class="slot-time">07:30 - 09:00</div>
+                <div class="slot-content">Bắt xe ghép du lịch địa phương hoặc xe buýt tuyến từ Erdaobaihe đi <strong>Tuyết Lĩnh (雪岭 - Xueling Scenic Area)</strong>. Cung đường đèo uốn lượn xuyên qua những vách núi phủ kín tuyết trắng tinh nguyên.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">09:30 - 14:30</div>
-                <div class="slot-content"><strong>KHÁM PHÁ THẾ GIỚI TUYẾT HOANG SƠ ĐÍCH THỰC TẠI TUYẾT LĨNH:</strong><br>
-                - Tuyết ở đây rơi dày từ 1 đến 2 mét, đọng trên các nhánh linh sam thành những "chiếc gối bông tuyết" khổng lồ nguyên vẹn.<br>
-                - Gặp gỡ và cho <strong>Đàn Tuần Lộc (Reindeer - 驯鹿)</strong> ăn rêu phong giữa rừng tuyết hoang vu như lạc vào vùng đất Lapland Bắc Âu.<br>
-                - Đi xe mô tô tuyết vượt đèo lên đỉnh cao ngắm dãy núi Trường Bạch hùng vĩ từ xa.<br>
-                🛸 <em>TỌA ĐỘ BAY FLYCAM 4 (TUYẾT HOANG DÃ):</em> Tuyệt đỉnh không gian mở, không có nhà cửa bê tông hay dây điện chằng chịt. Thỏa sức bay flycam lướt trên ngọn những cây thông tuyết sừng sững, quay cảnh tuần lộc bước đi trên nền tuyết trắng tinh.</div>
+                <div class="slot-content"><strong>KHÁM PHÁ VÙNG TUYẾT HOANG DÃ XUELING:</strong><br>
+                Nơi có độ dày tuyết tự nhiên sâu nhất (từ 1.5 đến 2 mét). Đi xe trượt tuyết ngựa kéo (Horse sledge) hoặc đi bộ lội tuyết theo đường mòn.<br>
+                Ghé thăm <strong>Khu Rừng Tuần Lộc Cực Bắc (驯鹿园)</strong>: tương tác trực tiếp, cho những chú tuần lộc hiền lành ăn rêu tuyết, chụp những bức ảnh cận cảnh tuyệt đẹp như đang ở vùng Lapland của Phần Lan.<br>
+                Đứng từ đài vọng cảnh Tuyết Lĩnh ngắm nhìn dãy núi Trường Bạch hùng vĩ từ xa nổi bật giữa biển mây trắng.<br>
+                🛸 <em>TỌA ĐỘ BAY FLYCAM 5:</em> Bay xuyên qua rừng thông Taiga và bạch dương Siberia trắng xóa, bám theo bước chân lội tuyết hoang sơ ngập đầu gối.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">15:30 - 17:00</div>
-                <div class="slot-content">Trở về Erdaobaihe hoặc nghỉ ngơi thư giãn. Ghé tiệm trà địa phương thưởng thức trà quả mọng rừng và ngắm hoàng hôn đỏ ửng trên nền tuyết lạnh.</div>
+                <div class="slot-time">15:00 - 17:00</div>
+                <div class="slot-content">Trở về lại thị trấn Nhị Đạo Bạch Hà. Dạo các quán cà phê ngắm cảnh rừng thông tuyết, uống cà phê nóng hổi và bánh quế nướng mật ong.</div>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">18:00 - 20:30</div>
+                <div class="slot-content">Bữa tối chia tay Trường Bạch Sơn: thưởng thức <strong>Lẩu cá hồi suối lạnh Trường Bạch</strong> hoặc món cơm lam nướng ống tre thơm bùi.</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🦌 Điểm Nhấn Tuyết Lĩnh</h5>
-                <p>Khác với sự thương mại hóa nhộn nhịp của Làng Tuyết Hương, Tuyết Lĩnh giữ nguyên 100% vẻ hoang sơ, yên tĩnh của thiên nhiên rừng già. Cực kỳ thích hợp cho các thước phim điện ảnh (cinematic footage).</p>
+                <h5>🦌 Chụp Ảnh Cùng Tuần Lộc</h5>
+                <p>Mua 1 xô nhỏ rêu tuyết khô (20 RMB), cầm trên tay tuần lộc sẽ tự động vây quanh bạn rất thân thiện. Cài đặt chế độ chụp chân dung Portrait Mode để có bức ảnh lung linh nhất.</p>
               </div>
               <div class="extra-box">
-                <h5>🚌 Di Chuyển Đi Tuyết Lĩnh Tiết Kiệm</h5>
-                <p>Có tuyến xe buýt du lịch hoặc xe khách liên huyện chạy qua đèo Tuyết Lĩnh chỉ khoảng 30-40 RMB, hoặc thuê xe ghép (拼车) 4 người chia sẻ chi phí rất rẻ.</p>
+                <h5>🥾 Bọc Ống Quần Chống Tuyết (Gaiters)</h5>
+                <p>Nên thuê hoặc mua trước 1 đôi bọc cổ chân chống tuyết (Snow Gaiters ~20 RMB) để tuyết xốp sâu không lọt vào trong cổ giày làm ướt tất chân.</p>
               </div>
             </div>
           </div>
@@ -2712,48 +3061,52 @@
               <span class="day-number">NGÀY 10</span>
               <div class="day-title-group">
                 <h3>Thứ Sáu (08/01): Tàu Cao Tốc Đi Trường Xuân ➔ Hoàng Cung Mãn Châu Quốc</h3>
-                <div class="day-route">Ga Trường Bạch Sơn ➔ Ga Trường Xuân (CRH 2h17m) ➔ Xe Điện Tuyến 54 Cổ Điển</div>
+                <div class="day-route">Ga Trường Bạch Sơn ➔ Ga Trường Xuân (Tàu CRH 2h17m) ➔ Bảo Tàng Hoàng Cung Phổ Nghi</div>
               </div>
             </div>
             <div class="day-tags">
-              <span class="tag tag-transit">Tàu CRH 2h17m</span>
-              <span class="tag tag-scenic">Lịch Sử & Văn Hóa</span>
+              <span class="tag tag-transit">Tàu Cao Tốc G-Train</span>
+              <span class="tag tag-scenic">Di Sản Lịch Sử</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=80" alt="Changchun Retro Green Tram" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=800&q=80" alt="Puppet Manchurian Palace Changchun" loading="lazy">
               <div class="day-photo-caption">
-                <span>🚋 Tuyến xe điện cổ số 54 Trường Xuân chạy xuyên qua hàng cây phủ tuyết lãng mạn</span>
-                <span>Tàu CRH G8133 (117¥ - 2h17m)</span>
+                <span>🏛️ Bảo tàng Hoàng cung Mãn Châu Quốc (Viện bảo tàng Phổ Nghi) tại thành phố Trường Xuân</span>
+                <span>Kiến trúc giao thoa Đông - Tây độc đáo</span>
               </div>
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
-                <div class="slot-time">09:00 - 10:30</div>
-                <div class="slot-content">Ăn sáng thong thả tại Erdaobaihe. Đi xe buýt công cộng/taxi ngắn ra <strong>Ga Tàu Cao Tốc Trường Bạch Sơn (长白山站 - Changbaishan Station)</strong> – nhà ga tàu hỏa bằng gỗ với kiến trúc mái vòm tuyệt đẹp giữa rừng thông.</div>
+                <div class="slot-time">08:00 - 09:00</div>
+                <div class="slot-content">Ăn sáng tại khách sạn, trả phòng. Đi taxi 10 phút ra <strong>Ga Tàu Cao Tốc Trường Bạch Sơn (长白山站 - Changbaishan Railway Station)</strong> – nhà ga thiết kế hình đôi cánh đại bàng tuyết tuyệt đẹp.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">11:00 - 13:20</div>
-                <div class="slot-content">Lên tàu cao tốc <strong>G-train (G8133 hoặc tương đương)</strong> chạy thẳng từ Ga Trường Bạch Sơn về <strong>Ga Trường Xuân (长春站 - Changchun Station)</strong>. Tàu lướt êm ru qua bình nguyên tuyết trắng xóa với tốc độ 250km/h chỉ mất 2 giờ 17 phút! Giá vé hạng 2: 117 RMB (~410k VND).</div>
+                <div class="slot-time">09:15 - 11:32</div>
+                <div class="slot-content">Lên chuyến tàu cao tốc <strong>G8133 (09:15 - 11:32)</strong> chạy thẳng từ Ga Trường Bạch Sơn đi Ga Trường Xuân (Changchun Railway Station). Tàu lướt êm ái xuyên qua bình nguyên tuyết trắng xóa Cát Lâm với tốc độ 250km/h (Giá vé hạng 2: 117 RMB ~ 410k VND).</div>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">12:00 - 13:30</div>
+                <div class="slot-content">Đến Ga Trường Xuân. Nhận phòng khách sạn nằm ngay gần ga hoặc trên trục Metro Line 1 / Line 4. Ăn trưa món mì tương đen Đông Bắc hoặc sủi cảo nóng hổi.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">14:00 - 17:00</div>
-                <div class="slot-content">Nhận phòng khách sạn gần ga tàu hoặc Quảng trường Nhân Dân (People's Square). Đi tàu điện ngầm Line 4 đến <strong>Bảo Tàng Hoàng Cung Mãn Châu Quốc (伪满皇宫博物院)</strong>: nơi ở và làm việc của vị Hoàng đế cuối cùng Phổ Nghi (Puyi) trong giai đoạn lịch sử đầy biến động.</div>
+                <div class="slot-content">Đi tàu điện nhẹ đến <strong>Bảo Tàng Hoàng Cung Mãn Châu Quốc (伪满皇宫博物院 - Museum of the Imperial Palace of Manchukuo)</strong>: Nơi vị hoàng đế cuối cùng của Trung Hoa – Phổ Nghi (Puyi) từng sống và làm việc trong thời kỳ Thế chiến thứ hai. Kiến trúc giao thoa độc đáo giữa cung điện truyền thống Trung Hoa, phong cách Nga và phương Tây.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">18:00 - 21:00</div>
-                <div class="slot-content">Trải nghiệm ngồi <strong>Tuyến Xe Điện Cổ Số 54 (长春54路有轨电车)</strong>: toa tàu điện màu xanh cổ điển chạy xuyên qua hàng cây ngân hạnh và bạch dương phủ tuyết, tạo nên khung cảnh lãng mạn như phim truyền hình "Nhân Thế Gian" (A Lifelong Journey). Ăn tối thịt nướng than hoa Đông Bắc.</div>
+                <div class="slot-content">Khám phá ẩm thực đường phố Trường Xuân: thưởng thức các món xiên que nướng cay, bánh bao chiên giòn và thử món canh súp gà nấm tuyết.</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🚋 Xe Điện Tuyến 54 Độc Nhất</h5>
-                <p>Giá vé chỉ 2 RMB/lượt. Đoạn đường tuyết rơi về đêm khi ánh đèn vàng hắt qua khung cửa kính toa xe cổ kính là một trong những góc máy hoài niệm đẹp nhất của thành phố công nghiệp Trường Xuân.</p>
+                <h5>🚆 Đặt Vé Tàu CRH Trường Bạch - Trường Xuân</h5>
+                <p>Nên đặt vé trước qua app 12306 hoặc Trip.com từ 10-14 ngày trước ngày đi. Chặng này có nhiều chuyến trong ngày nhưng các chuyến sáng tiện lợi thường hết vé sớm.</p>
               </div>
               <div class="extra-box">
-                <h5>🏨 Vị Trí Khách Sạn Tại Trường Xuân</h5>
+                <h5>🏨 Khách Sạn Ga Trường Xuân</h5>
                 <p>Nên chọn khách sạn ngay sát Ga Trường Xuân (Changchun Station) để sáng ngày 10/01 chỉ cần đi bộ 3 phút vào ga bắt tàu cao tốc ra thẳng sân bay Long Gia.</p>
               </div>
             </div>
@@ -2767,112 +3120,114 @@
               <span class="day-number">NGÀY 11</span>
               <div class="day-title-group">
                 <h3>Thứ Bảy (09/01): Tịnh Nguyệt Đàm (Hồ Băng & Biển Rừng) ➔ Ẩm Thực Phố Quế Lâm</h3>
-                <div class="day-route">Metro Tuyến 3 ➔ Công Viên Rừng Quốc Gia Tịnh Nguyệt Đàm ➔ Phố Đi Bộ Guilin</div>
+                <div class="day-route">Công Viên Quốc Gia Tịnh Nguyệt Đàm (Metro Line 3) ➔ Phố Ẩm Thực Quế Lâm Lộ</div>
               </div>
             </div>
             <div class="day-tags">
-              <span class="tag tag-drone">Rừng Thông Trắng 100km²</span>
-              <span class="tag tag-scenic">Ẩm Thực Đông Bắc</span>
+              <span class="tag tag-drone">Rừng Thông Tuyết Phủ</span>
+              <span class="tag tag-scenic">Ẩm Thực Đêm</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?auto=format&fit=crop&w=800&q=80" alt="Jingyuetan pine forest" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?auto=format&fit=crop&w=800&q=80" alt="Jingyuetan Changchun Forest" loading="lazy">
               <div class="day-photo-caption">
-                <span>🌲 Công viên Rừng Quốc gia Tịnh Nguyệt Đàm – hồ băng 4.3km² và địa điểm Lễ hội Vasaloppet</span>
-                <span>Metro Tuyến 3 Trường Xuân</span>
+                <span>🌲 Công viên rừng quốc gia Tịnh Nguyệt Đàm (Jingyuetan) – lá phổi xanh mùa đông của Trường Xuân</span>
+                <span>Metro Line 3 thẳng tới cổng</span>
               </div>
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
-                <div class="slot-time">08:30 - 13:00</div>
-                <div class="slot-content">Bắt <strong>Metro Line 3</strong> đi thẳng đến cổng <strong>Công viên Rừng Quốc gia Tịnh Nguyệt Đàm (净月潭国家森林公园 - Jingyuetan)</strong> (được coi là hồ chị em của Hồ Nhật Nguyệt Đài Loan).<br>
-                - Diện tích mặt hồ đóng băng rộng hơn 4,3 km² được bao bọc bởi 100 km² rừng thông tuyết bạt ngàn.<br>
-                - Đây là địa điểm tổ chức Lễ hội Trượt tuyết Quốc tế Vasaloppet: chiêm ngưỡng các công trình điêu khắc tuyết khổng lồ, trải nghiệm xe trượt băng kéo bằng ngựa hoặc đi bộ giữa hồ băng vắng lặng.<br>
-                🛸 <em>TỌA ĐỘ BAY FLYCAM 5:</em> Bay flycam trên mặt hồ băng bao la phản chiếu ánh nắng trưa, các rặng thông xanh ngắt đọng tuyết trải dài tít tắp đến tận chân trời.</div>
+                <div class="slot-time">08:30 - 14:00</div>
+                <div class="slot-content">Bắt <strong>Metro Line 3</strong> (tuyến tàu điện mặt đất ngắm cảnh đẹp nhất Trường Xuân) đi thẳng đến ga <strong>Jingyuetan (净月潭)</strong>.<br>
+                Tham quan <strong>Công Viên Rừng Quốc Gia Tịnh Nguyệt Đàm (净月潭国家森林公园)</strong>: nơi được mệnh danh là "Viên ngọc lục bảo mùa đông" với hồ băng rộng 4.3 km² và biển rừng thông nhân tạo lớn nhất châu Á phủ đầy tuyết trắng.<br>
+                Ngắm các tác phẩm điêu khắc tuyết khổng lồ của lễ hội Vasaloppet tuyết quốc tế, trải nghiệm trượt phao tuyết và dạo bước dưới tán rừng thông tĩnh lặng không một bóng xe cộ.<br>
+                🛸 <em>TỌA ĐỘ BAY FLYCAM 6:</em> Bay lướt trên mặt hồ băng bao la và biển rừng thông bạt ngàn thẳng tắp phủ đầy tuyết trắng.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">14:00 - 17:00</div>
-                <div class="slot-content">Tham quan <strong>Công viên Nam Hồ (南湖公园)</strong>: ngắm cầu vòm Bạch Ngọc Tuyết lãng mạn giữa lòng thành phố hoặc ghé Trường Phim Trường Xuân (Changchun Film Studio) – cái nôi điện ảnh đầu tiên của Trung Quốc mới.</div>
+                <div class="slot-time">15:00 - 17:30</div>
+                <div class="slot-content">Về lại trung tâm thành phố. Mua sắm đặc sản Đông Bắc làm quà (nhân sâm Trường Bạch, nấm hương rừng, kẹo sữa gấu trúc, trà hoa thảo mộc).</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">18:00 - 21:00</div>
-                <div class="slot-content">Khám phá <strong>Phố Ẩm Thực Quế Lâm Lộ (桂林路美食街)</strong>: ăn no nê các món ăn vặt trứ danh (bánh trứng nướng Đông Bắc, xiên que lòng bò, xúc xích nướng tiêu đen, chè súp đậu đỏ ngọt ngào). Về khách sạn kiểm tra hành lý sẵn sàng cho ngày về.</div>
+                <div class="slot-time">18:00 - 21:30</div>
+                <div class="slot-content">Khám phá <strong>Phố Ẩm Thực Quế Lâm Lộ (桂林路美食街)</strong>: ăn no nê các món ăn vặt trứ danh (bánh tráng nướng Đông Bắc, xiên que lòng bò, xúc xích nướng tiêu đen, chè súp đậu đỏ ngọt ngào). Về khách sạn kiểm tra hành lý sẵn sàng cho ngày về.</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🚇 Di Chuyển Tuyến Metro 3 Trường Xuân</h5>
-                <p>Tuyến Metro Line 3 chạy mặt đất (Light rail) lướt qua những rặng cây tuyết rất đẹp, kết nối thẳng từ trung tâm đến tận cửa công viên Tịnh Nguyệt Đàm với giá chỉ 4-5 RMB.</p>
+                <h5>🚇 Đi Metro Line 3 Ngắm Cảnh</h5>
+                <p>Tuyến Metro Line 3 chạy trên mặt đất uốn lượn xuyên qua các khu rừng và đồi tuyết ngoại ô Trường Xuân, giá vé chỉ 4 RMB nhưng phong cảnh hai bên cửa sổ đẹp như phim điện ảnh.</p>
               </div>
               <div class="extra-box">
-                <h5>🎁 Mua Quà Đặc Sản Đông Bắc</h5>
-                <p>Trường Xuân có giá cả mua sắm rất dễ chịu: nấm mộc nhĩ rừng Đông Bắc, hạt thông, mật ong hoa bồ đề Trường Bạch, bánh kẹo Nga đóng hộp làm quà lưu niệm.</p>
+                <h5>🎁 Mua Quà Đặc Sản</h5>
+                <p>Khu vực quanh ga hoặc các siêu thị lớn như Wal-Mart / RT-Mart tại Trường Xuân có giá bán đặc sản sâm, nấm và trà rẻ hơn 30-40% so với mua tại các quầy du lịch ở chân núi.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- DAY 12 -->
-        <div class="day-card" data-category="transit">
+        <div class="day-card highlight" data-category="transit">
           <div class="day-header" onclick="toggleDay(this)">
             <div class="day-header-left">
               <span class="day-number">NGÀY 12</span>
               <div class="day-title-group">
                 <h3>Chủ Nhật (10/01): Tàu 9 Phút Ra Sân Bay ➔ Transit Bắc Kinh ➔ Hà Nội</h3>
-                <div class="day-route">Changchun ➔ Beijing PEK (Transit 9h30m ăn Vịt Quay) ➔ Noi Bai (11/01)</div>
+                <div class="day-route">Ga Trường Xuân ➔ Sân bay Long Gia (Tàu CRH 9 phút) ➔ Bay PEK ➔ Transit 9h30m ➔ HAN</div>
               </div>
             </div>
             <div class="day-tags">
-              <span class="tag tag-transit">Tàu Sân Bay 9 Phút</span>
-              <span class="tag tag-transit">Transit Bắc Kinh</span>
+              <span class="tag tag-transit">Bay Về Nước</span>
+              <span class="tag tag-scenic">Transit Bắc Kinh</span>
               <span class="day-toggle-icon">▼</span>
             </div>
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="Beijing Capital Express" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="Beijing Capital Airport" loading="lazy">
               <div class="day-photo-caption">
-                <span>🦆 Transit Bắc Kinh 9h30m: Thưởng thức Vịt quay chính gốc & dạo ngõ Hutong cổ kính</span>
-                <span>Tàu siêu tốc ga Long Gia chỉ 9 phút (8.5¥)</span>
+                <span>✈️ Sân bay Quốc tế Thủ đô Bắc Kinh (PEK) – trạm dừng chân transit trên đường về Hà Nội</span>
+                <span>Chuyến bay Air China CA-1628 & CA-883</span>
               </div>
             </div>
             <div class="sub-timeline">
               <div class="time-slot">
-                <div class="slot-time">09:30 - 10:00</div>
-                <div class="slot-content">Trả phòng khách sạn. Vào Ga Trường Xuân bắt tàu cao tốc liên vận <strong>CRH đi Ga Sân Bay Long Gia (龙嘉站 - Longjia Airport Station)</strong>.<br>
-                ⚡ <em>KỶ LỤC CÔNG CỘNG:</em> Thời gian chạy tàu chỉ đúng <strong>9 PHÚT</strong> với giá vé siêu rẻ <strong>8.5 RMB (~30k VND)</strong>! Ga tàu nằm thông trực tiếp với sảnh làm thủ tục sân bay Long Gia, không phải bước ra ngoài trời lạnh.</div>
+                <div class="slot-time">08:30 - 09:30</div>
+                <div class="slot-content">Ăn sáng, trả phòng khách sạn. Đi bộ sang Ga Trường Xuân (Changchun Station).</div>
+              </div>
+              <div class="time-slot">
+                <div class="slot-time">09:50 - 10:05</div>
+                <div class="slot-content">Lên chuyến tàu cao tốc liên thành phố <strong>Ga Trường Xuân ➔ Ga Sân bay Long Gia (Longjia Airport Station - 龙嘉站)</strong>. Thời gian chạy tàu thần tốc đúng <strong>9 PHÚT!</strong> (Giá vé chỉ 8.5 RMB ~ 30k VND!). Lối ra ga tàu nằm thông thẳng vào sảnh nhà ga sân bay T2 cực kỳ tiện lợi và ấm áp.</div>
               </div>
               <div class="time-slot">
                 <div class="slot-time">10:30 - 12:40</div>
-                <div class="slot-content">Check-in chuyến bay <strong>CA-1628 (12:40 - 14:40)</strong> của Air China từ Trường Xuân (CGQ) bay về Sân bay Thủ đô Bắc Kinh (PEK).</div>
+                <div class="slot-content">Làm thủ tục chuyến bay <strong>Air China CA-1628 (12:40 - 14:40)</strong> bay đi Bắc Kinh. Gửi hành lý thẳng về Hà Nội hoặc lấy hành lý tùy theo vé liên chặng.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">14:40 - 21:00</div>
-                <div class="slot-content"><strong>KHÁM PHÁ BẮC KINH TRONG 9 TIẾNG TRANSIT (14:40 - 00:10):</strong><br>
-                - Gửi hành lý xách tay tại quầy Left Luggage sân bay PEK (hoặc ký gửi thẳng về Hà Nội).<br>
-                - Bắt <strong>Capital Airport Express (Tàu điện ngầm siêu tốc sân bay)</strong> chỉ mất 20 phút chạy thẳng vào ga <strong>Đông Trực Môn (Dongzhimen - 东直门)</strong> với giá vé 25 RMB.<br>
-                - Đi tàu điện ngầm ghé thăm <strong>Công viên Olympic (ngắm cận cảnh Sân vận động Tổ Chim & Water Cube)</strong> hoặc dạo các con ngõ Hutong cổ kính Nam La Cổ Hạng (Nanluoguxiang).<br>
-                - <strong>THƯỞNG THỨC VỊT QUAY BẮC KINH CHÍNH GỐC:</strong> Dùng bữa tối tại nhà hàng Tứ Quý Dân Phúc (Siji Minfu - 四季民福烤鸭) hoặc Đại Đông với lớp da vịt giòn rụm tan trong miệng, chấm đường cát và cuốn bánh tráng thanh tao.</div>
+                <div class="slot-time">14:40 - 22:30</div>
+                <div class="slot-content"><strong>TRANSIT BẮC KINH (PEK) DÀI 9 TIẾNG 30 PHÚT:</strong><br>
+                Bắt tàu <strong>Airport Express (机场线)</strong> vào trung tâm thủ đô Bắc Kinh (ga Dongzhimen chuyển metro đi Wangfujing).<br>
+                Dạo bước trên <strong>Phố đi bộ Vương Phủ Tỉnh (王府井)</strong> náo nhiệt, thưởng thức bữa tối với món <strong>Vịt quay Bắc Kinh da giòn (北京烤鸭)</strong> chính gốc tại chuỗi nhà hàng Toàn Tụ Đức (Quanjude) hoặc Bianyifang.<br>
+                Ngắm nhìn Tử Cấm Thành và Quảng trường Thiên An Môn lung linh ánh đèn đêm.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">21:30 - 00:10</div>
+                <div class="slot-time">22:30 - 03:15 (11/01)</div>
                 <div class="slot-content">Bắt tàu Airport Express quay lại Sân bay Thủ đô Bắc Kinh (PEK - T3). Làm thủ tục xuất cảnh lên chuyến bay <strong>CA-883 (00:10 - 03:15 ngày 11/01)</strong> về lại Hà Nội.</div>
               </div>
               <div class="time-slot">
-                <div class="slot-time">03:15 (Sáng 11/01)</div>
+                <div class="slot-time">03:15 (Sáng Thứ 2)</div>
                 <div class="slot-content">Hạ cánh an toàn tại Sân bay Quốc tế Nội Bài (Hà Nội). Kết thúc chuyến phiêu lưu băng tuyết 12 ngày 11 đêm tràn ngập kỷ niệm và những thước phim để đời!</div>
               </div>
             </div>
             <div class="day-extra-grid">
               <div class="extra-box">
-                <h5>🚅 Kỳ Tích Tàu Cao Tốc Sân Bay Long Gia</h5>
-                <p>Ga Long Gia (Longjia) nối trực tiếp tầng hầm nhà ga T2 sân bay. Đây là một trong những sân bay kết nối tàu cao tốc rẻ và nhanh nhất thế giới: 9 phút, 8.5 tệ!</p>
+                <h5>🚄 Tuyến Tàu 9 Phút Kỳ Diệu</h5>
+                <p>Tuyệt đối không đi taxi ra sân bay Long Gia vừa đắt (100-120 RMB) vừa dễ kẹt xe mùa đông. Tàu cao tốc chỉ 8.5 RMB và chạy đúng 9 phút vào tận hầm sân bay!</p>
               </div>
               <div class="extra-box">
-                <h5>🦆 Mẹo Ăn Vịt Quay Bắc Kinh Khi Transit</h5>
-                <p>Nên lấy số xếp hàng online qua WeChat mini app của nhà hàng Siji Minfu lúc 16:30 khi đang trên đường vào phố để khi tới nơi là vừa kịp có bàn, tiết kiệm tối đa thời gian.</p>
+                <h5>🦆 Mẹo Transit Bắc Kinh</h5>
+                <p>Khoảng thời gian transit 9h30m là cực kỳ lý tưởng để ra phố thưởng thức ẩm thực thủ đô. Nhớ quay lại sân bay trước giờ bay ít nhất 2 tiếng để hoàn tất thủ tục hải quan xuất cảnh.</p>
               </div>
             </div>
           </div>
@@ -2881,140 +3236,127 @@
       </div>
     </section>
 
-    <!-- SECTION 6: PUBLIC TRANSIT STEP-BY-STEP FLOW -->
+    <!-- SECTION 7: TRANSIT & TRANSPORTATION GUIDE -->
     <section id="transit">
       <div class="section-header">
-        <span class="section-tag">Tối Ưu Ngân Sách Đi Lại</span>
-        <h2 class="section-title">Sơ Đồ Phương Tiện Công Cộng Tối Đa</h2>
-        <p class="section-desc">Không cần tốn hàng chục triệu thuê xe riêng (bao xe) lái trên đường băng trơn trượt nguy hiểm. Hệ thống tàu cao tốc CRH và xe buýt du lịch Đông Bắc hiện đại, đúng giờ 100% và cực kỳ rẻ.</p>
+        <span class="section-tag">Phương Tiện Công Cộng</span>
+        <h2 class="section-title">Sơ Đồ Tàu Cao Tốc & Xe Buýt Mùa Đông (Tiết Kiệm Tối Đa)</h2>
+        <p class="section-desc">Toàn bộ 1.200km đường bộ tuyết trắng được kết nối bằng tàu cao tốc CRH và xe buýt liên tỉnh chuyên tuyến an toàn tuyệt đối trước bão tuyết.</p>
       </div>
 
-      <div class="transit-step-grid">
-
+      <!-- Route Cards -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:18px;">
         <!-- Chặng 1 -->
-        <div class="transit-card">
-          <span class="step-badge">CHẶNG 1 • AIRPORT BUS</span>
-          <h4>Sân Bay Cáp Nhĩ Tân ➔ Phố Trung Ương</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted)">Xe buýt chính hãng sân bay chạy liên tục mỗi 30 phút, có sưởi ấm, an toàn.</p>
-          <div class="transit-spec">
-            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">~50 - 60 phút</span></div>
-            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">20 RMB (~70k VND)</span></div>
-            <div class="spec-item"><span class="label">Tuyến:</span><span class="val">Airport Bus Tuyến 3</span></div>
-            <div class="spec-item"><span class="label">So với taxi:</span><span class="val">Tiết kiệm 85%</span></div>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag tag-transit">Tàu Cao Tốc CRH</span>
+            <strong style="color:var(--accent-cyan); font-size:1.1rem;">54 RMB (~190k đ)</strong>
           </div>
-          <div class="chinese-phrase-box">
-            <div class="cn">机场大巴3号线 到 中央大街</div>
-            <div class="pinyin">Jīchǎng dàbā sān hào xiàn dào Zhōngyāng Dàjiē</div>
-            <div style="font-size:0.8rem; color:#fff; margin-top:2px;">(Đưa lái xe hoặc nhân viên bán vé nếu cần)</div>
-          </div>
+          <h4>Cáp Nhĩ Tân ➔ Á Bố Lực Tây</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Ga Cáp Nhĩ Tân (哈尔滨站) ➔ Ga Á Bố Lực Tây (亚布力西站)</p>
+          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
+            <li><strong>Thời gian chạy:</strong> 1 giờ 10 phút (vận tốc 250km/h).</li>
+            <li><strong>Tần suất:</strong> Hơn 15 chuyến/ngày.</li>
+            <li><strong>Chuyển tiếp:</strong> Xe bus trung chuyển miễn phí đưa thẳng từ ga vào khu trượt tuyết.</li>
+          </ul>
         </div>
 
         <!-- Chặng 2 -->
-        <div class="transit-card">
-          <span class="step-badge">CHẶNG 2 • TÀU CAO TỐC CRH</span>
-          <h4>Cáp Nhĩ Tân ➔ Á Bố Lực Tây (Yabuli)</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted)">Tàu viên đạn G-train lướt băng tốc độ 250km/h, ấm áp, có ổ cắm sạc pin.</p>
-          <div class="transit-spec">
-            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">1 giờ 10 phút</span></div>
-            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">54 RMB (~190k VND)</span></div>
-            <div class="spec-item"><span class="label">Ga đi / đến:</span><span class="val">Harbin ➔ Yabuli Xi</span></div>
-            <div class="spec-item"><span class="label">Tần suất:</span><span class="val">15+ chuyến/ngày</span></div>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag tag-scenic">Bus Du Lịch Tuyến</span>
+            <strong style="color:var(--accent-gold); font-size:1.1rem;">~ 80 RMB (~280k đ)</strong>
           </div>
-          <div class="chinese-phrase-box">
-            <div class="cn">哈尔滨站 ➔ 亚布力西站 (高铁二等座)</div>
-            <div class="pinyin">Hā'ěrbīn zhàn ➔ Yàbùlì Xī zhàn</div>
-          </div>
+          <h4>Á Bố Lực ➔ Làng Tuyết Hương</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Sảnh Khu Du Lịch Á Bố Lực ➔ Cổng Làng Tuyết Hương (雪乡)</p>
+          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
+            <li><strong>Thời gian chạy:</strong> Khoảng 2 tiếng (đường cao tốc tuyết).</li>
+            <li><strong>Khởi hành:</strong> Các chuyến buổi chiều (13:30, 15:00).</li>
+            <li><strong>Tiện nghi:</strong> Xe có sưởi ấm toàn bộ, trả khách ngay cổng mua vé vào làng.</li>
+          </ul>
         </div>
 
         <!-- Chặng 3 -->
-        <div class="transit-card">
-          <span class="step-badge">CHẶNG 3 • BUS TRỰC THÔNG</span>
-          <h4>Á Bố Lực ➔ Làng Tuyết Hương (Xuexiang)</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted)">Tuyến xe buýt du lịch chính thức mùa đông chạy thẳng từ khu trượt tuyết vào làng.</p>
-          <div class="transit-spec">
-            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">~2 giờ</span></div>
-            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">~80 RMB (~280k VND)</span></div>
-            <div class="spec-item"><span class="label">Khởi hành:</span><span class="val">10:00, 13:00, 15:00</span></div>
-            <div class="spec-item"><span class="label">Điểm đón:</span><span class="val">Yabuli Ski Center</span></div>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag tag-transit">Bus Xuyên Rừng Tuyết</span>
+            <strong style="color:var(--accent-emerald); font-size:1.1rem;">~ 150 RMB (~520k đ)</strong>
           </div>
-          <div class="chinese-phrase-box">
-            <div class="cn">亚布力 到 中国雪乡 旅游直通车</div>
-            <div class="pinyin">Yàbùlì dào Zhōngguó Xuěxiāng zhítōngchē</div>
-          </div>
+          <h4>Tuyết Hương ➔ Nhị Đạo Bạch Hà</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Bãi Xe Cổng Lớn Tuyết Hương ➔ Thị Trấn Nhị Đạo Bạch Hà (Erdaobaihe)</p>
+          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
+            <li><strong>Thời gian chạy:</strong> 5.5 tiếng (nghỉ ăn trưa tại trạm dừng).</li>
+            <li><strong>Tuyến đặc biệt:</strong> Xe chạy thẳng mùa đông duy nhất kết nối 2 điểm danh thắng.</li>
+            <li><strong>Đặt vé:</strong> Nhờ homestay Tuyết Hương đặt trước 1 ngày qua app Chuxing 365.</li>
+          </ul>
         </div>
 
         <!-- Chặng 4 -->
-        <div class="transit-card">
-          <span class="step-badge">CHẶNG 4 • BUS LIÊN TỈNH MÙA ĐÔNG</span>
-          <h4>Tuyết Hương ➔ Nhị Đạo Bạch Hà (Trường Bạch)</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted)">Xe buýt chạy thẳng liên tỉnh qua đèo tuyết, không cần trung chuyển hành lý cồng kềnh.</p>
-          <div class="transit-spec">
-            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">~5.5 - 6 giờ</span></div>
-            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">~150 RMB (~525k VND)</span></div>
-            <div class="spec-item"><span class="label">Giờ xuất phát:</span><span class="val">08:30 sáng hằng ngày</span></div>
-            <div class="spec-item"><span class="label">Điểm đến:</span><span class="val">Erdaobaihe Town</span></div>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag tag-transit">Tàu Cao Tốc G-Train</span>
+            <strong style="color:var(--accent-cyan); font-size:1.1rem;">117 RMB (~410k đ)</strong>
           </div>
-          <div class="chinese-phrase-box">
-            <div class="cn">雪乡 到 二道白河 (长白山北坡) 直通大巴</div>
-            <div class="pinyin">Xuěxiāng dào Èrdàobáihé zhítōng dàbā</div>
-          </div>
+          <h4>Trường Bạch Sơn ➔ Trường Xuân</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Ga Trường Bạch Sơn (长白山站) ➔ Ga Trường Xuân (长春站)</p>
+          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
+            <li><strong>Thời gian chạy:</strong> 2 giờ 17 phút (chuyến G8133).</li>
+            <li><strong>Đặc điểm:</strong> Tàu chạy cực kỳ êm ái, ngắm tuyết rơi qua cửa kính toàn cảnh.</li>
+            <li><strong>Khách sạn:</strong> Trả ngay trung tâm Trường Xuân, nối thẳng mạng lưới Metro.</li>
+          </ul>
         </div>
 
         <!-- Chặng 5 -->
-        <div class="transit-card">
-          <span class="step-badge">CHẶNG 5 • TÀU CAO TỐC CRH</span>
-          <h4>Trường Bạch Sơn ➔ Trường Xuân (Changchun)</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted)">Tuyến đường sắt cao tốc Thẩm Giai mới khánh thành nối thẳng chân núi vào thủ phủ Cát Lâm.</p>
-          <div class="transit-spec">
-            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">2 giờ 17 phút</span></div>
-            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">117 RMB (~410k VND)</span></div>
-            <div class="spec-item"><span class="label">Mã tàu:</span><span class="val">G8133 / G8125</span></div>
-            <div class="spec-item"><span class="label">Ga đi / đến:</span><span class="val">Changbaishan ➔ Changchun</span></div>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag tag-scenic">Tàu 9 Phút Siêu Tốc</span>
+            <strong style="color:var(--accent-coral); font-size:1.1rem;">8.5 RMB (~30k đ)</strong>
           </div>
-          <div class="chinese-phrase-box">
-            <div class="cn">长白山站 ➔ 长春站 (高铁二等座)</div>
-            <div class="pinyin">Chángbáishān zhàn ➔ Chángchūn zhàn</div>
-          </div>
+          <h4>Ga Trường Xuân ➔ Sân Bay Long Gia</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Ga Trường Xuân ➔ Ga Sân Bay Long Gia (CGQ - 龙嘉站)</p>
+          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
+            <li><strong>Thời gian chạy:</strong> ĐÚNG 9 PHÚT!</li>
+            <li><strong>Tiện lợi:</strong> Cửa ra hầm tàu thông thẳng lên sảnh check-in Terminal 2.</li>
+            <li><strong>An toàn:</strong> Không bao giờ lo tắc đường hay trễ chuyến bay.</li>
+          </ul>
         </div>
 
-        <!-- Chặng 6 -->
-        <div class="transit-card">
-          <span class="step-badge">CHẶNG 6 • TÀU SIÊU TỐC SÂN BAY</span>
-          <h4>Ga Trường Xuân ➔ Ga Sân Bay Long Gia</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted)">Tàu cao tốc chạy thẳng vào tầng hầm nhà ga sân bay quốc tế Long Gia.</p>
-          <div class="transit-spec">
-            <div class="spec-item"><span class="label">Thời gian:</span><span class="val">9 PHÚT DUY NHẤT</span></div>
-            <div class="spec-item"><span class="label">Giá vé:</span><span class="val">8.5 RMB (~30k VND)</span></div>
-            <div class="spec-item"><span class="label">Tần suất:</span><span class="val">25+ chuyến/ngày</span></div>
-            <div class="spec-item"><span class="label">Tiện ích:</span><span class="val">Không tắc đường, ấm áp</span></div>
+        <!-- Chặng 6: Di Chuyển Nội Thành Harbin -->
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag tag-transit">Metro Tuyến 2 & Taxi</span>
+            <strong style="color:var(--accent-cyan); font-size:1.1rem;">3 - 15 RMB / chặng</strong>
           </div>
-          <div class="chinese-phrase-box">
-            <div class="cn">长春站 ➔ 龙嘉站 (长吉城际铁路)</div>
-            <div class="pinyin">Chángchūn zhàn ➔ Lóngjiā zhàn</div>
-          </div>
+          <h4>Di Chuyển Điểm Đến Cáp Nhĩ Tân</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin: 8px 0 12px;">Metro Tuyến 2 kết nối Phố Trung Ương ➔ Đảo Mặt Trời ➔ Băng Tuyết Đại Thế Giới</p>
+          <ul style="font-size:0.85rem; padding-left:18px; color:#e0e9f8;">
+            <li><strong>Đảo Mặt Trời & Ice World:</strong> Đi Metro Line 2 (3 RMB) đến tận cửa cổng.</li>
+            <li><strong>Công Viên Hổ Siberia:</strong> Taxi từ Đảo Mặt Trời chỉ 10 phút (~15 RMB).</li>
+            <li><strong>Trang Viên Volga:</strong> Xe buýt du lịch từ Nhà thờ Sophia (08:30) hoặc DiDi/taxi ~60 RMB.</li>
+          </ul>
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION 7: DRONE WINTER GUIDE -->
+    <!-- SECTION 8: DRONE COLD-WEATHER SURVIVAL GUIDE -->
     <section id="drone-guide">
       <div class="section-header">
-        <span class="section-tag">Kỹ Thuật Săn Cảnh Tuyết</span>
-        <h2 class="section-title">Cẩm Nang Bay Flycam Xứ Lạnh (-20°C Đến -35°C)</h2>
-        <p class="section-desc">Kinh nghiệm sống còn để bảo vệ máy bay, chống tụt pin rơi tự do và quay được những cú máy điện ảnh vô giá.</p>
+        <span class="section-tag">Cẩm Nang Sinh Tồn Thiết Bị</span>
+        <h2 class="section-title">Bí Quyết Vận Hành Flycam Trong Giá Rét -30°C</h2>
+        <p class="section-desc">Kinh nghiệm thực chiến bảo vệ pin, chống đông cứng cánh quạt và cài đặt góc quay điện ảnh đỉnh cao.</p>
       </div>
 
       <div class="guide-columns">
         <div class="guide-card">
-          <h3><span>🛡️</span> Pháp Lý & Vùng Cấm Bay (No-Fly Zone)</h3>
+          <h3><span>🛸</span> Quy Định & Tọa Độ Bay Đẹp Nhất</h3>
           <ul class="guide-list">
-            <li><strong>Đăng ký CAAC UOM:</strong> Bắt buộc đăng ký số seri flycam trên hệ thống chính thức của Cục Hàng không Dân dụng TQ (<code>uom.caac.gov.cn</code>) bằng số hộ chiếu. Hoàn toàn miễn phí và nhận mã QR dán lên drone sau 10 phút.</li>
-            <li><strong>Khu vực cấm bay tuyệt đối:</strong> Bán kính 10-15km quanh sân bay Harbin Taiping, sân bay Changchun Longjia, và <em>vùng đỉnh miệng núi lửa Hồ Thiên Trì (Trường Bạch Sơn)</em> do là ranh giới đường biên giới quốc gia giáp Triều Tiên (có radar giám sát).</li>
-            <li><strong>Khu vực bay tự do đẹp nhất:</strong>
-              <br>• Rừng nguyên sinh Tuyết Lĩnh (Xueling)
-              <br>• Dương Thảo Sơn / Đỉnh Tuyết Hương (sáng sớm săn mây)
-              <br>• Sông Tùng Hoa đóng băng (Cáp Nhĩ Tân)
+            <li><strong>Quy định đăng ký UOM tại Trung Quốc:</strong> Thiết bị bay không người lái (UAV) có trọng lượng trên 250g phải đăng ký mã QR trên hệ thống quản lý bay CAAC UOM (uom.caac.gov.cn). Các dòng máy nhẹ dưới 249g (như DJI Mini 3/4 Pro) được miễn giảm thủ tục nhưng vẫn phải tuân thủ vùng cấm bay (No-Fly Zone).</li>
+            <li><strong>Vùng hạn chế bay:</strong> Tuyệt đối không bay gần khu vực biên giới Trung - Triều tại núi Trường Bạch, khu quân sự hoặc các trạm phát sóng viễn thông công suất lớn.</li>
+            <li><strong>Các tọa độ bay flycam đẹp ngoạn mục nhất trong chuyến đi:</strong>
+              <br>• Đỉnh Dương Thảo Sơn & Làng Tuyết Hương lúc bình minh
+              <br>• Hồ Thiên Trì & Rừng thông tuyết Trường Bạch Sơn
+              <br>• Rừng nguyên sinh Tuyết Lĩnh (Xueling) tuyết sâu 2 mét
+              <br>• Sông Tùng Hoa đóng băng & Đảo Mặt Trời (Cáp Nhĩ Tân)
               <br>• Ma Giới Rime Rafting (sương khói bốc trên mặt sông)
               <br>• Công viên hồ tuyết Tịnh Nguyệt Đàm (Trường Xuân)
             </li>
@@ -3044,7 +3386,7 @@
       </div>
     </section>
 
-    <!-- SECTION 8: SKIING MASTER PLAN -->
+    <!-- SECTION 9: SKIING MASTER PLAN -->
     <section id="ski-guide">
       <div class="section-header">
         <span class="section-tag">Chinh Phục Dốc Tuyết</span>
@@ -3057,7 +3399,7 @@
         <div class="guide-card">
           <h3><span>⛷️</span> Lộ Trình Học 2 Giai Đoạn</h3>
           <ul class="guide-list">
-            <li><strong>Buổi 1 (Ngày 4 tại Á Bố Lực - Yabuli):</strong>
+            <li><strong>Buổi 1 (Ngày 5 tại Á Bố Lực - Yabuli):</strong>
               <br>• <em>Thời lượng:</em> 3 - 4 tiếng tại dốc sơ cấp (Magic Carpet).
               <br>• <em>Bài học 1:</em> Làm quen với trọng lượng giày trượt (Ski boots rất cứng, luôn gập gối để cẳng chân tì vào lưỡi gà của giày).
               <br>• <em>Bài học 2 - Phanh bánh Pizza (Snowplow / Wedge):</em> Mở rộng hai gót chân ra ngoài tạo mũi ván hình chữ V khép hờ, nghiêng cạnh ván trong cạo tuyết để giảm tốc độ hoặc dừng lại theo ý muốn.
@@ -3097,12 +3439,12 @@
       </div>
     </section>
 
-    <!-- SECTION 9: BUDGET & CALCULATOR -->
+    <!-- SECTION 10: BUDGET & CALCULATOR -->
     <section id="budget">
       <div class="section-header">
         <span class="section-tag">Kế Hoạch Tài Chính</span>
         <h2 class="section-title">Bảng Dự Toán Chi Phí & Tối Ưu Ngân Sách (2 Người)</h2>
-        <p class="section-desc">Chi phí thực tế bằng việc sử dụng tối đa phương tiện công cộng, ở khách sạn chuỗi chất lượng và thưởng thức trọn vẹn đặc sản địa phương (Chưa bao gồm vé máy bay đã mua).</p>
+        <p class="section-desc">Chi phí thực tế bằng việc sử dụng tối đa phương tiện công cộng, kết hợp đầy đủ 8 điểm danh lam thắng cảnh và thưởng thức trọn vẹn đặc sản địa phương (Chưa bao gồm vé máy bay đã mua).</p>
       </div>
 
       <div class="budget-grid">
@@ -3119,33 +3461,33 @@
             <tbody>
               <tr>
                 <td><strong>Tàu cao tốc & Xe buýt</strong></td>
-                <td>Bus sân bay, Tàu CRH 3 chặng, Bus Tuyết Hương - Trường Bạch, Metro</td>
-                <td>~ 1.100 RMB</td>
-                <td>~ 3.850.000 đ</td>
+                <td>Bus sân bay, Tàu CRH 3 chặng, Bus Tuyết Hương - Trường Bạch, Metro Line 2 & Line 3, taxi ngắn</td>
+                <td>~ 1.150 RMB</td>
+                <td>~ 4.025.000 đ</td>
               </tr>
               <tr>
                 <td><strong>Khách sạn & Homestay (11 đêm)</strong></td>
-                <td>KS Thượng Hải (1đ), Cáp Nhĩ Tân (2đ), Khang Tuyết Hương (2đ), Onsen Trường Bạch (4đ), Trường Xuân (2đ)</td>
-                <td>~ 3.200 RMB</td>
-                <td>~ 11.200.000 đ</td>
+                <td>KS Thượng Hải (1đ), Cáp Nhĩ Tân (3đ - gồm đêm 02/01), Khang Tuyết Hương (1đ), Onsen Trường Bạch (4đ), Trường Xuân (2đ)</td>
+                <td>~ 3.050 RMB</td>
+                <td>~ 10.675.000 đ</td>
               </tr>
               <tr>
-                <td><strong>Vé tham quan & Thắng cảnh</strong></td>
-                <td>Băng Tuyết Thế Giới (x2), Vé Tuyết Hương + xe sườn, Vé Núi Trường Bạch + Xe 4WD Thiên Trì (x2), Tịnh Nguyệt Đàm</td>
-                <td>~ 2.100 RMB</td>
-                <td>~ 7.350.000 đ</td>
+                <td><strong>Vé tham quan 8 kỳ quan</strong></td>
+                <td>Băng Tuyết Đại Thế Giới (x2), Đảo Mặt Trời Tuyết Bác Hội (x2), Công viên Hổ Siberia xe lồng (x2), Trang viên Volga (x2), Vé Tuyết Hương + xe sườn, Vé Núi Trường Bạch + Xe 4WD Thiên Trì (x2), Tịnh Nguyệt Đàm</td>
+                <td>~ 2.500 RMB</td>
+                <td>~ 8.750.000 đ</td>
               </tr>
               <tr>
                 <td><strong>Trượt tuyết & Trải nghiệm</strong></td>
-                <td>Thuê ván trượt Á Bố Lực 3h (x2), Trượt tuyết Trường Bạch Sơn (x2), Ma Giới Rafting (x2), Tắm Onsen khoáng nóng</td>
+                <td>Thuê ván trượt Á Bố Lực 3h (x2), Trượt tuyết Trường Bạch Sơn (x2), Ma Giới Rafting (x2), Tắm Onsen khoáng nóng ngoài trời</td>
                 <td>~ 1.500 RMB</td>
                 <td>~ 5.250.000 đ</td>
               </tr>
               <tr>
                 <td><strong>Ăn uống & Đặc sản (12 ngày)</strong></td>
-                <td>Lẩu nồi gang, Vịt quay Bắc Kinh, Tiểu long bao, Thịt nướng Triều Tiên, Ăn vặt đường phố (~180 RMB/ngày/2 người)</td>
-                <td>~ 2.200 RMB</td>
-                <td>~ 7.700.000 đ</td>
+                <td>Lẩu cừu nồi đồng, Vịt quay Bắc Kinh, Tiểu long bao Thượng Hải, Súp gà sâm Trường Bạch, Thịt nướng Triều Tiên, Ăn vặt đường phố (~185 RMB/ngày/2 người)</td>
+                <td>~ 2.220 RMB</td>
+                <td>~ 7.770.000 đ</td>
               </tr>
               <tr>
                 <td><strong>SIM / eSIM 4G & Dự phòng</strong></td>
@@ -3155,9 +3497,9 @@
               </tr>
               <tr class="total-row">
                 <td>TỔNG CỘNG (2 NGƯỜI)</td>
-                <td>12 Ngày 11 Đêm</td>
-                <td>~ 10.600 RMB</td>
-                <td>~ 37.100.000 đ</td>
+                <td>12 Ngày 11 Đêm Trọn Gói 8 Kỳ Quan</td>
+                <td>~ 10.920 RMB</td>
+                <td>~ 38.220.000 đ</td>
               </tr>
             </tbody>
           </table>
@@ -3165,18 +3507,18 @@
 
         <div class="budget-calc-box">
           <h4>Ước Tính Trung Bình Mỗi Người</h4>
-          <div class="calc-amount-cny">~ 5.300 RMB</div>
-          <div class="calc-amount-vnd">≈ 18.550.000 VNĐ / Người</div>
+          <div class="calc-amount-cny">~ 5.460 RMB</div>
+          <div class="calc-amount-vnd">≈ 19.110.000 VNĐ / Người</div>
           <p class="calc-note">
             <em>(Tỷ giá tạm tính: 1 RMB ≈ 3.500 VNĐ)</em><br><br>
-            💡 <strong>So sánh với đi tour hoặc bao xe riêng:</strong>
-            Nếu thuê xe riêng có tài xế cho chặng đường tuyết 1.200km này, chi phí xe riêng lên tới 1.200 - 1.500 RMB/ngày (tổng riêng tiền xe mất hơn 50 triệu VNĐ!). Sử dụng tàu cao tốc CRH và xe tuyến vừa an toàn tuyệt đối trước bão tuyết, vừa tiết kiệm được hơn 60% tổng chi phí chuyến đi.
+            💡 <strong>Tối ưu tài chính vượt trội:</strong>
+            Việc ở 3 đêm tại Cáp Nhĩ Tân (khách sạn tiện nghi giá hợp lý ~250 RMB/đêm) thay vì ở 2 đêm tại Tuyết Hương (homestay dịp lễ giá ~700-800 RMB/đêm) vừa giúp bạn khám phá thêm trọn vẹn <strong>Trang Viên Volga, Đảo Mặt Trời và Công Viên Hổ Siberia</strong>, vừa giữ tổng ngân sách cả chuyến đi ở mức cực kỳ tiết kiệm chỉ ~19 triệu VNĐ/người!
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 10: CHECKLIST & ESSENTIAL APPS -->
+    <!-- SECTION 11: CHECKLIST & ESSENTIAL APPS -->
     <section id="checklist">
       <div class="section-header">
         <span class="section-tag">Chuẩn Bị Lên Đường</span>
@@ -3220,7 +3562,7 @@
       </div>
     </section>
 
-    <!-- SECTION 11: CHINESE PHRASEBOOK FLASHCARDS -->
+    <!-- SECTION 12: CHINESE PHRASEBOOK FLASHCARDS -->
     <section>
       <div class="section-header">
         <span class="section-tag">Thẻ Giao Tiếp Bỏ Túi</span>
@@ -3229,6 +3571,20 @@
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+        <div class="card" style="padding:16px;">
+          <div style="font-size:0.8rem; color:var(--text-muted);">Đi Trang viên Volga:</div>
+          <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin:4px 0;">请送我们去伏尔加庄园。</div>
+          <div style="font-size:0.85rem; color:var(--accent-cyan);">Qǐng sòng wǒmen qù Fú'ěrjiā Zhuāngyuán.</div>
+          <div style="font-size:0.85rem; color:#fff; margin-top:2px;">(Làm ơn chở chúng tôi đến Trang viên Volga.)</div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div style="font-size:0.8rem; color:var(--text-muted);">Đi Công viên Hổ Siberia:</div>
+          <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin:4px 0;">请送我们去东北虎林园。</div>
+          <div style="font-size:0.85rem; color:var(--accent-cyan);">Qǐng sòng wǒmen qù Dōngběi Hǔlínyuán.</div>
+          <div style="font-size:0.85rem; color:#fff; margin-top:2px;">(Làm ơn chở chúng tôi đến Công viên Hổ Siberia.)</div>
+        </div>
+
         <div class="card" style="padding:16px;">
           <div style="font-size:0.8rem; color:var(--text-muted);">Hỏi xe buýt đi Tuyết Hương:</div>
           <div style="font-size:1.1rem; font-weight:700; color:var(--accent-gold); margin:4px 0;">请问去雪乡的大巴在哪里坐？</div>
@@ -3271,6 +3627,30 @@
 
   <!-- Snow Canvas Animation & Interactive Script -->
   <script>
+    // Mobile Drawer Open / Close Functions
+    function openDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      if (drawer) drawer.classList.add('open');
+      if (overlay) overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      if (drawer) drawer.classList.remove('open');
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close drawer when pressing Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDrawer();
+      }
+    });
+
     // Snowfall Canvas Effect
     const canvas = document.getElementById('snow-canvas');
     const ctx = canvas.getContext('2d');
@@ -3332,7 +3712,7 @@
     }
     drawSnow();
 
-        // Video Switcher for Mini Theater
+    // Video Switcher for Mini Theater
     function switchVideo(videoId, title, cardEl, extUrl) {
       const iframe = document.getElementById('main-video-frame');
       iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
@@ -3397,23 +3777,43 @@
       });
     }
 
-    // Smooth Scroll for Nav Links
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Smooth Scroll for Nav Links & Drawer Links
+    document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
       link.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
-        if (targetId.startsWith('#')) {
+        if (targetId && targetId.startsWith('#')) {
           e.preventDefault();
           const target = document.querySelector(targetId);
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.nav-link, .drawer-link').forEach(l => l.classList.remove('active'));
             this.classList.add('active');
           }
         }
       });
     });
+
+    // Update active nav link on scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section, header');
+      let currentId = '';
+      const scrollPos = window.scrollY + 120;
+      sections.forEach(sec => {
+        const id = sec.getAttribute('id');
+        if (id && sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
+          currentId = id;
+        }
+      });
+      if (currentId) {
+        document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
+          if (link.getAttribute('href') === '#' + currentId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
-
-

@@ -16,31 +16,38 @@
 
 ---
 
-## 🌟 Điểm Nổi Bật Được Tích Hợp Trên Trang Web
+## 🌟 Trọn Bộ 8 Kỳ Quan Trọng Điểm Đã Lồng Ghép Vào Lịch Trình
 
-1. **🏔️ Visual Tour & 🎬 Rạp Chiếu Phim Mini (Video 4K & Shorts Thực Tế):**
-   - Tích hợp trình phát video tương tác (Interactive Video Player) trực tiếp trên web, xem 6 clip 4K chất lượng cao của Cáp Nhĩ Tân, Tuyết Hương, Trường Bạch Sơn, Sông Ma Giới, Trượt tuyết Á Bố Lực và Té nước sôi thành băng.
-   - Tuyển tập 5 Video YouTube Shorts (khung dọc 9:16) quay thực tế trải nghiệm máng trượt băng 500m, lễ hội băng đêm, mái nấm tuyết, chèo thuyền sương băng Ma Giới và té nước sôi.
-   - Bộ sưu tập ảnh minh họa sắc nét cho toàn bộ 8 điểm đến chính.
-2. **🎨 Cẩm Nang Chuẩn Bị Bằng Graphic:**
-   - Sơ đồ giải phẫu 3 lớp chống rét -35°C (Base layer, Mid layer, Outer shell).
-   - Hướng dẫn "Dáng đi Chim Cánh Cụt" trên mặt sông băng tránh trượt ngã.
-   - Quy tắc vàng giữ ấm pin Lithium điện thoại & flycam, quy tắc túi zip chống đọng sương (sốc nhiệt ngược).
-3. **👗 Lookbook Outfit Couple Mùa Đông:** 4 bảng phối màu thời trang tương phản trên nền tuyết trắng (Xmas Cranberry, Nordic Earth Tone, Ski Sport Neon, Russian Retro Chic).
-4. **📸 Playbook Chụp Ảnh Check-in Triệu View:** 6 ý tưởng pose ảnh couple & cinematic video (Té nước sôi thành băng, Thiên thần tuyết top-down, Giờ xanh lồng đèn đỏ Tuyết Hương, Thuyền trôi sương khói Ma Giới, Pose trượt tuyết chạm gậy, Tàu điện cổ tuyến 54).
-5. **🚄 Sơ Đồ Di Chuyển Công Cộng Tối Đa:** Sử dụng tàu cao tốc CRH và xe buýt du lịch liên tỉnh, tiết kiệm hơn 60% chi phí so với thuê xe riêng.
-6. **🛸 Cẩm Nang Flycam & Giáo Trình Trượt Tuyết 2 Buổi:** Đăng ký CAAC UOM, kiểm soát tụt pin, kỹ thuật phanh bánh pizza và follow-cam 360.
-7. **💰 Bảng Tính Chi Phí:** Chi tiết ngân sách ~18.5 triệu VNĐ/người (37.1 triệu cho 2 người) cho toàn bộ 12 ngày (chưa gồm vé máy bay).
-8. **🗣️ Thẻ Giao Tiếp Tiếng Trung Bỏ Túi:** Chữ Hán giản thể kèm Pinyin để đưa tài xế taxi hoặc nhân viên nhà ga.
+Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu phân bổ hoàn hảo theo cung đường địa lý:
+
+1. **🏰 Harbin Ice and Snow World (Băng Tuyết Đại Thế Giới):** Chiều & tối Ngày 3 (Metro Line 2 thẳng cổng, trượt máng băng 500m & ngắm triệu khối băng LED rực sáng).
+2. **⛪ Nhà thờ Thánh Sophia (Saint Sophia Cathedral):** Đêm Ngày 2 (Đón Giao Thừa 2027 lộng lẫy tuyết rơi) & Chiều Ngày 4 (chụp ảnh chim bồ câu trong nắng chiều).
+3. **🏮 Phố Cổ Trung Ương (Zhongyang Dajie):** Ngày 2, Ngày 3 & Ngày 4 (phố đi bộ lát đá Baroque Nga, kem que Madie'er giữa trời -20°C, xúc xích Harbin).
+4. **🌊 Sông Tùng Hoa (Songhua River):** Sáng Ngày 3 (trượt phao trên mặt băng dày 1m) & Chiều Ngày 4 (hoàng hôn rực lửa trên Cầu sắt thế kỷ Trung Đông lát sàn kính).
+5. **☀️ Đảo Mặt Trời (Sun Island - 太阳岛雪博会):** Sáng Ngày 3 (Metro Line 2 qua ga Thái Dương Đảo, Triển lãm điêu khắc tượng tuyết trắng quốc tế khổng lồ 30m).
+6. **🏰 Trang Viên Volga (Volga Manor - 伏尔加庄园):** Trọn vẹn Ngày 4 (Lâu đài Pavlov tuyết trắng, quán bar hầm rượu Vodka bằng băng nguyên khối, máng trượt phao từ tháp lâu đài Nga).
+7. **🐯 Công Viên Hổ Siberia (Siberian Tiger Park - 东北虎林园):** Trưa Ngày 3 (xe lồng bọc thép đặc chủng khám phá bầy hổ tuyết Siberia dũng mãnh nhảy vồ mồi giữa bão tuyết).
+8. **🍄 Làng Tuyết Hương (China Snow Town - 中国雪乡):** Chiều/tối Ngày 5 & sáng Ngày 6 (mái nấm tuyết bồng bềnh, đêm đèn lồng đỏ, té nước sôi thành băng, dạo sàn gỗ Bổng Chùy Sơn).
 
 ---
 
-## 🚀 Cập Nhật Mã Nguồn
+## 📱 Điểm Mới: Giao Diện Mobile Menu Ẩn (Left Side Drawer)
 
-Mỗi khi bạn chỉnh sửa file `index.html`, chỉ cần chạy lệnh sau để cập nhật lên GitHub Pages:
-```powershell
-cd D:\Projects\Travel
-git add .
-git commit -m "Update visual guide and couple lookbook"
-git push origin main
-```
+- **Mobile View (màn hình nhỏ <= 900px):**
+  - Thanh header gọn gàng với nút bấm Hamburger `☰ Menu Lịch Trình`, tiêu đề và nút in nhanh PDF.
+  - Khi bấm, Menu dạng trượt (Slide-out Drawer) mượt mà xuất hiện từ mép trái màn hình với hiệu ứng kính mờ (Glassmorphism), hiển thị đầy đủ 12 danh mục điều hướng.
+  - Tự động đóng menu khi bấm chọn mục hoặc ấn phím ESC / chạm ra ngoài nền mờ.
+  - Tự động theo dõi vị trí cuộn trang (Active Nav Indicator) chính xác theo thời gian thực.
+- **Desktop View (> 900px):** Thanh điều hướng ngang hiện đại, tiện dụng, trực quan.
+
+---
+
+## 🎬 Tính Năng Giải Trí & Hướng Dẫn Tương Tác
+
+1. **🎬 Rạp Chiếu Phim Mini 4K & YouTube Shorts Tuyển Tập:**
+   - Trình phát video 4K tương tác với 6 clip danh lam thắng cảnh.
+   - 5 video YouTube Shorts dạng đứng (9:16) quay trải nghiệm thực tế: Máng trượt 500m, Băng đăng đêm, Làng Tuyết Hương, Rafting Ma Giới, Té nước sôi thành băng.
+2. **🎨 Graphic Tips Chuẩn Bị:** Infographic mặc ấm 3 lớp, dáng đi chim cánh cụt chống trượt, mẹo pin sập nguồn, mẹo đi xe lồng xem hổ và check-in Volga Manor.
+3. **👗 Lookbook Outfit & 6 Ý Tưởng Chụp Ảnh Couple:** 4 bảng phối màu thời trang mùa đông & 6 concept tạo dáng đôi viral.
+4. **⛷️ Giáo Trình Trượt Tuyết 2 Buổi:** Buổi 1 (Á Bố Lực) và Buổi 2 (Trường Bạch Sơn).
+5. **💰 Dự Toán Ngân Sách:** Tối ưu chi phí công cộng trọn gói ~19 triệu VNĐ/người cho 12 ngày 11 đêm (tiết kiệm hơn 60% so với bao xe riêng).
