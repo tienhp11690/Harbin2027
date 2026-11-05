@@ -654,6 +654,44 @@
       }
     }
 
+    .map-ctrl-hint-toast {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.92);
+      background: rgba(6, 12, 30, 0.94);
+      border: 1px solid var(--accent-cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 18px rgba(0, 242, 254, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #f0f6ff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    .map-ctrl-hint-toast.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .map-ctrl-hint-toast strong {
+      color: var(--accent-cyan);
+      background: rgba(0, 242, 254, 0.15);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 242, 254, 0.4);
+    }
+
     .map-legend-bar {
       padding: 10px 16px;
       background: rgba(6, 12, 30, 0.95);
@@ -735,7 +773,8 @@
       justify-content: center;
       padding: 20px;
     }
-    .map-detail-modal.active {
+    .map-detail-modal.active,
+    .map-detail-modal.show {
       display: flex;
     }
 
@@ -2827,6 +2866,9 @@
 
         <!-- The Leaflet Map Div -->
         <div id="trip-map"></div>
+        <div id="map-ctrl-hint" class="map-ctrl-hint-toast">
+          <span>⌨️</span> <span>Giữ phím <strong>Ctrl</strong> và cuộn chuột để phóng to / thu nhỏ bản đồ</span>
+        </div>
 
         <!-- Map Legend Bar -->
         <div class="map-legend-bar">
@@ -6586,6 +6628,45 @@
 
       darkTileLayer.addTo(tripMap);
 
+      // Ctrl + Mouse Wheel Zoom Handler
+      let hintTimeout = null;
+      function showMapCtrlHint() {
+        const hintEl = document.getElementById('map-ctrl-hint');
+        if (!hintEl) return;
+        hintEl.classList.add('visible');
+        clearTimeout(hintTimeout);
+        hintTimeout = setTimeout(() => {
+          hintEl.classList.remove('visible');
+        }, 1600);
+      }
+
+      let isZooming = false;
+      mapEl.addEventListener('wheel', function(e) {
+        if (e.ctrlKey || e.metaKey) {
+          e.preventDefault(); // Prevent full-page browser viewport zoom
+          if (isZooming) return;
+
+          const currentZoom = tripMap.getZoom();
+          const minZoom = tripMap.getMinZoom() !== undefined ? tripMap.getMinZoom() : 2;
+          const maxZoom = tripMap.getMaxZoom() !== undefined ? tripMap.getMaxZoom() : 18;
+
+          const delta = e.deltaY < 0 ? 1 : -1;
+          const targetZoom = Math.min(Math.max(currentZoom + delta, minZoom), maxZoom);
+
+          if (targetZoom !== currentZoom) {
+            isZooming = true;
+            const containerPoint = tripMap.mouseEventToContainerPoint(e);
+            const latlng = tripMap.containerPointToLatLng(containerPoint);
+            tripMap.setZoomAround(latlng, targetZoom, { animate: true });
+            setTimeout(() => {
+              isZooming = false;
+            }, 180);
+          }
+        } else {
+          showMapCtrlHint();
+        }
+      }, { passive: false });
+
       // Render default overview
       renderOverviewMap();
     }
@@ -6769,7 +6850,7 @@ function renderOverviewMap() {
       html += `
         <div class="map-popup-actions">
           <button onclick="openMapModal(${dayNum})" class="map-popup-btn">Xem Lịch Trình Ngày ${dayNum} ➔</button>
-          ${isHotel ? `<button onclick="jumpToTimelineHotel(${dayNum})" class="map-popup-btn btn-sec">Chi Tiết Chỗ Ở ⬇️</button>` : ''}
+          ${isHotel ? `<button onclick="jumpToTimelineHotel(${dayNum})" class="map-popup-btn btn-sec">Chi Tiết Chỗ Ở ⬇️</button>` : `<button onclick="jumpToTimelineDayDirect(${dayNum})" class="map-popup-btn btn-sec">Tới Timeline Ngày ${dayNum} ⬇</button>`}
         </div>
       </div>
       `;
@@ -7014,23 +7095,27 @@ function renderOverviewMap() {
 
       const modal = document.getElementById('map-detail-modal');
       if (modal) {
+        modal.classList.add('active');
         modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
       }
     }
 
     function closeMapModal(e) {
-      if (e && e.target && e.target.classList.contains('map-modal-card')) {
+      if (e && e.target && e.target.closest && e.target.closest('.map-modal-card') && !e.target.classList.contains('map-modal-close-btn')) {
         return;
       }
       const modal = document.getElementById('map-detail-modal');
       if (modal) {
+        modal.classList.remove('active');
         modal.classList.remove('show');
+        document.body.style.overflow = '';
       }
     }
 
-    function jumpToTimelineDay() {
+    function jumpToTimelineDayDirect(dayNum) {
       closeMapModal();
-      const targetId = 'day-' + currentActiveDay;
+      const targetId = 'day-' + dayNum;
       const targetCard = document.getElementById(targetId);
       if (targetCard) {
         targetCard.classList.add('open');
@@ -7038,12 +7123,16 @@ function renderOverviewMap() {
 
         // Highlight flash
         targetCard.style.outline = "2px solid var(--accent-cyan)";
-        targetCard.style.boxShadow = "0 0 25px rgba(0, 242, 254, 0.45)";
+        targetCard.style.boxShadow = "0 0 25px rgba(0, 242, 254, 0.55)";
         setTimeout(() => {
           targetCard.style.outline = "";
           targetCard.style.boxShadow = "";
         }, 2200);
       }
+    }
+
+    function jumpToTimelineDay() {
+      jumpToTimelineDayDirect(currentActiveDay);
     }
 
     // Keyboard ESC listener
