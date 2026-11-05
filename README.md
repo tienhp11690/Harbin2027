@@ -40,7 +40,7 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 5. **☀️ Đảo Mặt Trời (Sun Island - 太阳岛雪博会):** Sáng Ngày 3 (Metro Line 2 qua ga Thái Dương Đảo, Triển lãm điêu khắc tượng tuyết trắng quốc tế khổng lồ 30m).
 6. **🏰 Trang Viên Volga (Volga Manor - 伏尔加庄园):** Trọn vẹn Ngày 4 (Lâu đài Pavlov tuyết trắng, quán bar hầm rượu Vodka bằng băng nguyên khối, máng trượt phao từ tháp lâu đài Nga).
 7. **🐅 Công Viên Hổ Siberia (Siberian Tiger Park - 东北虎林园):** Trưa Ngày 3 (xe lồng bọc thép đặc chủng khám phá bầy hổ tuyết Siberia dũng mãnh nhảy vồ mồi giữa bão tuyết).
-8. **🍄 Làng Tuyết Hương (China Snow Town - 中国雪乡):** Chiều/tối Ngày 5 & sáng Ngày 6 (mái nấm tuyết bồng bềnh, đêm đèn lồng đỏ, té nước sôi thành băng, dạo sàn gỗ Bổng Chùy Sơn).
+8. **🍄 Làng Tuyết Hương (China Snow Town - 中国雪乡):** Chiều/tối Ngày 6 & sáng Ngày 7 (mái nấm tuyết bồng bềnh, đêm đèn lồng đỏ, té nước sôi thành băng, dạo sàn gỗ Bổng Chùy Sơn).
 
 ---
 
