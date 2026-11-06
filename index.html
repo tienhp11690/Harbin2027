@@ -2626,6 +2626,648 @@
       transform: translateY(0);
     }
 
+  /* ===== INTERACTIVE BUDGET TRACKER & EXPENSE MANAGER STYLES ===== */
+.budget-tracker-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Toolbar */
+.budget-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: rgba(10, 22, 50, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-ice);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+}
+
+.budget-toolbar-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.budget-rate-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: #dce7f9;
+  font-weight: 600;
+}
+
+.budget-rate-input {
+  width: 78px;
+  background: rgba(5, 12, 28, 0.9);
+  border: 1px solid var(--accent-cyan);
+  border-radius: 6px;
+  color: var(--accent-gold);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 3px 6px;
+  outline: none;
+}
+
+.budget-rate-input:focus {
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+.budget-view-pills {
+  display: flex;
+  gap: 6px;
+  background: rgba(5, 12, 28, 0.6);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.budget-view-pill {
+  background: transparent;
+  border: none;
+  color: #9cb1d1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.budget-view-pill.active {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #030a1c;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 242, 254, 0.35);
+}
+
+.budget-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-budget-action {
+  background: rgba(14, 27, 60, 0.85);
+  border: 1px solid var(--border-ice);
+  color: #e0f2fe;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-budget-action:hover {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-budget-add {
+  background: linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(6, 214, 160, 0.35));
+  border-color: #06d6a0;
+  color: #06d6a0;
+  font-weight: 700;
+}
+
+.btn-budget-add:hover {
+  background: #06d6a0;
+  color: #03141f;
+  box-shadow: 0 0 12px rgba(6, 214, 160, 0.45);
+}
+
+/* Category Filter Bar */
+.budget-cat-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.budget-cat-pill {
+  background: rgba(12, 25, 55, 0.65);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+  color: #9cb1d1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.budget-cat-pill:hover {
+  background: rgba(0, 242, 254, 0.1);
+  color: #fff;
+  border-color: rgba(0, 242, 254, 0.4);
+}
+
+.budget-cat-pill.active {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.25);
+}
+
+/* Dashboard Summary Cards */
+.budget-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.budget-metric-card {
+  background: rgba(12, 25, 55, 0.85);
+  border: 1px solid var(--border-ice);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-ice);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.budget-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-cyan);
+}
+
+.budget-metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.card-est::before { background: #00f2fe; }
+.card-spent::before { background: #ffd166; }
+.card-diff::before { background: #06d6a0; }
+.card-diff.over-budget::before { background: #ef233c; }
+.card-person::before { background: #f72585; }
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.metric-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9cb1d1;
+  letter-spacing: 0.5px;
+}
+
+.metric-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.badge-est { background: rgba(0, 242, 254, 0.15); color: #00f2fe; }
+.badge-spent { background: rgba(255, 209, 102, 0.15); color: #ffd166; }
+.badge-saved { background: rgba(6, 214, 160, 0.15); color: #06d6a0; }
+.badge-over { background: rgba(239, 35, 60, 0.15); color: #ef233c; }
+.badge-person { background: rgba(247, 37, 133, 0.15); color: #f72585; }
+
+.metric-vnd {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.metric-rmb {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-top: 4px;
+}
+
+.metric-sub {
+  font-size: 0.75rem;
+  color: #8fa7c9;
+  margin-top: 6px;
+}
+
+/* Progress bar */
+.budget-progress-wrap {
+  background: rgba(10, 22, 50, 0.7);
+  border: 1px solid var(--border-ice);
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #dce7f9;
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: rgba(5, 12, 28, 0.8);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f2fe, #06d6a0);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar-fill.over-budget {
+  background: linear-gradient(90deg, #ffd166, #ef233c);
+}
+
+/* Interactive Table Wrap */
+.budget-table-card {
+  background: rgba(12, 25, 55, 0.9);
+  border: 1px solid var(--border-ice);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-ice);
+  overflow: hidden;
+}
+
+.budget-table-scroll {
+  overflow-x: auto;
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.budget-tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.86rem;
+}
+
+.budget-tracker-table thead {
+  position: sticky;
+  top: 0;
+  background: #081430;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.budget-tracker-table th {
+  padding: 12px 14px;
+  color: var(--accent-cyan);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+  white-space: nowrap;
+}
+
+.budget-tracker-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(79, 172, 254, 0.12);
+  vertical-align: middle;
+}
+
+.budget-row {
+  transition: background 0.15s ease;
+}
+
+.budget-row:hover {
+  background: rgba(0, 242, 254, 0.05);
+}
+
+.budget-row.is-paid {
+  background: rgba(6, 214, 160, 0.04);
+}
+
+.budget-row.is-paid:hover {
+  background: rgba(6, 214, 160, 0.08);
+}
+
+/* Status Checkbox */
+.td-status {
+  text-align: center;
+  width: 44px;
+}
+
+.status-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #06d6a0;
+  cursor: pointer;
+}
+
+/* Category Badge */
+.cat-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cat-flight { background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.3); }
+.cat-hotel { background: rgba(247, 37, 133, 0.15); color: #f72585; border: 1px solid rgba(247, 37, 133, 0.3); }
+.cat-transit { background: rgba(255, 209, 102, 0.15); color: #ffd166; border: 1px solid rgba(255, 209, 102, 0.3); }
+.cat-sight { background: rgba(6, 214, 160, 0.15); color: #06d6a0; border: 1px solid rgba(6, 214, 160, 0.3); }
+.cat-experience { background: rgba(79, 172, 254, 0.15); color: #4facfe; border: 1px solid rgba(79, 172, 254, 0.3); }
+.cat-food { background: rgba(251, 133, 0, 0.15); color: #fb8500; border: 1px solid rgba(251, 133, 0, 0.3); }
+.cat-other { background: rgba(167, 199, 231, 0.15); color: #b8cde8; border: 1px solid rgba(167, 199, 231, 0.3); }
+
+/* Item detail cell */
+.td-item-info strong {
+  display: block;
+  color: #fff;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+
+.td-item-info small {
+  display: block;
+  color: #9cb1d1;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+/* Estimates cell */
+.td-est-vnd {
+  font-weight: 700;
+  color: #e0f2fe;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.td-est-rmb {
+  font-size: 0.78rem;
+  color: var(--accent-gold);
+  white-space: nowrap;
+}
+
+/* Actual input group */
+.actual-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.actual-input-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.input-actual-val {
+  width: 105px;
+  background: rgba(5, 12, 28, 0.85);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 5px 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-actual-val:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+  background: rgba(5, 12, 28, 0.95);
+}
+
+.select-actual-curr {
+  background: rgba(8, 18, 42, 0.95);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  border-radius: 6px;
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 5px 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.converted-helper {
+  font-size: 0.72rem;
+  color: #8da4c4;
+  white-space: nowrap;
+}
+
+/* Note input */
+.input-note-val {
+  width: 100%;
+  min-width: 140px;
+  background: rgba(5, 12, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #c7d5ee;
+  font-size: 0.78rem;
+  padding: 5px 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-note-val:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 6px rgba(0, 242, 254, 0.3);
+  background: rgba(5, 12, 28, 0.95);
+  color: #fff;
+}
+
+/* Delete / Action Button */
+.btn-row-del {
+  background: transparent;
+  border: none;
+  color: #ef233c;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.btn-row-del:hover {
+  opacity: 1;
+  background: rgba(239, 35, 60, 0.15);
+}
+
+/* Table Total Footer */
+.budget-table-footer {
+  background: #081430;
+  border-top: 2px solid var(--accent-cyan);
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-totals-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-stat-label {
+  font-size: 0.72rem;
+  color: #9cb1d1;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer-stat-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Toast Notification */
+.budget-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(6, 214, 160, 0.95);
+  backdrop-filter: blur(8px);
+  color: #03141f;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  pointer-events: none;
+}
+
+.budget-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Modals */
+.budget-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 8, 20, 0.82);
+  backdrop-filter: blur(6px);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.budget-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.budget-modal-box {
+  background: #0b1836;
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  max-width: 520px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.budget-modal-title {
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.budget-form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.budget-form-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #9cb1d1;
+}
+
+.budget-form-input, .budget-form-select {
+  background: rgba(5, 12, 28, 0.85);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.88rem;
+  padding: 8px 10px;
+  outline: none;
+}
+
+.budget-form-input:focus, .budget-form-select:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+.budget-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
   </style>
 </head>
 <body>
@@ -5772,84 +6414,237 @@
       </div>
     </section>
 
-    <!-- SECTION 9: BUDGET & CALCULATOR -->
+    <!-- SECTION 9: INTERACTIVE BUDGET & EXPENSE TRACKER -->
     <section id="budget">
       <div class="section-header">
-        <span class="section-tag">Kế Hoạch Tài Chính</span>
-        <h2 class="section-title">Bảng Dự Toán Chi Phí & Tối Ưu Ngân Sách (2 Người)</h2>
-        <p class="section-desc">Chi phí thực tế bằng việc sử dụng tối đa phương tiện công cộng, ở khách sạn chuỗi chất lượng và thưởng thức trọn vẹn đặc sản địa phương (Chưa bao gồm vé máy bay đã mua).</p>
+        <span class="section-tag">Kế Hoạch Tài Chính & Nhật Ký Chi Tiêu Thực Tế</span>
+        <h2 class="section-title">💰 Bảng Dự Toán & Quản Lý Chi Tiêu Thực Tế (2 Người)</h2>
+        <p class="section-desc">Theo dõi ngân sách chi tiết từng chặng, nhập chi phí thực tế theo Tệ (RMB) hoặc VNĐ, ghi chú mã đặt phòng/phương thức thanh toán, tự động lưu trữ trên trình duyệt (Local DB) và cập nhật số dư thời gian thực.</p>
       </div>
 
-      <div class="budget-grid">
-        <div class="card table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Hạng Mục Chi Phí</th>
-                <th>Chi Tiết / Đơn Giá</th>
-                <th>2 Người (RMB)</th>
-                <th>Quy Đổi (VND)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Tàu cao tốc & Xe buýt</strong></td>
-                <td>Bus sân bay, Tàu CRH 3 chặng, Bus Tuyết Hương - Trường Bạch, Metro</td>
-                <td>~ 1.100 RMB</td>
-                <td>~ 3.850.000 đ</td>
-              </tr>
-              <tr>
-                <td><strong>Khách sạn & Homestay (11 đêm)</strong></td>
-                <td>KS Thượng Hải (1đ), Cáp Nhĩ Tân (3đ), Á Bố Lực (1đ), Khang Tuyết Hương (1đ), Onsen & Ga Trường Bạch (3đ), Trường Xuân (2đ) | Tổng 11 đêm</td>
-                <td>~ 3.200 RMB</td>
-                <td>~ 11.200.000 đ</td>
-              </tr>
-              <tr>
-                <td><strong>Vé tham quan & Thắng cảnh</strong></td>
-                <td>Băng Tuyết Thế Giới (x2), Vé Tuyết Hương + xe sườn, Vé Núi Trường Bạch + Xe 4WD Thiên Trì (x2), Tịnh Nguyệt Đàm</td>
-                <td>~ 2.100 RMB</td>
-                <td>~ 7.350.000 đ</td>
-              </tr>
-              <tr>
-                <td><strong>Trượt tuyết & Trải nghiệm</strong></td>
-                <td>Thuê ván trượt Á Bố Lực 3h (x2), Trượt tuyết Trường Bạch Sơn (x2), Ma Giới Rafting (x2), Tắm Onsen khoáng nóng</td>
-                <td>~ 1.500 RMB</td>
-                <td>~ 5.250.000 đ</td>
-              </tr>
-              <tr>
-                <td><strong>Ăn uống & Đặc sản (12 ngày)</strong></td>
-                <td>Lẩu nồi gang, Vịt quay Bắc Kinh, Tiểu long bao, Thịt nướng Triều Tiên, Ăn vặt đường phố (~180 RMB/ngày/2 người)</td>
-                <td>~ 2.200 RMB</td>
-                <td>~ 7.700.000 đ</td>
-              </tr>
-              <tr>
-                <td><strong>SIM / eSIM 4G & Dự phòng</strong></td>
-                <td>2 gói eSIM Trung Quốc vượt tường lửa 15 ngày + Miếng dán giữ nhiệt, đồ phát sinh</td>
-                <td>~ 500 RMB</td>
-                <td>~ 1.750.000 đ</td>
-              </tr>
-              <tr class="total-row">
-                <td>TỔNG CỘNG (2 NGƯỜI)</td>
-                <td>12 Ngày 11 Đêm</td>
-                <td>~ 10.600 RMB</td>
-                <td>~ 37.100.000 đ</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="budget-tracker-container">
+        <!-- Control Toolbar -->
+        <div class="budget-toolbar">
+          <div class="budget-toolbar-left">
+            <div class="budget-rate-box">
+              <span>💱 Tỷ Giá:</span>
+              <span>1 RMB =</span>
+              <input type="number" id="budget-rate-input" class="budget-rate-input" value="3500" step="10" oninput="handleExchangeRateChange(this.value)" title="Nhập tỷ giá quy đổi để cập nhật toàn bộ bảng">
+              <span>VNĐ</span>
+            </div>
+            <div class="budget-view-pills" id="budget-curr-mode">
+              <button class="budget-view-pill active" onclick="setBudgetCurrMode('both')">💱 Cả 2 Loại Tiền</button>
+              <button class="budget-view-pill" onclick="setBudgetCurrMode('vnd')">🇻🇳 Chỉ Hiện VNĐ</button>
+              <button class="budget-view-pill" onclick="setBudgetCurrMode('rmb')">🇨🇳 Chỉ Hiện RMB</button>
+            </div>
+          </div>
+
+          <div class="budget-toolbar-actions">
+            <button class="btn-budget-action btn-budget-add" onclick="openAddExpenseModal()">➕ Thêm Khoản Chi</button>
+            <button class="btn-budget-action" onclick="exportBudgetCsv()" title="Xuất báo cáo chi tiêu ra file CSV (Mở được bằng Microsoft Excel / Google Sheets)">📥 Xuất Excel/CSV</button>
+            <button class="btn-budget-action" onclick="openBackupExpenseModal()" title="Sao lưu dữ liệu hoặc nạp dữ liệu từ máy khác">💾 Sao Lưu / Nạp</button>
+            <button class="btn-budget-action" onclick="resetBudgetToDefault()" title="Khôi phục lại bảng dự toán gốc ban đầu" style="color:#ef233c;">🔄 Đặt Lại</button>
+          </div>
         </div>
 
-        <div class="budget-calc-box">
-          <h4>Ước Tính Trung Bình Mỗi Người</h4>
-          <div class="calc-amount-cny">~ 5.300 RMB</div>
-          <div class="calc-amount-vnd">≈ 18.550.000 VNĐ / Người</div>
-          <p class="calc-note">
-            <em>(Tỷ giá tạm tính: 1 RMB ≈ 3.500 VNĐ)</em><br><br>
-            💡 <strong>So sánh với đi tour hoặc bao xe riêng:</strong>
-            Nếu thuê xe riêng có tài xế cho chặng đường tuyết 1.200km này, chi phí xe riêng lên tới 1.200 - 1.500 RMB/ngày (tổng riêng tiền xe mất hơn 50 triệu VNĐ!). Sử dụng tàu cao tốc CRH và xe tuyến vừa an toàn tuyệt đối trước bão tuyết, vừa tiết kiệm được hơn 60% tổng chi phí chuyến đi.
-          </p>
+        <!-- Category Filters -->
+        <div class="budget-cat-bar" id="budget-cat-selector">
+          <button class="budget-cat-pill active" data-cat="all" onclick="filterBudgetCat('all')">🌟 Tất Cả (33 Khoản)</button>
+          <button class="budget-cat-pill" data-cat="flight" onclick="filterBudgetCat('flight')">✈️ Chuyến Bay & Visa</button>
+          <button class="budget-cat-pill" data-cat="hotel" onclick="filterBudgetCat('hotel')">🏨 Khách Sạn (11 Đêm)</button>
+          <button class="budget-cat-pill" data-cat="transit" onclick="filterBudgetCat('transit')">🚆 Di Chuyển Tuyến</button>
+          <button class="budget-cat-pill" data-cat="sight" onclick="filterBudgetCat('sight')">🎫 Vé Thắng Cảnh</button>
+          <button class="budget-cat-pill" data-cat="experience" onclick="filterBudgetCat('experience')">⛷️ Trải Nghiệm & Tuyết</button>
+          <button class="budget-cat-pill" data-cat="food" onclick="filterBudgetCat('food')">🍜 Ăn Uống (12 Ngày)</button>
+          <button class="budget-cat-pill" data-cat="other" onclick="filterBudgetCat('other')">🎒 eSIM & Phát Sinh</button>
+          <button class="budget-cat-pill" data-cat="paid" onclick="filterBudgetCat('paid')">✅ Đã Thanh Toán</button>
+          <button class="budget-cat-pill" data-cat="pending" onclick="filterBudgetCat('pending')">⏳ Chưa Thanh Toán</button>
+        </div>
+
+        <!-- Dashboard Metric Cards -->
+        <div class="budget-dashboard">
+          <!-- Card 1: Tổng Dự Toán -->
+          <div class="budget-metric-card card-est">
+            <div class="metric-header">
+              <span class="metric-title">Tổng Ngân Sách Dự Kiến</span>
+              <span class="metric-badge badge-est">DỰ TOÁN BAN ĐẦU</span>
+            </div>
+            <div class="metric-vnd" id="dash-est-vnd">0 đ</div>
+            <div class="metric-rmb" id="dash-est-rmb">~ 0 RMB</div>
+            <div class="metric-sub">Dành cho 2 người trong 12N11Đ</div>
+          </div>
+
+          <!-- Card 2: Thực Tế Đã Chi -->
+          <div class="budget-metric-card card-spent">
+            <div class="metric-header">
+              <span class="metric-title">Thực Tế Đã Chi Trả</span>
+              <span class="metric-badge badge-spent" id="dash-paid-count">0/33 ĐÃ CHI</span>
+            </div>
+            <div class="metric-vnd" id="dash-act-vnd" style="color:var(--accent-gold);">0 đ</div>
+            <div class="metric-rmb" id="dash-act-rmb">~ 0 RMB</div>
+            <div class="metric-sub" id="dash-act-sub">Cập nhật theo dữ liệu bạn nhập</div>
+          </div>
+
+          <!-- Card 3: Chênh Lệch / Còn Lại -->
+          <div class="budget-metric-card card-diff" id="dash-card-diff">
+            <div class="metric-header">
+              <span class="metric-title">Ngân Sách Còn Lại / Chênh Lệch</span>
+              <span class="metric-badge badge-saved" id="dash-diff-badge">TIẾT KIỆM</span>
+            </div>
+            <div class="metric-vnd" id="dash-diff-vnd" style="color:#06d6a0;">0 đ</div>
+            <div class="metric-rmb" id="dash-diff-rmb">~ 0 RMB</div>
+            <div class="metric-sub" id="dash-diff-sub">So với tổng dự toán ước tính</div>
+          </div>
+
+          <!-- Card 4: Trung Bình Mỗi Người -->
+          <div class="budget-metric-card card-person">
+            <div class="metric-header">
+              <span class="metric-title">Ước Tính Mỗi Người</span>
+              <span class="metric-badge badge-person">1/2 TỔNG CHI</span>
+            </div>
+            <div class="metric-vnd" id="dash-person-act" style="color:#f72585;">0 đ</div>
+            <div class="metric-rmb" id="dash-person-est">Dự kiến: ~ 0 đ / người</div>
+            <div class="metric-sub">Chia đều cho 2 thành viên</div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="budget-progress-wrap">
+          <div class="progress-header">
+            <span>Tiến độ chi tiêu thực tế so với ngân sách dự kiến:</span>
+            <span id="budget-progress-text" style="color:var(--accent-cyan); font-weight:700;">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="budget-progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="budget-table-card">
+          <div class="budget-table-scroll">
+            <table class="budget-tracker-table">
+              <thead>
+                <tr>
+                  <th style="width:40px; text-align:center;">Chi?</th>
+                  <th style="min-width:240px;">Hạng Mục Chi Phí & Chi Tiết</th>
+                  <th style="min-width:130px;">Phân Loại</th>
+                  <th style="min-width:140px;" class="col-est">Dự Kiến (2 Người)</th>
+                  <th style="min-width:180px;">Thực Tế Đã Chi (Input)</th>
+                  <th style="min-width:200px;">Ghi Chú Thực Tế (Mã Booking / Thẻ)</th>
+                  <th style="width:50px; text-align:center;">Xoá</th>
+                </tr>
+              </thead>
+              <tbody id="budget-tbody">
+                <!-- Dynamically rendered by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Footer Totals Bar -->
+          <div class="budget-table-footer">
+            <div class="footer-totals-group">
+              <div class="footer-stat-item">
+                <span class="footer-stat-label">Tổng Dự Toán (2 Người):</span>
+                <span class="footer-stat-val" id="footer-total-est">0 VNĐ</span>
+              </div>
+              <div class="footer-stat-item">
+                <span class="footer-stat-label">Tổng Thực Tế Đã Chi:</span>
+                <span class="footer-stat-val" id="footer-total-act" style="color:var(--accent-gold);">0 VNĐ</span>
+              </div>
+              <div class="footer-stat-item">
+                <span class="footer-stat-label">Chênh Lệch:</span>
+                <span class="footer-stat-val" id="footer-total-diff" style="color:#06d6a0;">0 VNĐ</span>
+              </div>
+            </div>
+            <div style="font-size:0.75rem; color:#8fa7c9;">
+              💡 <em>Tự động lưu vào bộ nhớ trình duyệt ngay khi bạn nhập số. Không lo mất dữ liệu khi F5 hay mở lại web!</em>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Modal Thêm Khoản Chi Mới -->
+    <div id="modal-add-expense" class="budget-modal-overlay" onclick="closeAddExpenseModal(event)">
+      <div class="budget-modal-box" onclick="event.stopPropagation()">
+        <div class="budget-modal-title">
+          <span>➕ Thêm Khoản Chi Mới</span>
+          <button onclick="closeAddExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.2rem; cursor:pointer;">✕</button>
+        </div>
+        <form onsubmit="handleAddNewExpense(event)">
+          <div class="budget-form-group">
+            <label class="budget-form-label">Tên khoản chi (*):</label>
+            <input type="text" id="add-exp-name" class="budget-form-input" placeholder="Ví dụ: Ăn lẩu gà sâm Trường Bạch, Mua nấm Tuyết Hương..." required>
+          </div>
+          <div class="budget-form-group">
+            <label class="budget-form-label">Mô tả / Chi tiết:</label>
+            <input type="text" id="add-exp-detail" class="budget-form-input" placeholder="Ví dụ: Tiền mặt tại quán, Quà lưu niệm 2 người...">
+          </div>
+          <div class="budget-form-group">
+            <label class="budget-form-label">Phân loại:</label>
+            <select id="add-exp-cat" class="budget-form-select">
+              <option value="food">🍜 Ăn Uống & Đặc Sản</option>
+              <option value="sight">🎫 Vé Thắng Cảnh</option>
+              <option value="experience">⛷️ Trải Nghiệm & Tuyết</option>
+              <option value="transit">🚆 Di Chuyển & Đi Lại</option>
+              <option value="hotel">🏨 Khách Sạn & Homestay</option>
+              <option value="flight">✈️ Chuyến Bay & Visa</option>
+              <option value="other">🎒 Hành Lý & Khác</option>
+            </select>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div class="budget-form-group">
+              <label class="budget-form-label">Số tiền (*):</label>
+              <input type="number" id="add-exp-amount" class="budget-form-input" placeholder="0" min="0" step="any" required>
+            </div>
+            <div class="budget-form-group">
+              <label class="budget-form-label">Đơn vị tiền tệ:</label>
+              <select id="add-exp-curr" class="budget-form-select">
+                <option value="RMB">RMB (Nhân Dân Tệ)</option>
+                <option value="VND">VNĐ (Việt Nam Đồng)</option>
+              </select>
+            </div>
+          </div>
+          <div class="budget-form-group">
+            <label class="budget-form-label">Ghi chú (Mã booking / Thẻ / Tiền mặt):</label>
+            <input type="text" id="add-exp-note" class="budget-form-input" placeholder="Ví dụ: Thanh toán qua Alipay / Techcombank">
+          </div>
+          <div class="budget-modal-actions">
+            <button type="button" class="btn-budget-action" onclick="closeAddExpenseModal()">Huỷ</button>
+            <button type="submit" class="btn-budget-action btn-budget-add">Thêm Vào Bảng</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Sao Lưu & Nạp Dữ Liệu -->
+    <div id="modal-backup-expense" class="budget-modal-overlay" onclick="closeBackupExpenseModal(event)">
+      <div class="budget-modal-box" onclick="event.stopPropagation()">
+        <div class="budget-modal-title">
+          <span>💾 Sao Lưu & Nạp Dữ Liệu Chi Tiêu</span>
+          <button onclick="closeBackupExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.2rem; cursor:pointer;">✕</button>
+        </div>
+        <p style="font-size:0.82rem; color:#9cb1d1; margin-bottom:14px;">
+          Dữ liệu chi tiêu được tự động lưu trên trình duyệt của máy này. Bạn có thể tải file sao lưu JSON về máy để chuyển sang điện thoại hoặc lưu trữ dự phòng.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <button class="btn-budget-action" onclick="downloadBudgetJsonBackup()" style="justify-content:center; padding:10px;">
+            📥 Tải File Sao Lưu (.JSON) Về Máy
+          </button>
+          <div style="border-top:1px dashed rgba(255,255,255,0.15); margin:6px 0;"></div>
+          <label class="budget-form-label">Nạp dữ liệu từ file sao lưu JSON:</label>
+          <input type="file" id="budget-import-file" accept=".json" class="budget-form-input" onchange="handleBudgetImportFile(event)">
+        </div>
+        <div class="budget-modal-actions">
+          <button type="button" class="btn-budget-action" onclick="closeBackupExpenseModal()">Đóng</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Auto-Save Toast Notification -->
+    <div id="budget-save-toast" class="budget-toast">
+      💾 Đã tự động lưu thay đổi vào bộ nhớ!
+    </div>
 
     <!-- SECTION 10: CHECKLIST & ESSENTIAL APPS -->
     <section id="checklist">
@@ -5991,6 +6786,1026 @@
     } else {
       initImageOptimizer();
     }
+
+        /* ===== INTERACTIVE BUDGET TRACKER & EXPENSE MANAGER ENGINE ===== */
+    const BUDGET_STORAGE_KEY = 'harbin_trip_budget_db_v2';
+    const DEFAULT_BUDGET_SEED = [
+  {
+    "id": "b-flight-01",
+    "category": "flight",
+    "categoryLabel": "✈️ Chuyến Bay",
+    "name": "Vé máy bay khứ hồi Air China (2 người)",
+    "detail": "HAN ➔ PVG ➔ HRB (30-31/12) & CGQ ➔ PEK ➔ HAN (10-11/01) gồm 23kg ký gửi",
+    "estRmb": 4000,
+    "estVnd": 14000000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "Đã thanh toán Air China",
+    "isPaid": false
+  },
+  {
+    "id": "b-flight-02",
+    "category": "flight",
+    "categoryLabel": "✈️ Chuyến Bay",
+    "name": "Visa du lịch Trung Quốc diện L (2 người)",
+    "detail": "Lệ phí nộp tại Trung tâm Visa + Dịch thuật công chứng hồ sơ",
+    "estRmb": 1200,
+    "estVnd": 4200000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-flight-03",
+    "category": "flight",
+    "categoryLabel": "✈️ Chuyến Bay",
+    "name": "Bảo hiểm du lịch quốc tế mùa đông (2 người)",
+    "detail": "Gói bảo hiểm du lịch quốc tế 15 ngày chi trả y tế xứ lạnh & trượt tuyết",
+    "estRmb": 260,
+    "estVnd": 900000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-01",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 1 (30/12): Ji Hotel The Bund (Thượng Hải)",
+    "detail": "Quá cảnh Thượng Hải, gần phố đi bộ Nam Kinh & Bến Thượng Hải",
+    "estRmb": 450,
+    "estVnd": 1575000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Trip.com / Booking",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-02",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 2 & 3 (31/12-02/01): Ibis Styles Phố Trung Ương (2 đêm)",
+    "detail": "Cáp Nhĩ Tân, đi bộ 300m ra Phố Cổ & Nhà thờ Sophia, đón Giao thừa 2027",
+    "estRmb": 960,
+    "estVnd": 3360000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "480 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-03",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 4 (02/01): Atour Hotel Ga Cáp Nhĩ Tân",
+    "detail": "Sát Ga Harbin, thuận tiện sáng mai ra bến xe đón bus Á Tuyết đi Tuyết Hương",
+    "estRmb": 420,
+    "estVnd": 1470000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-04",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 5 & 6 (03-05/01): Xuexiang Xueyun Wooden Homestay (2 đêm)",
+    "detail": "Phòng khang sưởi ấm 38°C phố chính Tuyết Vận, nghỉ 2 đêm liên tiếp cùng phòng",
+    "estRmb": 980,
+    "estVnd": 3430000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "490 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-05",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 7 & 8 (05-07/01): Dynasty Holy Spring Onsen Resort (2 đêm)",
+    "detail": "Chân núi Trường Bạch (Nhị Đạo Bạch Hà), miễn phí Onsen khoáng nóng ngoài trời 42°C",
+    "estRmb": 1560,
+    "estVnd": 5460000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "780 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-06",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 9 (07/01): Jinjiang Metropolo Changbaishan Railway Station",
+    "detail": "Cách Ga Tàu Cao Tốc CRH Trường Bạch Sơn 800m, sáng mai ra ga tàu thong thả",
+    "estRmb": 420,
+    "estVnd": 1470000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-07",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 10 & 11 (08-10/01): Atour Hotel Ga Trường Xuân (2 đêm)",
+    "detail": "Trung tâm Trường Xuân, cạnh tuyến Metro Line 1 & Ga tàu cao tốc",
+    "estRmb": 760,
+    "estVnd": 2660000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "380 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-01",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Maglev + Metro Tuyến 2 Thượng Hải (2 người)",
+    "detail": "Sân bay PVG ➔ Ga Nam Kinh Đông Lộ ➔ Sân bay Hồng Kiều SHA",
+    "estRmb": 120,
+    "estVnd": 420000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Quẹt Alipay / WeChat",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-02",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Xe buýt sân bay HRB + Metro & Taxi Cáp Nhĩ Tân (2 người)",
+    "detail": "Di chuyển nội thành 3 ngày: Sân bay ➔ Trung tâm, Băng Tuyết Đại Thế Giới, Volga",
+    "estRmb": 160,
+    "estVnd": 560000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-03",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Xe buýt trực thông Á Tuyết: Cáp Nhĩ Tân ➔ Tuyết Hương (2 vé)",
+    "detail": "Xe du lịch sưởi ấm 25°C chạy thẳng 5.5h ngắm đèo tuyết (120 RMB/vé x 2)",
+    "estRmb": 240,
+    "estVnd": 840000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "App Chuxing 365",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-04",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Xe buýt liên tỉnh xuyên rừng: Tuyết Hương ➔ Trường Bạch Sơn (2 vé)",
+    "detail": "Chạy thẳng 5.5h xuyên rừng Taiga mùa đông (150 RMB/vé x 2)",
+    "estRmb": 300,
+    "estVnd": 1050000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Đặt qua lễ tân homestay",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-05",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Tàu cao tốc CRH: Ga Trường Bạch Sơn ➔ Ga Trường Xuân (2 vé)",
+    "detail": "Tàu viên đạn G-train lướt băng 2h17p, ghế hạng 2 (117 RMB/vé x 2)",
+    "estRmb": 234,
+    "estVnd": 819000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "App 12306 / Trip.com",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-06",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Metro & Taxi Trường Xuân + Airport Express Bắc Kinh (2 người)",
+    "detail": "Metro Tịnh Nguyệt Đàm, Taxi sân bay CGQ, Tàu điện Airport Express quá cảnh PEK",
+    "estRmb": 180,
+    "estVnd": 630000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-01",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Harbin Ice and Snow World - Băng Tuyết Đại Thế Giới (2 vé)",
+    "detail": "Vé vào cổng triệu khối băng LED + trượt máng băng dài 500m (328 RMB/vé x 2)",
+    "estRmb": 656,
+    "estVnd": 2296000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "WeChat Harbin Ice World",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-02",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Triển lãm Điêu khắc Tuyết Quốc tế Đảo Mặt Trời (2 vé)",
+    "detail": "Sun Island Snow Sculpture Expo (198 RMB/vé x 2)",
+    "estRmb": 396,
+    "estVnd": 1386000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-03",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Công viên Hổ Siberia kèm xe lồng bọc thép (2 vé)",
+    "detail": "Siberian Tiger Park + Xe đặc chủng xem hổ săn mồi giữa tuyết (130 RMB/vé x 2)",
+    "estRmb": 260,
+    "estVnd": 910000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-04",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Trang viên Volga Manor kèm máng trượt lâu đài (2 vé)",
+    "detail": "Lâu đài Pavlov, quán bar hầm rượu Vodka bằng băng (165 RMB/vé x 2)",
+    "estRmb": 330,
+    "estVnd": 1155000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-05",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé vào cổng Làng Tuyết Hương + Xe sườn nội khu (2 vé)",
+    "detail": "China Snow Town ticket có giá trị 48h (120 RMB/vé x 2)",
+    "estRmb": 240,
+    "estVnd": 840000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Vé điện tử quét hộ chiếu",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-06",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Thắng cảnh Bắc Pha Núi Trường Bạch + Xe sinh thái (2 vé)",
+    "detail": "Vé vào cổng bảo tồn quốc gia + Eco-bus nội khu 40 phút (225 RMB/vé x 2)",
+    "estRmb": 450,
+    "estVnd": 1575000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "App WeChat Changbaishan",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-07",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Xe chuyên dụng 4WD leo đỉnh Hồ Thiên Trì (2 vé)",
+    "detail": "Xe việt dã địa hình vượt 72 khúc cua tay áo lên đỉnh 2.189m (80 RMB/vé x 2)",
+    "estRmb": 160,
+    "estVnd": 560000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Mua khi đỉnh mở cửa",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-08",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Khu thắng cảnh Rừng tuyết Hồ Băng Tịnh Nguyệt Đàm (2 vé)",
+    "detail": "Jingyuetan National Forest Park Trường Xuân (30 RMB/vé x 2)",
+    "estRmb": 60,
+    "estVnd": 210000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-exp-01",
+    "category": "experience",
+    "categoryLabel": "⛷️ Trải Nghiệm",
+    "name": "Mô tô tuyết Snowmobile săn bình minh Dương Thảo Sơn (2 vé)",
+    "detail": "Lên đỉnh 1.235m lúc 06:00 đón bình minh & bay flycam biển mây (240 RMB/vé x 2)",
+    "estRmb": 480,
+    "estVnd": 1680000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Bến xe điện Tuyết Hương",
+    "isPaid": false
+  },
+  {
+    "id": "b-exp-02",
+    "category": "experience",
+    "categoryLabel": "⛷️ Trải Nghiệm",
+    "name": "Thuyền phao sông sương băng Ma Giới Rafting (2 vé)",
+    "detail": "Chèo thuyền phao ngắm khói sương bốc trên sông địa nhiệt 06:00 (180 RMB/vé x 2)",
+    "estRmb": 360,
+    "estVnd": 1260000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Đã gồm phao và gậy chèo",
+    "isPaid": false
+  },
+  {
+    "id": "b-exp-03",
+    "category": "experience",
+    "categoryLabel": "⛷️ Trải Nghiệm",
+    "name": "Trọn ngày trượt tuyết Sân Trượt Hòa Bình Trường Bạch Sơn (2 người)",
+    "detail": "Vé vào sân + Cáp treo xuyên rừng thông + Giày ván trượt tuyết bột + HLV 2h",
+    "estRmb": 680,
+    "estVnd": 2380000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Peace Ski Resort",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-01",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa ăn hàng ngày trong chuyến đi (12 ngày x 2 người)",
+    "detail": "Ăn sáng, trưa, tối, ăn vặt đường phố, kem Madie'er, xúc xích Harbin (~180 RMB/ngày)",
+    "estRmb": 2160,
+    "estVnd": 7560000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Alipay / WeChat Pay",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-02",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa tiệc Lẩu cừu & Thịt hầm nồi gang Đông Bắc Làng Tuyết Hương",
+    "detail": "Bữa tối ấm cúng ngày 5 hoặc 6 tại homestay Tuyết Hương",
+    "estRmb": 240,
+    "estVnd": 840000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-03",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa tối Thịt bò nướng than hoa Triều Tiên tại Nhị Đạo Bạch Hà",
+    "detail": "Đặc sản thịt bò nướng thơm lừng vùng núi Trường Bạch",
+    "estRmb": 220,
+    "estVnd": 770000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-04",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa tiệc Vịt quay Bắc Kinh truyền thống chặng về quá cảnh",
+    "detail": "Thưởng thức vịt quay da giòn tại Bắc Kinh trước khi bay về Hà Nội",
+    "estRmb": 260,
+    "estVnd": 910000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-other-01",
+    "category": "other",
+    "categoryLabel": "🎒 Phụ Kiện & Khác",
+    "name": "2 eSIM Trung Quốc 15 ngày vượt tường lửa (Google, Facebook, Zalo)",
+    "detail": "Mỗi người 1 eSIM data không bị chặn mạng",
+    "estRmb": 128,
+    "estVnd": 450000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "Shopee / Klook",
+    "isPaid": false
+  },
+  {
+    "id": "b-other-02",
+    "category": "other",
+    "categoryLabel": "🎒 Phụ Kiện & Khác",
+    "name": "Miếng dán giữ nhiệt (40 miếng) + Bọc gai cao su chống trượt giày",
+    "detail": "Miếng dán giữ nhiệt cơ thể & giữ ấm pin điện thoại + đinh gai chống ngã băng",
+    "estRmb": 100,
+    "estVnd": 350000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-other-03",
+    "category": "other",
+    "categoryLabel": "🎒 Phụ Kiện & Khác",
+    "name": "Quỹ phát sinh dự phòng & Mua sắm quà lưu niệm (2 người)",
+    "detail": "Trà gừng, đồ uống nóng, búp bê Matryoshka Nga, nấm tuyết khô, socola",
+    "estRmb": 800,
+    "estVnd": 2800000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  }
+]
+;
+
+    let budgetItems = [];
+    let budgetExchangeRate = 3500;
+    let budgetCurrencyMode = 'both'; // 'both' | 'vnd' | 'rmb'
+    let budgetCurrentCategory = 'all';
+    let budgetSaveTimeout = null;
+
+    function formatNumberVnd(num) {
+      if (!num || isNaN(num)) return '0 Ä‘';
+      return Math.round(num).toLocaleString('vi-VN') + ' Ä‘';
+    }
+
+    function formatNumberRmb(num) {
+      if (!num || isNaN(num)) return '0 RMB';
+      return (Math.round(num * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 }) + ' RMB';
+    }
+
+    function showBudgetSaveToast() {
+      const toast = document.getElementById('budget-save-toast');
+      if (!toast) return;
+      toast.classList.add('visible');
+      clearTimeout(budgetSaveTimeout);
+      budgetSaveTimeout = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 1500);
+    }
+
+    function saveBudgetToStorage() {
+      const state = {
+        rate: budgetExchangeRate,
+        currMode: budgetCurrencyMode,
+        cat: budgetCurrentCategory,
+        items: budgetItems,
+        updatedAt: new Date().toISOString()
+      };
+      try {
+        localStorage.setItem(BUDGET_STORAGE_KEY, JSON.stringify(state));
+        showBudgetSaveToast();
+      } catch (e) {
+        console.warn('LocalStorage error:', e);
+      }
+    }
+
+    function initBudgetTracker() {
+      try {
+        const stored = localStorage.getItem(BUDGET_STORAGE_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          budgetExchangeRate = parsed.rate || 3500;
+          budgetCurrencyMode = parsed.currMode || 'both';
+          budgetCurrentCategory = parsed.cat || 'all';
+          budgetItems = Array.isArray(parsed.items) && parsed.items.length > 0 ? parsed.items : JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        } else {
+          budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        }
+      } catch (e) {
+        console.warn('Init budget parse failed, loading seed:', e);
+        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+      }
+
+      // Sync rate input
+      const rateInput = document.getElementById('budget-rate-input');
+      if (rateInput) rateInput.value = budgetExchangeRate;
+
+      // Sync currency pills
+      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
+      currPills.forEach(p => {
+        const text = p.getAttribute('onclick') || '';
+        p.classList.toggle('active', text.includes("'" + budgetCurrencyMode + "'"));
+      });
+
+      // Sync cat pills
+      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
+      catPills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-cat') === budgetCurrentCategory);
+      });
+
+      renderBudgetTable();
+    }
+
+    function handleExchangeRateChange(val) {
+      const parsed = parseFloat(val);
+      if (parsed && parsed > 0) {
+        budgetExchangeRate = parsed;
+        // Update estimated VND for all items based on RMB
+        budgetItems.forEach(it => {
+          if (it.estRmb && !it.isCustom) {
+            it.estVnd = Math.round(it.estRmb * budgetExchangeRate);
+          }
+        });
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function setBudgetCurrMode(mode) {
+      budgetCurrencyMode = mode;
+      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
+      currPills.forEach(p => {
+        const text = p.getAttribute('onclick') || '';
+        p.classList.toggle('active', text.includes("'" + mode + "'"));
+      });
+      saveBudgetToStorage();
+      renderBudgetTable();
+    }
+
+    function filterBudgetCat(cat) {
+      budgetCurrentCategory = cat;
+      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
+      catPills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-cat') === cat);
+      });
+      renderBudgetTable();
+    }
+
+    function toggleItemPaid(id, checked) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        item.isPaid = checked;
+        // If checked and actual amount is 0, prefill with estimate
+        if (checked && (!item.actualAmount || item.actualAmount === 0)) {
+          item.actualAmount = item.actualCurrency === 'VND' ? item.estVnd : item.estRmb;
+        }
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function updateActualAmount(id, val) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        const parsed = parseFloat(val);
+        item.actualAmount = isNaN(parsed) ? 0 : parsed;
+        if (item.actualAmount > 0) {
+          item.isPaid = true;
+        }
+        // Update live converted text
+        const helperEl = document.getElementById('actual-conv-' + id);
+        if (helperEl) {
+          if (item.actualCurrency === 'RMB') {
+            const inVnd = item.actualAmount * budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
+          } else {
+            const inRmb = item.actualAmount / budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
+          }
+        }
+        updateBudgetDashboard();
+        saveBudgetToStorage();
+      }
+    }
+
+    function updateActualCurrency(id, curr) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        item.actualCurrency = curr;
+        const helperEl = document.getElementById('actual-conv-' + id);
+        if (helperEl) {
+          if (item.actualCurrency === 'RMB') {
+            const inVnd = (item.actualAmount || 0) * budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
+          } else {
+            const inRmb = (item.actualAmount || 0) / budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
+          }
+        }
+        updateBudgetDashboard();
+        saveBudgetToStorage();
+      }
+    }
+
+    function updateItemNote(id, noteVal) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        item.note = noteVal;
+        saveBudgetToStorage();
+      }
+    }
+
+    function deleteBudgetItem(id) {
+      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ khoáº£n chi nÃ y?')) {
+        budgetItems = budgetItems.filter(it => it.id !== id);
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function renderBudgetTable() {
+      const tbody = document.getElementById('budget-tbody');
+      if (!tbody) return;
+
+      // Filter items
+      const filtered = budgetItems.filter(it => {
+        if (budgetCurrentCategory === 'all') return true;
+        if (budgetCurrentCategory === 'paid') return it.isPaid;
+        if (budgetCurrentCategory === 'pending') return !it.isPaid;
+        return it.category === budgetCurrentCategory;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:#9cb1d1;">KhÃ´ng cÃ³ khoáº£n chi nÃ o trong danh má»¥c nÃ y.</td></tr>';
+        updateBudgetDashboard();
+        return;
+      }
+
+      let html = '';
+      filtered.forEach((it, idx) => {
+        const isPaidClass = it.isPaid ? 'is-paid' : '';
+        const checkedAttr = it.isPaid ? 'checked' : '';
+
+        // Formatted estimate
+        let estDisplay = '';
+        if (budgetCurrencyMode === 'both') {
+          estDisplay = <div class="td-est-vnd"></div><div class="td-est-rmb">~ </div>;
+        } else if (budgetCurrencyMode === 'vnd') {
+          estDisplay = <div class="td-est-vnd"></div>;
+        } else {
+          estDisplay = <div class="td-est-vnd" style="color:var(--accent-gold);"></div>;
+        }
+
+        // Converted text for actual
+        let convertedText = '';
+        const amt = it.actualAmount || 0;
+        if (it.actualCurrency === 'RMB') {
+          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberVnd(amt * budgetExchangeRate) : 'â‰ˆ 0 Ä‘';
+        } else {
+          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberRmb(amt / budgetExchangeRate) : 'â‰ˆ 0 RMB';
+        }
+
+        const delBtn = it.isCustom
+          ? <button class="btn-row-del" onclick="deleteBudgetItem('')" title="XoÃ¡ khoáº£n chi nÃ y">ðŸ—‘ï¸</button>
+          : <button class="btn-row-del" onclick="resetSingleItem('')" title="Äáº·t láº¡i vá» máº·c Ä‘á»‹nh" style="color:#9cb1d1; opacity:0.4;">â†º</button>;
+
+        html += 
+          <tr class="budget-row " id="row-">
+            <td class="td-status">
+              <input type="checkbox" class="status-checkbox"  onchange="toggleItemPaid('', this.checked)" title="ÄÃ¡nh dáº¥u Ä‘Ã£ chi tiá»n thá»±c táº¿">
+            </td>
+            <td class="td-item-info">
+              <strong></strong>
+              <small></small>
+            </td>
+            <td>
+              <span class="cat-badge cat-"></span>
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              <div class="actual-input-wrap">
+                <div class="actual-input-row">
+                  <input type="number" class="input-actual-val" value="" placeholder="0" min="0" step="any" oninput="updateActualAmount('', this.value)">
+                  <select class="select-actual-curr" onchange="updateActualCurrency('', this.value)">
+                    <option value="RMB" >RMB</option>
+                    <option value="VND" >VNÄ</option>
+                  </select>
+                </div>
+                <span class="converted-helper" id="actual-conv-"></span>
+              </div>
+            </td>
+            <td>
+              <input type="text" class="input-note-val" value="" placeholder="Ghi chÃº mÃ£ vÃ©, tháº», tiá»n máº·t..." oninput="updateItemNote('', this.value)">
+            </td>
+            <td style="text-align:center;">
+              
+            </td>
+          </tr>
+        ;
+      });
+
+      tbody.innerHTML = html;
+      updateBudgetDashboard();
+    }
+
+    function resetSingleItem(id) {
+      const defaultItem = DEFAULT_BUDGET_SEED.find(d => d.id === id);
+      const target = budgetItems.find(it => it.id === id);
+      if (defaultItem && target) {
+        target.actualAmount = defaultItem.actualAmount;
+        target.actualCurrency = defaultItem.actualCurrency;
+        target.note = defaultItem.note;
+        target.isPaid = defaultItem.isPaid;
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function updateBudgetDashboard() {
+      let totalEstVnd = 0;
+      let totalEstRmb = 0;
+      let totalActVnd = 0;
+      let totalActRmb = 0;
+      let paidCount = 0;
+
+      budgetItems.forEach(it => {
+        totalEstVnd += (it.estVnd || 0);
+        totalEstRmb += (it.estRmb || 0);
+
+        if (it.actualAmount && it.actualAmount > 0) {
+          if (it.actualCurrency === 'RMB') {
+            totalActRmb += it.actualAmount;
+            totalActVnd += it.actualAmount * budgetExchangeRate;
+          } else {
+            totalActVnd += it.actualAmount;
+            totalActRmb += it.actualAmount / budgetExchangeRate;
+          }
+        }
+
+        if (it.isPaid) paidCount++;
+      });
+
+      // Update Dashboard elements
+      const estVndEl = document.getElementById('dash-est-vnd');
+      const estRmbEl = document.getElementById('dash-est-rmb');
+      const actVndEl = document.getElementById('dash-act-vnd');
+      const actRmbEl = document.getElementById('dash-act-rmb');
+      const diffVndEl = document.getElementById('dash-diff-vnd');
+      const diffRmbEl = document.getElementById('dash-diff-rmb');
+      const diffBadgeEl = document.getElementById('dash-diff-badge');
+      const diffCardEl = document.getElementById('dash-card-diff');
+      const paidCountEl = document.getElementById('dash-paid-count');
+      const personActEl = document.getElementById('dash-person-act');
+      const personEstEl = document.getElementById('dash-person-est');
+      const progressTextEl = document.getElementById('budget-progress-text');
+      const progressFillEl = document.getElementById('budget-progress-fill');
+      const footerEstEl = document.getElementById('footer-total-est');
+      const footerActEl = document.getElementById('footer-total-act');
+      const footerDiffEl = document.getElementById('footer-total-diff');
+
+      if (estVndEl) estVndEl.textContent = formatNumberVnd(totalEstVnd);
+      if (estRmbEl) estRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
+
+      if (actVndEl) actVndEl.textContent = formatNumberVnd(totalActVnd);
+      if (actRmbEl) actRmbEl.textContent = '~ ' + formatNumberRmb(totalActRmb);
+      if (paidCountEl) paidCountEl.textContent = ${paidCount}/ ÄÃƒ THANH TOÃN;
+
+      // Difference
+      const diffVnd = totalEstVnd - totalActVnd;
+      const diffRmb = totalEstRmb - totalActRmb;
+
+      if (diffVndEl) {
+        if (totalActVnd === 0) {
+          diffVndEl.textContent = formatNumberVnd(totalEstVnd);
+          diffVndEl.style.color = '#06d6a0';
+          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
+          if (diffBadgeEl) {
+            diffBadgeEl.textContent = 'CHÆ¯A GIáº¢I NGÃ‚N';
+            diffBadgeEl.className = 'metric-badge badge-saved';
+          }
+        } else if (diffVnd >= 0) {
+          diffVndEl.textContent = '+ ' + formatNumberVnd(diffVnd);
+          diffVndEl.style.color = '#06d6a0';
+          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(diffRmb);
+          if (diffBadgeEl) {
+            diffBadgeEl.textContent = 'CÃ’N DÆ¯ / TIáº¾T KIá»†M';
+            diffBadgeEl.className = 'metric-badge badge-saved';
+          }
+          if (diffCardEl) diffCardEl.classList.remove('over-budget');
+        } else {
+          diffVndEl.textContent = '- ' + formatNumberVnd(Math.abs(diffVnd));
+          diffVndEl.style.color = '#ef233c';
+          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(Math.abs(diffRmb));
+          if (diffBadgeEl) {
+            diffBadgeEl.textContent = 'VÆ¯á»¢T NGÃ‚N SÃCH';
+            diffBadgeEl.className = 'metric-badge badge-over';
+          }
+          if (diffCardEl) diffCardEl.classList.add('over-budget');
+        }
+      }
+
+      // Per person
+      if (personActEl) {
+        const perPersonAct = totalActVnd > 0 ? (totalActVnd / 2) : (totalEstVnd / 2);
+        personActEl.textContent = formatNumberVnd(perPersonAct) + ' / NgÆ°á»i';
+      }
+      if (personEstEl) {
+        personEstEl.textContent = 'Dá»± toÃ¡n: ~ ' + formatNumberVnd(totalEstVnd / 2) + ' / NgÆ°á»i';
+      }
+
+      // Progress bar
+      const pct = totalEstVnd > 0 ? Math.round((totalActVnd / totalEstVnd) * 100) : 0;
+      if (progressTextEl) {
+        progressTextEl.textContent = ${pct}% ( / );
+      }
+      if (progressFillEl) {
+        progressFillEl.style.width = Math.min(pct, 100) + '%';
+        progressFillEl.classList.toggle('over-budget', pct > 100);
+      }
+
+      // Footer
+      if (footerEstEl) footerEstEl.textContent = formatNumberVnd(totalEstVnd);
+      if (footerActEl) footerActEl.textContent = formatNumberVnd(totalActVnd);
+      if (footerDiffEl) {
+        if (diffVnd >= 0) {
+          footerDiffEl.textContent = 'CÃ²n dÆ°: ' + formatNumberVnd(diffVnd);
+          footerDiffEl.style.color = '#06d6a0';
+        } else {
+          footerDiffEl.textContent = 'VÆ°á»£t: ' + formatNumberVnd(Math.abs(diffVnd));
+          footerDiffEl.style.color = '#ef233c';
+        }
+      }
+    }
+
+    // Modal Add Expense
+    function openAddExpenseModal() {
+      const modal = document.getElementById('modal-add-expense');
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeAddExpenseModal(e) {
+      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+      const modal = document.getElementById('modal-add-expense');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleAddNewExpense(e) {
+      e.preventDefault();
+      const name = document.getElementById('add-exp-name').value.trim();
+      const detail = document.getElementById('add-exp-detail').value.trim();
+      const cat = document.getElementById('add-exp-cat').value;
+      const amount = parseFloat(document.getElementById('add-exp-amount').value) || 0;
+      const curr = document.getElementById('add-exp-curr').value;
+      const note = document.getElementById('add-exp-note').value.trim();
+
+      const catLabels = {
+        flight: 'âœˆï¸ Chuyáº¿n Bay',
+        hotel: 'ðŸ¨ KhÃ¡ch Sáº¡n',
+        transit: 'ðŸš† Di Chuyá»ƒn',
+        sight: 'ðŸŽ« VÃ© Tháº¯ng Cáº£nh',
+        experience: 'â›·ï¸ Tráº£i Nghiá»‡m',
+        food: 'ðŸœ Ä‚n Uá»‘ng',
+        other: 'ðŸŽ’ HÃ nh LÃ½ & KhÃ¡c'
+      };
+
+      const estRmb = curr === 'RMB' ? amount : Math.round(amount / budgetExchangeRate);
+      const estVnd = curr === 'VND' ? amount : Math.round(amount * budgetExchangeRate);
+
+      const newItem = {
+        id: 'b-custom-' + Date.now(),
+        category: cat,
+        categoryLabel: catLabels[cat] || cat,
+        name: name,
+        detail: detail,
+        estRmb: estRmb,
+        estVnd: estVnd,
+        actualAmount: amount,
+        actualCurrency: curr,
+        note: note,
+        isPaid: true,
+        isCustom: true
+      };
+
+      budgetItems.unshift(newItem);
+      saveBudgetToStorage();
+      renderBudgetTable();
+      closeAddExpenseModal();
+
+      // Reset form
+      document.getElementById('add-exp-name').value = '';
+      document.getElementById('add-exp-detail').value = '';
+      document.getElementById('add-exp-amount').value = '';
+      document.getElementById('add-exp-note').value = '';
+    }
+
+    // Modal Backup & Export
+    function openBackupExpenseModal() {
+      const modal = document.getElementById('modal-backup-expense');
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeBackupExpenseModal(e) {
+      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+      const modal = document.getElementById('modal-backup-expense');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function downloadBudgetJsonBackup() {
+      const state = {
+        rate: budgetExchangeRate,
+        currMode: budgetCurrencyMode,
+        cat: budgetCurrentCategory,
+        items: budgetItems,
+        exportedAt: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = Harbin_2027_Nhat_Ky_Chi_Tieu_.json;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function handleBudgetImportFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          if (parsed && Array.isArray(parsed.items)) {
+            budgetItems = parsed.items;
+            if (parsed.rate) budgetExchangeRate = parsed.rate;
+            if (parsed.currMode) budgetCurrencyMode = parsed.currMode;
+            saveBudgetToStorage();
+            initBudgetTracker();
+            alert('âœ… ÄÃ£ náº¡p thÃ nh cÃ´ng ' + budgetItems.length + ' khoáº£n chi!');
+            closeBackupExpenseModal();
+          } else {
+            alert('âŒ File khÃ´ng Ä‘Ãºng Ä‘á»‹nh dáº¡ng sao lÆ°u cá»§a Harbin 2027.');
+          }
+        } catch (err) {
+          alert('âŒ Lá»—i khi Ä‘á»c file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function exportBudgetCsv() {
+      let csv = '\uFEFFSTT,Trang Thai,Danh Muc,Ten Hang Muc,Mo Ta,Du Toan (RMB),Du Toan (VND),Thuc Te Da Chi,Nguyen Te,Quy Doi (VND),Quy Doi (RMB),Ghi Chu\n';
+
+      budgetItems.forEach((it, idx) => {
+        const status = it.isPaid ? 'ÄÃ£ Thanh ToÃ¡n' : 'ChÆ°a Chi';
+        const amt = it.actualAmount || 0;
+        const convVnd = it.actualCurrency === 'RMB' ? (amt * budgetExchangeRate) : amt;
+        const convRmb = it.actualCurrency === 'VND' ? (amt / budgetExchangeRate) : amt;
+
+        const escapeCsv = (str) => '"' + (str || '').replace(/"/g, '""') + '"';
+
+        csv += [
+          idx + 1,
+          escapeCsv(status),
+          escapeCsv(it.categoryLabel || it.category),
+          escapeCsv(it.name),
+          escapeCsv(it.detail),
+          it.estRmb || 0,
+          it.estVnd || 0,
+          amt,
+          escapeCsv(it.actualCurrency),
+          Math.round(convVnd),
+          Math.round(convRmb * 10) / 10,
+          escapeCsv(it.note)
+        ].join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = Harbin_2027_Bao_Cao_Chi_Tieu_.csv;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function resetBudgetToDefault() {
+      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n Ä‘áº·t láº¡i toÃ n bá»™ báº£ng vá» dá»¯ liá»‡u dá»± toÃ¡n gá»‘c ban Ä‘áº§u? Táº¥t cáº£ cÃ¡c khoáº£n ghi chÃº vÃ  sá»‘ tiá»n thá»±c táº¿ Ä‘Ã£ nháº­p sáº½ Ä‘Æ°á»£c khÃ´i phá»¥c.')) {
+        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        budgetExchangeRate = 3500;
+        budgetCurrencyMode = 'both';
+        budgetCurrentCategory = 'all';
+        saveBudgetToStorage();
+        initBudgetTracker();
+        alert('âœ… ÄÃ£ khÃ´i phá»¥c dá»¯ liá»‡u gá»‘c thÃ nh cÃ´ng!');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBudgetTracker);
+    } else {
+      initBudgetTracker();
+    }
+
 
     window.addEventListener('resize', () => {
       width = canvas.width = window.innerWidth;
@@ -7586,6 +9401,1026 @@ function renderOverviewMap() {
     } else {
       initImageOptimizer();
     }
+
+        /* ===== INTERACTIVE BUDGET TRACKER & EXPENSE MANAGER ENGINE ===== */
+    const BUDGET_STORAGE_KEY = 'harbin_trip_budget_db_v2';
+    const DEFAULT_BUDGET_SEED = [
+  {
+    "id": "b-flight-01",
+    "category": "flight",
+    "categoryLabel": "✈️ Chuyến Bay",
+    "name": "Vé máy bay khứ hồi Air China (2 người)",
+    "detail": "HAN ➔ PVG ➔ HRB (30-31/12) & CGQ ➔ PEK ➔ HAN (10-11/01) gồm 23kg ký gửi",
+    "estRmb": 4000,
+    "estVnd": 14000000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "Đã thanh toán Air China",
+    "isPaid": false
+  },
+  {
+    "id": "b-flight-02",
+    "category": "flight",
+    "categoryLabel": "✈️ Chuyến Bay",
+    "name": "Visa du lịch Trung Quốc diện L (2 người)",
+    "detail": "Lệ phí nộp tại Trung tâm Visa + Dịch thuật công chứng hồ sơ",
+    "estRmb": 1200,
+    "estVnd": 4200000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-flight-03",
+    "category": "flight",
+    "categoryLabel": "✈️ Chuyến Bay",
+    "name": "Bảo hiểm du lịch quốc tế mùa đông (2 người)",
+    "detail": "Gói bảo hiểm du lịch quốc tế 15 ngày chi trả y tế xứ lạnh & trượt tuyết",
+    "estRmb": 260,
+    "estVnd": 900000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-01",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 1 (30/12): Ji Hotel The Bund (Thượng Hải)",
+    "detail": "Quá cảnh Thượng Hải, gần phố đi bộ Nam Kinh & Bến Thượng Hải",
+    "estRmb": 450,
+    "estVnd": 1575000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Trip.com / Booking",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-02",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 2 & 3 (31/12-02/01): Ibis Styles Phố Trung Ương (2 đêm)",
+    "detail": "Cáp Nhĩ Tân, đi bộ 300m ra Phố Cổ & Nhà thờ Sophia, đón Giao thừa 2027",
+    "estRmb": 960,
+    "estVnd": 3360000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "480 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-03",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 4 (02/01): Atour Hotel Ga Cáp Nhĩ Tân",
+    "detail": "Sát Ga Harbin, thuận tiện sáng mai ra bến xe đón bus Á Tuyết đi Tuyết Hương",
+    "estRmb": 420,
+    "estVnd": 1470000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-04",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 5 & 6 (03-05/01): Xuexiang Xueyun Wooden Homestay (2 đêm)",
+    "detail": "Phòng khang sưởi ấm 38°C phố chính Tuyết Vận, nghỉ 2 đêm liên tiếp cùng phòng",
+    "estRmb": 980,
+    "estVnd": 3430000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "490 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-05",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 7 & 8 (05-07/01): Dynasty Holy Spring Onsen Resort (2 đêm)",
+    "detail": "Chân núi Trường Bạch (Nhị Đạo Bạch Hà), miễn phí Onsen khoáng nóng ngoài trời 42°C",
+    "estRmb": 1560,
+    "estVnd": 5460000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "780 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-06",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 9 (07/01): Jinjiang Metropolo Changbaishan Railway Station",
+    "detail": "Cách Ga Tàu Cao Tốc CRH Trường Bạch Sơn 800m, sáng mai ra ga tàu thong thả",
+    "estRmb": 420,
+    "estVnd": 1470000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-hotel-07",
+    "category": "hotel",
+    "categoryLabel": "🏨 Khách Sạn",
+    "name": "Đêm 10 & 11 (08-10/01): Atour Hotel Ga Trường Xuân (2 đêm)",
+    "detail": "Trung tâm Trường Xuân, cạnh tuyến Metro Line 1 & Ga tàu cao tốc",
+    "estRmb": 760,
+    "estVnd": 2660000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "380 RMB/đêm x 2",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-01",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Maglev + Metro Tuyến 2 Thượng Hải (2 người)",
+    "detail": "Sân bay PVG ➔ Ga Nam Kinh Đông Lộ ➔ Sân bay Hồng Kiều SHA",
+    "estRmb": 120,
+    "estVnd": 420000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Quẹt Alipay / WeChat",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-02",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Xe buýt sân bay HRB + Metro & Taxi Cáp Nhĩ Tân (2 người)",
+    "detail": "Di chuyển nội thành 3 ngày: Sân bay ➔ Trung tâm, Băng Tuyết Đại Thế Giới, Volga",
+    "estRmb": 160,
+    "estVnd": 560000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-03",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Xe buýt trực thông Á Tuyết: Cáp Nhĩ Tân ➔ Tuyết Hương (2 vé)",
+    "detail": "Xe du lịch sưởi ấm 25°C chạy thẳng 5.5h ngắm đèo tuyết (120 RMB/vé x 2)",
+    "estRmb": 240,
+    "estVnd": 840000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "App Chuxing 365",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-04",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Xe buýt liên tỉnh xuyên rừng: Tuyết Hương ➔ Trường Bạch Sơn (2 vé)",
+    "detail": "Chạy thẳng 5.5h xuyên rừng Taiga mùa đông (150 RMB/vé x 2)",
+    "estRmb": 300,
+    "estVnd": 1050000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Đặt qua lễ tân homestay",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-05",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Tàu cao tốc CRH: Ga Trường Bạch Sơn ➔ Ga Trường Xuân (2 vé)",
+    "detail": "Tàu viên đạn G-train lướt băng 2h17p, ghế hạng 2 (117 RMB/vé x 2)",
+    "estRmb": 234,
+    "estVnd": 819000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "App 12306 / Trip.com",
+    "isPaid": false
+  },
+  {
+    "id": "b-transit-06",
+    "category": "transit",
+    "categoryLabel": "🚆 Di Chuyển",
+    "name": "Metro & Taxi Trường Xuân + Airport Express Bắc Kinh (2 người)",
+    "detail": "Metro Tịnh Nguyệt Đàm, Taxi sân bay CGQ, Tàu điện Airport Express quá cảnh PEK",
+    "estRmb": 180,
+    "estVnd": 630000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-01",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Harbin Ice and Snow World - Băng Tuyết Đại Thế Giới (2 vé)",
+    "detail": "Vé vào cổng triệu khối băng LED + trượt máng băng dài 500m (328 RMB/vé x 2)",
+    "estRmb": 656,
+    "estVnd": 2296000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "WeChat Harbin Ice World",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-02",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Triển lãm Điêu khắc Tuyết Quốc tế Đảo Mặt Trời (2 vé)",
+    "detail": "Sun Island Snow Sculpture Expo (198 RMB/vé x 2)",
+    "estRmb": 396,
+    "estVnd": 1386000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-03",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Công viên Hổ Siberia kèm xe lồng bọc thép (2 vé)",
+    "detail": "Siberian Tiger Park + Xe đặc chủng xem hổ săn mồi giữa tuyết (130 RMB/vé x 2)",
+    "estRmb": 260,
+    "estVnd": 910000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-04",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Trang viên Volga Manor kèm máng trượt lâu đài (2 vé)",
+    "detail": "Lâu đài Pavlov, quán bar hầm rượu Vodka bằng băng (165 RMB/vé x 2)",
+    "estRmb": 330,
+    "estVnd": 1155000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-05",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé vào cổng Làng Tuyết Hương + Xe sườn nội khu (2 vé)",
+    "detail": "China Snow Town ticket có giá trị 48h (120 RMB/vé x 2)",
+    "estRmb": 240,
+    "estVnd": 840000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Vé điện tử quét hộ chiếu",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-06",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Thắng cảnh Bắc Pha Núi Trường Bạch + Xe sinh thái (2 vé)",
+    "detail": "Vé vào cổng bảo tồn quốc gia + Eco-bus nội khu 40 phút (225 RMB/vé x 2)",
+    "estRmb": 450,
+    "estVnd": 1575000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "App WeChat Changbaishan",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-07",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Xe chuyên dụng 4WD leo đỉnh Hồ Thiên Trì (2 vé)",
+    "detail": "Xe việt dã địa hình vượt 72 khúc cua tay áo lên đỉnh 2.189m (80 RMB/vé x 2)",
+    "estRmb": 160,
+    "estVnd": 560000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Mua khi đỉnh mở cửa",
+    "isPaid": false
+  },
+  {
+    "id": "b-sight-08",
+    "category": "sight",
+    "categoryLabel": "🎫 Vé Thắng Cảnh",
+    "name": "Vé Khu thắng cảnh Rừng tuyết Hồ Băng Tịnh Nguyệt Đàm (2 vé)",
+    "detail": "Jingyuetan National Forest Park Trường Xuân (30 RMB/vé x 2)",
+    "estRmb": 60,
+    "estVnd": 210000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-exp-01",
+    "category": "experience",
+    "categoryLabel": "⛷️ Trải Nghiệm",
+    "name": "Mô tô tuyết Snowmobile săn bình minh Dương Thảo Sơn (2 vé)",
+    "detail": "Lên đỉnh 1.235m lúc 06:00 đón bình minh & bay flycam biển mây (240 RMB/vé x 2)",
+    "estRmb": 480,
+    "estVnd": 1680000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Bến xe điện Tuyết Hương",
+    "isPaid": false
+  },
+  {
+    "id": "b-exp-02",
+    "category": "experience",
+    "categoryLabel": "⛷️ Trải Nghiệm",
+    "name": "Thuyền phao sông sương băng Ma Giới Rafting (2 vé)",
+    "detail": "Chèo thuyền phao ngắm khói sương bốc trên sông địa nhiệt 06:00 (180 RMB/vé x 2)",
+    "estRmb": 360,
+    "estVnd": 1260000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Đã gồm phao và gậy chèo",
+    "isPaid": false
+  },
+  {
+    "id": "b-exp-03",
+    "category": "experience",
+    "categoryLabel": "⛷️ Trải Nghiệm",
+    "name": "Trọn ngày trượt tuyết Sân Trượt Hòa Bình Trường Bạch Sơn (2 người)",
+    "detail": "Vé vào sân + Cáp treo xuyên rừng thông + Giày ván trượt tuyết bột + HLV 2h",
+    "estRmb": 680,
+    "estVnd": 2380000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Peace Ski Resort",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-01",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa ăn hàng ngày trong chuyến đi (12 ngày x 2 người)",
+    "detail": "Ăn sáng, trưa, tối, ăn vặt đường phố, kem Madie'er, xúc xích Harbin (~180 RMB/ngày)",
+    "estRmb": 2160,
+    "estVnd": 7560000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "Alipay / WeChat Pay",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-02",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa tiệc Lẩu cừu & Thịt hầm nồi gang Đông Bắc Làng Tuyết Hương",
+    "detail": "Bữa tối ấm cúng ngày 5 hoặc 6 tại homestay Tuyết Hương",
+    "estRmb": 240,
+    "estVnd": 840000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-03",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa tối Thịt bò nướng than hoa Triều Tiên tại Nhị Đạo Bạch Hà",
+    "detail": "Đặc sản thịt bò nướng thơm lừng vùng núi Trường Bạch",
+    "estRmb": 220,
+    "estVnd": 770000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-food-04",
+    "category": "food",
+    "categoryLabel": "🍜 Ăn Uống",
+    "name": "Bữa tiệc Vịt quay Bắc Kinh truyền thống chặng về quá cảnh",
+    "detail": "Thưởng thức vịt quay da giòn tại Bắc Kinh trước khi bay về Hà Nội",
+    "estRmb": 260,
+    "estVnd": 910000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-other-01",
+    "category": "other",
+    "categoryLabel": "🎒 Phụ Kiện & Khác",
+    "name": "2 eSIM Trung Quốc 15 ngày vượt tường lửa (Google, Facebook, Zalo)",
+    "detail": "Mỗi người 1 eSIM data không bị chặn mạng",
+    "estRmb": 128,
+    "estVnd": 450000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "Shopee / Klook",
+    "isPaid": false
+  },
+  {
+    "id": "b-other-02",
+    "category": "other",
+    "categoryLabel": "🎒 Phụ Kiện & Khác",
+    "name": "Miếng dán giữ nhiệt (40 miếng) + Bọc gai cao su chống trượt giày",
+    "detail": "Miếng dán giữ nhiệt cơ thể & giữ ấm pin điện thoại + đinh gai chống ngã băng",
+    "estRmb": 100,
+    "estVnd": 350000,
+    "actualAmount": 0,
+    "actualCurrency": "VND",
+    "note": "",
+    "isPaid": false
+  },
+  {
+    "id": "b-other-03",
+    "category": "other",
+    "categoryLabel": "🎒 Phụ Kiện & Khác",
+    "name": "Quỹ phát sinh dự phòng & Mua sắm quà lưu niệm (2 người)",
+    "detail": "Trà gừng, đồ uống nóng, búp bê Matryoshka Nga, nấm tuyết khô, socola",
+    "estRmb": 800,
+    "estVnd": 2800000,
+    "actualAmount": 0,
+    "actualCurrency": "RMB",
+    "note": "",
+    "isPaid": false
+  }
+]
+;
+
+    let budgetItems = [];
+    let budgetExchangeRate = 3500;
+    let budgetCurrencyMode = 'both'; // 'both' | 'vnd' | 'rmb'
+    let budgetCurrentCategory = 'all';
+    let budgetSaveTimeout = null;
+
+    function formatNumberVnd(num) {
+      if (!num || isNaN(num)) return '0 Ä‘';
+      return Math.round(num).toLocaleString('vi-VN') + ' Ä‘';
+    }
+
+    function formatNumberRmb(num) {
+      if (!num || isNaN(num)) return '0 RMB';
+      return (Math.round(num * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 }) + ' RMB';
+    }
+
+    function showBudgetSaveToast() {
+      const toast = document.getElementById('budget-save-toast');
+      if (!toast) return;
+      toast.classList.add('visible');
+      clearTimeout(budgetSaveTimeout);
+      budgetSaveTimeout = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 1500);
+    }
+
+    function saveBudgetToStorage() {
+      const state = {
+        rate: budgetExchangeRate,
+        currMode: budgetCurrencyMode,
+        cat: budgetCurrentCategory,
+        items: budgetItems,
+        updatedAt: new Date().toISOString()
+      };
+      try {
+        localStorage.setItem(BUDGET_STORAGE_KEY, JSON.stringify(state));
+        showBudgetSaveToast();
+      } catch (e) {
+        console.warn('LocalStorage error:', e);
+      }
+    }
+
+    function initBudgetTracker() {
+      try {
+        const stored = localStorage.getItem(BUDGET_STORAGE_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          budgetExchangeRate = parsed.rate || 3500;
+          budgetCurrencyMode = parsed.currMode || 'both';
+          budgetCurrentCategory = parsed.cat || 'all';
+          budgetItems = Array.isArray(parsed.items) && parsed.items.length > 0 ? parsed.items : JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        } else {
+          budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        }
+      } catch (e) {
+        console.warn('Init budget parse failed, loading seed:', e);
+        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+      }
+
+      // Sync rate input
+      const rateInput = document.getElementById('budget-rate-input');
+      if (rateInput) rateInput.value = budgetExchangeRate;
+
+      // Sync currency pills
+      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
+      currPills.forEach(p => {
+        const text = p.getAttribute('onclick') || '';
+        p.classList.toggle('active', text.includes("'" + budgetCurrencyMode + "'"));
+      });
+
+      // Sync cat pills
+      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
+      catPills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-cat') === budgetCurrentCategory);
+      });
+
+      renderBudgetTable();
+    }
+
+    function handleExchangeRateChange(val) {
+      const parsed = parseFloat(val);
+      if (parsed && parsed > 0) {
+        budgetExchangeRate = parsed;
+        // Update estimated VND for all items based on RMB
+        budgetItems.forEach(it => {
+          if (it.estRmb && !it.isCustom) {
+            it.estVnd = Math.round(it.estRmb * budgetExchangeRate);
+          }
+        });
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function setBudgetCurrMode(mode) {
+      budgetCurrencyMode = mode;
+      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
+      currPills.forEach(p => {
+        const text = p.getAttribute('onclick') || '';
+        p.classList.toggle('active', text.includes("'" + mode + "'"));
+      });
+      saveBudgetToStorage();
+      renderBudgetTable();
+    }
+
+    function filterBudgetCat(cat) {
+      budgetCurrentCategory = cat;
+      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
+      catPills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-cat') === cat);
+      });
+      renderBudgetTable();
+    }
+
+    function toggleItemPaid(id, checked) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        item.isPaid = checked;
+        // If checked and actual amount is 0, prefill with estimate
+        if (checked && (!item.actualAmount || item.actualAmount === 0)) {
+          item.actualAmount = item.actualCurrency === 'VND' ? item.estVnd : item.estRmb;
+        }
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function updateActualAmount(id, val) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        const parsed = parseFloat(val);
+        item.actualAmount = isNaN(parsed) ? 0 : parsed;
+        if (item.actualAmount > 0) {
+          item.isPaid = true;
+        }
+        // Update live converted text
+        const helperEl = document.getElementById('actual-conv-' + id);
+        if (helperEl) {
+          if (item.actualCurrency === 'RMB') {
+            const inVnd = item.actualAmount * budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
+          } else {
+            const inRmb = item.actualAmount / budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
+          }
+        }
+        updateBudgetDashboard();
+        saveBudgetToStorage();
+      }
+    }
+
+    function updateActualCurrency(id, curr) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        item.actualCurrency = curr;
+        const helperEl = document.getElementById('actual-conv-' + id);
+        if (helperEl) {
+          if (item.actualCurrency === 'RMB') {
+            const inVnd = (item.actualAmount || 0) * budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
+          } else {
+            const inRmb = (item.actualAmount || 0) / budgetExchangeRate;
+            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
+          }
+        }
+        updateBudgetDashboard();
+        saveBudgetToStorage();
+      }
+    }
+
+    function updateItemNote(id, noteVal) {
+      const item = budgetItems.find(it => it.id === id);
+      if (item) {
+        item.note = noteVal;
+        saveBudgetToStorage();
+      }
+    }
+
+    function deleteBudgetItem(id) {
+      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ khoáº£n chi nÃ y?')) {
+        budgetItems = budgetItems.filter(it => it.id !== id);
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function renderBudgetTable() {
+      const tbody = document.getElementById('budget-tbody');
+      if (!tbody) return;
+
+      // Filter items
+      const filtered = budgetItems.filter(it => {
+        if (budgetCurrentCategory === 'all') return true;
+        if (budgetCurrentCategory === 'paid') return it.isPaid;
+        if (budgetCurrentCategory === 'pending') return !it.isPaid;
+        return it.category === budgetCurrentCategory;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:#9cb1d1;">KhÃ´ng cÃ³ khoáº£n chi nÃ o trong danh má»¥c nÃ y.</td></tr>';
+        updateBudgetDashboard();
+        return;
+      }
+
+      let html = '';
+      filtered.forEach((it, idx) => {
+        const isPaidClass = it.isPaid ? 'is-paid' : '';
+        const checkedAttr = it.isPaid ? 'checked' : '';
+
+        // Formatted estimate
+        let estDisplay = '';
+        if (budgetCurrencyMode === 'both') {
+          estDisplay = <div class="td-est-vnd"></div><div class="td-est-rmb">~ </div>;
+        } else if (budgetCurrencyMode === 'vnd') {
+          estDisplay = <div class="td-est-vnd"></div>;
+        } else {
+          estDisplay = <div class="td-est-vnd" style="color:var(--accent-gold);"></div>;
+        }
+
+        // Converted text for actual
+        let convertedText = '';
+        const amt = it.actualAmount || 0;
+        if (it.actualCurrency === 'RMB') {
+          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberVnd(amt * budgetExchangeRate) : 'â‰ˆ 0 Ä‘';
+        } else {
+          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberRmb(amt / budgetExchangeRate) : 'â‰ˆ 0 RMB';
+        }
+
+        const delBtn = it.isCustom
+          ? <button class="btn-row-del" onclick="deleteBudgetItem('')" title="XoÃ¡ khoáº£n chi nÃ y">ðŸ—‘ï¸</button>
+          : <button class="btn-row-del" onclick="resetSingleItem('')" title="Äáº·t láº¡i vá» máº·c Ä‘á»‹nh" style="color:#9cb1d1; opacity:0.4;">â†º</button>;
+
+        html += 
+          <tr class="budget-row " id="row-">
+            <td class="td-status">
+              <input type="checkbox" class="status-checkbox"  onchange="toggleItemPaid('', this.checked)" title="ÄÃ¡nh dáº¥u Ä‘Ã£ chi tiá»n thá»±c táº¿">
+            </td>
+            <td class="td-item-info">
+              <strong></strong>
+              <small></small>
+            </td>
+            <td>
+              <span class="cat-badge cat-"></span>
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              <div class="actual-input-wrap">
+                <div class="actual-input-row">
+                  <input type="number" class="input-actual-val" value="" placeholder="0" min="0" step="any" oninput="updateActualAmount('', this.value)">
+                  <select class="select-actual-curr" onchange="updateActualCurrency('', this.value)">
+                    <option value="RMB" >RMB</option>
+                    <option value="VND" >VNÄ</option>
+                  </select>
+                </div>
+                <span class="converted-helper" id="actual-conv-"></span>
+              </div>
+            </td>
+            <td>
+              <input type="text" class="input-note-val" value="" placeholder="Ghi chÃº mÃ£ vÃ©, tháº», tiá»n máº·t..." oninput="updateItemNote('', this.value)">
+            </td>
+            <td style="text-align:center;">
+              
+            </td>
+          </tr>
+        ;
+      });
+
+      tbody.innerHTML = html;
+      updateBudgetDashboard();
+    }
+
+    function resetSingleItem(id) {
+      const defaultItem = DEFAULT_BUDGET_SEED.find(d => d.id === id);
+      const target = budgetItems.find(it => it.id === id);
+      if (defaultItem && target) {
+        target.actualAmount = defaultItem.actualAmount;
+        target.actualCurrency = defaultItem.actualCurrency;
+        target.note = defaultItem.note;
+        target.isPaid = defaultItem.isPaid;
+        saveBudgetToStorage();
+        renderBudgetTable();
+      }
+    }
+
+    function updateBudgetDashboard() {
+      let totalEstVnd = 0;
+      let totalEstRmb = 0;
+      let totalActVnd = 0;
+      let totalActRmb = 0;
+      let paidCount = 0;
+
+      budgetItems.forEach(it => {
+        totalEstVnd += (it.estVnd || 0);
+        totalEstRmb += (it.estRmb || 0);
+
+        if (it.actualAmount && it.actualAmount > 0) {
+          if (it.actualCurrency === 'RMB') {
+            totalActRmb += it.actualAmount;
+            totalActVnd += it.actualAmount * budgetExchangeRate;
+          } else {
+            totalActVnd += it.actualAmount;
+            totalActRmb += it.actualAmount / budgetExchangeRate;
+          }
+        }
+
+        if (it.isPaid) paidCount++;
+      });
+
+      // Update Dashboard elements
+      const estVndEl = document.getElementById('dash-est-vnd');
+      const estRmbEl = document.getElementById('dash-est-rmb');
+      const actVndEl = document.getElementById('dash-act-vnd');
+      const actRmbEl = document.getElementById('dash-act-rmb');
+      const diffVndEl = document.getElementById('dash-diff-vnd');
+      const diffRmbEl = document.getElementById('dash-diff-rmb');
+      const diffBadgeEl = document.getElementById('dash-diff-badge');
+      const diffCardEl = document.getElementById('dash-card-diff');
+      const paidCountEl = document.getElementById('dash-paid-count');
+      const personActEl = document.getElementById('dash-person-act');
+      const personEstEl = document.getElementById('dash-person-est');
+      const progressTextEl = document.getElementById('budget-progress-text');
+      const progressFillEl = document.getElementById('budget-progress-fill');
+      const footerEstEl = document.getElementById('footer-total-est');
+      const footerActEl = document.getElementById('footer-total-act');
+      const footerDiffEl = document.getElementById('footer-total-diff');
+
+      if (estVndEl) estVndEl.textContent = formatNumberVnd(totalEstVnd);
+      if (estRmbEl) estRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
+
+      if (actVndEl) actVndEl.textContent = formatNumberVnd(totalActVnd);
+      if (actRmbEl) actRmbEl.textContent = '~ ' + formatNumberRmb(totalActRmb);
+      if (paidCountEl) paidCountEl.textContent = ${paidCount}/ ÄÃƒ THANH TOÃN;
+
+      // Difference
+      const diffVnd = totalEstVnd - totalActVnd;
+      const diffRmb = totalEstRmb - totalActRmb;
+
+      if (diffVndEl) {
+        if (totalActVnd === 0) {
+          diffVndEl.textContent = formatNumberVnd(totalEstVnd);
+          diffVndEl.style.color = '#06d6a0';
+          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
+          if (diffBadgeEl) {
+            diffBadgeEl.textContent = 'CHÆ¯A GIáº¢I NGÃ‚N';
+            diffBadgeEl.className = 'metric-badge badge-saved';
+          }
+        } else if (diffVnd >= 0) {
+          diffVndEl.textContent = '+ ' + formatNumberVnd(diffVnd);
+          diffVndEl.style.color = '#06d6a0';
+          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(diffRmb);
+          if (diffBadgeEl) {
+            diffBadgeEl.textContent = 'CÃ’N DÆ¯ / TIáº¾T KIá»†M';
+            diffBadgeEl.className = 'metric-badge badge-saved';
+          }
+          if (diffCardEl) diffCardEl.classList.remove('over-budget');
+        } else {
+          diffVndEl.textContent = '- ' + formatNumberVnd(Math.abs(diffVnd));
+          diffVndEl.style.color = '#ef233c';
+          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(Math.abs(diffRmb));
+          if (diffBadgeEl) {
+            diffBadgeEl.textContent = 'VÆ¯á»¢T NGÃ‚N SÃCH';
+            diffBadgeEl.className = 'metric-badge badge-over';
+          }
+          if (diffCardEl) diffCardEl.classList.add('over-budget');
+        }
+      }
+
+      // Per person
+      if (personActEl) {
+        const perPersonAct = totalActVnd > 0 ? (totalActVnd / 2) : (totalEstVnd / 2);
+        personActEl.textContent = formatNumberVnd(perPersonAct) + ' / NgÆ°á»i';
+      }
+      if (personEstEl) {
+        personEstEl.textContent = 'Dá»± toÃ¡n: ~ ' + formatNumberVnd(totalEstVnd / 2) + ' / NgÆ°á»i';
+      }
+
+      // Progress bar
+      const pct = totalEstVnd > 0 ? Math.round((totalActVnd / totalEstVnd) * 100) : 0;
+      if (progressTextEl) {
+        progressTextEl.textContent = ${pct}% ( / );
+      }
+      if (progressFillEl) {
+        progressFillEl.style.width = Math.min(pct, 100) + '%';
+        progressFillEl.classList.toggle('over-budget', pct > 100);
+      }
+
+      // Footer
+      if (footerEstEl) footerEstEl.textContent = formatNumberVnd(totalEstVnd);
+      if (footerActEl) footerActEl.textContent = formatNumberVnd(totalActVnd);
+      if (footerDiffEl) {
+        if (diffVnd >= 0) {
+          footerDiffEl.textContent = 'CÃ²n dÆ°: ' + formatNumberVnd(diffVnd);
+          footerDiffEl.style.color = '#06d6a0';
+        } else {
+          footerDiffEl.textContent = 'VÆ°á»£t: ' + formatNumberVnd(Math.abs(diffVnd));
+          footerDiffEl.style.color = '#ef233c';
+        }
+      }
+    }
+
+    // Modal Add Expense
+    function openAddExpenseModal() {
+      const modal = document.getElementById('modal-add-expense');
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeAddExpenseModal(e) {
+      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+      const modal = document.getElementById('modal-add-expense');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleAddNewExpense(e) {
+      e.preventDefault();
+      const name = document.getElementById('add-exp-name').value.trim();
+      const detail = document.getElementById('add-exp-detail').value.trim();
+      const cat = document.getElementById('add-exp-cat').value;
+      const amount = parseFloat(document.getElementById('add-exp-amount').value) || 0;
+      const curr = document.getElementById('add-exp-curr').value;
+      const note = document.getElementById('add-exp-note').value.trim();
+
+      const catLabels = {
+        flight: 'âœˆï¸ Chuyáº¿n Bay',
+        hotel: 'ðŸ¨ KhÃ¡ch Sáº¡n',
+        transit: 'ðŸš† Di Chuyá»ƒn',
+        sight: 'ðŸŽ« VÃ© Tháº¯ng Cáº£nh',
+        experience: 'â›·ï¸ Tráº£i Nghiá»‡m',
+        food: 'ðŸœ Ä‚n Uá»‘ng',
+        other: 'ðŸŽ’ HÃ nh LÃ½ & KhÃ¡c'
+      };
+
+      const estRmb = curr === 'RMB' ? amount : Math.round(amount / budgetExchangeRate);
+      const estVnd = curr === 'VND' ? amount : Math.round(amount * budgetExchangeRate);
+
+      const newItem = {
+        id: 'b-custom-' + Date.now(),
+        category: cat,
+        categoryLabel: catLabels[cat] || cat,
+        name: name,
+        detail: detail,
+        estRmb: estRmb,
+        estVnd: estVnd,
+        actualAmount: amount,
+        actualCurrency: curr,
+        note: note,
+        isPaid: true,
+        isCustom: true
+      };
+
+      budgetItems.unshift(newItem);
+      saveBudgetToStorage();
+      renderBudgetTable();
+      closeAddExpenseModal();
+
+      // Reset form
+      document.getElementById('add-exp-name').value = '';
+      document.getElementById('add-exp-detail').value = '';
+      document.getElementById('add-exp-amount').value = '';
+      document.getElementById('add-exp-note').value = '';
+    }
+
+    // Modal Backup & Export
+    function openBackupExpenseModal() {
+      const modal = document.getElementById('modal-backup-expense');
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeBackupExpenseModal(e) {
+      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+      const modal = document.getElementById('modal-backup-expense');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function downloadBudgetJsonBackup() {
+      const state = {
+        rate: budgetExchangeRate,
+        currMode: budgetCurrencyMode,
+        cat: budgetCurrentCategory,
+        items: budgetItems,
+        exportedAt: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = Harbin_2027_Nhat_Ky_Chi_Tieu_.json;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function handleBudgetImportFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          if (parsed && Array.isArray(parsed.items)) {
+            budgetItems = parsed.items;
+            if (parsed.rate) budgetExchangeRate = parsed.rate;
+            if (parsed.currMode) budgetCurrencyMode = parsed.currMode;
+            saveBudgetToStorage();
+            initBudgetTracker();
+            alert('âœ… ÄÃ£ náº¡p thÃ nh cÃ´ng ' + budgetItems.length + ' khoáº£n chi!');
+            closeBackupExpenseModal();
+          } else {
+            alert('âŒ File khÃ´ng Ä‘Ãºng Ä‘á»‹nh dáº¡ng sao lÆ°u cá»§a Harbin 2027.');
+          }
+        } catch (err) {
+          alert('âŒ Lá»—i khi Ä‘á»c file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function exportBudgetCsv() {
+      let csv = '\uFEFFSTT,Trang Thai,Danh Muc,Ten Hang Muc,Mo Ta,Du Toan (RMB),Du Toan (VND),Thuc Te Da Chi,Nguyen Te,Quy Doi (VND),Quy Doi (RMB),Ghi Chu\n';
+
+      budgetItems.forEach((it, idx) => {
+        const status = it.isPaid ? 'ÄÃ£ Thanh ToÃ¡n' : 'ChÆ°a Chi';
+        const amt = it.actualAmount || 0;
+        const convVnd = it.actualCurrency === 'RMB' ? (amt * budgetExchangeRate) : amt;
+        const convRmb = it.actualCurrency === 'VND' ? (amt / budgetExchangeRate) : amt;
+
+        const escapeCsv = (str) => '"' + (str || '').replace(/"/g, '""') + '"';
+
+        csv += [
+          idx + 1,
+          escapeCsv(status),
+          escapeCsv(it.categoryLabel || it.category),
+          escapeCsv(it.name),
+          escapeCsv(it.detail),
+          it.estRmb || 0,
+          it.estVnd || 0,
+          amt,
+          escapeCsv(it.actualCurrency),
+          Math.round(convVnd),
+          Math.round(convRmb * 10) / 10,
+          escapeCsv(it.note)
+        ].join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = Harbin_2027_Bao_Cao_Chi_Tieu_.csv;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function resetBudgetToDefault() {
+      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n Ä‘áº·t láº¡i toÃ n bá»™ báº£ng vá» dá»¯ liá»‡u dá»± toÃ¡n gá»‘c ban Ä‘áº§u? Táº¥t cáº£ cÃ¡c khoáº£n ghi chÃº vÃ  sá»‘ tiá»n thá»±c táº¿ Ä‘Ã£ nháº­p sáº½ Ä‘Æ°á»£c khÃ´i phá»¥c.')) {
+        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        budgetExchangeRate = 3500;
+        budgetCurrencyMode = 'both';
+        budgetCurrentCategory = 'all';
+        saveBudgetToStorage();
+        initBudgetTracker();
+        alert('âœ… ÄÃ£ khÃ´i phá»¥c dá»¯ liá»‡u gá»‘c thÃ nh cÃ´ng!');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBudgetTracker);
+    } else {
+      initBudgetTracker();
+    }
+
 
     window.addEventListener('resize', () => {
       if (tripMap) tripMap.invalidateSize();

@@ -63,7 +63,7 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 2. **🎨 Graphic Tips Chuẩn Bị:** Infographic mặc ấm 3 lớp, dáng đi chim cánh cụt chống trượt, mẹo pin sập nguồn, mẹo đi xe lồng xem hổ và check-in Volga Manor.
 3. **👗 Lookbook Outfit & 8 Ý Tưởng Chụp Ảnh & Video Couple:** 4 bảng phối màu thời trang mùa đông & 8 concept tạo dáng đôi viral kèm bộ sưu tập thumbnail ảnh mẫu trực quan với tính năng swipe cảm ứng / kéo chuột mượt mà để tra cứu nhanh khi đi thực tế.
 4. **⛷️ Hướng Dẫn Trượt Tuyết Tại Núi Trường Bạch:** Khóa trải nghiệm & trượt tuyết trọn ngày tại Sân Trượt Tuyết Hòa Bình (Peace Ski Resort) chân núi Trường Bạch giữa rừng thông cổ thụ, tuyết bột champagne cực mịn và an toàn.
-5. **💰 Dự Toán Ngân Sách:** Tối ưu chi phí công cộng trọn gói ~19 triệu VNĐ/người cho 12 ngày 11 đêm (tiết kiệm hơn 60% so với bao xe riêng).
+5. **💰 Bảng Dự Toán & Quản Lý Chi Tiêu Thực Tế (Interactive Expense Tracker):** Tích hợp ứng dụng quản lý ngân sách trực tiếp trên web với 33 khoản chi thực tế cho 2 người (vé máy bay, 11 đêm khách sạn, vé thắng cảnh, trượt tuyết, onsen, ăn uống). Hỗ trợ nhập số tiền thực tế trực tiếp theo nguyên tệ (RMB) hoặc VNĐ, tự động quy đổi theo tỷ giá tùy chỉnh, ghi chú phương thức/mã booking, tự động lưu vĩnh viễn vào cơ sở dữ liệu trình duyệt (Local DB / localStorage), hiển thị dashboard tiến độ chi tiêu theo thời gian thực và hỗ trợ xuất báo cáo ra file Excel / CSV hoặc sao lưu JSON.
 
 ---
 

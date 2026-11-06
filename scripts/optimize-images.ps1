@@ -137,3 +137,4 @@ Write-Host "   - Tong so file da quet: $totalFiles" -ForegroundColor White
 Write-Host "   - So file da toi uu:   $optimizedCount" -ForegroundColor White
 Write-Host "   - Dung luong tiet kiem: $([Math]::Round($totalSavedBytes / 1MB, 2)) MB" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
+

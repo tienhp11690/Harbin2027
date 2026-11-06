@@ -94,3 +94,4 @@ Bạn không cần lo lắng về việc ảnh tải về quá to (ảnh 4K, ả
      - Giảm 70-90% dung lượng file (từ 5MB xuống ~100-200KB) nhưng mắt thường hoàn toàn không nhận thấy sự suy giảm độ sắc nét.
 3. **Cơ Chế Dự Phòng (Fallback) 100% Không Lỗi:**
    - Nếu bạn chưa kịp bỏ ảnh vào folder local, web app sẽ tự động hiển thị ảnh chất lượng cao từ CDN online dự phòng qua lệnh `onerror`. Trang web sẽ luôn hiển thị lung linh trong mọi tình huống!
+
