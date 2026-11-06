@@ -3293,8 +3293,36 @@
 }
 
 .col-item-actions {
-  width: 48px;
+  width: 76px;
   text-align: center;
+}
+
+.item-action-btns-wrap {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit-item {
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  color: #00f2fe;
+  font-size: 0.92rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit-item:hover {
+  background: #00f2fe;
+  color: #080e22;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 242, 254, 0.4);
 }
 
 .btn-del-item {
@@ -3393,6 +3421,40 @@
 .budget-form-control:focus {
   border-color: #00f2fe;
   background: rgba(255, 255, 255, 0.12);
+}
+
+.budget-modal-box,
+select.budget-form-control,
+select.select-actual-curr {
+  color-scheme: dark;
+}
+
+select.budget-form-control,
+select.select-actual-curr {
+  background-color: #0c183a;
+  color: #f0f4fc;
+}
+
+select.budget-form-control option,
+select.select-actual-curr option,
+.budget-modal-box select option {
+  background-color: #0b1536;
+  color: #f0f4fc;
+  padding: 10px 14px;
+}
+
+select.budget-form-control option:checked,
+select.select-actual-curr option:checked,
+.budget-modal-box select option:checked {
+  background-color: #0077b6;
+  color: #ffffff;
+}
+
+select.budget-form-control option:hover,
+select.select-actual-curr option:hover,
+.budget-modal-box select option:hover {
+  background-color: #00f2fe;
+  color: #080e22;
 }
 
 .budget-form-row {
@@ -6782,7 +6844,107 @@
       </div>
     </div>
 
-    <!-- Modal Sao Lưu & Nạp Dữ Liệu -->
+    <!-- Modal Chỉnh Sửa Khoản Chi -->
+    <div id="modal-edit-expense" class="budget-modal-overlay" onclick="closeEditExpenseModal(event)">
+      <div class="budget-modal-box" onclick="event.stopPropagation()">
+        <div class="budget-modal-title">
+          <h3><span>✏️ Chỉnh Sửa Khoản Chi</span></h3>
+          <button type="button" onclick="closeEditExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.3rem; cursor:pointer;">✕</button>
+        </div>
+        <form onsubmit="handleSaveEditExpense(event)">
+          <input type="hidden" id="edit-exp-id" />
+          <input type="hidden" id="edit-exp-orig-group" />
+
+          <div class="budget-form-group">
+            <label for="edit-exp-group">Giai Đoạn / Ngày Thực Hiện: *</label>
+            <select id="edit-exp-group" class="budget-form-control" required>
+              <option value="pre_trip">✈️ Trước Chuyến Đi (Chuẩn Bị & Đặt Cọc Tại VN)</option>
+              <option value="day_01">Ngày 1 (30/12): Hà Nội ➔ Transit Thượng Hải</option>
+              <option value="day_02">Ngày 2 (31/12): Thượng Hải ➔ Cáp Nhĩ Tân (Đón Giao Thừa)</option>
+              <option value="day_03">Ngày 3 (01/01): Băng Tuyết Đại Thế Giới</option>
+              <option value="day_04">Ngày 4 (02/01): Công Viên Hổ Siberia & Làng Volga</option>
+              <option value="day_05">Ngày 5 (03/01): Cáp Nhĩ Tân ➔ Làng Tuyết Hương</option>
+              <option value="day_06">Ngày 6 (04/01): Trọn Ngày Khám Phá Làng Tuyết Hương</option>
+              <option value="day_07">Ngày 7 (05/01): Tuyết Hương ➔ Núi Trường Bạch</option>
+              <option value="day_08">Ngày 8 (06/01): Chinh Phục Núi Trường Bạch & Thiên Trì</option>
+              <option value="day_09">Ngày 9 (07/01): Trượt Tuyết Hòa Bình ➔ Tùng Giang Hà</option>
+              <option value="day_10">Ngày 10 (08/01): Rafting Ma Giới ➔ Trường Xuân</option>
+              <option value="day_11">Ngày 11 (09/01): Hồ Băng Tịnh Nguyệt Đàm ➔ Bắc Kinh Transit</option>
+              <option value="day_12">Ngày 12 (10-11/01): Bắc Kinh ➔ Hà Nội</option>
+            </select>
+          </div>
+
+          <div class="budget-form-row">
+            <div class="budget-form-group">
+              <label for="edit-exp-cat">Loại Chi Phí: *</label>
+              <select id="edit-exp-cat" class="budget-form-control" required>
+                <option value="flight">✈️ Chuyến Bay</option>
+                <option value="hotel">🏨 Khách Sạn / Homestay</option>
+                <option value="transit">🚆 Tàu Xe / Di Chuyển</option>
+                <option value="sight">🎟️ Vé Tham Quan</option>
+                <option value="activity">⛷️ Hoạt Động Trải Nghiệm</option>
+                <option value="food">🍲 Ẩm Thực & Ăn Uống</option>
+                <option value="shopping">🎁 Mua Sắm & Quà</option>
+                <option value="prep">🧤 Chuẩn Bị & Thủ Tục</option>
+                <option value="other">📦 Khác</option>
+              </select>
+            </div>
+            <div class="budget-form-group">
+              <label for="edit-exp-name">Tên Khoản Chi: *</label>
+              <input type="text" id="edit-exp-name" class="budget-form-control" placeholder="VD: Vé tàu cao tốc CRH, Khách sạn..." required />
+            </div>
+          </div>
+
+          <div class="budget-form-group">
+            <label for="edit-exp-detail">Mô Tả Chi Tiết / Địa Điểm:</label>
+            <input type="text" id="edit-exp-detail" class="budget-form-control" placeholder="VD: 2 vé hạng nhì, tàu lúc 08:30..." />
+          </div>
+
+          <div class="budget-form-row">
+            <div class="budget-form-group">
+              <label for="edit-exp-est-amt">Dự Toán Dự Kiến:</label>
+              <div style="display:flex; gap:8px;">
+                <input type="number" id="edit-exp-est-amt" class="budget-form-control" placeholder="0" min="0" step="any" />
+                <select id="edit-exp-est-curr" class="budget-form-control" style="width:100px;">
+                  <option value="RMB">RMB (¥)</option>
+                  <option value="VND">VNĐ (₫)</option>
+                </select>
+              </div>
+            </div>
+            <div class="budget-form-group">
+              <label for="edit-exp-actual-amt">Thực Tế Đã Chi (nếu có):</label>
+              <div style="display:flex; gap:8px;">
+                <input type="number" id="edit-exp-actual-amt" class="budget-form-control" placeholder="0" min="0" step="any" />
+                <select id="edit-exp-actual-curr" class="budget-form-control" style="width:100px;">
+                  <option value="RMB">RMB (¥)</option>
+                  <option value="VND">VNĐ (₫)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="budget-form-group">
+            <label for="edit-exp-ref">Mã Chứng Từ / Hoá Đơn / Nguồn Thanh Toán:</label>
+            <input type="text" id="edit-exp-ref" class="budget-form-control" placeholder="VD: Alipay #1234, Trip.com #987, Thẻ Techcombank..." />
+          </div>
+
+          <div class="budget-form-group">
+            <label for="edit-exp-note">Ghi Chú Thêm:</label>
+            <input type="text" id="edit-exp-note" class="budget-form-control" placeholder="VD: Bao gồm ăn sáng, đặt trước 2 tuần..." />
+          </div>
+
+          <div class="budget-form-group" style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+            <input type="checkbox" id="edit-exp-paid" style="width:18px; height:18px; accent-color:#06d6a0;" />
+            <label for="edit-exp-paid" style="margin:0; cursor:pointer; font-weight:600; color:#06d6a0;">Đã thanh toán khoản này</label>
+          </div>
+
+          <div class="budget-modal-footer">
+            <button type="button" class="btn-budget-action" onclick="closeEditExpenseModal()">Hủy Bỏ</button>
+            <button type="submit" class="btn-budget-action btn-budget-add">💾 Cập Nhật Khoản Chi</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <div id="modal-backup-expense" class="budget-modal-overlay" onclick="closeBackupExpenseModal(event)">
       <div class="budget-modal-box" onclick="event.stopPropagation()">
         <div class="budget-modal-title">
@@ -9703,7 +9865,7 @@ function renderOverviewMap() {
                             '<th>Thực Tế Đã Chi</th>' +
                             '<th>Mã Chứng Từ / Nguồn</th>' +
                             '<th>Ghi Chú</th>' +
-                            '<th style="width:40px; text-align:center;">Xóa</th>' +
+                            '<th style="width:70px; text-align:center;">Thao Tác</th>' +
                           '</tr>' +
                         '</thead>' +
                         '<tbody>';
@@ -9772,7 +9934,10 @@ function renderOverviewMap() {
                           'oninput="handleDailyNoteChange(\'' + grp.groupKey + '\', \'' + it.id + '\', this.value)" />' +
                       '</td>' +
                       '<td class="col-item-actions">' +
-                        '<button type="button" class="btn-del-item" title="Xóa khoản chi này" onclick="handleDailyDeleteItem(\'' + grp.groupKey + '\', \'' + it.id + '\')">🗑️</button>' +
+                        '<div class="item-action-btns-wrap">' +
+                          '<button type="button" class="btn-edit-item" title="Chỉnh sửa chi tiết khoản chi này" onclick="openEditExpenseModal(\'' + grp.groupKey + '\', \'' + it.id + '\')">✏️</button>' +
+                          '<button type="button" class="btn-del-item" title="Xóa khoản chi này" onclick="handleDailyDeleteItem(\'' + grp.groupKey + '\', \'' + it.id + '\')">🗑️</button>' +
+                        '</div>' +
                       '</td>' +
                     '</tr>';
           });
@@ -10074,6 +10239,148 @@ function renderOverviewMap() {
 
       setTimeout(() => {
         const row = document.getElementById('row-' + newItem.id);
+        if (row) {
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          row.style.background = 'rgba(0, 242, 254, 0.25)';
+          setTimeout(() => { row.style.background = ''; }, 2000);
+        }
+      }, 200);
+    }
+
+    // Modal Edit Expense
+    function openEditExpenseModal(groupKey, itemId) {
+      const modal = document.getElementById('modal-edit-expense');
+      if (!modal) return;
+
+      const grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (!grp || !grp.items) return;
+      const it = grp.items.find(i => i.id === itemId);
+      if (!it) return;
+
+      document.getElementById('edit-exp-id').value = itemId;
+      document.getElementById('edit-exp-orig-group').value = groupKey;
+      document.getElementById('edit-exp-group').value = groupKey;
+      document.getElementById('edit-exp-cat').value = it.cat || 'other';
+      document.getElementById('edit-exp-name').value = it.name || '';
+      document.getElementById('edit-exp-detail').value = it.detail || '';
+
+      if (it.estRmb && !it.estVnd) {
+        document.getElementById('edit-exp-est-amt').value = it.estRmb;
+        document.getElementById('edit-exp-est-curr').value = 'RMB';
+      } else if (it.estVnd && !it.estRmb) {
+        document.getElementById('edit-exp-est-amt').value = it.estVnd;
+        document.getElementById('edit-exp-est-curr').value = 'VND';
+      } else if (it.estRmb) {
+        document.getElementById('edit-exp-est-amt').value = it.estRmb;
+        document.getElementById('edit-exp-est-curr').value = 'RMB';
+      } else if (it.estVnd) {
+        document.getElementById('edit-exp-est-amt').value = it.estVnd;
+        document.getElementById('edit-exp-est-curr').value = 'VND';
+      } else {
+        document.getElementById('edit-exp-est-amt').value = '';
+        document.getElementById('edit-exp-est-curr').value = 'RMB';
+      }
+
+      document.getElementById('edit-exp-actual-amt').value = (it.actualAmount > 0 ? it.actualAmount : '');
+      document.getElementById('edit-exp-actual-curr').value = it.actualCurrency || 'RMB';
+      document.getElementById('edit-exp-ref').value = it.receiptRef || '';
+      document.getElementById('edit-exp-note').value = it.note || '';
+      document.getElementById('edit-exp-paid').checked = !!it.isPaid;
+
+      modal.classList.add('open');
+    }
+
+    function closeEditExpenseModal(e) {
+      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+      const modal = document.getElementById('modal-edit-expense');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleSaveEditExpense(e) {
+      e.preventDefault();
+      const itemId = document.getElementById('edit-exp-id').value;
+      const origGroupKey = document.getElementById('edit-exp-orig-group').value;
+      const newGroupKey = document.getElementById('edit-exp-group').value;
+
+      const origGrp = dailyBudgetData.find(g => g.groupKey === origGroupKey);
+      if (!origGrp || !origGrp.items) return;
+      const it = origGrp.items.find(i => i.id === itemId);
+      if (!it) return;
+
+      const cat = document.getElementById('edit-exp-cat').value;
+      const name = document.getElementById('edit-exp-name').value.trim();
+      const detail = document.getElementById('edit-exp-detail').value.trim();
+
+      const estAmt = parseFloat(document.getElementById('edit-exp-est-amt').value) || 0;
+      const estCurr = document.getElementById('edit-exp-est-curr').value;
+
+      const actAmt = parseFloat(document.getElementById('edit-exp-actual-amt').value) || 0;
+      const actCurr = document.getElementById('edit-exp-actual-curr').value;
+
+      const ref = document.getElementById('edit-exp-ref').value.trim();
+      const note = document.getElementById('edit-exp-note').value.trim();
+      const isPaid = document.getElementById('edit-exp-paid').checked;
+
+      const catLabels = {
+        flight: '✈️ Chuyến Bay',
+        hotel: '🏨 Khách Sạn',
+        transit: '🚆 Di Chuyển',
+        sight: '🎟️ Vé Tham Quan',
+        activity: '⛷️ Hoạt Động',
+        food: '🍲 Ăn Uống',
+        shopping: '🎁 Mua Sắm',
+        prep: '🧤 Chuẩn Bị',
+        other: '📦 Khác'
+      };
+
+      const estVnd = estCurr === 'VND' ? estAmt : (estAmt * dailyBudgetExchangeRate);
+      const estRmb = estCurr === 'RMB' ? estAmt : (estAmt / dailyBudgetExchangeRate);
+
+      it.cat = cat;
+      it.catLabel = catLabels[cat] || cat;
+      it.name = name;
+      it.detail = detail;
+      it.estRmb = Math.round(estRmb * 10) / 10;
+      it.estVnd = Math.round(estVnd);
+      it.actualAmount = actAmt;
+      it.actualCurrency = actCurr;
+      it.receiptRef = ref;
+      it.note = note;
+      it.isPaid = isPaid;
+
+      // Handle group change
+      if (newGroupKey !== origGroupKey) {
+        const idx = origGrp.items.findIndex(i => i.id === itemId);
+        if (idx !== -1) {
+          origGrp.items.splice(idx, 1);
+        }
+        let targetGrp = dailyBudgetData.find(g => g.groupKey === newGroupKey);
+        if (!targetGrp) {
+          targetGrp = {
+            groupKey: newGroupKey,
+            groupTitle: newGroupKey,
+            groupDate: '',
+            groupLocation: '',
+            icon: '📍',
+            items: []
+          };
+          dailyBudgetData.push(targetGrp);
+        }
+        if (!targetGrp.items) targetGrp.items = [];
+        targetGrp.items.push(it);
+
+        const targetCard = document.getElementById('day-card-' + newGroupKey);
+        if (targetCard) targetCard.classList.add('open');
+      }
+
+      saveDailyBudgetToStorage(false);
+      renderAllDailyAccordions();
+      calculateDailyBudgetTotals();
+      closeEditExpenseModal();
+      showBudgetToast('Đã cập nhật khoản chi: ' + name);
+
+      setTimeout(() => {
+        const row = document.getElementById('row-' + it.id);
         if (row) {
           row.scrollIntoView({ behavior: 'smooth', block: 'center' });
           row.style.background = 'rgba(0, 242, 254, 0.25)';

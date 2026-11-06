@@ -66,7 +66,7 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 5. **💰 Quản Lý Chi Tiêu Thực Tế Theo Từng Ngày (Daily & Phase-Based Expense Tracker):** Tích hợp ứng dụng quản lý tài chính thông minh cấu trúc chuyên nghiệp theo thực tế chuyến đi:
    - **Giai đoạn trước chuyến đi:** Quản lý vé máy bay khứ hồi, lệ phí visa, mua sắm trang phục giữ nhiệt, eSIM data, quỹ tiền mặt RMB đổi sẵn tại VN.
    - **12 Ngày trong hành trình:** Mỗi ngày là 1 thẻ accordion trực quan quản lý chi tiết các khoản chi con phát sinh (khách sạn/homestay theo đêm, vé tàu cao tốc/bus/taxi, vé tham quan, trải nghiệm onsen/trượt tuyết, ăn uống đặc sản).
-   - **Nhập liệu & tra cứu chứng từ:** Cho phép nhập trực tiếp số tiền đã chi trên web theo nguyên tệ (RMB) hoặc VNĐ, tự động quy đổi theo tỷ giá linh hoạt, lưu mã hoá đơn/chứng từ (Alipay, WeChat Pay, mã booking Trip.com), đánh dấu trạng thái thanh toán.
+   - **Nhập liệu, Chỉnh sửa & tra cứu chứng từ:** Cho phép nhập trực tiếp số tiền đã chi trên web theo nguyên tệ (RMB) hoặc VNĐ, tự động quy đổi theo tỷ giá linh hoạt, lưu mã hoá đơn/chứng từ (Alipay, WeChat Pay, mã booking Trip.com), đánh dấu trạng thái thanh toán. Cung cấp nút Chỉnh Sửa (✏️) trực tiếp trên từng khoản chi để sửa lại tên, mô tả, dự toán, thực chi hoặc chuyển sang ngày khác mà không cần phải xóa đi tạo lại. Tối ưu giao diện dropdown tối màu (dark theme) đồng bộ toàn diện.
    - **Lưu trữ & Xuất báo cáo:** Tự động lưu vĩnh viễn vào cơ sở dữ liệu trình duyệt (Local DB), Dashboard tài chính trực quan (Dự toán vs Thực tế, Tiết kiệm/Vượt, Chi phí/Người, Thanh tiến độ %), nút thêm khoản chi vào bất kỳ ngày nào, xuất báo cáo ra file Excel / CSV (UTF-8 BOM) và sao lưu/nạp file JSON.
 
 ---
