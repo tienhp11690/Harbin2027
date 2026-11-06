@@ -2626,646 +2626,816 @@
       transform: translateY(0);
     }
 
-  /* ===== INTERACTIVE BUDGET TRACKER & EXPENSE MANAGER STYLES ===== */
-.budget-tracker-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+  
+/* ===== DAILY & PHASE-BASED BUDGET TRACKER STYLES ===== */
+#budget {
+  padding: 40px 0 80px;
 }
 
-/* Toolbar */
-.budget-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  background: rgba(10, 22, 50, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-ice);
-  border-radius: var(--radius-md);
-  padding: 14px 18px;
-}
-
-.budget-toolbar-left {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-}
-
-.budget-rate-box {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.35);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  color: #dce7f9;
-  font-weight: 600;
-}
-
-.budget-rate-input {
-  width: 78px;
-  background: rgba(5, 12, 28, 0.9);
-  border: 1px solid var(--accent-cyan);
-  border-radius: 6px;
-  color: var(--accent-gold);
-  font-weight: 800;
-  font-size: 0.95rem;
-  text-align: center;
-  padding: 3px 6px;
-  outline: none;
-}
-
-.budget-rate-input:focus {
-  box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
-}
-
-.budget-view-pills {
-  display: flex;
-  gap: 6px;
-  background: rgba(5, 12, 28, 0.6);
-  padding: 4px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.budget-view-pill {
-  background: transparent;
-  border: none;
-  color: #9cb1d1;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.budget-view-pill.active {
-  background: linear-gradient(135deg, #00f2fe, #4facfe);
-  color: #030a1c;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(0, 242, 254, 0.35);
-}
-
-.budget-toolbar-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-budget-action {
-  background: rgba(14, 27, 60, 0.85);
-  border: 1px solid var(--border-ice);
-  color: #e0f2fe;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-
-.btn-budget-action:hover {
-  background: rgba(0, 242, 254, 0.15);
-  border-color: var(--accent-cyan);
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-.btn-budget-add {
-  background: linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(6, 214, 160, 0.35));
-  border-color: #06d6a0;
-  color: #06d6a0;
-  font-weight: 700;
-}
-
-.btn-budget-add:hover {
-  background: #06d6a0;
-  color: #03141f;
-  box-shadow: 0 0 12px rgba(6, 214, 160, 0.45);
-}
-
-/* Category Filter Bar */
-.budget-cat-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-
-.budget-cat-pill {
-  background: rgba(12, 25, 55, 0.65);
-  border: 1px solid rgba(79, 172, 254, 0.2);
-  color: #9cb1d1;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.budget-cat-pill:hover {
-  background: rgba(0, 242, 254, 0.1);
-  color: #fff;
-  border-color: rgba(0, 242, 254, 0.4);
-}
-
-.budget-cat-pill.active {
-  background: rgba(0, 242, 254, 0.2);
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(0, 242, 254, 0.25);
-}
-
-/* Dashboard Summary Cards */
-.budget-dashboard {
+.budget-dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  margin-bottom: 24px;
 }
 
-.budget-metric-card {
-  background: rgba(12, 25, 55, 0.85);
-  border: 1px solid var(--border-ice);
-  border-radius: var(--radius-md);
-  padding: 16px 20px;
-  box-shadow: var(--shadow-ice);
+@media (max-width: 992px) {
+  .budget-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .budget-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.budget-stat-card {
+  background: linear-gradient(135deg, rgba(16, 29, 66, 0.85), rgba(9, 18, 44, 0.95));
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.budget-metric-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-cyan);
-}
-
-.budget-metric-card::before {
-  content: "";
+.budget-stat-card::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
-  height: 100%;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
 }
 
-.card-est::before { background: #00f2fe; }
-.card-spent::before { background: #ffd166; }
-.card-diff::before { background: #06d6a0; }
-.card-diff.over-budget::before { background: #ef233c; }
-.card-person::before { background: #f72585; }
+.budget-stat-card.card-actual::before {
+  background: linear-gradient(90deg, #ffd166, #ff9f1c);
+}
 
-.metric-header {
+.budget-stat-card.card-variance::before {
+  background: linear-gradient(90deg, #06d6a0, #1b9aaa);
+}
+
+.budget-stat-card.card-person::before {
+  background: linear-gradient(90deg, #b5179e, #7209b7);
+}
+
+.stat-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
 }
 
-.metric-title {
-  font-size: 0.78rem;
-  font-weight: 700;
+.stat-label {
+  font-size: 0.82rem;
   text-transform: uppercase;
-  color: #9cb1d1;
   letter-spacing: 0.5px;
-}
-
-.metric-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-
-.badge-est { background: rgba(0, 242, 254, 0.15); color: #00f2fe; }
-.badge-spent { background: rgba(255, 209, 102, 0.15); color: #ffd166; }
-.badge-saved { background: rgba(6, 214, 160, 0.15); color: #06d6a0; }
-.badge-over { background: rgba(239, 35, 60, 0.15); color: #ef233c; }
-.badge-person { background: rgba(247, 37, 133, 0.15); color: #f72585; }
-
-.metric-vnd {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.metric-rmb {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  margin-top: 4px;
-}
-
-.metric-sub {
-  font-size: 0.75rem;
-  color: #8fa7c9;
-  margin-top: 6px;
-}
-
-/* Progress bar */
-.budget-progress-wrap {
-  background: rgba(10, 22, 50, 0.7);
-  border: 1px solid var(--border-ice);
-  border-radius: 10px;
-  padding: 12px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  color: #dce7f9;
+  color: #9bb0d1;
   font-weight: 600;
 }
 
-.progress-bar-bg {
-  width: 100%;
+.stat-icon {
+  font-size: 1.3rem;
+}
+
+.stat-val-vnd {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #f0f4fc;
+  line-height: 1.2;
+}
+
+.stat-val-rmb {
+  font-size: 0.88rem;
+  color: #00f2fe;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.budget-stat-card.card-actual .stat-val-rmb {
+  color: #ffd166;
+}
+
+.budget-stat-card.card-variance .stat-val-rmb {
+  color: #06d6a0;
+}
+
+/* Progress Bar */
+.budget-progress-container {
+  background: rgba(14, 27, 60, 0.7);
+  border: 1px solid rgba(79, 172, 254, 0.25);
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+}
+
+.budget-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  color: #c9d7f0;
+}
+
+.budget-progress-track {
   height: 10px;
-  background: rgba(5, 12, 28, 0.8);
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
 
-.progress-bar-fill {
+.budget-progress-fill {
   height: 100%;
+  width: 0%;
   background: linear-gradient(90deg, #00f2fe, #06d6a0);
-  border-radius: 6px;
+  border-radius: 10px;
   transition: width 0.4s ease;
 }
 
-.progress-bar-fill.over-budget {
-  background: linear-gradient(90deg, #ffd166, #ef233c);
+.budget-progress-fill.over-budget {
+  background: linear-gradient(90deg, #ff9f1c, #ef233c);
 }
 
-/* Interactive Table Wrap */
-.budget-table-card {
-  background: rgba(12, 25, 55, 0.9);
-  border: 1px solid var(--border-ice);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-ice);
-  overflow: hidden;
-}
-
-.budget-table-scroll {
-  overflow-x: auto;
-  max-height: 700px;
-  overflow-y: auto;
-}
-
-.budget-tracker-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.86rem;
-}
-
-.budget-tracker-table thead {
-  position: sticky;
-  top: 0;
-  background: #081430;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.budget-tracker-table th {
-  padding: 12px 14px;
-  color: var(--accent-cyan);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  border-bottom: 2px solid rgba(0, 242, 254, 0.3);
-  white-space: nowrap;
-}
-
-.budget-tracker-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid rgba(79, 172, 254, 0.12);
-  vertical-align: middle;
-}
-
-.budget-row {
-  transition: background 0.15s ease;
-}
-
-.budget-row:hover {
-  background: rgba(0, 242, 254, 0.05);
-}
-
-.budget-row.is-paid {
-  background: rgba(6, 214, 160, 0.04);
-}
-
-.budget-row.is-paid:hover {
-  background: rgba(6, 214, 160, 0.08);
-}
-
-/* Status Checkbox */
-.td-status {
-  text-align: center;
-  width: 44px;
-}
-
-.status-checkbox {
-  width: 18px;
-  height: 18px;
-  accent-color: #06d6a0;
-  cursor: pointer;
-}
-
-/* Category Badge */
-.cat-badge {
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.cat-flight { background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.3); }
-.cat-hotel { background: rgba(247, 37, 133, 0.15); color: #f72585; border: 1px solid rgba(247, 37, 133, 0.3); }
-.cat-transit { background: rgba(255, 209, 102, 0.15); color: #ffd166; border: 1px solid rgba(255, 209, 102, 0.3); }
-.cat-sight { background: rgba(6, 214, 160, 0.15); color: #06d6a0; border: 1px solid rgba(6, 214, 160, 0.3); }
-.cat-experience { background: rgba(79, 172, 254, 0.15); color: #4facfe; border: 1px solid rgba(79, 172, 254, 0.3); }
-.cat-food { background: rgba(251, 133, 0, 0.15); color: #fb8500; border: 1px solid rgba(251, 133, 0, 0.3); }
-.cat-other { background: rgba(167, 199, 231, 0.15); color: #b8cde8; border: 1px solid rgba(167, 199, 231, 0.3); }
-
-/* Item detail cell */
-.td-item-info strong {
-  display: block;
-  color: #fff;
-  font-size: 0.88rem;
-  margin-bottom: 2px;
-}
-
-.td-item-info small {
-  display: block;
-  color: #9cb1d1;
-  font-size: 0.76rem;
-  line-height: 1.35;
-}
-
-/* Estimates cell */
-.td-est-vnd {
-  font-weight: 700;
-  color: #e0f2fe;
-  font-size: 0.88rem;
-  white-space: nowrap;
-}
-
-.td-est-rmb {
-  font-size: 0.78rem;
-  color: var(--accent-gold);
-  white-space: nowrap;
-}
-
-/* Actual input group */
-.actual-input-wrap {
+/* Toolbar */
+.budget-toolbar-card {
+  background: rgba(14, 27, 60, 0.85);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.actual-input-row {
+.budget-toolbar-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.rate-badge-box {
   display: flex;
   align-items: center;
-  gap: 4px;
-}
-
-.input-actual-val {
-  width: 105px;
-  background: rgba(5, 12, 28, 0.85);
-  border: 1px solid rgba(79, 172, 254, 0.3);
-  border-radius: 6px;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 5px 8px;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.input-actual-val:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
-  background: rgba(5, 12, 28, 0.95);
-}
-
-.select-actual-curr {
-  background: rgba(8, 18, 42, 0.95);
-  border: 1px solid rgba(79, 172, 254, 0.3);
-  border-radius: 6px;
-  color: var(--accent-gold);
-  font-weight: 700;
-  font-size: 0.75rem;
-  padding: 5px 4px;
-  outline: none;
-  cursor: pointer;
-}
-
-.converted-helper {
-  font-size: 0.72rem;
-  color: #8da4c4;
-  white-space: nowrap;
-}
-
-/* Note input */
-.input-note-val {
-  width: 100%;
-  min-width: 140px;
-  background: rgba(5, 12, 28, 0.7);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px 14px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.88rem;
+  color: #d1ddf5;
+}
+
+.rate-badge-box input {
+  width: 75px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #00f2fe;
   border-radius: 6px;
-  color: #c7d5ee;
-  font-size: 0.78rem;
-  padding: 5px 8px;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.input-note-val:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 6px rgba(0, 242, 254, 0.3);
-  background: rgba(5, 12, 28, 0.95);
-  color: #fff;
-}
-
-/* Delete / Action Button */
-.btn-row-del {
-  background: transparent;
-  border: none;
-  color: #ef233c;
-  cursor: pointer;
-  padding: 4px 6px;
+  color: #ffd166;
+  font-weight: 700;
+  padding: 2px 6px;
+  text-align: center;
   font-size: 0.9rem;
-  border-radius: 4px;
-  opacity: 0.6;
-  transition: opacity 0.2s;
 }
 
-.btn-row-del:hover {
-  opacity: 1;
-  background: rgba(239, 35, 60, 0.15);
+.currency-mode-selector {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Table Total Footer */
-.budget-table-footer {
-  background: #081430;
-  border-top: 2px solid var(--accent-cyan);
-  padding: 14px 20px;
+.btn-curr-mode {
+  background: none;
+  border: none;
+  color: #9bb0d1;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-curr-mode.active {
+  background: #00f2fe;
+  color: #080e22;
+  font-weight: 700;
+}
+
+.budget-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-budget-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e0e8f8;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-budget-action:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #00f2fe;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-budget-action.btn-budget-add {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  border-color: #00f2fe;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.35);
+}
+
+.btn-budget-action.btn-budget-add:hover {
+  background: linear-gradient(135deg, #00c9f0, #0088cc);
+  box-shadow: 0 6px 18px rgba(0, 242, 254, 0.45);
+}
+
+/* Day Filter Navigation Pills */
+.budget-day-pills-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding: 4px 2px 14px;
+  margin-bottom: 20px;
+}
+
+.budget-day-pill {
+  white-space: nowrap;
+  background: rgba(14, 27, 60, 0.85);
+  border: 1px solid rgba(79, 172, 254, 0.25);
+  color: #c9d7f0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.budget-day-pill:hover,
+.budget-day-pill.active {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: #00f2fe;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.25);
+}
+
+.budget-view-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: #9bb0d1;
+}
+
+.btn-toggle-all-accordions {
+  background: none;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  color: #00f2fe;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-toggle-all-accordions:hover {
+  background: rgba(0, 242, 254, 0.12);
+  border-color: #00f2fe;
+}
+
+/* Daily Accordion Cards */
+.budget-day-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.budget-day-card {
+  background: linear-gradient(135deg, rgba(14, 27, 60, 0.9), rgba(9, 18, 44, 0.95));
+  border: 1px solid rgba(79, 172, 254, 0.28);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.budget-day-card.active-day-focus {
+  border-color: #00f2fe;
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.35);
+}
+
+.budget-day-header {
+  padding: 16px 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s;
 }
 
-.footer-totals-group {
+.budget-day-card.open .budget-day-header {
+  background: rgba(0, 242, 254, 0.08);
+  border-bottom-color: rgba(79, 172, 254, 0.2);
+}
+
+.budget-day-header:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.budget-day-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.budget-day-icon {
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.budget-day-title-text h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f0f4fc;
+  margin: 0 0 4px 0;
+}
+
+.budget-day-meta {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
   align-items: center;
-  gap: 24px;
+  font-size: 0.78rem;
+  color: #9bb0d1;
 }
 
-.footer-stat-item {
+.budget-day-tag {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.budget-day-tag.loc {
+  background: rgba(0, 242, 254, 0.15);
+  color: #00f2fe;
+}
+
+.budget-day-tag.count {
+  background: rgba(255, 209, 102, 0.18);
+  color: #ffd166;
+}
+
+.budget-day-summary-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.day-subtotal-item {
   display: flex;
   flex-direction: column;
+  text-align: right;
+  min-width: 100px;
 }
 
-.footer-stat-label {
+.day-subtotal-label {
   font-size: 0.72rem;
-  color: #9cb1d1;
   text-transform: uppercase;
-  font-weight: 700;
+  color: #8fa7c9;
+  font-weight: 600;
 }
 
-.footer-stat-val {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #fff;
+.day-subtotal-val {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #f0f4fc;
 }
 
-/* Toast Notification */
-.budget-toast {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: rgba(6, 214, 160, 0.95);
-  backdrop-filter: blur(8px);
-  color: #03141f;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 10px 18px;
+.day-subtotal-val.est {
+  color: #00f2fe;
+}
+
+.day-subtotal-val.actual {
+  color: #ffd166;
+}
+
+.day-subtotal-val.diff-saved {
+  color: #06d6a0;
+}
+
+.day-subtotal-val.diff-over {
+  color: #ef233c;
+}
+
+.budget-day-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-add-item-for-day {
+  background: rgba(0, 242, 254, 0.15);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  color: #00f2fe;
+  padding: 6px 12px;
   border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  z-index: 9999;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  pointer-events: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
-.budget-toast.visible {
-  transform: translateY(0);
-  opacity: 1;
+.btn-add-item-for-day:hover {
+  background: #00f2fe;
+  color: #080e22;
+}
+
+.accordion-chevron {
+  font-size: 0.9rem;
+  color: #8fa7c9;
+  transition: transform 0.25s ease;
+}
+
+.budget-day-card.open .accordion-chevron {
+  transform: rotate(180deg);
+  color: #00f2fe;
+}
+
+/* Day Card Body & Table */
+.budget-day-body {
+  display: none;
+  padding: 16px 20px 20px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.budget-day-card.open .budget-day-body {
+  display: block;
+}
+
+.budget-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.budget-day-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.budget-day-table th {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: #8fa7c9;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.budget-day-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: middle;
+}
+
+.budget-day-table tr:last-child td {
+  border-bottom: none;
+}
+
+.budget-day-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Row elements */
+.col-paid-check {
+  width: 44px;
+  text-align: center;
+}
+
+.custom-checkbox-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-checkbox-wrap input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #06d6a0;
+}
+
+.col-item-info {
+  min-width: 240px;
+}
+
+.item-cat-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  background: rgba(0, 242, 254, 0.12);
+  color: #00f2fe;
+  border: 1px solid rgba(0, 242, 254, 0.25);
+}
+
+.item-name-text {
+  font-weight: 700;
+  color: #f0f4fc;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.item-desc-text {
+  font-size: 0.78rem;
+  color: #8fa7c9;
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+.col-item-est {
+  min-width: 140px;
+}
+
+.est-val-vnd {
+  font-weight: 700;
+  color: #c9d7f0;
+}
+
+.est-val-rmb {
+  font-size: 0.78rem;
+  color: #00f2fe;
+}
+
+.col-item-actual {
+  min-width: 210px;
+}
+
+.actual-input-group {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.input-actual-amt {
+  width: 110px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffd166;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-actual-amt:focus {
+  border-color: #ffd166;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.select-actual-curr {
+  background: rgba(14, 27, 60, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.actual-converted-preview {
+  font-size: 0.75rem;
+  color: #9bb0d1;
+  margin-top: 3px;
+}
+
+.col-item-ref {
+  min-width: 180px;
+}
+
+.input-item-ref {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #d1ddf5;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-item-ref:focus {
+  border-color: #00f2fe;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.col-item-actions {
+  width: 48px;
+  text-align: center;
+}
+
+.btn-del-item {
+  background: none;
+  border: none;
+  color: #8fa7c9;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-del-item:hover {
+  color: #ef233c;
+  background: rgba(239, 35, 60, 0.15);
 }
 
 /* Modals */
 .budget-modal-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(3, 8, 20, 0.82);
-  backdrop-filter: blur(6px);
-  z-index: 9998;
-  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(4, 9, 22, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
 }
 
 .budget-modal-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex !important;
 }
 
 .budget-modal-box {
-  background: #0b1836;
-  border: 1px solid var(--border-glow);
-  border-radius: var(--radius-md);
-  max-width: 520px;
+  background: linear-gradient(135deg, #0e1b3c, #09122c);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  border-radius: 20px;
+  max-width: 580px;
   width: 100%;
-  padding: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  padding: 24px 28px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
 }
 
 .budget-modal-title {
-  font-size: 1.15rem;
-  color: #fff;
-  font-weight: 800;
-  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 12px;
+}
+
+.budget-modal-title h3 {
+  font-size: 1.25rem;
+  color: #00f2fe;
+  margin: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
 }
 
 .budget-form-group {
-  margin-bottom: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  margin-bottom: 16px;
 }
 
-.budget-form-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #9cb1d1;
+.budget-form-group label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #c9d7f0;
+  margin-bottom: 6px;
 }
 
-.budget-form-input, .budget-form-select {
-  background: rgba(5, 12, 28, 0.85);
-  border: 1px solid rgba(79, 172, 254, 0.3);
-  border-radius: 6px;
+.budget-form-control {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
   color: #fff;
-  font-size: 0.88rem;
-  padding: 8px 10px;
+  font-size: 0.9rem;
   outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
 }
 
-.budget-form-input:focus, .budget-form-select:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+.budget-form-control:focus {
+  border-color: #00f2fe;
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.budget-modal-actions {
+.budget-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.budget-modal-footer {
   display: flex;
   justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Toast */
+.budget-toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(14, 27, 60, 0.95);
+  border: 1px solid #00f2fe;
+  color: #f0f4fc;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
   gap: 10px;
-  margin-top: 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.budget-toast-notice.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
   </style>
@@ -6414,153 +6584,102 @@
       </div>
     </section>
 
-    <!-- SECTION 9: INTERACTIVE BUDGET & EXPENSE TRACKER -->
+    <!-- SECTION 9: BUDGET & CALCULATOR -->
+    <!-- SECTION 9: BUDGET & DAILY EXPENSE TRACKER -->
     <section id="budget">
       <div class="section-header">
-        <span class="section-tag">Kế Hoạch Tài Chính & Nhật Ký Chi Tiêu Thực Tế</span>
-        <h2 class="section-title">💰 Bảng Dự Toán & Quản Lý Chi Tiêu Thực Tế (2 Người)</h2>
-        <p class="section-desc">Theo dõi ngân sách chi tiết từng chặng, nhập chi phí thực tế theo Tệ (RMB) hoặc VNĐ, ghi chú mã đặt phòng/phương thức thanh toán, tự động lưu trữ trên trình duyệt (Local DB) và cập nhật số dư thời gian thực.</p>
+        <span class="section-tag">Kế Hoạch Tài Chính & Quản Lý Chi Tiêu</span>
+        <h2 class="section-title">Bảng Quản Lý Chi Tiêu Thực Tế Theo Từng Ngày (2 Người)</h2>
+        <p class="section-desc">Theo dõi ngân sách chi tiết từ khâu chuẩn bị trước chuyến đi đến từng ngày trong hành trình. Cho phép nhập trực tiếp số tiền đã chi thực tế, lựa chọn nguyên tệ RMB / VNĐ, lưu mã chứng từ hoá đơn và tự động lưu trữ vào cơ sở dữ liệu trình duyệt.</p>
       </div>
 
-      <div class="budget-tracker-container">
-        <!-- Control Toolbar -->
-        <div class="budget-toolbar">
-          <div class="budget-toolbar-left">
-            <div class="budget-rate-box">
-              <span>💱 Tỷ Giá:</span>
-              <span>1 RMB =</span>
-              <input type="number" id="budget-rate-input" class="budget-rate-input" value="3500" step="10" oninput="handleExchangeRateChange(this.value)" title="Nhập tỷ giá quy đổi để cập nhật toàn bộ bảng">
-              <span>VNĐ</span>
-            </div>
-            <div class="budget-view-pills" id="budget-curr-mode">
-              <button class="budget-view-pill active" onclick="setBudgetCurrMode('both')">💱 Cả 2 Loại Tiền</button>
-              <button class="budget-view-pill" onclick="setBudgetCurrMode('vnd')">🇻🇳 Chỉ Hiện VNĐ</button>
-              <button class="budget-view-pill" onclick="setBudgetCurrMode('rmb')">🇨🇳 Chỉ Hiện RMB</button>
-            </div>
+      <!-- Financial Dashboard Cards -->
+      <div class="budget-dashboard-grid">
+        <div class="budget-stat-card card-est">
+          <div class="stat-header">
+            <span class="stat-label">Tổng Dự Toán (2 Người)</span>
+            <span class="stat-icon">📋</span>
+          </div>
+          <div class="stat-val-vnd" id="dash-est-vnd">0 ₫</div>
+          <div class="stat-val-rmb" id="dash-est-rmb">≈ 0 ¥</div>
+        </div>
+
+        <div class="budget-stat-card card-actual">
+          <div class="stat-header">
+            <span class="stat-label">Tổng Thực Chi (2 Người)</span>
+            <span class="stat-icon">💳</span>
+          </div>
+          <div class="stat-val-vnd" id="dash-act-vnd">0 ₫</div>
+          <div class="stat-val-rmb" id="dash-act-rmb">≈ 0 ¥</div>
+        </div>
+
+        <div class="budget-stat-card card-variance">
+          <div class="stat-header">
+            <span class="stat-label" id="dash-diff-label">Chênh Lệch / Còn Lại</span>
+            <span class="stat-icon" id="dash-diff-icon">⚖️</span>
+          </div>
+          <div class="stat-val-vnd" id="dash-diff-vnd">0 ₫</div>
+          <div class="stat-val-rmb" id="dash-diff-rmb">Dự toán cân bằng</div>
+        </div>
+
+        <div class="budget-stat-card card-person">
+          <div class="stat-header">
+            <span class="stat-label">Thực Chi / Mỗi Người</span>
+            <span class="stat-icon">👥</span>
+          </div>
+          <div class="stat-val-vnd" id="dash-person-vnd">0 ₫</div>
+          <div class="stat-val-rmb" id="dash-person-rmb">≈ 0 ¥ / người</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="budget-progress-container">
+        <div class="budget-progress-info">
+          <span>Tiến độ ngân sách: <strong id="progress-percent-text">0%</strong></span>
+          <span id="progress-paid-count">Đã thanh toán 0 / 0 khoản</span>
+        </div>
+        <div class="budget-progress-track">
+          <div class="budget-progress-fill" id="budget-progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="budget-toolbar-card">
+        <div class="budget-toolbar-left">
+          <div class="rate-badge-box">
+            <span>💱 Tỷ Giá: 1 RMB =</span>
+            <input type="number" id="budget-rate-input" value="3500" min="1000" max="6000" step="10" onchange="handleBudgetRateChange(this.value)" />
+            <span>VNĐ</span>
           </div>
 
-          <div class="budget-toolbar-actions">
-            <button class="btn-budget-action btn-budget-add" onclick="openAddExpenseModal()">➕ Thêm Khoản Chi</button>
-            <button class="btn-budget-action" onclick="exportBudgetCsv()" title="Xuất báo cáo chi tiêu ra file CSV (Mở được bằng Microsoft Excel / Google Sheets)">📥 Xuất Excel/CSV</button>
-            <button class="btn-budget-action" onclick="openBackupExpenseModal()" title="Sao lưu dữ liệu hoặc nạp dữ liệu từ máy khác">💾 Sao Lưu / Nạp</button>
-            <button class="btn-budget-action" onclick="resetBudgetToDefault()" title="Khôi phục lại bảng dự toán gốc ban đầu" style="color:#ef233c;">🔄 Đặt Lại</button>
+          <div class="currency-mode-selector">
+            <button class="btn-curr-mode active" id="btn-curr-both" onclick="setBudgetCurrencyMode('both')">💱 Cả 2 Loại Tiền</button>
+            <button class="btn-curr-mode" id="btn-curr-vnd" onclick="setBudgetCurrencyMode('vnd')">🇻🇳 Chỉ Hiện VNĐ</button>
+            <button class="btn-curr-mode" id="btn-curr-rmb" onclick="setBudgetCurrencyMode('rmb')">🇨🇳 Chỉ Hiện RMB</button>
           </div>
         </div>
 
-        <!-- Category Filters -->
-        <div class="budget-cat-bar" id="budget-cat-selector">
-          <button class="budget-cat-pill active" data-cat="all" onclick="filterBudgetCat('all')">🌟 Tất Cả (33 Khoản)</button>
-          <button class="budget-cat-pill" data-cat="flight" onclick="filterBudgetCat('flight')">✈️ Chuyến Bay & Visa</button>
-          <button class="budget-cat-pill" data-cat="hotel" onclick="filterBudgetCat('hotel')">🏨 Khách Sạn (11 Đêm)</button>
-          <button class="budget-cat-pill" data-cat="transit" onclick="filterBudgetCat('transit')">🚆 Di Chuyển Tuyến</button>
-          <button class="budget-cat-pill" data-cat="sight" onclick="filterBudgetCat('sight')">🎫 Vé Thắng Cảnh</button>
-          <button class="budget-cat-pill" data-cat="experience" onclick="filterBudgetCat('experience')">⛷️ Trải Nghiệm & Tuyết</button>
-          <button class="budget-cat-pill" data-cat="food" onclick="filterBudgetCat('food')">🍜 Ăn Uống (12 Ngày)</button>
-          <button class="budget-cat-pill" data-cat="other" onclick="filterBudgetCat('other')">🎒 eSIM & Phát Sinh</button>
-          <button class="budget-cat-pill" data-cat="paid" onclick="filterBudgetCat('paid')">✅ Đã Thanh Toán</button>
-          <button class="budget-cat-pill" data-cat="pending" onclick="filterBudgetCat('pending')">⏳ Chưa Thanh Toán</button>
+        <div class="budget-toolbar-actions">
+          <button class="btn-budget-action btn-budget-add" onclick="openAddExpenseModal()" title="Thêm khoản chi mới vào bất kỳ ngày nào">➕ Thêm Khoản Chi</button>
+          <button class="btn-budget-action" onclick="exportBudgetCsv()" title="Xuất báo cáo chi tiết ra file CSV (Mở được bằng Microsoft Excel / Google Sheets)">📥 Xuất Excel/CSV</button>
+          <button class="btn-budget-action" onclick="openBackupExpenseModal()" title="Sao lưu dữ liệu hoặc nạp dữ liệu từ máy khác">💾 Sao Lưu / Nạp</button>
+          <button class="btn-budget-action" onclick="resetBudgetToDefault()" title="Khôi phục lại bảng dự toán gốc ban đầu" style="color:#ef233c;">🔄 Đặt Lại Gốc</button>
         </div>
+      </div>
 
-        <!-- Dashboard Metric Cards -->
-        <div class="budget-dashboard">
-          <!-- Card 1: Tổng Dự Toán -->
-          <div class="budget-metric-card card-est">
-            <div class="metric-header">
-              <span class="metric-title">Tổng Ngân Sách Dự Kiến</span>
-              <span class="metric-badge badge-est">DỰ TOÁN BAN ĐẦU</span>
-            </div>
-            <div class="metric-vnd" id="dash-est-vnd">0 đ</div>
-            <div class="metric-rmb" id="dash-est-rmb">~ 0 RMB</div>
-            <div class="metric-sub">Dành cho 2 người trong 12N11Đ</div>
-          </div>
+      <!-- Navigation Day Pills -->
+      <div class="budget-day-pills-bar" id="budget-day-pills-bar">
+        <!-- Rendered by JS -->
+      </div>
 
-          <!-- Card 2: Thực Tế Đã Chi -->
-          <div class="budget-metric-card card-spent">
-            <div class="metric-header">
-              <span class="metric-title">Thực Tế Đã Chi Trả</span>
-              <span class="metric-badge badge-spent" id="dash-paid-count">0/33 ĐÃ CHI</span>
-            </div>
-            <div class="metric-vnd" id="dash-act-vnd" style="color:var(--accent-gold);">0 đ</div>
-            <div class="metric-rmb" id="dash-act-rmb">~ 0 RMB</div>
-            <div class="metric-sub" id="dash-act-sub">Cập nhật theo dữ liệu bạn nhập</div>
-          </div>
+      <div class="budget-view-controls">
+        <span id="budget-filter-status-text">Đang xem: <strong>Tất Cả 13 Giai Đoạn & Ngày</strong></span>
+        <button class="btn-toggle-all-accordions" id="btn-toggle-all-acc" onclick="toggleAllAccordions()">📂 Thu Gọn Tất Cả</button>
+      </div>
 
-          <!-- Card 3: Chênh Lệch / Còn Lại -->
-          <div class="budget-metric-card card-diff" id="dash-card-diff">
-            <div class="metric-header">
-              <span class="metric-title">Ngân Sách Còn Lại / Chênh Lệch</span>
-              <span class="metric-badge badge-saved" id="dash-diff-badge">TIẾT KIỆM</span>
-            </div>
-            <div class="metric-vnd" id="dash-diff-vnd" style="color:#06d6a0;">0 đ</div>
-            <div class="metric-rmb" id="dash-diff-rmb">~ 0 RMB</div>
-            <div class="metric-sub" id="dash-diff-sub">So với tổng dự toán ước tính</div>
-          </div>
-
-          <!-- Card 4: Trung Bình Mỗi Người -->
-          <div class="budget-metric-card card-person">
-            <div class="metric-header">
-              <span class="metric-title">Ước Tính Mỗi Người</span>
-              <span class="metric-badge badge-person">1/2 TỔNG CHI</span>
-            </div>
-            <div class="metric-vnd" id="dash-person-act" style="color:#f72585;">0 đ</div>
-            <div class="metric-rmb" id="dash-person-est">Dự kiến: ~ 0 đ / người</div>
-            <div class="metric-sub">Chia đều cho 2 thành viên</div>
-          </div>
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="budget-progress-wrap">
-          <div class="progress-header">
-            <span>Tiến độ chi tiêu thực tế so với ngân sách dự kiến:</span>
-            <span id="budget-progress-text" style="color:var(--accent-cyan); font-weight:700;">0%</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="budget-progress-fill" style="width: 0%;"></div>
-          </div>
-        </div>
-
-        <!-- Table Card -->
-        <div class="budget-table-card">
-          <div class="budget-table-scroll">
-            <table class="budget-tracker-table">
-              <thead>
-                <tr>
-                  <th style="width:40px; text-align:center;">Chi?</th>
-                  <th style="min-width:240px;">Hạng Mục Chi Phí & Chi Tiết</th>
-                  <th style="min-width:130px;">Phân Loại</th>
-                  <th style="min-width:140px;" class="col-est">Dự Kiến (2 Người)</th>
-                  <th style="min-width:180px;">Thực Tế Đã Chi (Input)</th>
-                  <th style="min-width:200px;">Ghi Chú Thực Tế (Mã Booking / Thẻ)</th>
-                  <th style="width:50px; text-align:center;">Xoá</th>
-                </tr>
-              </thead>
-              <tbody id="budget-tbody">
-                <!-- Dynamically rendered by JavaScript -->
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Footer Totals Bar -->
-          <div class="budget-table-footer">
-            <div class="footer-totals-group">
-              <div class="footer-stat-item">
-                <span class="footer-stat-label">Tổng Dự Toán (2 Người):</span>
-                <span class="footer-stat-val" id="footer-total-est">0 VNĐ</span>
-              </div>
-              <div class="footer-stat-item">
-                <span class="footer-stat-label">Tổng Thực Tế Đã Chi:</span>
-                <span class="footer-stat-val" id="footer-total-act" style="color:var(--accent-gold);">0 VNĐ</span>
-              </div>
-              <div class="footer-stat-item">
-                <span class="footer-stat-label">Chênh Lệch:</span>
-                <span class="footer-stat-val" id="footer-total-diff" style="color:#06d6a0;">0 VNĐ</span>
-              </div>
-            </div>
-            <div style="font-size:0.75rem; color:#8fa7c9;">
-              💡 <em>Tự động lưu vào bộ nhớ trình duyệt ngay khi bạn nhập số. Không lo mất dữ liệu khi F5 hay mở lại web!</em>
-            </div>
-          </div>
-        </div>
+      <!-- Accordion of Days & Phases -->
+      <div id="budget-days-accordion" class="budget-day-accordion">
+        <!-- Rendered by JS -->
       </div>
     </section>
 
@@ -6568,50 +6687,96 @@
     <div id="modal-add-expense" class="budget-modal-overlay" onclick="closeAddExpenseModal(event)">
       <div class="budget-modal-box" onclick="event.stopPropagation()">
         <div class="budget-modal-title">
-          <span>➕ Thêm Khoản Chi Mới</span>
-          <button onclick="closeAddExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.2rem; cursor:pointer;">✕</button>
+          <h3><span>➕ Thêm Khoản Chi Mới</span></h3>
+          <button type="button" onclick="closeAddExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.3rem; cursor:pointer;">✕</button>
         </div>
         <form onsubmit="handleAddNewExpense(event)">
           <div class="budget-form-group">
-            <label class="budget-form-label">Tên khoản chi (*):</label>
-            <input type="text" id="add-exp-name" class="budget-form-input" placeholder="Ví dụ: Ăn lẩu gà sâm Trường Bạch, Mua nấm Tuyết Hương..." required>
-          </div>
-          <div class="budget-form-group">
-            <label class="budget-form-label">Mô tả / Chi tiết:</label>
-            <input type="text" id="add-exp-detail" class="budget-form-input" placeholder="Ví dụ: Tiền mặt tại quán, Quà lưu niệm 2 người...">
-          </div>
-          <div class="budget-form-group">
-            <label class="budget-form-label">Phân loại:</label>
-            <select id="add-exp-cat" class="budget-form-select">
-              <option value="food">🍜 Ăn Uống & Đặc Sản</option>
-              <option value="sight">🎫 Vé Thắng Cảnh</option>
-              <option value="experience">⛷️ Trải Nghiệm & Tuyết</option>
-              <option value="transit">🚆 Di Chuyển & Đi Lại</option>
-              <option value="hotel">🏨 Khách Sạn & Homestay</option>
-              <option value="flight">✈️ Chuyến Bay & Visa</option>
-              <option value="other">🎒 Hành Lý & Khác</option>
+            <label for="add-exp-group">Giai Đoạn / Ngày Thực Hiện: *</label>
+            <select id="add-exp-group" class="budget-form-control" required>
+              <option value="pre_trip">✈️ Trước Chuyến Đi (Chuẩn Bị & Đặt Cọc Tại VN)</option>
+              <option value="day_01">Ngày 1 (30/12): Hà Nội ➔ Transit Thượng Hải</option>
+              <option value="day_02">Ngày 2 (31/12): Thượng Hải ➔ Cáp Nhĩ Tân (Đón Giao Thừa)</option>
+              <option value="day_03">Ngày 3 (01/01): Băng Tuyết Đại Thế Giới</option>
+              <option value="day_04">Ngày 4 (02/01): Công Viên Hổ Siberia & Làng Volga</option>
+              <option value="day_05">Ngày 5 (03/01): Cáp Nhĩ Tân ➔ Làng Tuyết Hương</option>
+              <option value="day_06">Ngày 6 (04/01): Trọn Ngày Khám Phá Làng Tuyết Hương</option>
+              <option value="day_07">Ngày 7 (05/01): Tuyết Hương ➔ Núi Trường Bạch</option>
+              <option value="day_08">Ngày 8 (06/01): Chinh Phục Núi Trường Bạch & Thiên Trì</option>
+              <option value="day_09">Ngày 9 (07/01): Trượt Tuyết Hòa Bình ➔ Tùng Giang Hà</option>
+              <option value="day_10">Ngày 10 (08/01): Rafting Ma Giới ➔ Trường Xuân</option>
+              <option value="day_11">Ngày 11 (09/01): Hồ Băng Tịnh Nguyệt Đàm ➔ Bắc Kinh Transit</option>
+              <option value="day_12">Ngày 12 (10-11/01): Bắc Kinh ➔ Hà Nội</option>
             </select>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+          <div class="budget-form-row">
             <div class="budget-form-group">
-              <label class="budget-form-label">Số tiền (*):</label>
-              <input type="number" id="add-exp-amount" class="budget-form-input" placeholder="0" min="0" step="any" required>
-            </div>
-            <div class="budget-form-group">
-              <label class="budget-form-label">Đơn vị tiền tệ:</label>
-              <select id="add-exp-curr" class="budget-form-select">
-                <option value="RMB">RMB (Nhân Dân Tệ)</option>
-                <option value="VND">VNĐ (Việt Nam Đồng)</option>
+              <label for="add-exp-cat">Loại Chi Phí: *</label>
+              <select id="add-exp-cat" class="budget-form-control" required>
+                <option value="flight">✈️ Chuyến Bay</option>
+                <option value="hotel">🏨 Khách Sạn / Homestay</option>
+                <option value="transit">🚆 Tàu Xe / Di Chuyển</option>
+                <option value="sight">🎟️ Vé Tham Quan</option>
+                <option value="activity">⛷️ Hoạt Động Trải Nghiệm</option>
+                <option value="food">🍲 Ẩm Thực & Ăn Uống</option>
+                <option value="shopping">🎁 Mua Sắm & Quà</option>
+                <option value="prep">🧤 Chuẩn Bị & Thủ Tục</option>
+                <option value="other">📦 Khác</option>
               </select>
             </div>
+            <div class="budget-form-group">
+              <label for="add-exp-name">Tên Khoản Chi: *</label>
+              <input type="text" id="add-exp-name" class="budget-form-control" placeholder="VD: Vé tàu cao tốc CRH, Khách sạn..." required />
+            </div>
           </div>
+
           <div class="budget-form-group">
-            <label class="budget-form-label">Ghi chú (Mã booking / Thẻ / Tiền mặt):</label>
-            <input type="text" id="add-exp-note" class="budget-form-input" placeholder="Ví dụ: Thanh toán qua Alipay / Techcombank">
+            <label for="add-exp-detail">Mô Tả Chi Tiết / Địa Điểm:</label>
+            <input type="text" id="add-exp-detail" class="budget-form-control" placeholder="VD: 2 vé hạng nhì, tàu lúc 08:30..." />
           </div>
-          <div class="budget-modal-actions">
-            <button type="button" class="btn-budget-action" onclick="closeAddExpenseModal()">Huỷ</button>
-            <button type="submit" class="btn-budget-action btn-budget-add">Thêm Vào Bảng</button>
+
+          <div class="budget-form-row">
+            <div class="budget-form-group">
+              <label for="add-exp-est-amt">Dự Toán Dự Kiến:</label>
+              <div style="display:flex; gap:8px;">
+                <input type="number" id="add-exp-est-amt" class="budget-form-control" placeholder="0" min="0" step="any" />
+                <select id="add-exp-est-curr" class="budget-form-control" style="width:100px;">
+                  <option value="RMB">RMB (¥)</option>
+                  <option value="VND">VNĐ (₫)</option>
+                </select>
+              </div>
+            </div>
+            <div class="budget-form-group">
+              <label for="add-exp-actual-amt">Thực Tế Đã Chi (nếu có):</label>
+              <div style="display:flex; gap:8px;">
+                <input type="number" id="add-exp-actual-amt" class="budget-form-control" placeholder="0" min="0" step="any" />
+                <select id="add-exp-actual-curr" class="budget-form-control" style="width:100px;">
+                  <option value="RMB">RMB (¥)</option>
+                  <option value="VND">VNĐ (₫)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="budget-form-group">
+            <label for="add-exp-ref">Mã Chứng Từ / Hoá Đơn / Nguồn Thanh Toán:</label>
+            <input type="text" id="add-exp-ref" class="budget-form-control" placeholder="VD: Alipay #1234, Trip.com #987, Thẻ Techcombank..." />
+          </div>
+
+          <div class="budget-form-group">
+            <label for="add-exp-note">Ghi Chú Thêm:</label>
+            <input type="text" id="add-exp-note" class="budget-form-control" placeholder="VD: Bao gồm ăn sáng, đặt trước 2 tuần..." />
+          </div>
+
+          <div class="budget-form-group" style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+            <input type="checkbox" id="add-exp-paid" style="width:18px; height:18px; accent-color:#06d6a0;" />
+            <label for="add-exp-paid" style="margin:0; cursor:pointer; font-weight:600; color:#06d6a0;">Đã thanh toán khoản này</label>
+          </div>
+
+          <div class="budget-modal-footer">
+            <button type="button" class="btn-budget-action" onclick="closeAddExpenseModal()">Hủy Bỏ</button>
+            <button type="submit" class="btn-budget-action btn-budget-add">💾 Lưu Khoản Chi</button>
           </div>
         </form>
       </div>
@@ -6621,29 +6786,30 @@
     <div id="modal-backup-expense" class="budget-modal-overlay" onclick="closeBackupExpenseModal(event)">
       <div class="budget-modal-box" onclick="event.stopPropagation()">
         <div class="budget-modal-title">
-          <span>💾 Sao Lưu & Nạp Dữ Liệu Chi Tiêu</span>
-          <button onclick="closeBackupExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.2rem; cursor:pointer;">✕</button>
+          <h3><span>💾 Sao Lưu & Nạp Dữ Liệu Chi Tiêu</span></h3>
+          <button type="button" onclick="closeBackupExpenseModal()" style="background:none; border:none; color:#8fa7c9; font-size:1.3rem; cursor:pointer;">✕</button>
         </div>
-        <p style="font-size:0.82rem; color:#9cb1d1; margin-bottom:14px;">
-          Dữ liệu chi tiêu được tự động lưu trên trình duyệt của máy này. Bạn có thể tải file sao lưu JSON về máy để chuyển sang điện thoại hoặc lưu trữ dự phòng.
-        </p>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <button class="btn-budget-action" onclick="downloadBudgetJsonBackup()" style="justify-content:center; padding:10px;">
-            📥 Tải File Sao Lưu (.JSON) Về Máy
+        <div style="color:#c9d7f0; font-size:0.9rem; line-height:1.6; margin-bottom:20px;">
+          Toàn bộ dữ liệu chi tiêu theo từng ngày được tự động lưu trong trình duyệt của bạn (Local DB). Bạn có thể tải file JSON về máy tính để sao lưu dự phòng, hoặc nạp file backup từ máy khác sang.
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <button class="btn-budget-action" onclick="downloadBudgetJsonBackup()" style="justify-content:center; padding:12px; font-size:0.95rem; background:rgba(0, 242, 254, 0.15); border-color:#00f2fe; color:#00f2fe;">
+            📥 Tải File Sao Lưu Chi Tiêu (.json) Về Máy
           </button>
-          <div style="border-top:1px dashed rgba(255,255,255,0.15); margin:6px 0;"></div>
-          <label class="budget-form-label">Nạp dữ liệu từ file sao lưu JSON:</label>
-          <input type="file" id="budget-import-file" accept=".json" class="budget-form-input" onchange="handleBudgetImportFile(event)">
-        </div>
-        <div class="budget-modal-actions">
-          <button type="button" class="btn-budget-action" onclick="closeBackupExpenseModal()">Đóng</button>
+          <div style="border-top:1px dashed rgba(255, 255, 255, 0.15); padding-top:14px;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#ffd166; margin-bottom:8px;">
+              📂 Nạp File Sao Lưu Từ Máy Lên Web:
+            </label>
+            <input type="file" id="budget-import-file" accept=".json" onchange="handleBudgetImportFile(event)" class="budget-form-control" style="padding:8px;" />
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Floating Auto-Save Toast Notification -->
-    <div id="budget-save-toast" class="budget-toast">
-      💾 Đã tự động lưu thay đổi vào bộ nhớ!
+    <!-- Toast Notification -->
+    <div id="budget-toast" class="budget-toast-notice">
+      <span>💾</span>
+      <span id="budget-toast-msg">Đã tự động lưu vào cơ sở dữ liệu!</span>
     </div>
 
     <!-- SECTION 10: CHECKLIST & ESSENTIAL APPS -->
@@ -6786,1026 +6952,6 @@
     } else {
       initImageOptimizer();
     }
-
-        /* ===== INTERACTIVE BUDGET TRACKER & EXPENSE MANAGER ENGINE ===== */
-    const BUDGET_STORAGE_KEY = 'harbin_trip_budget_db_v2';
-    const DEFAULT_BUDGET_SEED = [
-  {
-    "id": "b-flight-01",
-    "category": "flight",
-    "categoryLabel": "✈️ Chuyến Bay",
-    "name": "Vé máy bay khứ hồi Air China (2 người)",
-    "detail": "HAN ➔ PVG ➔ HRB (30-31/12) & CGQ ➔ PEK ➔ HAN (10-11/01) gồm 23kg ký gửi",
-    "estRmb": 4000,
-    "estVnd": 14000000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "Đã thanh toán Air China",
-    "isPaid": false
-  },
-  {
-    "id": "b-flight-02",
-    "category": "flight",
-    "categoryLabel": "✈️ Chuyến Bay",
-    "name": "Visa du lịch Trung Quốc diện L (2 người)",
-    "detail": "Lệ phí nộp tại Trung tâm Visa + Dịch thuật công chứng hồ sơ",
-    "estRmb": 1200,
-    "estVnd": 4200000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-flight-03",
-    "category": "flight",
-    "categoryLabel": "✈️ Chuyến Bay",
-    "name": "Bảo hiểm du lịch quốc tế mùa đông (2 người)",
-    "detail": "Gói bảo hiểm du lịch quốc tế 15 ngày chi trả y tế xứ lạnh & trượt tuyết",
-    "estRmb": 260,
-    "estVnd": 900000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-01",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 1 (30/12): Ji Hotel The Bund (Thượng Hải)",
-    "detail": "Quá cảnh Thượng Hải, gần phố đi bộ Nam Kinh & Bến Thượng Hải",
-    "estRmb": 450,
-    "estVnd": 1575000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Trip.com / Booking",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-02",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 2 & 3 (31/12-02/01): Ibis Styles Phố Trung Ương (2 đêm)",
-    "detail": "Cáp Nhĩ Tân, đi bộ 300m ra Phố Cổ & Nhà thờ Sophia, đón Giao thừa 2027",
-    "estRmb": 960,
-    "estVnd": 3360000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "480 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-03",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 4 (02/01): Atour Hotel Ga Cáp Nhĩ Tân",
-    "detail": "Sát Ga Harbin, thuận tiện sáng mai ra bến xe đón bus Á Tuyết đi Tuyết Hương",
-    "estRmb": 420,
-    "estVnd": 1470000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-04",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 5 & 6 (03-05/01): Xuexiang Xueyun Wooden Homestay (2 đêm)",
-    "detail": "Phòng khang sưởi ấm 38°C phố chính Tuyết Vận, nghỉ 2 đêm liên tiếp cùng phòng",
-    "estRmb": 980,
-    "estVnd": 3430000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "490 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-05",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 7 & 8 (05-07/01): Dynasty Holy Spring Onsen Resort (2 đêm)",
-    "detail": "Chân núi Trường Bạch (Nhị Đạo Bạch Hà), miễn phí Onsen khoáng nóng ngoài trời 42°C",
-    "estRmb": 1560,
-    "estVnd": 5460000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "780 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-06",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 9 (07/01): Jinjiang Metropolo Changbaishan Railway Station",
-    "detail": "Cách Ga Tàu Cao Tốc CRH Trường Bạch Sơn 800m, sáng mai ra ga tàu thong thả",
-    "estRmb": 420,
-    "estVnd": 1470000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-07",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 10 & 11 (08-10/01): Atour Hotel Ga Trường Xuân (2 đêm)",
-    "detail": "Trung tâm Trường Xuân, cạnh tuyến Metro Line 1 & Ga tàu cao tốc",
-    "estRmb": 760,
-    "estVnd": 2660000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "380 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-01",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Maglev + Metro Tuyến 2 Thượng Hải (2 người)",
-    "detail": "Sân bay PVG ➔ Ga Nam Kinh Đông Lộ ➔ Sân bay Hồng Kiều SHA",
-    "estRmb": 120,
-    "estVnd": 420000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Quẹt Alipay / WeChat",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-02",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Xe buýt sân bay HRB + Metro & Taxi Cáp Nhĩ Tân (2 người)",
-    "detail": "Di chuyển nội thành 3 ngày: Sân bay ➔ Trung tâm, Băng Tuyết Đại Thế Giới, Volga",
-    "estRmb": 160,
-    "estVnd": 560000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-03",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Xe buýt trực thông Á Tuyết: Cáp Nhĩ Tân ➔ Tuyết Hương (2 vé)",
-    "detail": "Xe du lịch sưởi ấm 25°C chạy thẳng 5.5h ngắm đèo tuyết (120 RMB/vé x 2)",
-    "estRmb": 240,
-    "estVnd": 840000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "App Chuxing 365",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-04",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Xe buýt liên tỉnh xuyên rừng: Tuyết Hương ➔ Trường Bạch Sơn (2 vé)",
-    "detail": "Chạy thẳng 5.5h xuyên rừng Taiga mùa đông (150 RMB/vé x 2)",
-    "estRmb": 300,
-    "estVnd": 1050000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Đặt qua lễ tân homestay",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-05",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Tàu cao tốc CRH: Ga Trường Bạch Sơn ➔ Ga Trường Xuân (2 vé)",
-    "detail": "Tàu viên đạn G-train lướt băng 2h17p, ghế hạng 2 (117 RMB/vé x 2)",
-    "estRmb": 234,
-    "estVnd": 819000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "App 12306 / Trip.com",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-06",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Metro & Taxi Trường Xuân + Airport Express Bắc Kinh (2 người)",
-    "detail": "Metro Tịnh Nguyệt Đàm, Taxi sân bay CGQ, Tàu điện Airport Express quá cảnh PEK",
-    "estRmb": 180,
-    "estVnd": 630000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-01",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Harbin Ice and Snow World - Băng Tuyết Đại Thế Giới (2 vé)",
-    "detail": "Vé vào cổng triệu khối băng LED + trượt máng băng dài 500m (328 RMB/vé x 2)",
-    "estRmb": 656,
-    "estVnd": 2296000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "WeChat Harbin Ice World",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-02",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Triển lãm Điêu khắc Tuyết Quốc tế Đảo Mặt Trời (2 vé)",
-    "detail": "Sun Island Snow Sculpture Expo (198 RMB/vé x 2)",
-    "estRmb": 396,
-    "estVnd": 1386000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-03",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Công viên Hổ Siberia kèm xe lồng bọc thép (2 vé)",
-    "detail": "Siberian Tiger Park + Xe đặc chủng xem hổ săn mồi giữa tuyết (130 RMB/vé x 2)",
-    "estRmb": 260,
-    "estVnd": 910000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-04",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Trang viên Volga Manor kèm máng trượt lâu đài (2 vé)",
-    "detail": "Lâu đài Pavlov, quán bar hầm rượu Vodka bằng băng (165 RMB/vé x 2)",
-    "estRmb": 330,
-    "estVnd": 1155000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-05",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé vào cổng Làng Tuyết Hương + Xe sườn nội khu (2 vé)",
-    "detail": "China Snow Town ticket có giá trị 48h (120 RMB/vé x 2)",
-    "estRmb": 240,
-    "estVnd": 840000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Vé điện tử quét hộ chiếu",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-06",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Thắng cảnh Bắc Pha Núi Trường Bạch + Xe sinh thái (2 vé)",
-    "detail": "Vé vào cổng bảo tồn quốc gia + Eco-bus nội khu 40 phút (225 RMB/vé x 2)",
-    "estRmb": 450,
-    "estVnd": 1575000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "App WeChat Changbaishan",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-07",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Xe chuyên dụng 4WD leo đỉnh Hồ Thiên Trì (2 vé)",
-    "detail": "Xe việt dã địa hình vượt 72 khúc cua tay áo lên đỉnh 2.189m (80 RMB/vé x 2)",
-    "estRmb": 160,
-    "estVnd": 560000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Mua khi đỉnh mở cửa",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-08",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Khu thắng cảnh Rừng tuyết Hồ Băng Tịnh Nguyệt Đàm (2 vé)",
-    "detail": "Jingyuetan National Forest Park Trường Xuân (30 RMB/vé x 2)",
-    "estRmb": 60,
-    "estVnd": 210000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-exp-01",
-    "category": "experience",
-    "categoryLabel": "⛷️ Trải Nghiệm",
-    "name": "Mô tô tuyết Snowmobile săn bình minh Dương Thảo Sơn (2 vé)",
-    "detail": "Lên đỉnh 1.235m lúc 06:00 đón bình minh & bay flycam biển mây (240 RMB/vé x 2)",
-    "estRmb": 480,
-    "estVnd": 1680000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Bến xe điện Tuyết Hương",
-    "isPaid": false
-  },
-  {
-    "id": "b-exp-02",
-    "category": "experience",
-    "categoryLabel": "⛷️ Trải Nghiệm",
-    "name": "Thuyền phao sông sương băng Ma Giới Rafting (2 vé)",
-    "detail": "Chèo thuyền phao ngắm khói sương bốc trên sông địa nhiệt 06:00 (180 RMB/vé x 2)",
-    "estRmb": 360,
-    "estVnd": 1260000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Đã gồm phao và gậy chèo",
-    "isPaid": false
-  },
-  {
-    "id": "b-exp-03",
-    "category": "experience",
-    "categoryLabel": "⛷️ Trải Nghiệm",
-    "name": "Trọn ngày trượt tuyết Sân Trượt Hòa Bình Trường Bạch Sơn (2 người)",
-    "detail": "Vé vào sân + Cáp treo xuyên rừng thông + Giày ván trượt tuyết bột + HLV 2h",
-    "estRmb": 680,
-    "estVnd": 2380000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Peace Ski Resort",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-01",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa ăn hàng ngày trong chuyến đi (12 ngày x 2 người)",
-    "detail": "Ăn sáng, trưa, tối, ăn vặt đường phố, kem Madie'er, xúc xích Harbin (~180 RMB/ngày)",
-    "estRmb": 2160,
-    "estVnd": 7560000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Alipay / WeChat Pay",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-02",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa tiệc Lẩu cừu & Thịt hầm nồi gang Đông Bắc Làng Tuyết Hương",
-    "detail": "Bữa tối ấm cúng ngày 5 hoặc 6 tại homestay Tuyết Hương",
-    "estRmb": 240,
-    "estVnd": 840000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-03",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa tối Thịt bò nướng than hoa Triều Tiên tại Nhị Đạo Bạch Hà",
-    "detail": "Đặc sản thịt bò nướng thơm lừng vùng núi Trường Bạch",
-    "estRmb": 220,
-    "estVnd": 770000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-04",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa tiệc Vịt quay Bắc Kinh truyền thống chặng về quá cảnh",
-    "detail": "Thưởng thức vịt quay da giòn tại Bắc Kinh trước khi bay về Hà Nội",
-    "estRmb": 260,
-    "estVnd": 910000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-other-01",
-    "category": "other",
-    "categoryLabel": "🎒 Phụ Kiện & Khác",
-    "name": "2 eSIM Trung Quốc 15 ngày vượt tường lửa (Google, Facebook, Zalo)",
-    "detail": "Mỗi người 1 eSIM data không bị chặn mạng",
-    "estRmb": 128,
-    "estVnd": 450000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "Shopee / Klook",
-    "isPaid": false
-  },
-  {
-    "id": "b-other-02",
-    "category": "other",
-    "categoryLabel": "🎒 Phụ Kiện & Khác",
-    "name": "Miếng dán giữ nhiệt (40 miếng) + Bọc gai cao su chống trượt giày",
-    "detail": "Miếng dán giữ nhiệt cơ thể & giữ ấm pin điện thoại + đinh gai chống ngã băng",
-    "estRmb": 100,
-    "estVnd": 350000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-other-03",
-    "category": "other",
-    "categoryLabel": "🎒 Phụ Kiện & Khác",
-    "name": "Quỹ phát sinh dự phòng & Mua sắm quà lưu niệm (2 người)",
-    "detail": "Trà gừng, đồ uống nóng, búp bê Matryoshka Nga, nấm tuyết khô, socola",
-    "estRmb": 800,
-    "estVnd": 2800000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  }
-]
-;
-
-    let budgetItems = [];
-    let budgetExchangeRate = 3500;
-    let budgetCurrencyMode = 'both'; // 'both' | 'vnd' | 'rmb'
-    let budgetCurrentCategory = 'all';
-    let budgetSaveTimeout = null;
-
-    function formatNumberVnd(num) {
-      if (!num || isNaN(num)) return '0 Ä‘';
-      return Math.round(num).toLocaleString('vi-VN') + ' Ä‘';
-    }
-
-    function formatNumberRmb(num) {
-      if (!num || isNaN(num)) return '0 RMB';
-      return (Math.round(num * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 }) + ' RMB';
-    }
-
-    function showBudgetSaveToast() {
-      const toast = document.getElementById('budget-save-toast');
-      if (!toast) return;
-      toast.classList.add('visible');
-      clearTimeout(budgetSaveTimeout);
-      budgetSaveTimeout = setTimeout(() => {
-        toast.classList.remove('visible');
-      }, 1500);
-    }
-
-    function saveBudgetToStorage() {
-      const state = {
-        rate: budgetExchangeRate,
-        currMode: budgetCurrencyMode,
-        cat: budgetCurrentCategory,
-        items: budgetItems,
-        updatedAt: new Date().toISOString()
-      };
-      try {
-        localStorage.setItem(BUDGET_STORAGE_KEY, JSON.stringify(state));
-        showBudgetSaveToast();
-      } catch (e) {
-        console.warn('LocalStorage error:', e);
-      }
-    }
-
-    function initBudgetTracker() {
-      try {
-        const stored = localStorage.getItem(BUDGET_STORAGE_KEY);
-        if (stored) {
-          const parsed = JSON.parse(stored);
-          budgetExchangeRate = parsed.rate || 3500;
-          budgetCurrencyMode = parsed.currMode || 'both';
-          budgetCurrentCategory = parsed.cat || 'all';
-          budgetItems = Array.isArray(parsed.items) && parsed.items.length > 0 ? parsed.items : JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
-        } else {
-          budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
-        }
-      } catch (e) {
-        console.warn('Init budget parse failed, loading seed:', e);
-        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
-      }
-
-      // Sync rate input
-      const rateInput = document.getElementById('budget-rate-input');
-      if (rateInput) rateInput.value = budgetExchangeRate;
-
-      // Sync currency pills
-      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
-      currPills.forEach(p => {
-        const text = p.getAttribute('onclick') || '';
-        p.classList.toggle('active', text.includes("'" + budgetCurrencyMode + "'"));
-      });
-
-      // Sync cat pills
-      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
-      catPills.forEach(p => {
-        p.classList.toggle('active', p.getAttribute('data-cat') === budgetCurrentCategory);
-      });
-
-      renderBudgetTable();
-    }
-
-    function handleExchangeRateChange(val) {
-      const parsed = parseFloat(val);
-      if (parsed && parsed > 0) {
-        budgetExchangeRate = parsed;
-        // Update estimated VND for all items based on RMB
-        budgetItems.forEach(it => {
-          if (it.estRmb && !it.isCustom) {
-            it.estVnd = Math.round(it.estRmb * budgetExchangeRate);
-          }
-        });
-        saveBudgetToStorage();
-        renderBudgetTable();
-      }
-    }
-
-    function setBudgetCurrMode(mode) {
-      budgetCurrencyMode = mode;
-      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
-      currPills.forEach(p => {
-        const text = p.getAttribute('onclick') || '';
-        p.classList.toggle('active', text.includes("'" + mode + "'"));
-      });
-      saveBudgetToStorage();
-      renderBudgetTable();
-    }
-
-    function filterBudgetCat(cat) {
-      budgetCurrentCategory = cat;
-      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
-      catPills.forEach(p => {
-        p.classList.toggle('active', p.getAttribute('data-cat') === cat);
-      });
-      renderBudgetTable();
-    }
-
-    function toggleItemPaid(id, checked) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        item.isPaid = checked;
-        // If checked and actual amount is 0, prefill with estimate
-        if (checked && (!item.actualAmount || item.actualAmount === 0)) {
-          item.actualAmount = item.actualCurrency === 'VND' ? item.estVnd : item.estRmb;
-        }
-        saveBudgetToStorage();
-        renderBudgetTable();
-      }
-    }
-
-    function updateActualAmount(id, val) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        const parsed = parseFloat(val);
-        item.actualAmount = isNaN(parsed) ? 0 : parsed;
-        if (item.actualAmount > 0) {
-          item.isPaid = true;
-        }
-        // Update live converted text
-        const helperEl = document.getElementById('actual-conv-' + id);
-        if (helperEl) {
-          if (item.actualCurrency === 'RMB') {
-            const inVnd = item.actualAmount * budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
-          } else {
-            const inRmb = item.actualAmount / budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
-          }
-        }
-        updateBudgetDashboard();
-        saveBudgetToStorage();
-      }
-    }
-
-    function updateActualCurrency(id, curr) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        item.actualCurrency = curr;
-        const helperEl = document.getElementById('actual-conv-' + id);
-        if (helperEl) {
-          if (item.actualCurrency === 'RMB') {
-            const inVnd = (item.actualAmount || 0) * budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
-          } else {
-            const inRmb = (item.actualAmount || 0) / budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
-          }
-        }
-        updateBudgetDashboard();
-        saveBudgetToStorage();
-      }
-    }
-
-    function updateItemNote(id, noteVal) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        item.note = noteVal;
-        saveBudgetToStorage();
-      }
-    }
-
-    function deleteBudgetItem(id) {
-      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ khoáº£n chi nÃ y?')) {
-        budgetItems = budgetItems.filter(it => it.id !== id);
-        saveBudgetToStorage();
-        renderBudgetTable();
-      }
-    }
-
-    function renderBudgetTable() {
-      const tbody = document.getElementById('budget-tbody');
-      if (!tbody) return;
-
-      // Filter items
-      const filtered = budgetItems.filter(it => {
-        if (budgetCurrentCategory === 'all') return true;
-        if (budgetCurrentCategory === 'paid') return it.isPaid;
-        if (budgetCurrentCategory === 'pending') return !it.isPaid;
-        return it.category === budgetCurrentCategory;
-      });
-
-      if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:#9cb1d1;">KhÃ´ng cÃ³ khoáº£n chi nÃ o trong danh má»¥c nÃ y.</td></tr>';
-        updateBudgetDashboard();
-        return;
-      }
-
-      let html = '';
-      filtered.forEach((it, idx) => {
-        const isPaidClass = it.isPaid ? 'is-paid' : '';
-        const checkedAttr = it.isPaid ? 'checked' : '';
-
-        // Formatted estimate
-        let estDisplay = '';
-        if (budgetCurrencyMode === 'both') {
-          estDisplay = <div class="td-est-vnd"></div><div class="td-est-rmb">~ </div>;
-        } else if (budgetCurrencyMode === 'vnd') {
-          estDisplay = <div class="td-est-vnd"></div>;
-        } else {
-          estDisplay = <div class="td-est-vnd" style="color:var(--accent-gold);"></div>;
-        }
-
-        // Converted text for actual
-        let convertedText = '';
-        const amt = it.actualAmount || 0;
-        if (it.actualCurrency === 'RMB') {
-          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberVnd(amt * budgetExchangeRate) : 'â‰ˆ 0 Ä‘';
-        } else {
-          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberRmb(amt / budgetExchangeRate) : 'â‰ˆ 0 RMB';
-        }
-
-        const delBtn = it.isCustom
-          ? <button class="btn-row-del" onclick="deleteBudgetItem('')" title="XoÃ¡ khoáº£n chi nÃ y">ðŸ—‘ï¸</button>
-          : <button class="btn-row-del" onclick="resetSingleItem('')" title="Äáº·t láº¡i vá» máº·c Ä‘á»‹nh" style="color:#9cb1d1; opacity:0.4;">â†º</button>;
-
-        html += 
-          <tr class="budget-row " id="row-">
-            <td class="td-status">
-              <input type="checkbox" class="status-checkbox"  onchange="toggleItemPaid('', this.checked)" title="ÄÃ¡nh dáº¥u Ä‘Ã£ chi tiá»n thá»±c táº¿">
-            </td>
-            <td class="td-item-info">
-              <strong></strong>
-              <small></small>
-            </td>
-            <td>
-              <span class="cat-badge cat-"></span>
-            </td>
-            <td>
-              
-            </td>
-            <td>
-              <div class="actual-input-wrap">
-                <div class="actual-input-row">
-                  <input type="number" class="input-actual-val" value="" placeholder="0" min="0" step="any" oninput="updateActualAmount('', this.value)">
-                  <select class="select-actual-curr" onchange="updateActualCurrency('', this.value)">
-                    <option value="RMB" >RMB</option>
-                    <option value="VND" >VNÄ</option>
-                  </select>
-                </div>
-                <span class="converted-helper" id="actual-conv-"></span>
-              </div>
-            </td>
-            <td>
-              <input type="text" class="input-note-val" value="" placeholder="Ghi chÃº mÃ£ vÃ©, tháº», tiá»n máº·t..." oninput="updateItemNote('', this.value)">
-            </td>
-            <td style="text-align:center;">
-              
-            </td>
-          </tr>
-        ;
-      });
-
-      tbody.innerHTML = html;
-      updateBudgetDashboard();
-    }
-
-    function resetSingleItem(id) {
-      const defaultItem = DEFAULT_BUDGET_SEED.find(d => d.id === id);
-      const target = budgetItems.find(it => it.id === id);
-      if (defaultItem && target) {
-        target.actualAmount = defaultItem.actualAmount;
-        target.actualCurrency = defaultItem.actualCurrency;
-        target.note = defaultItem.note;
-        target.isPaid = defaultItem.isPaid;
-        saveBudgetToStorage();
-        renderBudgetTable();
-      }
-    }
-
-    function updateBudgetDashboard() {
-      let totalEstVnd = 0;
-      let totalEstRmb = 0;
-      let totalActVnd = 0;
-      let totalActRmb = 0;
-      let paidCount = 0;
-
-      budgetItems.forEach(it => {
-        totalEstVnd += (it.estVnd || 0);
-        totalEstRmb += (it.estRmb || 0);
-
-        if (it.actualAmount && it.actualAmount > 0) {
-          if (it.actualCurrency === 'RMB') {
-            totalActRmb += it.actualAmount;
-            totalActVnd += it.actualAmount * budgetExchangeRate;
-          } else {
-            totalActVnd += it.actualAmount;
-            totalActRmb += it.actualAmount / budgetExchangeRate;
-          }
-        }
-
-        if (it.isPaid) paidCount++;
-      });
-
-      // Update Dashboard elements
-      const estVndEl = document.getElementById('dash-est-vnd');
-      const estRmbEl = document.getElementById('dash-est-rmb');
-      const actVndEl = document.getElementById('dash-act-vnd');
-      const actRmbEl = document.getElementById('dash-act-rmb');
-      const diffVndEl = document.getElementById('dash-diff-vnd');
-      const diffRmbEl = document.getElementById('dash-diff-rmb');
-      const diffBadgeEl = document.getElementById('dash-diff-badge');
-      const diffCardEl = document.getElementById('dash-card-diff');
-      const paidCountEl = document.getElementById('dash-paid-count');
-      const personActEl = document.getElementById('dash-person-act');
-      const personEstEl = document.getElementById('dash-person-est');
-      const progressTextEl = document.getElementById('budget-progress-text');
-      const progressFillEl = document.getElementById('budget-progress-fill');
-      const footerEstEl = document.getElementById('footer-total-est');
-      const footerActEl = document.getElementById('footer-total-act');
-      const footerDiffEl = document.getElementById('footer-total-diff');
-
-      if (estVndEl) estVndEl.textContent = formatNumberVnd(totalEstVnd);
-      if (estRmbEl) estRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
-
-      if (actVndEl) actVndEl.textContent = formatNumberVnd(totalActVnd);
-      if (actRmbEl) actRmbEl.textContent = '~ ' + formatNumberRmb(totalActRmb);
-      if (paidCountEl) paidCountEl.textContent = ${paidCount}/ ÄÃƒ THANH TOÃN;
-
-      // Difference
-      const diffVnd = totalEstVnd - totalActVnd;
-      const diffRmb = totalEstRmb - totalActRmb;
-
-      if (diffVndEl) {
-        if (totalActVnd === 0) {
-          diffVndEl.textContent = formatNumberVnd(totalEstVnd);
-          diffVndEl.style.color = '#06d6a0';
-          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
-          if (diffBadgeEl) {
-            diffBadgeEl.textContent = 'CHÆ¯A GIáº¢I NGÃ‚N';
-            diffBadgeEl.className = 'metric-badge badge-saved';
-          }
-        } else if (diffVnd >= 0) {
-          diffVndEl.textContent = '+ ' + formatNumberVnd(diffVnd);
-          diffVndEl.style.color = '#06d6a0';
-          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(diffRmb);
-          if (diffBadgeEl) {
-            diffBadgeEl.textContent = 'CÃ’N DÆ¯ / TIáº¾T KIá»†M';
-            diffBadgeEl.className = 'metric-badge badge-saved';
-          }
-          if (diffCardEl) diffCardEl.classList.remove('over-budget');
-        } else {
-          diffVndEl.textContent = '- ' + formatNumberVnd(Math.abs(diffVnd));
-          diffVndEl.style.color = '#ef233c';
-          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(Math.abs(diffRmb));
-          if (diffBadgeEl) {
-            diffBadgeEl.textContent = 'VÆ¯á»¢T NGÃ‚N SÃCH';
-            diffBadgeEl.className = 'metric-badge badge-over';
-          }
-          if (diffCardEl) diffCardEl.classList.add('over-budget');
-        }
-      }
-
-      // Per person
-      if (personActEl) {
-        const perPersonAct = totalActVnd > 0 ? (totalActVnd / 2) : (totalEstVnd / 2);
-        personActEl.textContent = formatNumberVnd(perPersonAct) + ' / NgÆ°á»i';
-      }
-      if (personEstEl) {
-        personEstEl.textContent = 'Dá»± toÃ¡n: ~ ' + formatNumberVnd(totalEstVnd / 2) + ' / NgÆ°á»i';
-      }
-
-      // Progress bar
-      const pct = totalEstVnd > 0 ? Math.round((totalActVnd / totalEstVnd) * 100) : 0;
-      if (progressTextEl) {
-        progressTextEl.textContent = ${pct}% ( / );
-      }
-      if (progressFillEl) {
-        progressFillEl.style.width = Math.min(pct, 100) + '%';
-        progressFillEl.classList.toggle('over-budget', pct > 100);
-      }
-
-      // Footer
-      if (footerEstEl) footerEstEl.textContent = formatNumberVnd(totalEstVnd);
-      if (footerActEl) footerActEl.textContent = formatNumberVnd(totalActVnd);
-      if (footerDiffEl) {
-        if (diffVnd >= 0) {
-          footerDiffEl.textContent = 'CÃ²n dÆ°: ' + formatNumberVnd(diffVnd);
-          footerDiffEl.style.color = '#06d6a0';
-        } else {
-          footerDiffEl.textContent = 'VÆ°á»£t: ' + formatNumberVnd(Math.abs(diffVnd));
-          footerDiffEl.style.color = '#ef233c';
-        }
-      }
-    }
-
-    // Modal Add Expense
-    function openAddExpenseModal() {
-      const modal = document.getElementById('modal-add-expense');
-      if (modal) modal.classList.add('open');
-    }
-
-    function closeAddExpenseModal(e) {
-      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
-      const modal = document.getElementById('modal-add-expense');
-      if (modal) modal.classList.remove('open');
-    }
-
-    function handleAddNewExpense(e) {
-      e.preventDefault();
-      const name = document.getElementById('add-exp-name').value.trim();
-      const detail = document.getElementById('add-exp-detail').value.trim();
-      const cat = document.getElementById('add-exp-cat').value;
-      const amount = parseFloat(document.getElementById('add-exp-amount').value) || 0;
-      const curr = document.getElementById('add-exp-curr').value;
-      const note = document.getElementById('add-exp-note').value.trim();
-
-      const catLabels = {
-        flight: 'âœˆï¸ Chuyáº¿n Bay',
-        hotel: 'ðŸ¨ KhÃ¡ch Sáº¡n',
-        transit: 'ðŸš† Di Chuyá»ƒn',
-        sight: 'ðŸŽ« VÃ© Tháº¯ng Cáº£nh',
-        experience: 'â›·ï¸ Tráº£i Nghiá»‡m',
-        food: 'ðŸœ Ä‚n Uá»‘ng',
-        other: 'ðŸŽ’ HÃ nh LÃ½ & KhÃ¡c'
-      };
-
-      const estRmb = curr === 'RMB' ? amount : Math.round(amount / budgetExchangeRate);
-      const estVnd = curr === 'VND' ? amount : Math.round(amount * budgetExchangeRate);
-
-      const newItem = {
-        id: 'b-custom-' + Date.now(),
-        category: cat,
-        categoryLabel: catLabels[cat] || cat,
-        name: name,
-        detail: detail,
-        estRmb: estRmb,
-        estVnd: estVnd,
-        actualAmount: amount,
-        actualCurrency: curr,
-        note: note,
-        isPaid: true,
-        isCustom: true
-      };
-
-      budgetItems.unshift(newItem);
-      saveBudgetToStorage();
-      renderBudgetTable();
-      closeAddExpenseModal();
-
-      // Reset form
-      document.getElementById('add-exp-name').value = '';
-      document.getElementById('add-exp-detail').value = '';
-      document.getElementById('add-exp-amount').value = '';
-      document.getElementById('add-exp-note').value = '';
-    }
-
-    // Modal Backup & Export
-    function openBackupExpenseModal() {
-      const modal = document.getElementById('modal-backup-expense');
-      if (modal) modal.classList.add('open');
-    }
-
-    function closeBackupExpenseModal(e) {
-      if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
-      const modal = document.getElementById('modal-backup-expense');
-      if (modal) modal.classList.remove('open');
-    }
-
-    function downloadBudgetJsonBackup() {
-      const state = {
-        rate: budgetExchangeRate,
-        currMode: budgetCurrencyMode,
-        cat: budgetCurrentCategory,
-        items: budgetItems,
-        exportedAt: new Date().toISOString()
-      };
-      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = Harbin_2027_Nhat_Ky_Chi_Tieu_.json;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    function handleBudgetImportFile(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        try {
-          const parsed = JSON.parse(evt.target.result);
-          if (parsed && Array.isArray(parsed.items)) {
-            budgetItems = parsed.items;
-            if (parsed.rate) budgetExchangeRate = parsed.rate;
-            if (parsed.currMode) budgetCurrencyMode = parsed.currMode;
-            saveBudgetToStorage();
-            initBudgetTracker();
-            alert('âœ… ÄÃ£ náº¡p thÃ nh cÃ´ng ' + budgetItems.length + ' khoáº£n chi!');
-            closeBackupExpenseModal();
-          } else {
-            alert('âŒ File khÃ´ng Ä‘Ãºng Ä‘á»‹nh dáº¡ng sao lÆ°u cá»§a Harbin 2027.');
-          }
-        } catch (err) {
-          alert('âŒ Lá»—i khi Ä‘á»c file: ' + err.message);
-        }
-      };
-      reader.readAsText(file);
-    }
-
-    function exportBudgetCsv() {
-      let csv = '\uFEFFSTT,Trang Thai,Danh Muc,Ten Hang Muc,Mo Ta,Du Toan (RMB),Du Toan (VND),Thuc Te Da Chi,Nguyen Te,Quy Doi (VND),Quy Doi (RMB),Ghi Chu\n';
-
-      budgetItems.forEach((it, idx) => {
-        const status = it.isPaid ? 'ÄÃ£ Thanh ToÃ¡n' : 'ChÆ°a Chi';
-        const amt = it.actualAmount || 0;
-        const convVnd = it.actualCurrency === 'RMB' ? (amt * budgetExchangeRate) : amt;
-        const convRmb = it.actualCurrency === 'VND' ? (amt / budgetExchangeRate) : amt;
-
-        const escapeCsv = (str) => '"' + (str || '').replace(/"/g, '""') + '"';
-
-        csv += [
-          idx + 1,
-          escapeCsv(status),
-          escapeCsv(it.categoryLabel || it.category),
-          escapeCsv(it.name),
-          escapeCsv(it.detail),
-          it.estRmb || 0,
-          it.estVnd || 0,
-          amt,
-          escapeCsv(it.actualCurrency),
-          Math.round(convVnd),
-          Math.round(convRmb * 10) / 10,
-          escapeCsv(it.note)
-        ].join(',') + '\n';
-      });
-
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = Harbin_2027_Bao_Cao_Chi_Tieu_.csv;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    function resetBudgetToDefault() {
-      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n Ä‘áº·t láº¡i toÃ n bá»™ báº£ng vá» dá»¯ liá»‡u dá»± toÃ¡n gá»‘c ban Ä‘áº§u? Táº¥t cáº£ cÃ¡c khoáº£n ghi chÃº vÃ  sá»‘ tiá»n thá»±c táº¿ Ä‘Ã£ nháº­p sáº½ Ä‘Æ°á»£c khÃ´i phá»¥c.')) {
-        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
-        budgetExchangeRate = 3500;
-        budgetCurrencyMode = 'both';
-        budgetCurrentCategory = 'all';
-        saveBudgetToStorage();
-        initBudgetTracker();
-        alert('âœ… ÄÃ£ khÃ´i phá»¥c dá»¯ liá»‡u gá»‘c thÃ nh cÃ´ng!');
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initBudgetTracker);
-    } else {
-      initBudgetTracker();
-    }
-
 
     window.addEventListener('resize', () => {
       width = canvas.width = window.innerWidth;
@@ -9402,860 +8548,1453 @@ function renderOverviewMap() {
       initImageOptimizer();
     }
 
-        /* ===== INTERACTIVE BUDGET TRACKER & EXPENSE MANAGER ENGINE ===== */
-    const BUDGET_STORAGE_KEY = 'harbin_trip_budget_db_v2';
-    const DEFAULT_BUDGET_SEED = [
-  {
-    "id": "b-flight-01",
-    "category": "flight",
-    "categoryLabel": "✈️ Chuyến Bay",
-    "name": "Vé máy bay khứ hồi Air China (2 người)",
-    "detail": "HAN ➔ PVG ➔ HRB (30-31/12) & CGQ ➔ PEK ➔ HAN (10-11/01) gồm 23kg ký gửi",
-    "estRmb": 4000,
-    "estVnd": 14000000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "Đã thanh toán Air China",
-    "isPaid": false
-  },
-  {
-    "id": "b-flight-02",
-    "category": "flight",
-    "categoryLabel": "✈️ Chuyến Bay",
-    "name": "Visa du lịch Trung Quốc diện L (2 người)",
-    "detail": "Lệ phí nộp tại Trung tâm Visa + Dịch thuật công chứng hồ sơ",
-    "estRmb": 1200,
-    "estVnd": 4200000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-flight-03",
-    "category": "flight",
-    "categoryLabel": "✈️ Chuyến Bay",
-    "name": "Bảo hiểm du lịch quốc tế mùa đông (2 người)",
-    "detail": "Gói bảo hiểm du lịch quốc tế 15 ngày chi trả y tế xứ lạnh & trượt tuyết",
-    "estRmb": 260,
-    "estVnd": 900000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-01",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 1 (30/12): Ji Hotel The Bund (Thượng Hải)",
-    "detail": "Quá cảnh Thượng Hải, gần phố đi bộ Nam Kinh & Bến Thượng Hải",
-    "estRmb": 450,
-    "estVnd": 1575000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Trip.com / Booking",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-02",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 2 & 3 (31/12-02/01): Ibis Styles Phố Trung Ương (2 đêm)",
-    "detail": "Cáp Nhĩ Tân, đi bộ 300m ra Phố Cổ & Nhà thờ Sophia, đón Giao thừa 2027",
-    "estRmb": 960,
-    "estVnd": 3360000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "480 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-03",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 4 (02/01): Atour Hotel Ga Cáp Nhĩ Tân",
-    "detail": "Sát Ga Harbin, thuận tiện sáng mai ra bến xe đón bus Á Tuyết đi Tuyết Hương",
-    "estRmb": 420,
-    "estVnd": 1470000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-04",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 5 & 6 (03-05/01): Xuexiang Xueyun Wooden Homestay (2 đêm)",
-    "detail": "Phòng khang sưởi ấm 38°C phố chính Tuyết Vận, nghỉ 2 đêm liên tiếp cùng phòng",
-    "estRmb": 980,
-    "estVnd": 3430000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "490 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-05",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 7 & 8 (05-07/01): Dynasty Holy Spring Onsen Resort (2 đêm)",
-    "detail": "Chân núi Trường Bạch (Nhị Đạo Bạch Hà), miễn phí Onsen khoáng nóng ngoài trời 42°C",
-    "estRmb": 1560,
-    "estVnd": 5460000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "780 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-06",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 9 (07/01): Jinjiang Metropolo Changbaishan Railway Station",
-    "detail": "Cách Ga Tàu Cao Tốc CRH Trường Bạch Sơn 800m, sáng mai ra ga tàu thong thả",
-    "estRmb": 420,
-    "estVnd": 1470000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-hotel-07",
-    "category": "hotel",
-    "categoryLabel": "🏨 Khách Sạn",
-    "name": "Đêm 10 & 11 (08-10/01): Atour Hotel Ga Trường Xuân (2 đêm)",
-    "detail": "Trung tâm Trường Xuân, cạnh tuyến Metro Line 1 & Ga tàu cao tốc",
-    "estRmb": 760,
-    "estVnd": 2660000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "380 RMB/đêm x 2",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-01",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Maglev + Metro Tuyến 2 Thượng Hải (2 người)",
-    "detail": "Sân bay PVG ➔ Ga Nam Kinh Đông Lộ ➔ Sân bay Hồng Kiều SHA",
-    "estRmb": 120,
-    "estVnd": 420000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Quẹt Alipay / WeChat",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-02",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Xe buýt sân bay HRB + Metro & Taxi Cáp Nhĩ Tân (2 người)",
-    "detail": "Di chuyển nội thành 3 ngày: Sân bay ➔ Trung tâm, Băng Tuyết Đại Thế Giới, Volga",
-    "estRmb": 160,
-    "estVnd": 560000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-03",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Xe buýt trực thông Á Tuyết: Cáp Nhĩ Tân ➔ Tuyết Hương (2 vé)",
-    "detail": "Xe du lịch sưởi ấm 25°C chạy thẳng 5.5h ngắm đèo tuyết (120 RMB/vé x 2)",
-    "estRmb": 240,
-    "estVnd": 840000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "App Chuxing 365",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-04",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Xe buýt liên tỉnh xuyên rừng: Tuyết Hương ➔ Trường Bạch Sơn (2 vé)",
-    "detail": "Chạy thẳng 5.5h xuyên rừng Taiga mùa đông (150 RMB/vé x 2)",
-    "estRmb": 300,
-    "estVnd": 1050000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Đặt qua lễ tân homestay",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-05",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Tàu cao tốc CRH: Ga Trường Bạch Sơn ➔ Ga Trường Xuân (2 vé)",
-    "detail": "Tàu viên đạn G-train lướt băng 2h17p, ghế hạng 2 (117 RMB/vé x 2)",
-    "estRmb": 234,
-    "estVnd": 819000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "App 12306 / Trip.com",
-    "isPaid": false
-  },
-  {
-    "id": "b-transit-06",
-    "category": "transit",
-    "categoryLabel": "🚆 Di Chuyển",
-    "name": "Metro & Taxi Trường Xuân + Airport Express Bắc Kinh (2 người)",
-    "detail": "Metro Tịnh Nguyệt Đàm, Taxi sân bay CGQ, Tàu điện Airport Express quá cảnh PEK",
-    "estRmb": 180,
-    "estVnd": 630000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-01",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Harbin Ice and Snow World - Băng Tuyết Đại Thế Giới (2 vé)",
-    "detail": "Vé vào cổng triệu khối băng LED + trượt máng băng dài 500m (328 RMB/vé x 2)",
-    "estRmb": 656,
-    "estVnd": 2296000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "WeChat Harbin Ice World",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-02",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Triển lãm Điêu khắc Tuyết Quốc tế Đảo Mặt Trời (2 vé)",
-    "detail": "Sun Island Snow Sculpture Expo (198 RMB/vé x 2)",
-    "estRmb": 396,
-    "estVnd": 1386000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-03",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Công viên Hổ Siberia kèm xe lồng bọc thép (2 vé)",
-    "detail": "Siberian Tiger Park + Xe đặc chủng xem hổ săn mồi giữa tuyết (130 RMB/vé x 2)",
-    "estRmb": 260,
-    "estVnd": 910000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-04",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Trang viên Volga Manor kèm máng trượt lâu đài (2 vé)",
-    "detail": "Lâu đài Pavlov, quán bar hầm rượu Vodka bằng băng (165 RMB/vé x 2)",
-    "estRmb": 330,
-    "estVnd": 1155000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-05",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé vào cổng Làng Tuyết Hương + Xe sườn nội khu (2 vé)",
-    "detail": "China Snow Town ticket có giá trị 48h (120 RMB/vé x 2)",
-    "estRmb": 240,
-    "estVnd": 840000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Vé điện tử quét hộ chiếu",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-06",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Thắng cảnh Bắc Pha Núi Trường Bạch + Xe sinh thái (2 vé)",
-    "detail": "Vé vào cổng bảo tồn quốc gia + Eco-bus nội khu 40 phút (225 RMB/vé x 2)",
-    "estRmb": 450,
-    "estVnd": 1575000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "App WeChat Changbaishan",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-07",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Xe chuyên dụng 4WD leo đỉnh Hồ Thiên Trì (2 vé)",
-    "detail": "Xe việt dã địa hình vượt 72 khúc cua tay áo lên đỉnh 2.189m (80 RMB/vé x 2)",
-    "estRmb": 160,
-    "estVnd": 560000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Mua khi đỉnh mở cửa",
-    "isPaid": false
-  },
-  {
-    "id": "b-sight-08",
-    "category": "sight",
-    "categoryLabel": "🎫 Vé Thắng Cảnh",
-    "name": "Vé Khu thắng cảnh Rừng tuyết Hồ Băng Tịnh Nguyệt Đàm (2 vé)",
-    "detail": "Jingyuetan National Forest Park Trường Xuân (30 RMB/vé x 2)",
-    "estRmb": 60,
-    "estVnd": 210000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-exp-01",
-    "category": "experience",
-    "categoryLabel": "⛷️ Trải Nghiệm",
-    "name": "Mô tô tuyết Snowmobile săn bình minh Dương Thảo Sơn (2 vé)",
-    "detail": "Lên đỉnh 1.235m lúc 06:00 đón bình minh & bay flycam biển mây (240 RMB/vé x 2)",
-    "estRmb": 480,
-    "estVnd": 1680000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Bến xe điện Tuyết Hương",
-    "isPaid": false
-  },
-  {
-    "id": "b-exp-02",
-    "category": "experience",
-    "categoryLabel": "⛷️ Trải Nghiệm",
-    "name": "Thuyền phao sông sương băng Ma Giới Rafting (2 vé)",
-    "detail": "Chèo thuyền phao ngắm khói sương bốc trên sông địa nhiệt 06:00 (180 RMB/vé x 2)",
-    "estRmb": 360,
-    "estVnd": 1260000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Đã gồm phao và gậy chèo",
-    "isPaid": false
-  },
-  {
-    "id": "b-exp-03",
-    "category": "experience",
-    "categoryLabel": "⛷️ Trải Nghiệm",
-    "name": "Trọn ngày trượt tuyết Sân Trượt Hòa Bình Trường Bạch Sơn (2 người)",
-    "detail": "Vé vào sân + Cáp treo xuyên rừng thông + Giày ván trượt tuyết bột + HLV 2h",
-    "estRmb": 680,
-    "estVnd": 2380000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Peace Ski Resort",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-01",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa ăn hàng ngày trong chuyến đi (12 ngày x 2 người)",
-    "detail": "Ăn sáng, trưa, tối, ăn vặt đường phố, kem Madie'er, xúc xích Harbin (~180 RMB/ngày)",
-    "estRmb": 2160,
-    "estVnd": 7560000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "Alipay / WeChat Pay",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-02",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa tiệc Lẩu cừu & Thịt hầm nồi gang Đông Bắc Làng Tuyết Hương",
-    "detail": "Bữa tối ấm cúng ngày 5 hoặc 6 tại homestay Tuyết Hương",
-    "estRmb": 240,
-    "estVnd": 840000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-03",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa tối Thịt bò nướng than hoa Triều Tiên tại Nhị Đạo Bạch Hà",
-    "detail": "Đặc sản thịt bò nướng thơm lừng vùng núi Trường Bạch",
-    "estRmb": 220,
-    "estVnd": 770000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-food-04",
-    "category": "food",
-    "categoryLabel": "🍜 Ăn Uống",
-    "name": "Bữa tiệc Vịt quay Bắc Kinh truyền thống chặng về quá cảnh",
-    "detail": "Thưởng thức vịt quay da giòn tại Bắc Kinh trước khi bay về Hà Nội",
-    "estRmb": 260,
-    "estVnd": 910000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-other-01",
-    "category": "other",
-    "categoryLabel": "🎒 Phụ Kiện & Khác",
-    "name": "2 eSIM Trung Quốc 15 ngày vượt tường lửa (Google, Facebook, Zalo)",
-    "detail": "Mỗi người 1 eSIM data không bị chặn mạng",
-    "estRmb": 128,
-    "estVnd": 450000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "Shopee / Klook",
-    "isPaid": false
-  },
-  {
-    "id": "b-other-02",
-    "category": "other",
-    "categoryLabel": "🎒 Phụ Kiện & Khác",
-    "name": "Miếng dán giữ nhiệt (40 miếng) + Bọc gai cao su chống trượt giày",
-    "detail": "Miếng dán giữ nhiệt cơ thể & giữ ấm pin điện thoại + đinh gai chống ngã băng",
-    "estRmb": 100,
-    "estVnd": 350000,
-    "actualAmount": 0,
-    "actualCurrency": "VND",
-    "note": "",
-    "isPaid": false
-  },
-  {
-    "id": "b-other-03",
-    "category": "other",
-    "categoryLabel": "🎒 Phụ Kiện & Khác",
-    "name": "Quỹ phát sinh dự phòng & Mua sắm quà lưu niệm (2 người)",
-    "detail": "Trà gừng, đồ uống nóng, búp bê Matryoshka Nga, nấm tuyết khô, socola",
-    "estRmb": 800,
-    "estVnd": 2800000,
-    "actualAmount": 0,
-    "actualCurrency": "RMB",
-    "note": "",
-    "isPaid": false
-  }
-]
-;
+    window.addEventListener('resize', () => {
+      if (tripMap) tripMap.invalidateSize();
+    });
+  
+    /* ========================================================
+       SECTION 9: DAILY & PHASE-BASED EXPENSE TRACKER ENGINE
+       ======================================================== */
+    const DAILY_BUDGET_STORAGE_KEY = 'harbin_trip_daily_budget_db_v3';
+    let dailyBudgetExchangeRate = 3500;
+    let dailyBudgetCurrencyMode = 'both';
+    let dailyBudgetFilterDay = 'all';
+    let dailyAllAccordionsOpen = true;
 
-    let budgetItems = [];
-    let budgetExchangeRate = 3500;
-    let budgetCurrencyMode = 'both'; // 'both' | 'vnd' | 'rmb'
-    let budgetCurrentCategory = 'all';
-    let budgetSaveTimeout = null;
+    // Default Seed Data structured by Pre-Trip phase and Day 1 - Day 12
+    const DEFAULT_DAILY_BUDGET_DATA = [
+  {
+    "groupKey": "pre_trip",
+    "groupTitle": "✈️ Trước Chuyến Đi (Chuẩn Bị & Đặt Cọc Tại VN)",
+    "groupDate": "Trước 30/12/2026",
+    "groupLocation": "Hà Nội (Việt Nam)",
+    "groupDesc": "Vé máy bay khứ hồi, Visa Trung Quốc, Trang phục giữ nhiệt, eSIM, Tiền mặt dự phòng",
+    "icon": "✈️",
+    "items": [
+      {
+        "id": "exp-pre-01",
+        "cat": "flight",
+        "catLabel": "✈️ Chuyến Bay",
+        "name": "Vé máy bay khứ hồi Air China (2 người)",
+        "detail": "HAN ➔ PVG ➔ HRB (30-31/12) & CGQ ➔ PEK ➔ HAN (10-11/01) gồm 23kg ký gửi",
+        "estRmb": 4000,
+        "estVnd": 14000000,
+        "actualAmount": 0,
+        "actualCurrency": "VND",
+        "receiptRef": "Air China #CA778899",
+        "note": "Đã thanh toán vé Air China tại VN",
+        "isPaid": false
+      },
+      {
+        "id": "exp-pre-02",
+        "cat": "prep",
+        "catLabel": "🛂 Visa & Thủ Tục",
+        "name": "Lệ phí làm Visa Trung Quốc (2 người)",
+        "detail": "Visa du lịch / thương mại nộp tại Trung tâm visa Hà Nội",
+        "estRmb": 1028,
+        "estVnd": 3600000,
+        "actualAmount": 0,
+        "actualCurrency": "VND",
+        "receiptRef": "",
+        "note": "Dịch vụ visa du lịch",
+        "isPaid": false
+      },
+      {
+        "id": "exp-pre-03",
+        "cat": "prep",
+        "catLabel": "🧤 Quần Áo & Phụ Kiện",
+        "name": "Đồ giữ nhiệt & phụ kiện chống trượt mua tại VN",
+        "detail": "Áo giữ nhiệt Heattech, miếng dán nhiệt bàn chân, đế đinh giày tuyết, găng cảm ứng",
+        "estRmb": 514,
+        "estVnd": 1800000,
+        "actualAmount": 0,
+        "actualCurrency": "VND",
+        "receiptRef": "",
+        "note": "Mua tại Decathlon / Shopee",
+        "isPaid": false
+      },
+      {
+        "id": "exp-pre-04",
+        "cat": "prep",
+        "catLabel": "📶 Sim & Data",
+        "name": "2 eSIM du lịch Trung Quốc 15 ngày (không chặn mạng)",
+        "detail": "eSIM Data Roaming China Unicom / CMLink dùng được Google, Facebook, Zalo bình thường",
+        "estRmb": 171,
+        "estVnd": 600000,
+        "actualAmount": 0,
+        "actualCurrency": "VND",
+        "receiptRef": "",
+        "note": "Kích hoạt trước ngày bay",
+        "isPaid": false
+      },
+      {
+        "id": "exp-pre-05",
+        "cat": "other",
+        "catLabel": "💵 Tiền Mặt Dự Phòng",
+        "name": "Đổi tiền mặt Nhân dân tệ (RMB) cầm tay",
+        "detail": "Tiêu lặt vặt tại các quầy sạp nhỏ không nhận thẻ quốc tế hoặc đề phòng mất mạng",
+        "estRmb": 1000,
+        "estVnd": 3500000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Đổi tiền mặt tại phố Hà Trung, Hà Nội",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_01",
+    "groupTitle": "Ngày 1 (30/12): Hà Nội ➔ Transit Thượng Hải",
+    "groupDate": "30/12/2026",
+    "groupLocation": "Thượng Hải",
+    "groupDesc": "Hạ cánh Pudong (PVG 16:30), đi tàu đệm từ Maglev, nhận phòng Central Hotel Shanghai, ngắm Bến Thượng Hải",
+    "icon": "🏙️",
+    "items": [
+      {
+        "id": "exp-d1-01",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn Central Hotel Shanghai (Transit đêm 1)",
+        "detail": "Gần phố đi bộ Nam Kinh & Bến Thượng Hải, thuận tiện di chuyển",
+        "estRmb": 380,
+        "estVnd": 1330000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #PVG-H01",
+        "note": "Nhận phòng sau 18h",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d1-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Vé tàu đệm từ Maglev PVG + Metro Line 2 (2 người)",
+        "detail": "Tàu đệm từ 430km/h từ sân bay Pudong về ga Longyang Rd + metro đi Nam Kinh Đông Lộ",
+        "estRmb": 100,
+        "estVnd": 350000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Quẹt trực tiếp Alipay / WeChat Pay",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d1-03",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Ăn tối & ăn vặt Bến Thượng Hải (The Bund)",
+        "detail": "Bánh bao nướng Shengjianbao Dương Bằng Bảo, trà sữa Heytea, lẩu cay",
+        "estRmb": 150,
+        "estVnd": 525000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Ăn tối dạo phố đi bộ",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_02",
+    "groupTitle": "Ngày 2 (31/12): Thượng Hải ➔ Cáp Nhĩ Tân (Đón Giao Thừa)",
+    "groupDate": "31/12/2026",
+    "groupLocation": "Cáp Nhĩ Tân",
+    "groupDesc": "Bay đến Cáp Nhĩ Tân (HRB 16:40), nhận phòng Jinjiang Metropolo Trung Ương, đón Giao Thừa tại Nhà Thờ Thánh Sophia",
+    "icon": "⛪",
+    "items": [
+      {
+        "id": "exp-d2-01",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn Jinjiang Metropolo Cáp Nhĩ Tân (Đêm 1/3)",
+        "detail": "Sát cạnh phố đi bộ Trung Ương & Nhà thờ Thánh Sophia, phòng Twin ấm áp",
+        "estRmb": 450,
+        "estVnd": 1575000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #HRB-METRO-01",
+        "note": "Check-in đêm 31/12",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d2-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Taxi / Didi từ sân bay Taiping về trung tâm (38km)",
+        "detail": "Xe ấm chạy đường tuyết từ sân bay về khách sạn phố Trung Ương",
+        "estRmb": 120,
+        "estVnd": 420000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Đặt Didi qua app",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d2-03",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Lẩu Cừu Than Hoa Đông Bắc đón Giao Thừa",
+        "detail": "Nồi đồng nhúng thịt cừu tươi thái mỏng sốt mè cay nồng giữa trời âm 20 độ",
+        "estRmb": 220,
+        "estVnd": 770000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Bữa tối đón năm mới",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d2-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Kem que Madie'er & Xúc xích đỏ nướng phố Trung Ương",
+        "detail": "Trải nghiệm ăn kem que nổi tiếng giữa trời tuyết rơi đêm giao thừa",
+        "estRmb": 50,
+        "estVnd": 175000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Quán kem cổ Madie'er 1906",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_03",
+    "groupTitle": "Ngày 3 (01/01): Băng Tuyết Đại Thế Giới (Ice & Snow World)",
+    "groupDate": "01/01/2027",
+    "groupLocation": "Cáp Nhĩ Tân",
+    "groupDesc": "Trọn buổi chiều & tối tại Harbin Ice and Snow World, trượt máng băng 500m & ngắm triệu khối băng LED rực sáng",
+    "icon": "🏰",
+    "items": [
+      {
+        "id": "exp-d3-01",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé vào cổng Băng Tuyết Đại Thế Giới (2 người)",
+        "detail": "Vé tham quan trọn gói toàn khu công viên băng tuyết khổng lồ lớn nhất hành tinh",
+        "estRmb": 660,
+        "estVnd": 2310000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Đặt trước trên WeChat / Trip.com để quét mã nhanh",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d3-02",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn Jinjiang Metropolo Cáp Nhĩ Tân (Đêm 2/3)",
+        "detail": "Nghỉ ngơi đêm thứ 2 sau khi vui chơi ngoài băng tuyết",
+        "estRmb": 450,
+        "estVnd": 1575000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #HRB-METRO-02",
+        "note": "Cùng phòng đêm 1",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d3-03",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Metro Line 2 khứ hồi đi Băng Tuyết Đại Thế Giới (2 người)",
+        "detail": "Đi thẳng ga Ice and Snow World, ấm áp, tiện lợi, không lo kẹt xe",
+        "estRmb": 20,
+        "estVnd": 70000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Quẹt mã Metro",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d3-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Thịt Heo Chua Ngọt (Guobaorou) & Canh Cải Chua",
+        "detail": "Thịt heo chiên giòn sốt chua ngọt chuẩn vị Cáp Nhĩ Tân tại tiệm Lão Trù Gia",
+        "estRmb": 160,
+        "estVnd": 560000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Nhà hàng Lao Chu Jia",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_04",
+    "groupTitle": "Ngày 4 (02/01): Công Viên Hổ Siberia & Làng Nga Volga Manor",
+    "groupDate": "02/01/2027",
+    "groupLocation": "Cáp Nhĩ Tân",
+    "groupDesc": "Đi xe lồng VIP ngắm bầy hổ Siberia săn mồi trên tuyết, ngắm lâu đài tuyết kiểu Nga tại Volga Manor",
+    "icon": "🐅",
+    "items": [
+      {
+        "id": "exp-d4-01",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé xe bọc lồng VIP Công Viên Hổ Siberia (2 người)",
+        "detail": "Xe lưới thép đi sâu vào khu sinh sống tự nhiên của đàn hổ Đông Bắc lớn nhất thế giới",
+        "estRmb": 260,
+        "estVnd": 910000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Chọn xe lồng VIP để nhìn hổ cự ly 30cm",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d4-02",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé tham quan Volga Manor + Lâu đài rượu vang (2 người)",
+        "detail": "Khu nghỉ dưỡng lâu đài tuyết phong cách Nga cổ, gồm vé trượt máng tuyết",
+        "estRmb": 300,
+        "estVnd": 1050000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Check-in lâu đài tuyết",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d4-03",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn Jinjiang Metropolo Cáp Nhĩ Tân (Đêm 3/3)",
+        "detail": "Đêm cuối tại Cáp Nhĩ Tân, dọn đồ chuẩn bị sáng mai đi Tuyết Hương",
+        "estRmb": 450,
+        "estVnd": 1575000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #HRB-METRO-03",
+        "note": "Cùng phòng 3 đêm liền",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d4-04",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Didi khứ hồi đi Volga Manor & Công viên Hổ",
+        "detail": "Xe công nghệ di chuyển thuận tiện giữa các điểm ngoại ô",
+        "estRmb": 140,
+        "estVnd": 490000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Didi Express",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d4-05",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Cá Nướng Sông Băng Songhua & Ẩm thực Nga",
+        "detail": "Cá tươi nước lạnh nướng thơm lừng và súp củ dền Borsch Nga",
+        "estRmb": 200,
+        "estVnd": 700000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Nhà hàng phong cách Nga",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_05",
+    "groupTitle": "Ngày 5 (03/01): Cáp Nhĩ Tân ➔ Làng Tuyết Hương (Xuexiang)",
+    "groupDate": "03/01/2027",
+    "groupLocation": "Làng Tuyết Hương",
+    "groupDesc": "Tàu cao tốc CRH + Xe bus tuyết vào Làng Tuyết Hương, nhận phòng homestay nhà gỗ, ngắm phố Tuyết Vận lên đèn lồng đỏ",
+    "icon": "❄️",
+    "items": [
+      {
+        "id": "exp-d5-01",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Vé tàu cao tốc Cáp Nhĩ Tân ➔ Mẫu Đơn Giang / Á Bố Lực (2 người)",
+        "detail": "Tàu cao tốc CRH ngắm phong cảnh tuyết trắng xóa hai bên đường",
+        "estRmb": 160,
+        "estVnd": 560000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "12306 #CRH-HRB-MDG",
+        "note": "Đặt qua 12306 hoặc Trip.com",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d5-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Vé xe bus tuyết chuyên tuyến vào Làng Tuyết Hương (2 người)",
+        "detail": "Xe du lịch xuyên rừng thông cổ thụ phủ tuyết dày vào cổng danh thắng",
+        "estRmb": 160,
+        "estVnd": 560000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Bus chính thống của ban quản lý",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d5-03",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé vào cổng danh thắng Làng Tuyết Hương (2 người)",
+        "detail": "Vé tham quan trọn gói nhiều ngày, gồm xe trung chuyển nội khu",
+        "estRmb": 240,
+        "estVnd": 840000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Quét hộ chiếu tại cổng kiểm soát",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d5-04",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Homestay Nhà Gỗ Tuyết Hương (Xueyun Wooden Homestay - Đêm 1/2)",
+        "detail": "Phòng Kang sưởi ấm truyền thống, ngay trục đường Tuyết Vận trung tâm làng",
+        "estRmb": 680,
+        "estVnd": 2380000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #XUEXIANG-H01",
+        "note": "Homestay 2 đêm liền không cần đổi phòng",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d5-05",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Lẩu Gà Hầm Nấm Rừng Tuyết Hương (Tieguo Dun)",
+        "detail": "Nồi gang củi hầm thịt gà rừng cùng nấm tuyết và bánh ngô dán thành nồi",
+        "estRmb": 200,
+        "estVnd": 700000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Quán lẩu nồi gang Tieguo Dun",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_06",
+    "groupTitle": "Ngày 6 (04/01): Trọn Ngày Khám Phá Làng Tuyết Hương",
+    "groupDate": "04/01/2027",
+    "groupLocation": "Làng Tuyết Hương",
+    "groupDesc": "Bình minh té nước sôi hóa băng, dạo sàn gỗ Bổng Chùy Sơn, chụp ảnh nấm tuyết khổng lồ, đêm thưởng thức rượu tuyết",
+    "icon": "🏮",
+    "items": [
+      {
+        "id": "exp-d6-01",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Homestay Nhà Gỗ Tuyết Hương (Xueyun Wooden Homestay - Đêm 2/2)",
+        "detail": "Nghỉ dưỡng thong dong đêm thứ 2, tha hồ chụp ảnh đêm không phải pack đồ",
+        "estRmb": 680,
+        "estVnd": 2380000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #XUEXIANG-H02",
+        "note": "Cùng phòng đêm 1",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d6-02",
+        "cat": "activity",
+        "catLabel": "⛷️ Hoạt Động",
+        "name": "Bình giữ nhiệt & Nước sôi té hoa tuyết hóa băng (2 người)",
+        "detail": "Dịch vụ chuẩn bị bình nước sôi 90°C để vung tay chụp ảnh quầng tuyết đôi viral",
+        "estRmb": 60,
+        "estVnd": 210000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Chụp lúc 06:45 sáng ngược sáng mặt trời",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d6-03",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé sàn gỗ ngắm cảnh Bổng Chùy Sơn (2 người)",
+        "detail": "Đường đi bộ bằng gỗ trên triền đồi ngắm toàn cảnh những mái nhà nấm tuyết bồng bềnh",
+        "estRmb": 100,
+        "estVnd": 350000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Bổng Chùy Sơn",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d6-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Ăn uống ẩm thực dân dã Đông Bắc cả ngày",
+        "detail": "Bữa trưa sủi cảo nóng hổi, bữa tối thịt kho tàu Đông Bắc, khoai nướng, bắp nướng",
+        "estRmb": 220,
+        "estVnd": 770000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Ăn uống trong làng",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_07",
+    "groupTitle": "Ngày 7 (05/01): Tuyết Hương ➔ Núi Trường Bạch (Nhị Đạo Bạch Hà)",
+    "groupDate": "05/01/2027",
+    "groupLocation": "Nhị Đạo Bạch Hà (Trường Bạch Sơn)",
+    "groupDesc": "Xe bus liên tỉnh sang chân núi Trường Bạch, nhận phòng resort suối khoáng Dynasty Holy Spring, tắm khoáng nóng ngoài trời",
+    "icon": "♨️",
+    "items": [
+      {
+        "id": "exp-d7-01",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Xe bus liên tỉnh Tuyết Hương ➔ Nhị Đạo Bạch Hà (2 người)",
+        "detail": "Chặng xe du lịch đường dài qua đèo tuyết tuyệt đẹp khoảng 5.5 tiếng",
+        "estRmb": 360,
+        "estVnd": 1260000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Bus #XX-CBS-01",
+        "note": "Đặt trước vé bus tại Tuyết Hương",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d7-02",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Resort Suối Nước Nóng Dynasty Holy Spring (Đêm 1/2)",
+        "detail": "Resort 5 sao cao cấp dưới chân núi, có tổ hợp bể khoáng nóng tự nhiên",
+        "estRmb": 750,
+        "estVnd": 2625000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #CBS-DYNASTY-01",
+        "note": "Bao gồm vé tắm khoáng onsen",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d7-03",
+        "cat": "activity",
+        "catLabel": "⛷️ Hoạt Động",
+        "name": "Vé tắm khoáng nóng Onsen núi lửa ngoài trời (2 người)",
+        "detail": "Ngâm mình trong làn nước nóng 40°C giữa rừng thông tuyết trắng xóa",
+        "estRmb": 200,
+        "estVnd": 700000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Đã kèm theo gói phòng resort",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d7-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Thịt Nướng Than Đá phong cách Triều Tiên (Yanji BBQ)",
+        "detail": "Thịt bò nướng thơm phức ăn kèm kim chi truyền thống và rượu gạo Makgeolli",
+        "estRmb": 240,
+        "estVnd": 840000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Nhà hàng nướng Triều Tiên tại thị trấn",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_08",
+    "groupTitle": "Ngày 8 (06/01): Chinh Phục Núi Trường Bạch & Hồ Thiên Trì",
+    "groupDate": "06/01/2027",
+    "groupLocation": "Núi Trường Bạch",
+    "groupDesc": "Bắc Dốc Trường Bạch, xe chuyên dụng vượt đỉnh núi lửa ngắm Hồ Thiên Trì đóng băng huyền ảo, thưởng thức trứng luộc suối nước nóng",
+    "icon": "🌋",
+    "items": [
+      {
+        "id": "exp-d8-01",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé cổng Bắc Dốc Trường Bạch + Xe bus sinh thái (2 người)",
+        "detail": "Vé tham quan trọn gói: Thác nước Trường Bạch, Rừng ngầm, Suối khoáng Tụ Long Tuyền",
+        "estRmb": 450,
+        "estVnd": 1575000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Đặt trước trên cổng thông tin chính thức Trường Bạch Sơn",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d8-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Vé xe chuyên dụng 4WD leo dốc lên đỉnh Hồ Thiên Trì (2 người)",
+        "detail": "Xe minivan leo 72 khúc cua tuyết lên đỉnh cao 2.600m ngắm lòng hồ băng",
+        "estRmb": 160,
+        "estVnd": 560000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Mua tại trạm trung chuyển khi thời tiết đỉnh mở cửa",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d8-03",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Resort Suối Nước Nóng Dynasty Holy Spring (Đêm 2/2)",
+        "detail": "Đêm nghỉ thứ hai tại resort, hồi phục cơ bắp sau ngày leo núi tuyết",
+        "estRmb": 750,
+        "estVnd": 2625000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #CBS-DYNASTY-02",
+        "note": "Cùng phòng đêm 1",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d8-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Trứng & bắp luộc suối khoáng nóng 83°C + Ăn tối đồ nướng",
+        "detail": "Trứng lòng đào luộc bằng dòng nước khoáng tự nhiên phun từ lòng đất",
+        "estRmb": 220,
+        "estVnd": 770000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Khu ẩm thực suối nước nóng",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_09",
+    "groupTitle": "Ngày 9 (07/01): Trượt Tuyết Sân Trượt Hòa Bình (Peace Ski Resort) ➔ Tùng Giang Hà",
+    "groupDate": "07/01/2027",
+    "groupLocation": "Sân Hòa Bình & Tùng Giang Hà",
+    "groupDesc": "Trọn ngày trượt tuyết tại Peace Ski Resort giữa rừng thông tuyết bột champagne, chiều di chuyển về khách sạn Westin gần ga tàu cao tốc",
+    "icon": "⛷️",
+    "items": [
+      {
+        "id": "exp-d9-01",
+        "cat": "activity",
+        "catLabel": "⛷️ Hoạt Động",
+        "name": "Vé trượt tuyết trọn gói + Thiết bị tại Peace Ski Resort (2 người)",
+        "detail": "Vé trọn gói cả ngày gồm cáp treo, ván trượt, ủng trượt tuyết, gậy và mũ bảo hiểm",
+        "estRmb": 700,
+        "estVnd": 2450000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "PeaceSki #TKT-01",
+        "note": "Tuyết bột champagne cực êm",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d9-02",
+        "cat": "activity",
+        "catLabel": "⛷️ Hoạt Động",
+        "name": "Thuê huấn luyện viên (HLV) trượt tuyết kèm riêng 2h",
+        "detail": "HLV hướng dẫn tư thế phanh chữ V cơ bản, đi thang cuốn cáp kéo lên dốc xanh",
+        "estRmb": 400,
+        "estVnd": 1400000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "HLV chuyên nghiệp của sân",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d9-03",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Taxi / Didi từ Peace Ski Resort sang ga Tùng Giang Hà (Songjianghe)",
+        "detail": "Chuyển cứ điểm sang phía Tây chân núi gần ga tàu cao tốc",
+        "estRmb": 150,
+        "estVnd": 525000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Di chuyển cuối buổi chiều",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d9-04",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn The Westin Changbaishan Resort (Đêm 1)",
+        "detail": "Khách sạn cao cấp tiện nghi, vị trí sát ga để sáng hôm sau tiện đi tàu",
+        "estRmb": 650,
+        "estVnd": 2275000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #WESTIN-SJH",
+        "note": "Nghỉ ngơi lấy lại sức",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d9-05",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối ẩm thực Tùng Giang Hà (Thịt bò hầm thố đất)",
+        "detail": "Bò hầm nóng hổi và canh sâm Trường Bạch ấm bụng",
+        "estRmb": 180,
+        "estVnd": 630000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Nhà hàng gần khách sạn",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_10",
+    "groupTitle": "Ngày 10 (08/01): Rafting Ma Giới (Rime Rafting) ➔ Tàu Đi Trường Xuân",
+    "groupDate": "08/01/2027",
+    "groupLocation": "Trường Xuân",
+    "groupDesc": "Trôi thuyền phao ngắm rừng sương muối Ma Giới lúc bình minh, đi tàu cao tốc về Trường Xuân, nhận phòng khách sạn Hyatt Regency",
+    "icon": "🚣",
+    "items": [
+      {
+        "id": "exp-d10-01",
+        "cat": "activity",
+        "catLabel": "⛷️ Hoạt Động",
+        "name": "Vé trải nghiệm Thuyền Phao Tuyết Ma Giới (Rime Rafting - 2 người)",
+        "detail": "Thuyền phao trôi bồng bềnh trên dòng suối khoáng ấm không đóng băng giữa rừng sương muối trắng xoá",
+        "estRmb": 380,
+        "estVnd": 1330000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "RimeRafting #01",
+        "note": "Đi lúc 06:30 sáng đón sương muối đẹp nhất",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d10-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Vé tàu cao tốc Tùng Giang Hà / Trường Bạch Sơn ➔ Trường Xuân (2 người)",
+        "detail": "Tàu cao tốc CRH chạy êm ái xuyên qua tỉnh Cát Lâm (khoảng 2.5 tiếng)",
+        "estRmb": 240,
+        "estVnd": 840000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "12306 #CRH-SJH-CC",
+        "note": "Ghế hạng nhì",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d10-03",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn Hyatt Regency Trường Xuân (Đêm 1)",
+        "detail": "Khách sạn 5 sao sang trọng ngay trung tâm quảng trường Nhân Dân Trường Xuân",
+        "estRmb": 550,
+        "estVnd": 1925000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #HYATT-CC",
+        "note": "Nhận phòng sau 14h",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d10-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Mì Lạnh Diên Biên & Xiên Nướng Trường Xuân",
+        "detail": "Mì kiều mạch lạnh nước lê thanh mát cùng đĩa thịt xiên nướng than củi giòn rụm",
+        "estRmb": 180,
+        "estVnd": 630000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Phố ẩm thực Quế Lâm Lộ Trường Xuân",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_11",
+    "groupTitle": "Ngày 11 (09/01): Hồ Băng Tịnh Nguyệt Đàm ➔ Bay Bắc Kinh Transit",
+    "groupDate": "09/01/2027",
+    "groupLocation": "Trường Xuân & Bắc Kinh",
+    "groupDesc": "Dạo hồ băng Tịnh Nguyệt Đàm, bay Trường Xuân ➔ Bắc Kinh (CGQ 12:40 ➔ PEK 14:40), nhận phòng CITIC Hotel Airport, ăn Vịt quay Bắc Kinh",
+    "icon": "🌲",
+    "items": [
+      {
+        "id": "exp-d11-01",
+        "cat": "sight",
+        "catLabel": "🎟️ Vé Tham Quan",
+        "name": "Vé công viên rừng quốc gia Tịnh Nguyệt Đàm + Xe điện tuyết (2 người)",
+        "detail": "Ngắm hồ băng rộng mênh mông tựa hồ Baikal và các tác phẩm điêu khắc tuyết khổng lồ",
+        "estRmb": 120,
+        "estVnd": 420000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Tham quan buổi sáng",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d11-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Taxi / Didi từ trung tâm ra Sân bay Long Gia Trường Xuân (CGQ)",
+        "detail": "Di chuyển 35km ra sân bay trước giờ khởi hành 2 tiếng",
+        "estRmb": 90,
+        "estVnd": 315000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Didi Express",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d11-03",
+        "cat": "hotel",
+        "catLabel": "🏨 Khách Sạn",
+        "name": "Khách sạn Transit CITIC Hotel Beijing Airport (Đêm 11)",
+        "detail": "Khách sạn 4 sao sát sân bay Thủ Đô Bắc Kinh, có shuttle bus đưa đón sân bay miễn phí 24/7",
+        "estRmb": 420,
+        "estVnd": 1470000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "Trip.com #CITIC-PEK",
+        "note": "Khách sạn transit chặng về",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d11-04",
+        "cat": "food",
+        "catLabel": "🍲 Ăn Uống",
+        "name": "Bữa tối Vịt Quay Bắc Kinh (Peking Duck) trứ danh",
+        "detail": "Thưởng thức đĩa da vịt giòn rụm chấm đường cát và cuốn bánh tráng sốt tương ngọt",
+        "estRmb": 260,
+        "estVnd": 910000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Nhà hàng vịt quay gần sân bay",
+        "isPaid": false
+      }
+    ]
+  },
+  {
+    "groupKey": "day_12",
+    "groupTitle": "Ngày 12 (10-11/01): Bắc Kinh ➔ Hà Nội (Hoàn Tất Chuyến Đi)",
+    "groupDate": "10-11/01/2027",
+    "groupLocation": "Bắc Kinh & Hà Nội",
+    "groupDesc": "Transit Bắc Kinh, mua sắm quà lưu niệm, đáp chuyến bay đêm PEK ➔ HAN (03:15 sáng 11/01), taxi về nhà an toàn",
+    "icon": "🛬",
+    "items": [
+      {
+        "id": "exp-d12-01",
+        "cat": "shopping",
+        "catLabel": "🎁 Mua Sắm & Quà",
+        "name": "Mua sắm quà lưu niệm & đồ ăn vặt tại Sân Bay Thủ Đô Bắc Kinh",
+        "detail": "Kẹo hồ lô sấy dẻo, trà hoa nhài, bánh phu thê, mô hình lưu niệm Bắc Kinh",
+        "estRmb": 200,
+        "estVnd": 700000,
+        "actualAmount": 0,
+        "actualCurrency": "RMB",
+        "receiptRef": "",
+        "note": "Mua tại quầy miễn thuế sân bay PEK",
+        "isPaid": false
+      },
+      {
+        "id": "exp-d12-02",
+        "cat": "transit",
+        "catLabel": "🚆 Di Chuyển",
+        "name": "Taxi từ sân bay Nội Bài về nội thành Hà Nội (03:15 sáng)",
+        "detail": "Xe đón sáng sớm từ Nội Bài về nhà kết thúc chuyến đi tuyệt vời 12N11Đ",
+        "estRmb": 100,
+        "estVnd": 350000,
+        "actualAmount": 0,
+        "actualCurrency": "VND",
+        "receiptRef": "",
+        "note": "Đặt trước xe Nội Bài đưa đón đêm",
+        "isPaid": false
+      }
+    ]
+  }
+];
+
+    let dailyBudgetData = [];
+    let dailyBudgetSaveTimer = null;
 
     function formatNumberVnd(num) {
-      if (!num || isNaN(num)) return '0 Ä‘';
-      return Math.round(num).toLocaleString('vi-VN') + ' Ä‘';
+      if (!num && num !== 0) return '0 ₫';
+      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
     }
 
     function formatNumberRmb(num) {
-      if (!num || isNaN(num)) return '0 RMB';
-      return (Math.round(num * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 }) + ' RMB';
+      if (!num && num !== 0) return '0 ¥';
+      const rounded = Math.round(num * 10) / 10;
+      return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ¥';
     }
 
-    function showBudgetSaveToast() {
-      const toast = document.getElementById('budget-save-toast');
+    function showBudgetToast(msg) {
+      const toast = document.getElementById('budget-toast');
+      const msgEl = document.getElementById('budget-toast-msg');
       if (!toast) return;
-      toast.classList.add('visible');
-      clearTimeout(budgetSaveTimeout);
-      budgetSaveTimeout = setTimeout(() => {
-        toast.classList.remove('visible');
-      }, 1500);
+      if (msgEl && msg) msgEl.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(window._budgetToastTimer);
+      window._budgetToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
     }
 
-    function saveBudgetToStorage() {
-      const state = {
-        rate: budgetExchangeRate,
-        currMode: budgetCurrencyMode,
-        cat: budgetCurrentCategory,
-        items: budgetItems,
-        updatedAt: new Date().toISOString()
-      };
-      try {
-        localStorage.setItem(BUDGET_STORAGE_KEY, JSON.stringify(state));
-        showBudgetSaveToast();
-      } catch (e) {
-        console.warn('LocalStorage error:', e);
+    function saveDailyBudgetToStorage(isDebounced = true) {
+      if (isDebounced) {
+        clearTimeout(dailyBudgetSaveTimer);
+        dailyBudgetSaveTimer = setTimeout(() => {
+          doSaveDailyBudget();
+        }, 500);
+      } else {
+        doSaveDailyBudget();
       }
     }
 
-    function initBudgetTracker() {
+    function doSaveDailyBudget() {
       try {
-        const stored = localStorage.getItem(BUDGET_STORAGE_KEY);
-        if (stored) {
-          const parsed = JSON.parse(stored);
-          budgetExchangeRate = parsed.rate || 3500;
-          budgetCurrencyMode = parsed.currMode || 'both';
-          budgetCurrentCategory = parsed.cat || 'all';
-          budgetItems = Array.isArray(parsed.items) && parsed.items.length > 0 ? parsed.items : JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
-        } else {
-          budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        const payload = {
+          rate: dailyBudgetExchangeRate,
+          currMode: dailyBudgetCurrencyMode,
+          filterDay: dailyBudgetFilterDay,
+          allOpen: dailyAllAccordionsOpen,
+          groups: dailyBudgetData,
+          savedAt: new Date().toISOString()
+        };
+        localStorage.setItem(DAILY_BUDGET_STORAGE_KEY, JSON.stringify(payload));
+        showBudgetToast('Đã tự động lưu vào cơ sở dữ liệu trình duyệt!');
+      } catch (err) {
+        console.warn('Could not save to localStorage', err);
+      }
+    }
+
+    function loadDailyBudgetFromStorage() {
+      try {
+        const raw = localStorage.getItem(DAILY_BUDGET_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.groups) && parsed.groups.length > 0) {
+            dailyBudgetData = parsed.groups;
+            if (parsed.rate) dailyBudgetExchangeRate = parseFloat(parsed.rate) || 3500;
+            if (parsed.currMode) dailyBudgetCurrencyMode = parsed.currMode;
+            if (typeof parsed.allOpen === 'boolean') dailyAllAccordionsOpen = parsed.allOpen;
+            return;
+          }
         }
       } catch (e) {
-        console.warn('Init budget parse failed, loading seed:', e);
-        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
+        console.warn('Error reading budget storage, loading defaults', e);
       }
+      dailyBudgetData = JSON.parse(JSON.stringify(DEFAULT_DAILY_BUDGET_DATA));
+    }
 
-      // Sync rate input
+    function initDailyBudgetTracker() {
+      loadDailyBudgetFromStorage();
+
       const rateInput = document.getElementById('budget-rate-input');
-      if (rateInput) rateInput.value = budgetExchangeRate;
+      if (rateInput) rateInput.value = dailyBudgetExchangeRate;
 
-      // Sync currency pills
-      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
-      currPills.forEach(p => {
-        const text = p.getAttribute('onclick') || '';
-        p.classList.toggle('active', text.includes("'" + budgetCurrencyMode + "'"));
-      });
-
-      // Sync cat pills
-      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
-      catPills.forEach(p => {
-        p.classList.toggle('active', p.getAttribute('data-cat') === budgetCurrentCategory);
-      });
-
-      renderBudgetTable();
+      updateCurrencyModeButtons();
+      renderDayPills();
+      renderAllDailyAccordions();
+      calculateDailyBudgetTotals();
     }
 
-    function handleExchangeRateChange(val) {
+    function handleBudgetRateChange(val) {
       const parsed = parseFloat(val);
-      if (parsed && parsed > 0) {
-        budgetExchangeRate = parsed;
-        // Update estimated VND for all items based on RMB
-        budgetItems.forEach(it => {
-          if (it.estRmb && !it.isCustom) {
-            it.estVnd = Math.round(it.estRmb * budgetExchangeRate);
-          }
-        });
-        saveBudgetToStorage();
-        renderBudgetTable();
+      if (parsed && parsed > 500 && parsed < 10000) {
+        dailyBudgetExchangeRate = parsed;
+        saveDailyBudgetToStorage(true);
+        renderAllDailyAccordions();
+        calculateDailyBudgetTotals();
       }
     }
 
-    function setBudgetCurrMode(mode) {
-      budgetCurrencyMode = mode;
-      const currPills = document.querySelectorAll('#budget-curr-mode .budget-view-pill');
-      currPills.forEach(p => {
-        const text = p.getAttribute('onclick') || '';
-        p.classList.toggle('active', text.includes("'" + mode + "'"));
+    function setBudgetCurrencyMode(mode) {
+      dailyBudgetCurrencyMode = mode;
+      updateCurrencyModeButtons();
+      saveDailyBudgetToStorage(true);
+      renderAllDailyAccordions();
+      calculateDailyBudgetTotals();
+    }
+
+    function updateCurrencyModeButtons() {
+      ['both', 'vnd', 'rmb'].forEach(m => {
+        const btn = document.getElementById('btn-curr-' + m);
+        if (btn) {
+          if (m === dailyBudgetCurrencyMode) btn.classList.add('active');
+          else btn.classList.remove('active');
+        }
       });
-      saveBudgetToStorage();
-      renderBudgetTable();
     }
 
-    function filterBudgetCat(cat) {
-      budgetCurrentCategory = cat;
-      const catPills = document.querySelectorAll('#budget-cat-selector .budget-cat-pill');
-      catPills.forEach(p => {
-        p.classList.toggle('active', p.getAttribute('data-cat') === cat);
-      });
-      renderBudgetTable();
-    }
-
-    function toggleItemPaid(id, checked) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        item.isPaid = checked;
-        // If checked and actual amount is 0, prefill with estimate
-        if (checked && (!item.actualAmount || item.actualAmount === 0)) {
-          item.actualAmount = item.actualCurrency === 'VND' ? item.estVnd : item.estRmb;
-        }
-        saveBudgetToStorage();
-        renderBudgetTable();
-      }
-    }
-
-    function updateActualAmount(id, val) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        const parsed = parseFloat(val);
-        item.actualAmount = isNaN(parsed) ? 0 : parsed;
-        if (item.actualAmount > 0) {
-          item.isPaid = true;
-        }
-        // Update live converted text
-        const helperEl = document.getElementById('actual-conv-' + id);
-        if (helperEl) {
-          if (item.actualCurrency === 'RMB') {
-            const inVnd = item.actualAmount * budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
-          } else {
-            const inRmb = item.actualAmount / budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
-          }
-        }
-        updateBudgetDashboard();
-        saveBudgetToStorage();
-      }
-    }
-
-    function updateActualCurrency(id, curr) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        item.actualCurrency = curr;
-        const helperEl = document.getElementById('actual-conv-' + id);
-        if (helperEl) {
-          if (item.actualCurrency === 'RMB') {
-            const inVnd = (item.actualAmount || 0) * budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberVnd(inVnd);
-          } else {
-            const inRmb = (item.actualAmount || 0) / budgetExchangeRate;
-            helperEl.textContent = 'â‰ˆ ' + formatNumberRmb(inRmb);
-          }
-        }
-        updateBudgetDashboard();
-        saveBudgetToStorage();
-      }
-    }
-
-    function updateItemNote(id, noteVal) {
-      const item = budgetItems.find(it => it.id === id);
-      if (item) {
-        item.note = noteVal;
-        saveBudgetToStorage();
-      }
-    }
-
-    function deleteBudgetItem(id) {
-      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ khoáº£n chi nÃ y?')) {
-        budgetItems = budgetItems.filter(it => it.id !== id);
-        saveBudgetToStorage();
-        renderBudgetTable();
-      }
-    }
-
-    function renderBudgetTable() {
-      const tbody = document.getElementById('budget-tbody');
-      if (!tbody) return;
-
-      // Filter items
-      const filtered = budgetItems.filter(it => {
-        if (budgetCurrentCategory === 'all') return true;
-        if (budgetCurrentCategory === 'paid') return it.isPaid;
-        if (budgetCurrentCategory === 'pending') return !it.isPaid;
-        return it.category === budgetCurrentCategory;
-      });
-
-      if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:#9cb1d1;">KhÃ´ng cÃ³ khoáº£n chi nÃ o trong danh má»¥c nÃ y.</td></tr>';
-        updateBudgetDashboard();
-        return;
-      }
+    function renderDayPills() {
+      const pillsContainer = document.getElementById('budget-day-pills-bar');
+      if (!pillsContainer) return;
 
       let html = '';
-      filtered.forEach((it, idx) => {
-        const isPaidClass = it.isPaid ? 'is-paid' : '';
-        const checkedAttr = it.isPaid ? 'checked' : '';
+      const isAllActive = dailyBudgetFilterDay === 'all' ? 'active' : '';
+      html += '<button class="budget-day-pill ' + isAllActive + '" onclick="filterBudgetByDay(\'all\')"><span>🌐 Tất Cả 13 Mục</span></button>';
 
-        // Formatted estimate
-        let estDisplay = '';
-        if (budgetCurrencyMode === 'both') {
-          estDisplay = <div class="td-est-vnd"></div><div class="td-est-rmb">~ </div>;
-        } else if (budgetCurrencyMode === 'vnd') {
-          estDisplay = <div class="td-est-vnd"></div>;
-        } else {
-          estDisplay = <div class="td-est-vnd" style="color:var(--accent-gold);"></div>;
-        }
-
-        // Converted text for actual
-        let convertedText = '';
-        const amt = it.actualAmount || 0;
-        if (it.actualCurrency === 'RMB') {
-          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberVnd(amt * budgetExchangeRate) : 'â‰ˆ 0 Ä‘';
-        } else {
-          convertedText = amt > 0 ? 'â‰ˆ ' + formatNumberRmb(amt / budgetExchangeRate) : 'â‰ˆ 0 RMB';
-        }
-
-        const delBtn = it.isCustom
-          ? <button class="btn-row-del" onclick="deleteBudgetItem('')" title="XoÃ¡ khoáº£n chi nÃ y">ðŸ—‘ï¸</button>
-          : <button class="btn-row-del" onclick="resetSingleItem('')" title="Äáº·t láº¡i vá» máº·c Ä‘á»‹nh" style="color:#9cb1d1; opacity:0.4;">â†º</button>;
-
-        html += 
-          <tr class="budget-row " id="row-">
-            <td class="td-status">
-              <input type="checkbox" class="status-checkbox"  onchange="toggleItemPaid('', this.checked)" title="ÄÃ¡nh dáº¥u Ä‘Ã£ chi tiá»n thá»±c táº¿">
-            </td>
-            <td class="td-item-info">
-              <strong></strong>
-              <small></small>
-            </td>
-            <td>
-              <span class="cat-badge cat-"></span>
-            </td>
-            <td>
-              
-            </td>
-            <td>
-              <div class="actual-input-wrap">
-                <div class="actual-input-row">
-                  <input type="number" class="input-actual-val" value="" placeholder="0" min="0" step="any" oninput="updateActualAmount('', this.value)">
-                  <select class="select-actual-curr" onchange="updateActualCurrency('', this.value)">
-                    <option value="RMB" >RMB</option>
-                    <option value="VND" >VNÄ</option>
-                  </select>
-                </div>
-                <span class="converted-helper" id="actual-conv-"></span>
-              </div>
-            </td>
-            <td>
-              <input type="text" class="input-note-val" value="" placeholder="Ghi chÃº mÃ£ vÃ©, tháº», tiá»n máº·t..." oninput="updateItemNote('', this.value)">
-            </td>
-            <td style="text-align:center;">
-              
-            </td>
-          </tr>
-        ;
+      dailyBudgetData.forEach(grp => {
+        const isActive = dailyBudgetFilterDay === grp.groupKey ? 'active' : '';
+        const shortName = grp.groupKey === 'pre_trip' ? 'Trước Chuyến Đi' : grp.groupTitle.split(':')[0].trim();
+        html += '<button class="budget-day-pill ' + isActive + '" onclick="filterBudgetByDay(\'' + grp.groupKey + '\')">' +
+                '<span>' + (grp.icon || '📍') + ' ' + shortName + '</span>' +
+                '</button>';
       });
 
-      tbody.innerHTML = html;
-      updateBudgetDashboard();
+      pillsContainer.innerHTML = html;
     }
 
-    function resetSingleItem(id) {
-      const defaultItem = DEFAULT_BUDGET_SEED.find(d => d.id === id);
-      const target = budgetItems.find(it => it.id === id);
-      if (defaultItem && target) {
-        target.actualAmount = defaultItem.actualAmount;
-        target.actualCurrency = defaultItem.actualCurrency;
-        target.note = defaultItem.note;
-        target.isPaid = defaultItem.isPaid;
-        saveBudgetToStorage();
-        renderBudgetTable();
+    function filterBudgetByDay(groupKey) {
+      dailyBudgetFilterDay = groupKey;
+      renderDayPills();
+
+      const statusEl = document.getElementById('budget-filter-status-text');
+      if (statusEl) {
+        if (groupKey === 'all') {
+          statusEl.innerHTML = 'Đang xem: <strong>Tất Cả 13 Giai Đoạn & Ngày</strong>';
+        } else {
+          const match = dailyBudgetData.find(g => g.groupKey === groupKey);
+          statusEl.innerHTML = 'Đang lọc xem: <strong>' + (match ? match.groupTitle : groupKey) + '</strong>';
+        }
+      }
+
+      renderAllDailyAccordions();
+
+      if (groupKey !== 'all') {
+        setTimeout(() => {
+          const targetCard = document.getElementById('day-card-' + groupKey);
+          if (targetCard) {
+            targetCard.classList.add('open');
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }, 100);
       }
     }
 
-    function updateBudgetDashboard() {
+    function toggleAccordion(groupKey) {
+      const card = document.getElementById('day-card-' + groupKey);
+      if (card) {
+        card.classList.toggle('open');
+      }
+    }
+
+    function toggleAllAccordions() {
+      dailyAllAccordionsOpen = !dailyAllAccordionsOpen;
+      const cards = document.querySelectorAll('.budget-day-card');
+      cards.forEach(c => {
+        if (dailyAllAccordionsOpen) c.classList.add('open');
+        else c.classList.remove('open');
+      });
+
+      const btn = document.getElementById('btn-toggle-all-acc');
+      if (btn) {
+        btn.textContent = dailyAllAccordionsOpen ? '📂 Thu Gọn Tất Cả' : '📖 Mở Rộng Tất Cả';
+      }
+      saveDailyBudgetToStorage(true);
+    }
+
+    function renderAllDailyAccordions() {
+      const container = document.getElementById('budget-days-accordion');
+      if (!container) return;
+
+      let html = '';
+
+      dailyBudgetData.forEach(grp => {
+        if (dailyBudgetFilterDay !== 'all' && dailyBudgetFilterDay !== grp.groupKey) {
+          return;
+        }
+
+        const isOpen = dailyAllAccordionsOpen ? 'open' : '';
+        const itemCount = grp.items ? grp.items.length : 0;
+
+        let groupEstVnd = 0;
+        let groupEstRmb = 0;
+        let groupActVnd = 0;
+        let groupActRmb = 0;
+
+        if (grp.items) {
+          grp.items.forEach(it => {
+            groupEstVnd += (it.estVnd || (it.estRmb ? it.estRmb * dailyBudgetExchangeRate : 0));
+            groupEstRmb += (it.estRmb || (it.estVnd ? it.estVnd / dailyBudgetExchangeRate : 0));
+
+            const amt = it.actualAmount || 0;
+            if (it.actualCurrency === 'RMB') {
+              groupActRmb += amt;
+              groupActVnd += amt * dailyBudgetExchangeRate;
+            } else {
+              groupActVnd += amt;
+              groupActRmb += amt / dailyBudgetExchangeRate;
+            }
+          });
+        }
+
+        const diffVnd = groupEstVnd - groupActVnd;
+        let diffClass = diffVnd >= 0 ? 'diff-saved' : 'diff-over';
+        let diffText = diffVnd >= 0 ? ('+' + formatNumberVnd(diffVnd)) : ('-' + formatNumberVnd(Math.abs(diffVnd)));
+
+        html += '<div class="budget-day-card ' + isOpen + '" id="day-card-' + grp.groupKey + '">' +
+                  '<div class="budget-day-header" onclick="toggleAccordion(\'' + grp.groupKey + '\')">' +
+                    '<div class="budget-day-title-wrap">' +
+                      '<div class="budget-day-icon">' + (grp.icon || '📍') + '</div>' +
+                      '<div class="budget-day-title-text">' +
+                        '<h3>' + grp.groupTitle + '</h3>' +
+                        '<div class="budget-day-meta">' +
+                          '<span class="budget-day-tag">📅 ' + grp.groupDate + '</span>' +
+                          '<span class="budget-day-tag loc">📍 ' + grp.groupLocation + '</span>' +
+                          '<span class="budget-day-tag count">' + itemCount + ' khoản chi</span>' +
+                        '</div>' +
+                      '</div>' +
+                    '</div>' +
+
+                    '<div class="budget-day-summary-box">' +
+                      '<div class="day-subtotal-item">' +
+                        '<span class="day-subtotal-label">Dự Toán</span>' +
+                        '<span class="day-subtotal-val est">' + formatNumberVnd(groupEstVnd) + '</span>' +
+                      '</div>' +
+                      '<div class="day-subtotal-item">' +
+                        '<span class="day-subtotal-label">Thực Chi</span>' +
+                        '<span class="day-subtotal-val actual">' + formatNumberVnd(groupActVnd) + '</span>' +
+                      '</div>' +
+                      '<div class="day-subtotal-item">' +
+                        '<span class="day-subtotal-label">Chênh Lệch</span>' +
+                        '<span class="day-subtotal-val ' + diffClass + '">' + diffText + '</span>' +
+                      '</div>' +
+                    '</div>' +
+
+                    '<div class="budget-day-actions" onclick="event.stopPropagation()">' +
+                      '<button type="button" class="btn-add-item-for-day" onclick="openAddExpenseModal(\'' + grp.groupKey + '\')">➕ Thêm Mục</button>' +
+                      '<span class="accordion-chevron">▼</span>' +
+                    '</div>' +
+                  '</div>' +
+
+                  '<div class="budget-day-body">' +
+                    '<div class="budget-table-responsive">' +
+                      '<table class="budget-day-table">' +
+                        '<thead>' +
+                          '<tr>' +
+                            '<th style="width:40px; text-align:center;">Chi</th>' +
+                            '<th>Khoản Chi & Mô Tả</th>' +
+                            '<th>Dự Toán</th>' +
+                            '<th>Thực Tế Đã Chi</th>' +
+                            '<th>Mã Chứng Từ / Nguồn</th>' +
+                            '<th>Ghi Chú</th>' +
+                            '<th style="width:40px; text-align:center;">Xóa</th>' +
+                          '</tr>' +
+                        '</thead>' +
+                        '<tbody>';
+
+        if (!grp.items || grp.items.length === 0) {
+          html += '<tr><td colspan="7" style="text-align:center; padding:24px; color:#8fa7c9;">' +
+                  'Chưa có khoản chi nào cho mục này. Nhấp vào "<strong>➕ Thêm Mục</strong>" để ghi nhận!</td></tr>';
+        } else {
+          grp.items.forEach(it => {
+            const isChecked = it.isPaid ? 'checked' : '';
+            const isRmbSelected = it.actualCurrency === 'RMB' ? 'selected' : '';
+            const isVndSelected = it.actualCurrency === 'VND' ? 'selected' : '';
+
+            const estVnd = it.estVnd || (it.estRmb ? it.estRmb * dailyBudgetExchangeRate : 0);
+            const estRmb = it.estRmb || (it.estVnd ? it.estVnd / dailyBudgetExchangeRate : 0);
+
+            let estDisplay = '';
+            if (dailyBudgetCurrencyMode === 'vnd') {
+              estDisplay = '<div class="est-val-vnd">' + formatNumberVnd(estVnd) + '</div>';
+            } else if (dailyBudgetCurrencyMode === 'rmb') {
+              estDisplay = '<div class="est-val-rmb" style="font-weight:700; font-size:0.9rem;">' + formatNumberRmb(estRmb) + '</div>';
+            } else {
+              estDisplay = '<div class="est-val-vnd">' + formatNumberVnd(estVnd) + '</div>' +
+                           '<div class="est-val-rmb">≈ ' + formatNumberRmb(estRmb) + '</div>';
+            }
+
+            const amt = it.actualAmount || 0;
+            let convertedPreview = '';
+            if (amt > 0) {
+              if (it.actualCurrency === 'RMB') {
+                convertedPreview = '≈ ' + formatNumberVnd(amt * dailyBudgetExchangeRate);
+              } else {
+                convertedPreview = '≈ ' + formatNumberRmb(amt / dailyBudgetExchangeRate);
+              }
+            }
+
+            html += '<tr id="row-' + it.id + '">' +
+                      '<td class="col-paid-check">' +
+                        '<label class="custom-checkbox-wrap" title="Đánh dấu đã thanh toán khoản này">' +
+                          '<input type="checkbox" ' + isChecked + ' onchange="handleDailyTogglePaid(\'' + grp.groupKey + '\', \'' + it.id + '\', this.checked)" />' +
+                        '</label>' +
+                      '</td>' +
+                      '<td class="col-item-info">' +
+                        '<span class="item-cat-badge">' + (it.catLabel || it.cat) + '</span>' +
+                        '<div class="item-name-text">' + it.name + '</div>' +
+                        (it.detail ? '<div class="item-desc-text">' + it.detail + '</div>' : '') +
+                      '</td>' +
+                      '<td class="col-item-est">' + estDisplay + '</td>' +
+                      '<td class="col-item-actual">' +
+                        '<div class="actual-input-group">' +
+                          '<input type="number" class="input-actual-amt" value="' + (amt || '') + '" placeholder="0" min="0" step="any" ' +
+                            'oninput="handleDailyActualChange(\'' + grp.groupKey + '\', \'' + it.id + '\', this.value, null)" />' +
+                          '<select class="select-actual-curr" onchange="handleDailyActualChange(\'' + grp.groupKey + '\', \'' + it.id + '\', null, this.value)">' +
+                            '<option value="RMB" ' + isRmbSelected + '>RMB (¥)</option>' +
+                            '<option value="VND" ' + isVndSelected + '>VNĐ (₫)</option>' +
+                          '</select>' +
+                        '</div>' +
+                        '<div class="actual-converted-preview" id="conv-' + it.id + '">' + convertedPreview + '</div>' +
+                      '</td>' +
+                      '<td class="col-item-ref">' +
+                        '<input type="text" class="input-item-ref" value="' + (it.receiptRef || '') + '" placeholder="Mã hoá đơn / nguồn trả..." ' +
+                          'oninput="handleDailyRefChange(\'' + grp.groupKey + '\', \'' + it.id + '\', this.value)" />' +
+                      '</td>' +
+                      '<td class="col-item-ref">' +
+                        '<input type="text" class="input-item-ref" value="' + (it.note || '') + '" placeholder="Ghi chú thêm..." ' +
+                          'oninput="handleDailyNoteChange(\'' + grp.groupKey + '\', \'' + it.id + '\', this.value)" />' +
+                      '</td>' +
+                      '<td class="col-item-actions">' +
+                        '<button type="button" class="btn-del-item" title="Xóa khoản chi này" onclick="handleDailyDeleteItem(\'' + grp.groupKey + '\', \'' + it.id + '\')">🗑️</button>' +
+                      '</td>' +
+                    '</tr>';
+          });
+        }
+
+        html +=           '</tbody>' +
+                        '</table>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>';
+      });
+
+      container.innerHTML = html;
+    }
+
+    function handleDailyTogglePaid(groupKey, itemId, isChecked) {
+      const grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (grp && grp.items) {
+        const it = grp.items.find(i => i.id === itemId);
+        if (it) {
+          it.isPaid = isChecked;
+          saveDailyBudgetToStorage(true);
+          calculateDailyBudgetTotals();
+        }
+      }
+    }
+
+    function handleDailyActualChange(groupKey, itemId, amtVal, currVal) {
+      const grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (grp && grp.items) {
+        const it = grp.items.find(i => i.id === itemId);
+        if (it) {
+          if (amtVal !== null) {
+            it.actualAmount = parseFloat(amtVal) || 0;
+          }
+          if (currVal !== null) {
+            it.actualCurrency = currVal;
+          }
+
+          const convEl = document.getElementById('conv-' + it.id);
+          if (convEl) {
+            const amt = it.actualAmount || 0;
+            if (amt > 0) {
+              if (it.actualCurrency === 'RMB') {
+                convEl.textContent = '≈ ' + formatNumberVnd(amt * dailyBudgetExchangeRate);
+              } else {
+                convEl.textContent = '≈ ' + formatNumberRmb(amt / dailyBudgetExchangeRate);
+              }
+            } else {
+              convEl.textContent = '';
+            }
+          }
+
+          saveDailyBudgetToStorage(true);
+          calculateDailyBudgetTotals();
+        }
+      }
+    }
+
+    function handleDailyRefChange(groupKey, itemId, refVal) {
+      const grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (grp && grp.items) {
+        const it = grp.items.find(i => i.id === itemId);
+        if (it) {
+          it.receiptRef = refVal;
+          saveDailyBudgetToStorage(true);
+        }
+      }
+    }
+
+    function handleDailyNoteChange(groupKey, itemId, noteVal) {
+      const grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (grp && grp.items) {
+        const it = grp.items.find(i => i.id === itemId);
+        if (it) {
+          it.note = noteVal;
+          saveDailyBudgetToStorage(true);
+        }
+      }
+    }
+
+    function handleDailyDeleteItem(groupKey, itemId) {
+      if (!confirm('Bạn có chắc muốn xóa khoản chi này?')) return;
+      const grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (grp && grp.items) {
+        const idx = grp.items.findIndex(i => i.id === itemId);
+        if (idx !== -1) {
+          grp.items.splice(idx, 1);
+          saveDailyBudgetToStorage(false);
+          renderAllDailyAccordions();
+          calculateDailyBudgetTotals();
+        }
+      }
+    }
+
+    function calculateDailyBudgetTotals() {
       let totalEstVnd = 0;
       let totalEstRmb = 0;
       let totalActVnd = 0;
       let totalActRmb = 0;
-      let paidCount = 0;
+      let totalItemsCount = 0;
+      let paidItemsCount = 0;
 
-      budgetItems.forEach(it => {
-        totalEstVnd += (it.estVnd || 0);
-        totalEstRmb += (it.estRmb || 0);
+      dailyBudgetData.forEach(grp => {
+        let gEstVnd = 0;
+        let gActVnd = 0;
 
-        if (it.actualAmount && it.actualAmount > 0) {
-          if (it.actualCurrency === 'RMB') {
-            totalActRmb += it.actualAmount;
-            totalActVnd += it.actualAmount * budgetExchangeRate;
-          } else {
-            totalActVnd += it.actualAmount;
-            totalActRmb += it.actualAmount / budgetExchangeRate;
-          }
+        if (grp.items) {
+          grp.items.forEach(it => {
+            totalItemsCount++;
+            if (it.isPaid) paidItemsCount++;
+
+            const estV = it.estVnd || (it.estRmb ? it.estRmb * dailyBudgetExchangeRate : 0);
+            const estR = it.estRmb || (it.estVnd ? it.estVnd / dailyBudgetExchangeRate : 0);
+            totalEstVnd += estV;
+            totalEstRmb += estR;
+            gEstVnd += estV;
+
+            const amt = it.actualAmount || 0;
+            if (it.actualCurrency === 'RMB') {
+              const inVnd = amt * dailyBudgetExchangeRate;
+              totalActRmb += amt;
+              totalActVnd += inVnd;
+              gActVnd += inVnd;
+            } else {
+              const inRmb = amt / dailyBudgetExchangeRate;
+              totalActVnd += amt;
+              totalActRmb += inRmb;
+              gActVnd += amt;
+            }
+          });
         }
 
-        if (it.isPaid) paidCount++;
+        const card = document.getElementById('day-card-' + grp.groupKey);
+        if (card) {
+          const summaryEl = card.querySelector('.budget-day-summary-box');
+          if (summaryEl) {
+            const diff = gEstVnd - gActVnd;
+            const diffClass = diff >= 0 ? 'diff-saved' : 'diff-over';
+            const diffText = diff >= 0 ? ('+' + formatNumberVnd(diff)) : ('-' + formatNumberVnd(Math.abs(diff)));
+
+            summaryEl.innerHTML = 
+              '<div class="day-subtotal-item">' +
+                '<span class="day-subtotal-label">Dự Toán</span>' +
+                '<span class="day-subtotal-val est">' + formatNumberVnd(gEstVnd) + '</span>' +
+              '</div>' +
+              '<div class="day-subtotal-item">' +
+                '<span class="day-subtotal-label">Thực Chi</span>' +
+                '<span class="day-subtotal-val actual">' + formatNumberVnd(gActVnd) + '</span>' +
+              '</div>' +
+              '<div class="day-subtotal-item">' +
+                '<span class="day-subtotal-label">Chênh Lệch</span>' +
+                '<span class="day-subtotal-val ' + diffClass + '">' + diffText + '</span>' +
+              '</div>';
+          }
+        }
       });
 
-      // Update Dashboard elements
-      const estVndEl = document.getElementById('dash-est-vnd');
-      const estRmbEl = document.getElementById('dash-est-rmb');
-      const actVndEl = document.getElementById('dash-act-vnd');
-      const actRmbEl = document.getElementById('dash-act-rmb');
-      const diffVndEl = document.getElementById('dash-diff-vnd');
-      const diffRmbEl = document.getElementById('dash-diff-rmb');
-      const diffBadgeEl = document.getElementById('dash-diff-badge');
-      const diffCardEl = document.getElementById('dash-card-diff');
-      const paidCountEl = document.getElementById('dash-paid-count');
-      const personActEl = document.getElementById('dash-person-act');
-      const personEstEl = document.getElementById('dash-person-est');
-      const progressTextEl = document.getElementById('budget-progress-text');
-      const progressFillEl = document.getElementById('budget-progress-fill');
-      const footerEstEl = document.getElementById('footer-total-est');
-      const footerActEl = document.getElementById('footer-total-act');
-      const footerDiffEl = document.getElementById('footer-total-diff');
+      // Update Top Dashboard
+      const dashEstVnd = document.getElementById('dash-est-vnd');
+      const dashEstRmb = document.getElementById('dash-est-rmb');
+      if (dashEstVnd) dashEstVnd.textContent = formatNumberVnd(totalEstVnd);
+      if (dashEstRmb) dashEstRmb.textContent = '≈ ' + formatNumberRmb(totalEstRmb);
 
-      if (estVndEl) estVndEl.textContent = formatNumberVnd(totalEstVnd);
-      if (estRmbEl) estRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
+      const dashActVnd = document.getElementById('dash-act-vnd');
+      const dashActRmb = document.getElementById('dash-act-rmb');
+      if (dashActVnd) dashActVnd.textContent = formatNumberVnd(totalActVnd);
+      if (dashActRmb) dashActRmb.textContent = '≈ ' + formatNumberRmb(totalActRmb);
 
-      if (actVndEl) actVndEl.textContent = formatNumberVnd(totalActVnd);
-      if (actRmbEl) actRmbEl.textContent = '~ ' + formatNumberRmb(totalActRmb);
-      if (paidCountEl) paidCountEl.textContent = ${paidCount}/ ÄÃƒ THANH TOÃN;
-
-      // Difference
       const diffVnd = totalEstVnd - totalActVnd;
       const diffRmb = totalEstRmb - totalActRmb;
+      const dashDiffVnd = document.getElementById('dash-diff-vnd');
+      const dashDiffRmb = document.getElementById('dash-diff-rmb');
+      const dashDiffLabel = document.getElementById('dash-diff-label');
+      const dashDiffIcon = document.getElementById('dash-diff-icon');
 
-      if (diffVndEl) {
-        if (totalActVnd === 0) {
-          diffVndEl.textContent = formatNumberVnd(totalEstVnd);
-          diffVndEl.style.color = '#06d6a0';
-          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(totalEstRmb);
-          if (diffBadgeEl) {
-            diffBadgeEl.textContent = 'CHÆ¯A GIáº¢I NGÃ‚N';
-            diffBadgeEl.className = 'metric-badge badge-saved';
-          }
-        } else if (diffVnd >= 0) {
-          diffVndEl.textContent = '+ ' + formatNumberVnd(diffVnd);
-          diffVndEl.style.color = '#06d6a0';
-          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(diffRmb);
-          if (diffBadgeEl) {
-            diffBadgeEl.textContent = 'CÃ’N DÆ¯ / TIáº¾T KIá»†M';
-            diffBadgeEl.className = 'metric-badge badge-saved';
-          }
-          if (diffCardEl) diffCardEl.classList.remove('over-budget');
+      if (dashDiffVnd) {
+        if (diffVnd >= 0) {
+          dashDiffVnd.textContent = '+' + formatNumberVnd(diffVnd);
+          dashDiffVnd.style.color = '#06d6a0';
+          if (dashDiffLabel) dashDiffLabel.textContent = 'Tiết Kiệm / Còn Dư';
+          if (dashDiffIcon) dashDiffIcon.textContent = '🟢';
+          if (dashDiffRmb) dashDiffRmb.textContent = '≈ +' + formatNumberRmb(diffRmb) + ' (Dưới ngân sách)';
         } else {
-          diffVndEl.textContent = '- ' + formatNumberVnd(Math.abs(diffVnd));
-          diffVndEl.style.color = '#ef233c';
-          if (diffRmbEl) diffRmbEl.textContent = '~ ' + formatNumberRmb(Math.abs(diffRmb));
-          if (diffBadgeEl) {
-            diffBadgeEl.textContent = 'VÆ¯á»¢T NGÃ‚N SÃCH';
-            diffBadgeEl.className = 'metric-badge badge-over';
-          }
-          if (diffCardEl) diffCardEl.classList.add('over-budget');
+          dashDiffVnd.textContent = '-' + formatNumberVnd(Math.abs(diffVnd));
+          dashDiffVnd.style.color = '#ef233c';
+          if (dashDiffLabel) dashDiffLabel.textContent = 'Vượt Ngân Sách';
+          if (dashDiffIcon) dashDiffIcon.textContent = '🔴';
+          if (dashDiffRmb) dashDiffRmb.textContent = '≈ -' + formatNumberRmb(Math.abs(diffRmb)) + ' (Cần cân đối lại)';
         }
       }
 
-      // Per person
-      if (personActEl) {
-        const perPersonAct = totalActVnd > 0 ? (totalActVnd / 2) : (totalEstVnd / 2);
-        personActEl.textContent = formatNumberVnd(perPersonAct) + ' / NgÆ°á»i';
-      }
-      if (personEstEl) {
-        personEstEl.textContent = 'Dá»± toÃ¡n: ~ ' + formatNumberVnd(totalEstVnd / 2) + ' / NgÆ°á»i';
-      }
+      // Per Person
+      const dashPersonVnd = document.getElementById('dash-person-vnd');
+      const dashPersonRmb = document.getElementById('dash-person-rmb');
+      if (dashPersonVnd) dashPersonVnd.textContent = formatNumberVnd(totalActVnd / 2);
+      if (dashPersonRmb) dashPersonRmb.textContent = '≈ ' + formatNumberRmb(totalActRmb / 2) + ' / người';
 
       // Progress bar
-      const pct = totalEstVnd > 0 ? Math.round((totalActVnd / totalEstVnd) * 100) : 0;
-      if (progressTextEl) {
-        progressTextEl.textContent = ${pct}% ( / );
-      }
-      if (progressFillEl) {
-        progressFillEl.style.width = Math.min(pct, 100) + '%';
-        progressFillEl.classList.toggle('over-budget', pct > 100);
-      }
+      const percent = totalEstVnd > 0 ? Math.min(100, Math.round((totalActVnd / totalEstVnd) * 100)) : 0;
+      const barFill = document.getElementById('budget-progress-bar');
+      const barText = document.getElementById('progress-percent-text');
+      const paidCountText = document.getElementById('progress-paid-count');
 
-      // Footer
-      if (footerEstEl) footerEstEl.textContent = formatNumberVnd(totalEstVnd);
-      if (footerActEl) footerActEl.textContent = formatNumberVnd(totalActVnd);
-      if (footerDiffEl) {
-        if (diffVnd >= 0) {
-          footerDiffEl.textContent = 'CÃ²n dÆ°: ' + formatNumberVnd(diffVnd);
-          footerDiffEl.style.color = '#06d6a0';
-        } else {
-          footerDiffEl.textContent = 'VÆ°á»£t: ' + formatNumberVnd(Math.abs(diffVnd));
-          footerDiffEl.style.color = '#ef233c';
-        }
+      if (barFill) {
+        barFill.style.width = percent + '%';
+        if (totalActVnd > totalEstVnd) barFill.classList.add('over-budget');
+        else barFill.classList.remove('over-budget');
       }
+      if (barText) barText.textContent = percent + '% (' + formatNumberVnd(totalActVnd) + ' / ' + formatNumberVnd(totalEstVnd) + ')';
+      if (paidCountText) paidCountText.textContent = 'Đã thanh toán ' + paidItemsCount + ' / ' + totalItemsCount + ' khoản';
     }
 
     // Modal Add Expense
-    function openAddExpenseModal() {
+    function openAddExpenseModal(preSelectedGroup) {
       const modal = document.getElementById('modal-add-expense');
-      if (modal) modal.classList.add('open');
+      if (!modal) return;
+      if (preSelectedGroup) {
+        const groupSelect = document.getElementById('add-exp-group');
+        if (groupSelect) groupSelect.value = preSelectedGroup;
+      }
+      modal.classList.add('open');
     }
 
     function closeAddExpenseModal(e) {
@@ -10266,51 +10005,81 @@ function renderOverviewMap() {
 
     function handleAddNewExpense(e) {
       e.preventDefault();
+      const groupKey = document.getElementById('add-exp-group').value;
+      const cat = document.getElementById('add-exp-cat').value;
       const name = document.getElementById('add-exp-name').value.trim();
       const detail = document.getElementById('add-exp-detail').value.trim();
-      const cat = document.getElementById('add-exp-cat').value;
-      const amount = parseFloat(document.getElementById('add-exp-amount').value) || 0;
-      const curr = document.getElementById('add-exp-curr').value;
+
+      const estAmt = parseFloat(document.getElementById('add-exp-est-amt').value) || 0;
+      const estCurr = document.getElementById('add-exp-est-curr').value;
+
+      const actAmt = parseFloat(document.getElementById('add-exp-actual-amt').value) || 0;
+      const actCurr = document.getElementById('add-exp-actual-curr').value;
+
+      const ref = document.getElementById('add-exp-ref').value.trim();
       const note = document.getElementById('add-exp-note').value.trim();
+      const isPaid = document.getElementById('add-exp-paid').checked;
 
       const catLabels = {
-        flight: 'âœˆï¸ Chuyáº¿n Bay',
-        hotel: 'ðŸ¨ KhÃ¡ch Sáº¡n',
-        transit: 'ðŸš† Di Chuyá»ƒn',
-        sight: 'ðŸŽ« VÃ© Tháº¯ng Cáº£nh',
-        experience: 'â›·ï¸ Tráº£i Nghiá»‡m',
-        food: 'ðŸœ Ä‚n Uá»‘ng',
-        other: 'ðŸŽ’ HÃ nh LÃ½ & KhÃ¡c'
+        flight: '✈️ Chuyến Bay',
+        hotel: '🏨 Khách Sạn',
+        transit: '🚆 Di Chuyển',
+        sight: '🎟️ Vé Tham Quan',
+        activity: '⛷️ Hoạt Động',
+        food: '🍲 Ăn Uống',
+        shopping: '🎁 Mua Sắm',
+        prep: '🧤 Chuẩn Bị',
+        other: '📦 Khác'
       };
 
-      const estRmb = curr === 'RMB' ? amount : Math.round(amount / budgetExchangeRate);
-      const estVnd = curr === 'VND' ? amount : Math.round(amount * budgetExchangeRate);
+      const estVnd = estCurr === 'VND' ? estAmt : (estAmt * dailyBudgetExchangeRate);
+      const estRmb = estCurr === 'RMB' ? estAmt : (estAmt / dailyBudgetExchangeRate);
 
       const newItem = {
-        id: 'b-custom-' + Date.now(),
-        category: cat,
-        categoryLabel: catLabels[cat] || cat,
+        id: 'exp-user-' + Date.now(),
+        cat: cat,
+        catLabel: catLabels[cat] || cat,
         name: name,
         detail: detail,
-        estRmb: estRmb,
-        estVnd: estVnd,
-        actualAmount: amount,
-        actualCurrency: curr,
+        estRmb: Math.round(estRmb * 10) / 10,
+        estVnd: Math.round(estVnd),
+        actualAmount: actAmt,
+        actualCurrency: actCurr,
+        receiptRef: ref,
         note: note,
-        isPaid: true,
-        isCustom: true
+        isPaid: isPaid
       };
 
-      budgetItems.unshift(newItem);
-      saveBudgetToStorage();
-      renderBudgetTable();
-      closeAddExpenseModal();
+      let grp = dailyBudgetData.find(g => g.groupKey === groupKey);
+      if (!grp) {
+        grp = {
+          groupKey: groupKey,
+          groupTitle: groupKey,
+          groupDate: '',
+          groupLocation: '',
+          icon: '📍',
+          items: []
+        };
+        dailyBudgetData.push(grp);
+      }
+      if (!grp.items) grp.items = [];
+      grp.items.push(newItem);
 
-      // Reset form
-      document.getElementById('add-exp-name').value = '';
-      document.getElementById('add-exp-detail').value = '';
-      document.getElementById('add-exp-amount').value = '';
-      document.getElementById('add-exp-note').value = '';
+      saveDailyBudgetToStorage(false);
+      renderAllDailyAccordions();
+      calculateDailyBudgetTotals();
+
+      closeAddExpenseModal();
+      e.target.reset();
+
+      setTimeout(() => {
+        const row = document.getElementById('row-' + newItem.id);
+        if (row) {
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          row.style.background = 'rgba(0, 242, 254, 0.25)';
+          setTimeout(() => { row.style.background = ''; }, 2000);
+        }
+      }, 200);
     }
 
     // Modal Backup & Export
@@ -10327,17 +10096,17 @@ function renderOverviewMap() {
 
     function downloadBudgetJsonBackup() {
       const state = {
-        rate: budgetExchangeRate,
-        currMode: budgetCurrencyMode,
-        cat: budgetCurrentCategory,
-        items: budgetItems,
+        rate: dailyBudgetExchangeRate,
+        currMode: dailyBudgetCurrencyMode,
+        groups: dailyBudgetData,
         exportedAt: new Date().toISOString()
       };
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = Harbin_2027_Nhat_Ky_Chi_Tieu_.json;
+      const todayStr = new Date().toISOString().slice(0, 10);
+      a.download = 'Harbin_2027_Nhat_Ky_Chi_Tieu_' + todayStr + '.json';
       a.click();
       URL.revokeObjectURL(url);
     }
@@ -10349,82 +10118,85 @@ function renderOverviewMap() {
       reader.onload = function(evt) {
         try {
           const parsed = JSON.parse(evt.target.result);
-          if (parsed && Array.isArray(parsed.items)) {
-            budgetItems = parsed.items;
-            if (parsed.rate) budgetExchangeRate = parsed.rate;
-            if (parsed.currMode) budgetCurrencyMode = parsed.currMode;
-            saveBudgetToStorage();
-            initBudgetTracker();
-            alert('âœ… ÄÃ£ náº¡p thÃ nh cÃ´ng ' + budgetItems.length + ' khoáº£n chi!');
+          if (parsed && Array.isArray(parsed.groups)) {
+            dailyBudgetData = parsed.groups;
+            if (parsed.rate) dailyBudgetExchangeRate = parsed.rate;
+            if (parsed.currMode) dailyBudgetCurrencyMode = parsed.currMode;
+            saveDailyBudgetToStorage(false);
+            initDailyBudgetTracker();
+            alert('✅ Đã nạp thành công ' + dailyBudgetData.length + ' nhóm chi tiêu!');
             closeBackupExpenseModal();
           } else {
-            alert('âŒ File khÃ´ng Ä‘Ãºng Ä‘á»‹nh dáº¡ng sao lÆ°u cá»§a Harbin 2027.');
+            alert('❌ File không đúng định dạng sao lưu của Harbin 2027.');
           }
         } catch (err) {
-          alert('âŒ Lá»—i khi Ä‘á»c file: ' + err.message);
+          alert('❌ Lỗi khi đọc file: ' + err.message);
         }
       };
       reader.readAsText(file);
     }
 
     function exportBudgetCsv() {
-      let csv = '\uFEFFSTT,Trang Thai,Danh Muc,Ten Hang Muc,Mo Ta,Du Toan (RMB),Du Toan (VND),Thuc Te Da Chi,Nguyen Te,Quy Doi (VND),Quy Doi (RMB),Ghi Chu\n';
+      let csv = '\uFEFFGiai Doan,Ngay Thang,Dia Diem,Trang Thai,Loai Chi Phi,Ten Khoan Chi,Mo Ta,Du Toan (RMB),Du Toan (VND),Thuc Te Da Chi,Nguyen Te,Quy Doi (VND),Quy Doi (RMB),Ma Chung Tu,Ghi Chu\n';
 
-      budgetItems.forEach((it, idx) => {
-        const status = it.isPaid ? 'ÄÃ£ Thanh ToÃ¡n' : 'ChÆ°a Chi';
-        const amt = it.actualAmount || 0;
-        const convVnd = it.actualCurrency === 'RMB' ? (amt * budgetExchangeRate) : amt;
-        const convRmb = it.actualCurrency === 'VND' ? (amt / budgetExchangeRate) : amt;
+      dailyBudgetData.forEach(grp => {
+        if (!grp.items) return;
+        grp.items.forEach(it => {
+          const status = it.isPaid ? 'Đã Thanh Toán' : 'Chưa Chi';
+          const amt = it.actualAmount || 0;
+          const convVnd = it.actualCurrency === 'RMB' ? (amt * dailyBudgetExchangeRate) : amt;
+          const convRmb = it.actualCurrency === 'VND' ? (amt / dailyBudgetExchangeRate) : amt;
 
-        const escapeCsv = (str) => '"' + (str || '').replace(/"/g, '""') + '"';
+          const escapeCsv = (str) => '"' + (str || '').replace(/"/g, '""') + '"';
 
-        csv += [
-          idx + 1,
-          escapeCsv(status),
-          escapeCsv(it.categoryLabel || it.category),
-          escapeCsv(it.name),
-          escapeCsv(it.detail),
-          it.estRmb || 0,
-          it.estVnd || 0,
-          amt,
-          escapeCsv(it.actualCurrency),
-          Math.round(convVnd),
-          Math.round(convRmb * 10) / 10,
-          escapeCsv(it.note)
-        ].join(',') + '\n';
+          csv += [
+            escapeCsv(grp.groupTitle),
+            escapeCsv(grp.groupDate),
+            escapeCsv(grp.groupLocation),
+            escapeCsv(status),
+            escapeCsv(it.catLabel || it.cat),
+            escapeCsv(it.name),
+            escapeCsv(it.detail),
+            it.estRmb || 0,
+            it.estVnd || 0,
+            amt,
+            escapeCsv(it.actualCurrency),
+            Math.round(convVnd),
+            Math.round(convRmb * 10) / 10,
+            escapeCsv(it.receiptRef),
+            escapeCsv(it.note)
+          ].join(',') + '\n';
+        });
       });
 
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = Harbin_2027_Bao_Cao_Chi_Tieu_.csv;
+      const todayStr = new Date().toISOString().slice(0, 10);
+      a.download = 'Harbin_2027_Bao_Cao_Chi_Tieu_' + todayStr + '.csv';
       a.click();
       URL.revokeObjectURL(url);
     }
 
     function resetBudgetToDefault() {
-      if (confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n Ä‘áº·t láº¡i toÃ n bá»™ báº£ng vá» dá»¯ liá»‡u dá»± toÃ¡n gá»‘c ban Ä‘áº§u? Táº¥t cáº£ cÃ¡c khoáº£n ghi chÃº vÃ  sá»‘ tiá»n thá»±c táº¿ Ä‘Ã£ nháº­p sáº½ Ä‘Æ°á»£c khÃ´i phá»¥c.')) {
-        budgetItems = JSON.parse(JSON.stringify(DEFAULT_BUDGET_SEED));
-        budgetExchangeRate = 3500;
-        budgetCurrencyMode = 'both';
-        budgetCurrentCategory = 'all';
-        saveBudgetToStorage();
-        initBudgetTracker();
-        alert('âœ… ÄÃ£ khÃ´i phá»¥c dá»¯ liá»‡u gá»‘c thÃ nh cÃ´ng!');
+      if (confirm('Bạn có chắc chắn muốn đặt lại toàn bộ bảng về dữ liệu gốc? Tất cả số tiền thực tế và ghi chú chứng từ đã nhập sẽ được khôi phục.')) {
+        dailyBudgetData = JSON.parse(JSON.stringify(DEFAULT_DAILY_BUDGET_DATA));
+        dailyBudgetExchangeRate = 3500;
+        dailyBudgetCurrencyMode = 'both';
+        dailyBudgetFilterDay = 'all';
+        saveDailyBudgetToStorage(false);
+        initDailyBudgetTracker();
+        alert('✅ Đã khôi phục dữ liệu gốc thành công!');
       }
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initBudgetTracker);
+      document.addEventListener('DOMContentLoaded', initDailyBudgetTracker);
     } else {
-      initBudgetTracker();
+      initDailyBudgetTracker();
     }
 
-
-    window.addEventListener('resize', () => {
-      if (tripMap) tripMap.invalidateSize();
-    });
   </script>
 </body>
 </html>

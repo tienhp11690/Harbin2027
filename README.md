@@ -63,7 +63,11 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 2. **🎨 Graphic Tips Chuẩn Bị:** Infographic mặc ấm 3 lớp, dáng đi chim cánh cụt chống trượt, mẹo pin sập nguồn, mẹo đi xe lồng xem hổ và check-in Volga Manor.
 3. **👗 Lookbook Outfit & 8 Ý Tưởng Chụp Ảnh & Video Couple:** 4 bảng phối màu thời trang mùa đông & 8 concept tạo dáng đôi viral kèm bộ sưu tập thumbnail ảnh mẫu trực quan với tính năng swipe cảm ứng / kéo chuột mượt mà để tra cứu nhanh khi đi thực tế.
 4. **⛷️ Hướng Dẫn Trượt Tuyết Tại Núi Trường Bạch:** Khóa trải nghiệm & trượt tuyết trọn ngày tại Sân Trượt Tuyết Hòa Bình (Peace Ski Resort) chân núi Trường Bạch giữa rừng thông cổ thụ, tuyết bột champagne cực mịn và an toàn.
-5. **💰 Bảng Dự Toán & Quản Lý Chi Tiêu Thực Tế (Interactive Expense Tracker):** Tích hợp ứng dụng quản lý ngân sách trực tiếp trên web với 33 khoản chi thực tế cho 2 người (vé máy bay, 11 đêm khách sạn, vé thắng cảnh, trượt tuyết, onsen, ăn uống). Hỗ trợ nhập số tiền thực tế trực tiếp theo nguyên tệ (RMB) hoặc VNĐ, tự động quy đổi theo tỷ giá tùy chỉnh, ghi chú phương thức/mã booking, tự động lưu vĩnh viễn vào cơ sở dữ liệu trình duyệt (Local DB / localStorage), hiển thị dashboard tiến độ chi tiêu theo thời gian thực và hỗ trợ xuất báo cáo ra file Excel / CSV hoặc sao lưu JSON.
+5. **💰 Quản Lý Chi Tiêu Thực Tế Theo Từng Ngày (Daily & Phase-Based Expense Tracker):** Tích hợp ứng dụng quản lý tài chính thông minh cấu trúc chuyên nghiệp theo thực tế chuyến đi:
+   - **Giai đoạn trước chuyến đi:** Quản lý vé máy bay khứ hồi, lệ phí visa, mua sắm trang phục giữ nhiệt, eSIM data, quỹ tiền mặt RMB đổi sẵn tại VN.
+   - **12 Ngày trong hành trình:** Mỗi ngày là 1 thẻ accordion trực quan quản lý chi tiết các khoản chi con phát sinh (khách sạn/homestay theo đêm, vé tàu cao tốc/bus/taxi, vé tham quan, trải nghiệm onsen/trượt tuyết, ăn uống đặc sản).
+   - **Nhập liệu & tra cứu chứng từ:** Cho phép nhập trực tiếp số tiền đã chi trên web theo nguyên tệ (RMB) hoặc VNĐ, tự động quy đổi theo tỷ giá linh hoạt, lưu mã hoá đơn/chứng từ (Alipay, WeChat Pay, mã booking Trip.com), đánh dấu trạng thái thanh toán.
+   - **Lưu trữ & Xuất báo cáo:** Tự động lưu vĩnh viễn vào cơ sở dữ liệu trình duyệt (Local DB), Dashboard tài chính trực quan (Dự toán vs Thực tế, Tiết kiệm/Vượt, Chi phí/Người, Thanh tiến độ %), nút thêm khoản chi vào bất kỳ ngày nào, xuất báo cáo ra file Excel / CSV (UTF-8 BOM) và sao lưu/nạp file JSON.
 
 ---
 
