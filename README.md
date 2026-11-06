@@ -64,3 +64,21 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 3. **👗 Lookbook Outfit & 8 Ý Tưởng Chụp Ảnh & Video Couple:** 4 bảng phối màu thời trang mùa đông & 8 concept tạo dáng đôi viral kèm bộ sưu tập thumbnail ảnh mẫu trực quan với tính năng swipe cảm ứng / kéo chuột mượt mà để tra cứu nhanh khi đi thực tế.
 4. **⛷️ Hướng Dẫn Trượt Tuyết Tại Núi Trường Bạch:** Khóa trải nghiệm & trượt tuyết trọn ngày tại Sân Trượt Tuyết Hòa Bình (Peace Ski Resort) chân núi Trường Bạch giữa rừng thông cổ thụ, tuyết bột champagne cực mịn và an toàn.
 5. **💰 Dự Toán Ngân Sách:** Tối ưu chi phí công cộng trọn gói ~19 triệu VNĐ/người cho 12 ngày 11 đêm (tiết kiệm hơn 60% so với bao xe riêng).
+
+---
+
+## 🖼️ Thư Viện Hình Ảnh & Quy Chuẩn Đặt Tên (Naming Convention)
+
+Dự án hỗ trợ thư viện ảnh local được tổ chức riêng biệt theo thư mục, cho phép bạn tự do sưu tầm ảnh từ mạng xã hội (Pinterest, Xiaohongshu, Instagram) hoặc máy ảnh cá nhân, chỉ cần copy vào thư mục và rename theo đúng quy chuẩn:
+
+1. **Cấu trúc thư mục:**
+   - `images/concepts/`: Chứa ảnh ý tưởng & concept chụp ảnh (8 concept, mỗi concept 3 ảnh minh họa dạng thẻ trượt `concept-01-1.jpg` đến `concept-08-3.jpg`).
+   - `images/outfits/`: Chứa ảnh gợi ý trang phục mùa đông couple (`outfit-01.jpg` đến `outfit-04.jpg`).
+   - `images/activities/`: Chứa ảnh banner hoạt động 12 ngày (`day-01.jpg` đến `day-12.jpg`).
+
+2. **Tự động resize và tối ưu hiển thị (2 tầng bảo vệ):**
+   - **Tầng 1 (Trình duyệt):** CSS `object-fit: cover` và `aspect-ratio` tự động căn chỉnh và crop vừa khít mọi tỷ lệ ảnh (dọc 9:16, ngang 16:9, vuông 1:1), không bao giờ bị méo hay vỡ layout. Kèm Canvas In-Browser Resizer tự động giảm tải bộ nhớ khi nạp ảnh quá khổ (> 1600px).
+   - **Tầng 2 (Công cụ 1-Click `optimize-images.bat`):** Sau khi bỏ ảnh mới vào folder, bạn chỉ cần **click đúp vào file `optimize-images.bat`** ngoài thư mục gốc. Script PowerShell tự động nén JPEG 82% và resize chuẩn về 800px (concept/outfit) và 1200px (banner), giúp tiết kiệm 70-90% dung lượng mà mắt thường không phân biệt được!
+   - **Dự phòng 100% không lỗi (Fallback):** Mọi ảnh đều có đường dẫn dự phòng online qua `onerror`, đảm bảo trang web luôn hiển thị đẹp mắt dù ảnh local chưa được thêm đầy đủ.
+
+👉 Chi tiết bảng tra cứu Naming Convention xem tại: [images/README.md](images/README.md)

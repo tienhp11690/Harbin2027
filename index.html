@@ -1312,6 +1312,27 @@
       box-shadow: var(--shadow-ice);
     }
 
+        .outfit-photo-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      background: #081026;
+    }
+
+    .outfit-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .lookbook-card:hover .outfit-thumb-img {
+      transform: scale(1.05);
+    }
+
     .palette-swatches {
       display: flex;
       height: 48px;
@@ -3730,6 +3751,9 @@
             <span class="swatch" style="background:#a7c957;" title="Xanh Xô Thơm"></span>
             <span class="swatch" style="background:#495057;" title="Xám Tro Đậm"></span>
           </div>
+          <div class="outfit-photo-wrap">
+            <img src="images/outfits/outfit-01.jpg" alt="White & Pastel Mint Couple" class="outfit-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80';}">
+          </div>
           <div class="lookbook-body">
             <span class="lookbook-style-tag">Phong Cách 1: Tinh Khôi Cổ Tích</span>
             <h4>White & Pastel Mint Couple</h4>
@@ -3746,6 +3770,9 @@
             <span class="swatch" style="background:#ef233c;" title="Đỏ Cờ"></span>
             <span class="swatch" style="background:#2b2d42;" title="Xanh Đen Navy"></span>
             <span class="swatch" style="background:#ffffff;" title="Trắng"></span>
+          </div>
+          <div class="outfit-photo-wrap">
+            <img src="images/outfits/outfit-02.jpg" alt="Bold Red & Deep Navy Accent" class="outfit-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80';}">
           </div>
           <div class="lookbook-body">
             <span class="lookbook-style-tag">Phong Cách 2: Tương Phản Triệu View</span>
@@ -3764,6 +3791,9 @@
             <span class="swatch" style="background:#ede0d4;" title="Beige Kem"></span>
             <span class="swatch" style="background:#1b263b;" title="Xanh Đen"></span>
           </div>
+          <div class="outfit-photo-wrap">
+            <img src="images/outfits/outfit-03.jpg" alt="Vintage Caramel & Wool Coat" class="outfit-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80';}">
+          </div>
           <div class="lookbook-body">
             <span class="lookbook-style-tag">Phong Cách 3: Quý Tộc Cổ Điển Nga</span>
             <h4>Vintage Caramel & Wool Coat</h4>
@@ -3780,6 +3810,9 @@
             <span class="swatch" style="background:#fb8500;" title="Cam Năng Động"></span>
             <span class="swatch" style="background:#023047;" title="Xanh Thẫm"></span>
             <span class="swatch" style="background:#219ebc;" title="Xanh Biển Sáng"></span>
+          </div>
+          <div class="outfit-photo-wrap">
+            <img src="images/outfits/outfit-04.jpg" alt="Vibrant Sporty Ski Couple" class="outfit-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=800&q=80';}">
           </div>
           <div class="lookbook-body">
             <span class="lookbook-style-tag">Phong Cách 4: Năng Động Trượt Tuyết</span>
@@ -3807,15 +3840,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Boiling_water_in_freezing_cold_air.jpg/960px-Boiling_water_in_freezing_cold_air.jpg" alt="Té nước sôi thành quầng hoa tuyết 360 độ" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-01-1.jpg" alt="Té nước sôi thành quầng hoa tuyết 360 độ" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Boiling_water_in_freezing_cold_air.jpg/960px-Boiling_water_in_freezing_cold_air.jpg';}">
                 <span class="slide-caption">Quầng tuyết tròn 360° bung tỏa</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Boiling_water_thrown_into_cold_air.jpg/960px-Boiling_water_thrown_into_cold_air.jpg" alt="Bụi băng tinh thể tuyết tung lên trời" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-01-2.jpg" alt="Bụi băng tinh thể tuyết tung lên trời" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Boiling_water_thrown_into_cold_air.jpg/960px-Boiling_water_thrown_into_cold_air.jpg';}">
                 <span class="slide-caption">Đám mây bụi băng tinh thể</span>
               </div>
               <div class="pose-slide">
-                <img src="https://images.unsplash.com/photo-1515466763569-3d6c9775247b?auto=format&fit=crop&w=800&q=80" alt="Silhouette ngược sáng bình minh té nước sôi" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-01-3.jpg" alt="Silhouette ngược sáng bình minh té nước sôi" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1515466763569-3d6c9775247b?auto=format&fit=crop&w=800&q=80';}">
                 <span class="slide-caption">Silhouette ngược sáng đón bình minh</span>
               </div>
             </div>
@@ -3847,15 +3880,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Morning_in_China_Snow_Town.jpg/960px-Morning_in_China_Snow_Town.jpg" alt="Toàn cảnh mái nấm tuyết Tuyết Hương lúc bình minh" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-02-1.jpg" alt="Toàn cảnh mái nấm tuyết Tuyết Hương lúc bình minh" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Morning_in_China_Snow_Town.jpg/960px-Morning_in_China_Snow_Town.jpg';}">
                 <span class="slide-caption">Toàn cảnh thung lũng nấm tuyết</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Xuexiang_1.jpg/960px-Xuexiang_1.jpg" alt="Mái nấm tuyết tròn xoe bồng bềnh nhà gỗ" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-02-2.jpg" alt="Mái nấm tuyết tròn xoe bồng bềnh nhà gỗ" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Xuexiang_1.jpg/960px-Xuexiang_1.jpg';}">
                 <span class="slide-caption">Mái nấm tuyết bồng bềnh nguyên sơ</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Xuexiang_7.jpg/960px-Xuexiang_7.jpg" alt="Góc cận sạn đạo Bổng Chùy Sơn và đèn lồng đỏ" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-02-3.jpg" alt="Góc cận sạn đạo Bổng Chùy Sơn và đèn lồng đỏ" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Xuexiang_7.jpg/960px-Xuexiang_7.jpg';}">
                 <span class="slide-caption">Sạn đạo Bổng Chùy Sơn & đèn lồng đỏ</span>
               </div>
             </div>
@@ -3887,15 +3920,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=800&q=80" alt="Trượt tuyết trên sườn núi tuyết bột" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-03-1.jpg" alt="Trượt tuyết trên sườn núi tuyết bột" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=800&q=80';}">
                 <span class="slide-caption">Lướt tuyết bột champagne rực rỡ</span>
               </div>
               <div class="pose-slide">
-                <img src="https://images.unsplash.com/photo-1787159814548-972181929459?auto=format&fit=crop&w=800&q=80" alt="Cặp đôi trượt tuyết song song" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-03-2.jpg" alt="Cặp đôi trượt tuyết song song" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1787159814548-972181929459?auto=format&fit=crop&w=800&q=80';}">
                 <span class="slide-caption">Trượt song song xé gió rừng thông</span>
               </div>
               <div class="pose-slide">
-                <img src="https://images.unsplash.com/photo-1775816416343-780e846418b5?auto=format&fit=crop&w=800&q=80" alt="Cú cua ván tạo làn sóng tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-03-3.jpg" alt="Cú cua ván tạo làn sóng tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1775816416343-780e846418b5?auto=format&fit=crop&w=800&q=80';}">
                 <span class="slide-caption">Cú rẽ chữ S tung bọt tuyết trắng</span>
               </div>
             </div>
@@ -3927,15 +3960,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Tsurunoyu_onsen_rotenburo.JPG/960px-Tsurunoyu_onsen_rotenburo.JPG" alt="Bể khoáng nóng ngoài trời nghi ngút khói tuyết rơi" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-04-1.jpg" alt="Bể khoáng nóng ngoài trời nghi ngút khói tuyết rơi" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Tsurunoyu_onsen_rotenburo.JPG/960px-Tsurunoyu_onsen_rotenburo.JPG';}">
                 <span class="slide-caption">Khoáng nóng 42°C giữa tuyết trắng -20°C</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Tsurunoyu_Onsen_04.jpg/960px-Tsurunoyu_Onsen_04.jpg" alt="Dòng suối khoáng nóng bốc khói mờ ảo trong tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-04-2.jpg" alt="Dòng suối khoáng nóng bốc khói mờ ảo trong tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Tsurunoyu_Onsen_04.jpg/960px-Tsurunoyu_Onsen_04.jpg';}">
                 <span class="slide-caption">Làn khói mờ ảo bốc lên suối khoáng</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Tsurunoyu_Onsen_05.jpg/960px-Tsurunoyu_Onsen_05.jpg" alt="Ngâm mình thư giãn ngắm rừng tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-04-3.jpg" alt="Ngâm mình thư giãn ngắm rừng tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Tsurunoyu_Onsen_05.jpg/960px-Tsurunoyu_Onsen_05.jpg';}">
                 <span class="slide-caption">Ngâm mình thư giãn ngắm tuyết rơi</span>
               </div>
             </div>
@@ -3967,15 +4000,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Child_making_Snow_Angel.jpg/960px-Child_making_Snow_Angel.jpg" alt="Tạo hình thiên thần tuyết trong thảm tuyết bột" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-05-1.jpg" alt="Tạo hình thiên thần tuyết trong thảm tuyết bột" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Child_making_Snow_Angel.jpg/960px-Child_making_Snow_Angel.jpg';}">
                 <span class="slide-caption">Tạo hình cánh thiên thần tuyết sống động</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/SnowAngel-5644.jpg/960px-SnowAngel-5644.jpg" alt="Góc chụp flycam top down 90 độ thiên thần tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-05-2.jpg" alt="Góc chụp flycam top down 90 độ thiên thần tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/SnowAngel-5644.jpg/960px-SnowAngel-5644.jpg';}">
                 <span class="slide-caption">Góc máy top-down 90° từ trên cao</span>
               </div>
               <div class="pose-slide">
-                <img src="https://images.unsplash.com/photo-1548334739-c6a099a971ad?auto=format&fit=crop&w=800&q=80" alt="Nụ cười rạng rỡ làm thiên thần tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-05-3.jpg" alt="Nụ cười rạng rỡ làm thiên thần tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1548334739-c6a099a971ad?auto=format&fit=crop&w=800&q=80';}">
                 <span class="slide-caption">Khoảnh khắc rạng rỡ giữa tuyết nguyên sinh</span>
               </div>
             </div>
@@ -4007,15 +4040,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Harbin_Ice_%26_Snow_Festival_2026_-_Saint_Sophia_Cathedral.jpg/960px-Harbin_Ice_%26_Snow_Festival_2026_-_Saint_Sophia_Cathedral.jpg" alt="Nhà thờ Thánh Sophia Cáp Nhĩ Tân mùa đông 2026" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-06-1.jpg" alt="Nhà thờ Thánh Sophia Cáp Nhĩ Tân mùa đông 2026" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Harbin_Ice_%26_Snow_Festival_2026_-_Saint_Sophia_Cathedral.jpg/960px-Harbin_Ice_%26_Snow_Festival_2026_-_Saint_Sophia_Cathedral.jpg';}">
                 <span class="slide-caption">Nhà thờ Thánh Sophia mùa đông tráng lệ</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Saint_Sophia_Cathedral%2C_Harbin_06.01.2026.jpg/960px-Saint_Sophia_Cathedral%2C_Harbin_06.01.2026.jpg" alt="Quảng trường Sophia hoàng hôn và đàn bồ câu" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-06-2.jpg" alt="Quảng trường Sophia hoàng hôn và đàn bồ câu" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Saint_Sophia_Cathedral%2C_Harbin_06.01.2026.jpg/960px-Saint_Sophia_Cathedral%2C_Harbin_06.01.2026.jpg';}">
                 <span class="slide-caption">Quảng trường Sophia lung linh ánh đèn</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Saint_Sophia_Cathedral%2C_Harbin_7.jpg/960px-Saint_Sophia_Cathedral%2C_Harbin_7.jpg" alt="Dạo bước châu Âu trước nhà thờ Sophia" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-06-3.jpg" alt="Dạo bước châu Âu trước nhà thờ Sophia" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Saint_Sophia_Cathedral%2C_Harbin_7.jpg/960px-Saint_Sophia_Cathedral%2C_Harbin_7.jpg';}">
                 <span class="slide-caption">Dạo bước cổ kính phong cách Châu Âu</span>
               </div>
             </div>
@@ -4047,15 +4080,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Hietaliete_forest_in_snow_with_reindeer_sled.jpg/960px-Hietaliete_forest_in_snow_with_reindeer_sled.jpg" alt="Tuần lộc giữa rừng tuyết trắng phong cách Lapland" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-07-1.jpg" alt="Tuần lộc giữa rừng tuyết trắng phong cách Lapland" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Hietaliete_forest_in_snow_with_reindeer_sled.jpg/960px-Hietaliete_forest_in_snow_with_reindeer_sled.jpg';}">
                 <span class="slide-caption">Tuần lộc kéo xe giữa rừng tuyết Bắc Âu</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Caribou_Rangifer_tarandus_caribou_%2847796957741%29.jpg/960px-Caribou_Rangifer_tarandus_caribou_%2847796957741%29.jpg" alt="Cận cảnh chú tuần lộc gạc nhung ăn rêu tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-07-2.jpg" alt="Cận cảnh chú tuần lộc gạc nhung ăn rêu tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Caribou_Rangifer_tarandus_caribou_%2847796957741%29.jpg/960px-Caribou_Rangifer_tarandus_caribou_%2847796957741%29.jpg';}">
                 <span class="slide-caption">Cận cảnh tuần lộc gạc nhung thân thiện</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Rentiere.jpg/960px-Rentiere.jpg" alt="Bầy tuần lộc tụ họp trên bãi tuyết ngập sâu" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-07-3.jpg" alt="Bầy tuần lộc tụ họp trên bãi tuyết ngập sâu" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Rentiere.jpg/960px-Rentiere.jpg';}">
                 <span class="slide-caption">Bầy tuần lộc giữa bãi tuyết ngập sâu</span>
               </div>
             </div>
@@ -4087,15 +4120,15 @@
           <div class="pose-thumb-wrap">
             <div class="pose-slider" onscroll="updateSliderDots(this)">
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Rime_Island_Hantun_Village_5_YHA_Jilin_Galaha_youth_hostel.jpg/960px-Rime_Island_Hantun_Village_5_YHA_Jilin_Galaha_youth_hostel.jpg" alt="Rừng cây phủ sương muối Rime trắng xóa ven sông" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-08-1.jpg" alt="Rừng cây phủ sương muối Rime trắng xóa ven sông" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Rime_Island_Hantun_Village_5_YHA_Jilin_Galaha_youth_hostel.jpg/960px-Rime_Island_Hantun_Village_5_YHA_Jilin_Galaha_youth_hostel.jpg';}">
                 <span class="slide-caption">Rừng cây sương muối Rime trắng muốt</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Winter_Fog_From_The_River_%2816535459680%29.jpg/960px-Winter_Fog_From_The_River_%2816535459680%29.jpg" alt="Làn sương khói ma mị bốc lên cuộn trào trên mặt sông" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-08-2.jpg" alt="Làn sương khói ma mị bốc lên cuộn trào trên mặt sông" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Winter_Fog_From_The_River_%2816535459680%29.jpg/960px-Winter_Fog_From_The_River_%2816535459680%29.jpg';}">
                 <span class="slide-caption">Làn sương khói ma mị cuộn trào mặt sông</span>
               </div>
               <div class="pose-slide">
-                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Winter_Rauhreif_Regnitz_PC310030.jpg/960px-Winter_Rauhreif_Regnitz_PC310030.jpg" alt="Khung cảnh thuyền trôi êm đềm giữa rừng băng tuyết" class="pose-thumb-img" loading="lazy">
+                <img src="images/concepts/concept-08-3.jpg" alt="Khung cảnh thuyền trôi êm đềm giữa rừng băng tuyết" class="pose-thumb-img" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Winter_Rauhreif_Regnitz_PC310030.jpg/960px-Winter_Rauhreif_Regnitz_PC310030.jpg';}">
                 <span class="slide-caption">Thuyền trôi giữa chốn bồng lai tiên cảnh</span>
               </div>
             </div>
@@ -4162,7 +4195,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="Shanghai The Bund" loading="lazy">
+              <img src="images/activities/day-01.jpg" alt="Shanghai The Bund" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🌆 Bến Thượng Hải (The Bund) lung linh ánh đèn phản chiếu bên dòng sông Hoàng Phố</span>
                 <span>Thượng Hải (Shanghai)</span>
@@ -4259,7 +4292,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=80" alt="Saint Sophia Cathedral Harbin" loading="lazy">
+              <img src="images/activities/day-02.jpg" alt="Saint Sophia Cathedral Harbin" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>⛪ Nhà thờ Thánh Sophia Cáp Nhĩ Tân dát ánh vàng cổ kính giữa nền tuyết đêm Giao Thừa</span>
                 <span>Quận Đạo Lý (Daoli District)</span>
@@ -4360,7 +4393,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Harbin Ice World Sculptures" loading="lazy">
+              <img src="images/activities/day-03.jpg" alt="Harbin Ice World Sculptures" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🏰 Băng Tuyết Đại Thế Giới (Ice & Snow World) – công trình điêu khắc băng đăng vĩ đại nhất hành tinh</span>
                 <span>Metro Tuyến 2 tới tận cổng</span>
@@ -4466,7 +4499,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Volga Manor Castle Snow" loading="lazy">
+              <img src="images/activities/day-04.jpg" alt="Volga Manor Castle Snow" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🏰 Lâu đài Pavlov cổ kính giữa xứ sở tuyết trắng Trang Viên Volga (Volga Manor)</span>
                 <span>Ngoại ô Cáp Nhĩ Tân (Xiangfang District)</span>
@@ -4573,7 +4606,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Morning_in_China_Snow_Town.jpg/960px-Morning_in_China_Snow_Town.jpg" alt="China Snow Town Xuexiang" loading="lazy">
+              <img src="images/activities/day-05.jpg" alt="China Snow Town Xuexiang" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Morning_in_China_Snow_Town.jpg/960px-Morning_in_China_Snow_Town.jpg';}">
               <div class="day-photo-caption">
                 <span>🍄 Làng Tuyết Hương (China Snow Town) – thế giới cổ tích với những mái nhà nấm tuyết bồng bềnh</span>
                 <span>Bus Cáp Nhĩ Tân ➔ Tuyết Hương (120¥) • Nghỉ dưỡng 2 đêm liên tiếp cùng 1 homestay</span>
@@ -4676,7 +4709,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Yangcaoshan Sunrise" loading="lazy">
+              <img src="images/activities/day-06.jpg" alt="Yangcaoshan Sunrise" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🌄 Săn bình minh trên biển mây đỉnh núi Dương Thảo Sơn (1.235m) và rừng tuyết hoang sơ Tuyết Hương</span>
                 <span>Trọn vẹn 1 ngày tự do • Tiếp tục lưu trú đêm thứ 2 tại Làng Tuyết Hương</span>
@@ -4781,7 +4814,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80" alt="Changbaishan pine forest" loading="lazy">
+              <img src="images/activities/day-07.jpg" alt="Changbaishan pine forest" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🌲 Thị trấn Nhị Đạo Bạch Hà (Erdaobaihe) – ốc đảo suối nước nóng dưới chân dãy Trường Bạch</span>
                 <span>Bus liên tỉnh Tuyết Hương ➔ Trường Bạch (150¥) • Trải nghiệm Onsen khoáng nóng ngoài trời 42°C</span>
@@ -4879,7 +4912,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Changbaishan Tianchi Crater" loading="lazy">
+              <img src="images/activities/day-08.jpg" alt="Changbaishan Tianchi Crater" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🏔️ Hồ Thiên Trì trên đỉnh núi lửa Trường Bạch linh thiêng đóng băng trắng muốt</span>
                 <span>Độ cao 2.189m so với mực nước biển • Đỉnh ranh giới tự nhiên Trung - Triều</span>
@@ -4983,7 +5016,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Ma Gioi Rafting" loading="lazy">
+              <img src="images/activities/day-09.jpg" alt="Ma Gioi Rafting" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🛶 Ma Giới Rafting (魔界漂流) – chèo thuyền cao su trên dòng sông địa nhiệt sương khói ngút ngàn</span>
                 <span>Trượt tuyết bột chân núi Trường Bạch • Đêm 9 nghỉ cách Ga Tàu Cao Tốc chỉ 800m</span>
@@ -5090,7 +5123,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=800&q=80" alt="Puppet Manchurian Palace Changchun" loading="lazy">
+              <img src="images/activities/day-10.jpg" alt="Puppet Manchurian Palace Changchun" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🏛️ Bảo tàng Hoàng cung Mãn Châu Quốc (Viện bảo tàng Phổ Nghi) tại thành phố Trường Xuân</span>
                 <span>Kiến trúc giao thoa Đông - Tây độc đáo</span>
@@ -5191,7 +5224,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?auto=format&fit=crop&w=800&q=80" alt="Jingyuetan Changchun Forest" loading="lazy">
+              <img src="images/activities/day-11.jpg" alt="Jingyuetan Changchun Forest" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1491555103944-7c647fd857e6?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>🌲 Công viên rừng quốc gia Tịnh Nguyệt Đàm (Jingyuetan) – lá phổi xanh mùa đông của Trường Xuân</span>
                 <span>Metro Line 3 thẳng tới cổng</span>
@@ -5287,7 +5320,7 @@
           </div>
           <div class="day-body">
             <div class="day-photo-banner">
-              <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" alt="Beijing Capital Airport" loading="lazy">
+              <img src="images/activities/day-12.jpg" alt="Beijing Capital Airport" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80';}">
               <div class="day-photo-caption">
                 <span>✈️ Sân bay Quốc tế Thủ đô Bắc Kinh (PEK) – trạm dừng chân transit trên đường về Hà Nội</span>
                 <span>Chuyến bay Air China CA-1628 & CA-883</span>
@@ -5923,6 +5956,41 @@
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
+
+    
+    // Automatic in-browser image optimization & memory guardian
+    function initImageOptimizer() {
+      document.querySelectorAll('.pose-thumb-img, .outfit-thumb-img, .day-photo-banner img').forEach(img => {
+        img.addEventListener('load', function() {
+          if (this.dataset.resized) return;
+          let maxDim = 800;
+          if (this.closest('.day-photo-banner')) maxDim = 1200;
+
+          if (this.naturalWidth > 1600 || this.naturalHeight > 1600) {
+            try {
+              const canvas = document.createElement('canvas');
+              const ratio = Math.min(maxDim / this.naturalWidth, maxDim / this.naturalHeight);
+              canvas.width = Math.round(this.naturalWidth * ratio);
+              canvas.height = Math.round(this.naturalHeight * ratio);
+              const ctx = canvas.getContext('2d');
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
+              ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+              this.dataset.resized = '1';
+              this.src = canvas.toDataURL('image/jpeg', 0.82);
+            } catch (e) {
+              // Canvas fallback
+            }
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initImageOptimizer);
+    } else {
+      initImageOptimizer();
+    }
 
     window.addEventListener('resize', () => {
       width = canvas.width = window.innerWidth;
@@ -7483,6 +7551,41 @@ function renderOverviewMap() {
         if (tripMap) tripMap.invalidateSize();
       }, 500);
     });
+
+    
+    // Automatic in-browser image optimization & memory guardian
+    function initImageOptimizer() {
+      document.querySelectorAll('.pose-thumb-img, .outfit-thumb-img, .day-photo-banner img').forEach(img => {
+        img.addEventListener('load', function() {
+          if (this.dataset.resized) return;
+          let maxDim = 800;
+          if (this.closest('.day-photo-banner')) maxDim = 1200;
+
+          if (this.naturalWidth > 1600 || this.naturalHeight > 1600) {
+            try {
+              const canvas = document.createElement('canvas');
+              const ratio = Math.min(maxDim / this.naturalWidth, maxDim / this.naturalHeight);
+              canvas.width = Math.round(this.naturalWidth * ratio);
+              canvas.height = Math.round(this.naturalHeight * ratio);
+              const ctx = canvas.getContext('2d');
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
+              ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+              this.dataset.resized = '1';
+              this.src = canvas.toDataURL('image/jpeg', 0.82);
+            } catch (e) {
+              // Canvas fallback
+            }
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initImageOptimizer);
+    } else {
+      initImageOptimizer();
+    }
 
     window.addEventListener('resize', () => {
       if (tripMap) tripMap.invalidateSize();
