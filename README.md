@@ -12,7 +12,7 @@
 - **Chuyến bay đã book (Air China):**
   - **Chiều đi:** Hà Nội (12:25, 30/12) ➔ Thượng Hải (16:30, 30/12 - transit 21h15m) ➔ Cáp Nhĩ Tân (16:40, 31/12)
   - **Chiều về:** Trường Xuân (12:40, 10/01) ➔ Bắc Kinh (14:40, 10/01 - transit 9h30m) ➔ Hà Nội (03:15, 11/01)
-- **Tuyến đường:** Thượng Hải (transit) ➔ Cáp Nhĩ Tân ➔ Á Bố Lực (Yabuli) ➔ Làng Tuyết Hương (Xuexiang) ➔ Núi Trường Bạch (Changbaishan) ➔ Trường Xuân (Changchun) ➔ Bắc Kinh (transit) ➔ Hà Nội.
+- **Tuyến đường:** Thượng Hải (transit) ➔ Cáp Nhĩ Tân ➔ Tuyến Xe Trực Thông Á Tuyết ➔ Làng Tuyết Hương (Xuexiang - Nghỉ dưỡng 2 đêm khang sưởi) ➔ Núi Trường Bạch (Changbaishan - Onsen 2 đêm & Trượt tuyết Hòa Bình) ➔ Trường Xuân (Changchun) ➔ Bắc Kinh (transit) ➔ Hà Nội.
 
 ---
 
@@ -40,7 +40,7 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 5. **☀️ Đảo Mặt Trời (Sun Island - 太阳岛雪博会):** Sáng Ngày 3 (Metro Line 2 qua ga Thái Dương Đảo, Triển lãm điêu khắc tượng tuyết trắng quốc tế khổng lồ 30m).
 6. **🏰 Trang Viên Volga (Volga Manor - 伏尔加庄园):** Trọn vẹn Ngày 4 (Lâu đài Pavlov tuyết trắng, quán bar hầm rượu Vodka bằng băng nguyên khối, máng trượt phao từ tháp lâu đài Nga).
 7. **🐅 Công Viên Hổ Siberia (Siberian Tiger Park - 东北虎林园):** Trưa Ngày 3 (xe lồng bọc thép đặc chủng khám phá bầy hổ tuyết Siberia dũng mãnh nhảy vồ mồi giữa bão tuyết).
-8. **🍄 Làng Tuyết Hương (China Snow Town - 中国雪乡):** Chiều/tối Ngày 6 & sáng Ngày 7 (mái nấm tuyết bồng bềnh, đêm đèn lồng đỏ, té nước sôi thành băng, dạo sàn gỗ Bổng Chùy Sơn).
+8. **🍄 Làng Tuyết Hương (China Snow Town - 中国雪乡):** Trọn vẹn 2 đêm liên tiếp (Ngày 5 & Ngày 6) nghỉ ngơi thư thái trong cùng homestay khang sưởi ấm áp, KHÔNG vác vali đổi phòng: ngắm mái nấm tuyết bồng bềnh, đêm rước đuốc đèn lồng đỏ, săn bình minh đỉnh Dương Thảo Sơn 1.235m bằng mô tô tuyết, té nước sôi thành băng, dạo sàn gỗ Bổng Chùy Sơn và Thập Lý Họa Lang.
 
 ---
 
@@ -62,5 +62,5 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
    - 5 video YouTube Shorts dạng đứng (9:16) quay trải nghiệm thực tế: Máng trượt 500m, Băng đăng đêm, Làng Tuyết Hương, Rafting Ma Giới, Té nước sôi thành băng.
 2. **🎨 Graphic Tips Chuẩn Bị:** Infographic mặc ấm 3 lớp, dáng đi chim cánh cụt chống trượt, mẹo pin sập nguồn, mẹo đi xe lồng xem hổ và check-in Volga Manor.
 3. **👗 Lookbook Outfit & 8 Ý Tưởng Chụp Ảnh & Video Couple:** 4 bảng phối màu thời trang mùa đông & 8 concept tạo dáng đôi viral kèm bộ sưu tập thumbnail ảnh mẫu trực quan với tính năng swipe cảm ứng / kéo chuột mượt mà để tra cứu nhanh khi đi thực tế.
-4. **⛷️ Giáo Trình Trượt Tuyết 2 Buổi:** Buổi 1 (Á Bố Lực) và Buổi 2 (Trường Bạch Sơn).
+4. **⛷️ Hướng Dẫn Trượt Tuyết Tại Núi Trường Bạch:** Khóa trải nghiệm & trượt tuyết trọn ngày tại Sân Trượt Tuyết Hòa Bình (Peace Ski Resort) chân núi Trường Bạch giữa rừng thông cổ thụ, tuyết bột champagne cực mịn và an toàn.
 5. **💰 Dự Toán Ngân Sách:** Tối ưu chi phí công cộng trọn gói ~19 triệu VNĐ/người cho 12 ngày 11 đêm (tiết kiệm hơn 60% so với bao xe riêng).
