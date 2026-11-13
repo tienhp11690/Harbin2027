@@ -4757,59 +4757,206 @@
       }
 
       .container {
-        padding: 0 12px;
+        padding: 0 10px;
       }
 
       .app-header-top {
-        padding: 8px 12px 4px;
+        padding: 8px 10px 4px;
       }
 
       .primary-tabs-wrap {
-        padding: 0 12px;
+        padding: 0 10px;
+        -webkit-overflow-scrolling: touch;
       }
 
+      .primary-tab-btn {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        gap: 5px;
+      }
+
+      /* Compact Trip Glance & Scrollable Hotel Pills */
       .trip-glance-grid {
         grid-template-columns: 1fr;
+        gap: 8px;
       }
 
       .trip-glance-topbar {
         flex-wrap: wrap;
-        padding: 8px 12px;
+        padding: 7px 10px;
+        gap: 6px;
+      }
+
+      .glance-card {
+        padding: 10px 12px;
+      }
+
+      .glance-hotel-pills {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+
+      .glance-hotel-pills::-webkit-scrollbar {
+        display: none;
+      }
+
+      .glance-hotel-pills .g-pill {
+        flex-shrink: 0;
+        white-space: nowrap;
       }
 
       .app-brand-sub {
         display: none;
       }
 
-      .primary-tab-btn {
-        font-size: 0.83rem;
-        padding: 9px 11px;
+      /* Section Header Spacing Reduction */
+      .section-header {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
       }
 
+      .section-tag {
+        font-size: 0.64rem;
+        padding: 2px 7px;
+        margin-bottom: 4px;
+      }
+
+      .section-title {
+        font-size: 1.15rem;
+        margin-bottom: 2px;
+      }
+
+      .section-desc {
+        font-size: 0.76rem;
+        line-height: 1.35;
+        margin-bottom: 2px;
+      }
+
+      /* Itinerary Toolbar: iOS Segmented Switch + 1-Row Swipeable Filter Pills */
       .itinerary-toolbar {
-        padding: 10px 12px;
+        padding: 8px 10px;
+        gap: 8px;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 12px;
+        margin-bottom: 10px;
       }
 
       .view-mode-switch {
         width: 100%;
+        display: flex;
+        padding: 3px;
+        border-radius: 8px;
+        background: rgba(11, 17, 32, 0.85);
+        box-sizing: border-box;
       }
 
       .view-mode-btn {
         flex: 1;
-        font-size: 0.77rem;
-        padding: 6px 8px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        padding: 6px 4px;
+        text-align: center;
+        border-radius: 6px;
+        min-height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+      }
+
+      .filter-bar {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+        padding: 2px 2px 4px;
+        margin: 0;
+        justify-content: flex-start;
+      }
+
+      .filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 5px 11px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        border-radius: 999px;
+        min-height: 28px;
+      }
+
+      /* Day Jump Chips: 1-line swipeable */
+      .day-jump-bar {
+        padding: 5px 8px;
+        margin-bottom: 10px;
+        gap: 5px;
+        border-radius: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .day-jump-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .day-jump-chip {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+        border-radius: 6px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      /* Day Card & Header: Clean top-right toggle button, compact spacing */
+      .timeline-container {
+        gap: 10px;
+      }
+
+      .day-card {
+        margin-bottom: 10px;
+        border-radius: 12px;
       }
 
       .day-header {
-        flex-wrap: wrap;
-        gap: 8px;
-        padding: 12px 14px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 10px 12px;
       }
 
       .day-header-left {
         width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding-right: 32px; /* Leaves clear space for top-right toggle button */
         min-width: 0;
-        gap: 10px;
+      }
+
+      .day-number {
+        font-size: 0.72rem;
+        font-weight: 800;
+        padding: 2px 7px;
+        border-radius: 5px;
+        flex-shrink: 0;
+        margin-top: 1px;
+        line-height: 1.25;
       }
 
       .day-title-group {
@@ -4817,14 +4964,143 @@
         flex: 1;
       }
 
+      .day-title-group h3 {
+        font-size: 0.88rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 2px;
+        color: #f8fafc;
+      }
+
+      .day-title-group .day-route {
+        font-size: 0.72rem;
+        color: #94a3b8;
+        line-height: 1.3;
+      }
+
       .day-tags {
         width: 100%;
+        display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        gap: 4px;
+        padding-right: 28px;
+        margin-top: 2px;
+        justify-content: flex-start;
+      }
+
+      .tag {
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.64rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+      }
+
+      .day-toggle-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 26px;
+        height: 26px;
+        margin: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.68rem;
+        color: #94a3b8;
+        transition: transform 0.25s ease, background 0.2s, color 0.2s, border-color 0.2s;
+      }
+
+      .day-card.open .day-toggle-icon {
+        transform: rotate(180deg);
+        color: #38bdf8;
+        background: rgba(56, 189, 248, 0.16);
+        border-color: rgba(56, 189, 248, 0.35);
+      }
+
+      /* Expanded Day Content: Mobile optimized */
+      .day-body {
+        padding: 0 12px 14px;
       }
 
       .day-photo-banner {
-        height: 150px;
+        height: 130px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .day-photo-caption {
+        font-size: 0.72rem;
+        padding: 6px 8px;
+        gap: 2px;
+      }
+
+      .time-slot {
+        flex-direction: column;
+        gap: 3px;
+        margin-bottom: 8px;
+      }
+
+      .time-badge {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+      }
+
+      .activity-desc {
+        font-size: 0.8rem;
+        line-height: 1.38;
+      }
+
+      .day-hotel-box,
+      .day-food-box,
+      .day-transit-box {
+        padding: 10px 12px;
+        border-radius: 8px;
+        margin-top: 8px;
+      }
+
+      .hotel-actions-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .hotel-actions-bar .btn-focus-hotel-map,
+      .hotel-actions-bar .btn-trip-link {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: 0.76rem;
+        box-sizing: border-box;
+        border-radius: 7px;
+      }
+
+      /* Tab 2 Budget Grid: 2x2 on Mobile instead of 1 long column */
+      .budget-dashboard-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .budget-stat-card {
+        padding: 10px 12px;
+        border-radius: 10px;
+      }
+
+      .budget-stat-card .stat-value {
+        font-size: 1.05rem;
+      }
+
+      .budget-stat-card .stat-label {
+        font-size: 0.7rem;
       }
 
       .photo-idea-grid,
@@ -4835,15 +5111,11 @@
       .transit-spec {
         grid-template-columns: 1fr !important;
       }
-
-      .time-slot {
-        flex-direction: column;
-        gap: 4px;
-      }
     }
 
     @media (max-width: 480px) {
-      .btn-header-util span.share-label {
+      .btn-header-util span.share-label,
+      .btn-header-util.primary span:nth-child(2) {
         display: none;
       }
       .app-brand-title {
@@ -11649,8 +11921,12 @@
        ======================================================== */
     function initRevampApp() {
       try {
-        if (localStorage.getItem('harbin_glance_collapsed_v1') === '1') {
-          toggleGlanceBar(true);
+        const savedGlance = localStorage.getItem('harbin_glance_collapsed_v1');
+        if (savedGlance === '1' || (savedGlance === null && window.innerWidth <= 768)) {
+          const shell = document.getElementById('trip-glance-shell');
+          const btn = document.getElementById('glance-toggle-btn');
+          if (shell) shell.classList.add('collapsed');
+          if (btn) btn.textContent = 'Mở rộng ▼';
         }
       } catch (e) { }
 
