@@ -5788,7 +5788,314 @@
         display: block !important;
       }
     }
-  </style>
+  
+/* ==========================================================
+   TAB 6: CHINESE LEARNING SYSTEM (HSK3 -> HSK4 TRAVEL MASTERY)
+   ========================================================== */
+.chinese-hero {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chinese-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chinese-search-wrap {
+  flex: 1 1 300px;
+  position: relative;
+}
+
+.chinese-search-input {
+  width: 100%;
+  padding: 9px 14px 9px 36px;
+  background: rgba(13, 21, 39, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 8px;
+  color: #f1f5f9;
+  font-size: 0.88rem;
+  outline: none;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.chinese-search-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.chinese-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.chinese-tool-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-chinese-tool {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-chinese-tool:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.btn-chinese-tool.active-mode {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+  color: #fbbf24;
+}
+
+/* Chinese Dialogue Groups & Cards */
+.chinese-dialogue-group {
+  margin-bottom: 24px;
+}
+
+.chinese-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.25);
+}
+
+.chinese-dialogue-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chinese-phrase-card {
+  background: rgba(13, 21, 39, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.chinese-phrase-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.chinese-phrase-card.speaker-traveler {
+  border-left: 4px solid #38bdf8;
+}
+
+.chinese-phrase-card.speaker-local {
+  border-left: 4px solid #f59e0b;
+}
+
+.phrase-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.phrase-speaker-tag {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.speaker-traveler .phrase-speaker-tag {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.speaker-local .phrase-speaker-tag {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.phrase-action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-chinese-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #94a3b8;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s;
+}
+
+.btn-chinese-action:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #e2e8f0;
+}
+
+.chinese-hanzi {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #f8fafc;
+  font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  user-select: all;
+}
+
+.chinese-pinyin {
+  font-size: 0.95rem;
+  color: #fbbf24;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+
+.chinese-meaning {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin-bottom: 6px;
+  transition: opacity 0.2s;
+}
+
+.chinese-grammar-tip {
+  font-size: 0.8rem;
+  color: #93c5fd;
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 2px solid #38bdf8;
+  padding: 5px 10px;
+  border-radius: 0 4px 4px 0;
+  margin-top: 6px;
+}
+
+/* Hide toggles */
+.hide-pinyin .chinese-pinyin {
+  display: none !important;
+}
+
+.hide-meaning .chinese-meaning,
+.hide-meaning .chinese-grammar-tip {
+  display: none !important;
+}
+
+/* Vocabulary Bank Grid / Table */
+.chinese-vocab-section {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chinese-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.chinese-vocab-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px 14px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.chinese-vocab-card:hover {
+  background: rgba(22, 33, 56, 0.9);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.vocab-top-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.vocab-hanzi {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  user-select: all;
+}
+
+.vocab-pinyin {
+  font-size: 0.88rem;
+  color: #fbbf24;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.vocab-meaning {
+  font-size: 0.85rem;
+  color: #e2e8f0;
+  line-height: 1.35;
+}
+
+.vocab-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.vocab-badge.slang {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+}
+
+</style>
 </head>
 
 <body>
@@ -5839,6 +6146,10 @@
         <button type="button" class="primary-tab-btn" id="tab-btn-packing" data-tab="packing"
           onclick="switchMainTab('packing')" role="tab" aria-selected="false">
           <span>🧥</span> <span>Mặc Đồ & Chuẩn Bị</span>
+        </button>
+        <button type="button" class="primary-tab-btn" id="tab-btn-chinese" data-tab="chinese"
+          onclick="switchMainTab('chinese')" role="tab" aria-selected="false">
+          <span>🗣️</span> <span>Học Tiếng Trung</span>
         </button>
       </div>
     </div>
@@ -10448,6 +10759,1402 @@
       </div>
     </div>
 
+        <!-- ==================== TAB 6: HỌC TIẾNG TRUNG DU LỊCH ==================== -->
+    <div class="tab-panel" id="panel-chinese" data-tab="chinese" role="tabpanel">
+      <!-- HERO & INTERACTIVE LEARNING TOOLBAR -->
+      <div class="chinese-hero">
+        <div class="section-header" style="margin-bottom: 10px;">
+          <span class="section-tag">Cẩm Nang Giao Tiếp Du Lịch Đông Bắc</span>
+          <h2 class="section-title">🗣️ Tiếng Trung Thực Chiến Cho Chuyến Đi (HSK3 ➔ HSK4)</h2>
+          <p class="section-desc">Tổng hợp kịch bản hội thoại thực địa và ngân hàng từ vựng chuẩn xác theo toàn bộ lộ trình: Cáp Nhĩ Tân, Yabuli, Tuyết Hương, Tuyết Lĩnh, Trường Bạch Sơn. Tích hợp phát âm audio giọng đọc bản xứ và sao chép văn bản tức thì.</p>
+        </div>
+
+        <!-- Interactive Study Controls Bar -->
+        <div class="chinese-controls-bar">
+          <div class="chinese-search-wrap">
+            <span class="chinese-search-icon">🔍</span>
+            <input type="search" id="chinese-search-input" class="chinese-search-input"
+              placeholder="Tìm theo Hanzi, Pinyin hoặc Tiếng Việt (VD: vé, ván trượt, taxi, lẩu, piao...)"
+              oninput="filterChineseCards()" autocomplete="off">
+          </div>
+
+          <div class="chinese-tool-buttons">
+            <button type="button" class="btn-chinese-tool" id="btn-toggle-pinyin" onclick="togglePinyinDisplay()">
+              <span>👁️</span> <span id="lbl-toggle-pinyin">Ẩn Pinyin (Tự luyện đọc)</span>
+            </button>
+            <button type="button" class="btn-chinese-tool" id="btn-toggle-meaning" onclick="toggleMeaningDisplay()">
+              <span>📖</span> <span id="lbl-toggle-meaning">Ẩn Dịch (Tự kiểm tra)</span>
+            </button>
+            <button type="button" class="btn-chinese-tool" id="btn-audio-speed" onclick="toggleSpeechSpeed()">
+              <span>⚡</span> <span id="lbl-audio-speed">Tốc độ đọc: 0.85x</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-TAB NAVIGATION -->
+      <div class="sub-tab-nav" data-sub-group="chinese" role="tablist">
+        <button type="button" class="sub-tab-btn active" data-sub-group="chinese" data-sub="chinese-places" onclick="switchSubTab('chinese', 'chinese-places')">
+          <span>🗺️</span> <span>1. Địa Danh & Ga Tàu</span>
+        </button>
+        <button type="button" class="sub-tab-btn" data-sub-group="chinese" data-sub="chinese-transit" onclick="switchSubTab('chinese', 'chinese-transit')">
+          <span>🚆</span> <span>2. Tàu CRH & Xe Ghép</span>
+        </button>
+        <button type="button" class="sub-tab-btn" data-sub-group="chinese" data-sub="chinese-ski" onclick="switchSubTab('chinese', 'chinese-ski')">
+          <span>🎿</span> <span>3. Trượt Tuyết Yabuli</span>
+        </button>
+        <button type="button" class="sub-tab-btn" data-sub-group="chinese" data-sub="chinese-sight" onclick="switchSubTab('chinese', 'chinese-sight')">
+          <span>🦌</span> <span>4. Điểm Chơi & Quy Định</span>
+        </button>
+        <button type="button" class="sub-tab-btn" data-sub-group="chinese" data-sub="chinese-food" onclick="switchSubTab('chinese', 'chinese-food')">
+          <span>🍲</span> <span>5. Ẩm Thực Đông Bắc</span>
+        </button>
+        <button type="button" class="sub-tab-btn" data-sub-group="chinese" data-sub="chinese-slang" onclick="switchSubTab('chinese', 'chinese-slang')">
+          <span>🗣️</span> <span>6. Khẩu Ngữ Đông Bắc Thoại</span>
+        </button>
+      </div>
+
+<!-- SUB-PANEL 1: ĐỊA DANH & GA TÀU -->
+<div class="sub-tab-panel active" data-sub-group="chinese" data-sub="chinese-places">
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>📍</span> Bối Cảnh 1.1: Tên các Điểm Đến Trọng Yếu Của Chuyến Đi
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="cap nhi tan haerbin di dau">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('师傅，请送我们去哈尔滨中央大街。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('师傅，请送我们去哈尔滨中央大街。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">师傅，请送我们去哈尔滨中央大街。</div>
+        <div class="chinese-pinyin">Shīfu, qǐng sòng wǒmen qù Hā'ěrbīn Zhōngyāng Dàjiē.</div>
+        <div class="chinese-meaning">Bác tài ơi, làm phiền chở chúng tôi đến Phố đi bộ Trung Ương ở Cáp Nhĩ Tân.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Khẩu ngữ:</strong> Người Trung xưng hô bác tài là <em>师傅 (shīfu)</em> rất thân thiện, thêm <em>请送我们去...</em> biểu thị phép lịch sự.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="tai xe bac tai phu trung uong">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🚕 Bác Tài Xế Taxi</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('好嘞！中央大街现在步行街不进车，把你们放在西十二道街口行不？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('好嘞！中央大街现在步行街不进车，把你们放在西十二道街口行不？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">好嘞！中央大街现在步行街不进车，把你们放在西十二道街口行不？</div>
+        <div class="chinese-pinyin">Hǎo lei! Zhōngyāng Dàjiē xiànzài bùxíngjiē bù jìn chē, bǎ nǐmen fàng zài Xī Shí'èr Dào jiēkǒu xíng bu?</div>
+        <div class="chinese-meaning">Được rồi! Phố Trung Ương giờ là phố đi bộ không cho xe vào, tôi cho các bạn xuống ở đầu ngõ Tây Thập Nhị Đạo được không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Cấu trúc HSK3 [把]:</strong> <em>把 + tân ngữ + động từ + ở...</em> (把你们放在... = đặt/cho các bạn ở...). <em>行不 (xíng bu)</em> = Được không?</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="thanh sophia nha tho saint sophia">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请问，圣索菲亚大教堂的夜景几点亮灯？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请问，圣索菲亚大教堂的夜景几点亮灯？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请问，圣索菲亚大教堂的夜景几点亮灯？</div>
+        <div class="chinese-pinyin">Qǐngwèn, Shèng Suǒfēiyǎ Dàjiàotáng de yèjǐng jǐ diǎn liàngdēng?</div>
+        <div class="chinese-meaning">Xin hỏi, cảnh đêm Nhà thờ Saint Sophia mấy giờ bật đèn?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ vựng trọng điểm:</strong> <em>亮灯 (liàngdēng)</em> = bật đèn (chụp cảnh đêm). Mùa đông Cáp Nhĩ Tân trời tối sớm lúc 16:00, đèn nhà thờ thường bật từ 16:30.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="bang tuyet dai the gioi ice snow world">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('去冰雪大世界坐地铁二号线在哪站下车？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('去冰雪大世界坐地铁二号线在哪站下车？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">去冰雪大世界坐地铁二号线在哪站下车？</div>
+        <div class="chinese-pinyin">Qù Bīngxuě Dàshìjiè zuò dìtiě Èr Hào Xiàn zài nǎ zhàn xiàchē?</div>
+        <div class="chinese-meaning">Đi Băng Tuyết Đại Thế Giới thì đi tàu điện ngầm Tuyến số 2 xuống ở ga nào?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẹo di chuyển:</strong> Đi tàu điện ngầm tuyến 2 xuống ngay ga cùng tên <em>冰雪大世界站 (Ga Băng Tuyết Đại Thế Giới)</em> ra cửa số 3 là đến cổng.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🚉</span> Bối Cảnh 1.2: Phân Biệt Các Nhà Ga Tàu & Điểm Đón Xe
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="ga cap nhi tan tay yabuli tay ga tau crh">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('师傅，我们要坐高铁去亚布力，请问是去哈尔滨站还是哈尔滨西站？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('师傅，我们要坐高铁去亚布力，请问是去哈尔滨站还是哈尔滨西站？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">师傅，我们要坐高铁去亚布力，请问是去哈尔滨站还是哈尔滨西站？</div>
+        <div class="chinese-pinyin">Shīfu, wǒmen yào zuò gāotiě qù Yàbùlì, qǐngwèn shì qù Hā'ěrbīn Zhàn háishì Hā'ěrbīn Xī Zhàn?</div>
+        <div class="chinese-meaning">Bác tài, chúng tôi muốn đi tàu cao tốc đến Yabuli, xin hỏi là ra Ga Cáp Nhĩ Tân hay Ga Cáp Nhĩ Tân Tây?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Cấu trúc HSK3:</strong> <em>...还是... (háishì)</em> dùng trong câu hỏi lựa chọn A hay B. Lưu ý kiểm tra kỹ mã ga trên vé Trip.com!</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="nhan vien nha ga kiem tra ve">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">👨‍✈️ Nhân Viên Nhà Ga</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('您看一下车票信息，上面写着哈尔滨站就是老站，哈西是新站，两个站离得很远。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('您看一下车票信息，上面写着哈尔滨站就是老站，哈西是新站，两个站离得很远。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">您看一下车票信息，上面写着哈尔滨站就是老站，哈西是新站，两个站离得很远。</div>
+        <div class="chinese-pinyin">Nín kàn yíxià chēpiào xìnxī, shàngmiàn xiězhe Hā'ěrbīn Zhàn jiù shì lǎozhàn, Hā Xī shì xīnzhàn, liǎng gè zhàn lí de hěn yuǎn.</div>
+        <div class="chinese-meaning">Bạn nhìn thông tin vé xe một chút, trên đó viết Ga Cáp Nhĩ Tân tức là ga cũ, Ha Xi (Cáp Tây) là ga mới, hai ga cách nhau rất xa đấy.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOCABULARY BANK FOR PLACES -->
+  <div class="chinese-vocab-section">
+    <div class="chinese-group-title">
+      <span>📚</span> Tổng Hợp Từ Vựng Trọng Tâm: Địa Danh & Nhà Ga
+    </div>
+    <div class="chinese-vocab-grid">
+      
+      <div class="chinese-vocab-card" data-search="haerbin cap nhi tan">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">哈尔滨</span>
+          <span class="vocab-badge">HSK3</span>
+        </div>
+        <div class="vocab-pinyin">Hā'ěrbīn</div>
+        <div class="vocab-meaning">Thành phố Cáp Nhĩ Tân (Thủ phủ tỉnh Hắc Long Giang).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('哈尔滨')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('哈尔滨')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="yabuli a bo luc khu truot tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">亚布力</span>
+          <span class="vocab-badge">Địa danh</span>
+        </div>
+        <div class="vocab-pinyin">Yàbùlì</div>
+        <div class="vocab-meaning">Yabuli - Thánh địa trượt tuyết nổi tiếng nhất Đông Bắc.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('亚布力')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('亚布力')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="xuexiang lang tuyet song phong">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雪乡 / 双峰林场</span>
+          <span class="vocab-badge">Điểm nhấn</span>
+        </div>
+        <div class="vocab-pinyin">Xuěxiāng / Shuāngfēng Línchǎng</div>
+        <div class="vocab-meaning">Làng Tuyết Hương (Tên hành chính là Nông trường rừng Song Phong).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雪乡')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雪乡')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="changbaishan truong bach son thien tri">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">长白山 / 天池</span>
+          <span class="vocab-badge">Kỳ quan</span>
+        </div>
+        <div class="vocab-pinyin">Chángbáishān / Tiānchí</div>
+        <div class="vocab-meaning">Dãy núi Trường Bạch Sơn / Hồ Thiên Trì trên miệng núi lửa.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('长白山天池')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('长白山天池')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="xueling tuyet linh tuan loc">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雪岭 / 驯鹿</span>
+          <span class="vocab-badge">Trải nghiệm</span>
+        </div>
+        <div class="vocab-pinyin">Xuělǐng / Xùnlù</div>
+        <div class="vocab-meaning">Tuyết Lĩnh (rừng tuyết cổ thụ) / Con tuần lộc.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雪岭驯鹿')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雪岭驯鹿')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="mojie piaoliu ma gioi rafting">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">魔界漂流</span>
+          <span class="vocab-badge">Rafting</span>
+        </div>
+        <div class="vocab-pinyin">Mójiè Piāoliú</div>
+        <div class="vocab-meaning">Chèo thuyền phao ngắm sương muối rime trên sông Ma Giới sáng sớm.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('魔界漂流')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('魔界漂流')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="daitudingzishan dai thoc dinh tu xe moto tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">大秃顶子山</span>
+          <span class="vocab-badge">Đỉnh núi</span>
+        </div>
+        <div class="vocab-pinyin">Dà Tūdǐngzǐ Shān</div>
+        <div class="vocab-meaning">Đỉnh núi cao nhất Hắc Long Giang (1.690m), điểm đi moto tuyết & xe tăng tuyết.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('大秃顶子山')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('大秃顶子山')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="erdaobaihe nhi dao bach ha thi tran duoi chan truong bach son">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">二道白河镇</span>
+          <span class="vocab-badge">Thị trấn</span>
+        </div>
+        <div class="vocab-pinyin">Èrdàobáihé Zhèn</div>
+        <div class="vocab-meaning">Thị trấn Nhị Đạo Bạch Hà - Cửa ngõ lưu trú chính sườn Bắc Trường Bạch Sơn.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('二道白河镇')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('二道白河镇')">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUB-PANEL 2: TÀU CRH & XE GHÉP / XE KHÁCH -->
+<div class="sub-tab-panel" data-sub-group="chinese" data-sub="chinese-transit">
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🚄</span> Bối Cảnh 2.1: Đi Tàu Cao Tốc (CRH) Với Hộ Chiếu Nước Ngoài
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="ho chieu quat the ho chieu nuoc ngoai soat ve thu cong">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('您好，我是外国游客，拿的是护照，请问进站走哪个人工通道？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('您好，我是外国游客，拿的是护照，请问进站走哪个人工通道？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">您好，我是外国游客，拿的是护照，请问进站走哪个人工通道？</div>
+        <div class="chinese-pinyin">Nín hǎo, wǒ shì wàiguó yóukè, ná de shì hùzhào, qǐngwèn jìnzhàn zǒu nǎge réngōng tōngdào?</div>
+        <div class="chinese-meaning">Xin chào bạn, tôi là khách du lịch nước ngoài dùng hộ chiếu, xin hỏi vào ga thì đi qua lối thủ công nào?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẹo ga tàu TQ:</strong> Người nước ngoài dùng vé điện tử liên kết hộ chiếu KHÔNG quét được cửa CCCD tự động mà phải đi làn có người soát: <em>人工通道 (réngōng tōngdào)</em>.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="nhan vien nha ga chi duong ho chieu">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">👨‍✈️ Nhân Viên Soát Vé</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请出示护照原件，把口罩摘一下，看着镜头核对人脸。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请出示护照原件，把口罩摘一下，看着镜头核对人脸。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请出示护照原件，把口罩摘一下，看着镜头核对人脸。</div>
+        <div class="chinese-pinyin">Qǐng chūshì hùzhào yuánjiàn, bǎ kǒuzhào zhāi yíxià, kànzhe jìngtóu héduì rénliǎn.</div>
+        <div class="chinese-meaning">Xin vui lòng xuất trình hộ chiếu gốc, tháo khẩu trang ra một chút và nhìn vào ống kính để đối chiếu nhận diện khuôn mặt.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ vựng hữu ích:</strong> <em>出示 (chūshì)</em> = xuất trình; <em>核对 (héduì)</em> = đối chiếu; <em>人脸识别 (rénliǎn shíbié)</em> = nhận diện khuôn mặt.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="cua soat ve san ga may gio chay">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请问G3603次去长白山的高铁是在几号检票口？几点开始检票？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请问G3603次去长白山的高铁是在几号检票口？几点开始检票？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请问G3603次去长白山的高铁是在几号检票口？几点开始检票？</div>
+        <div class="chinese-pinyin">Qǐngwèn G sān-liù-líng-sān cì qù Chángbáishān de gāotiě shì zài jǐ hào jiǎnpiàokǒu? Jǐ diǎn kāishǐ jiǎnpiào?</div>
+        <div class="chinese-meaning">Cho hỏi chuyến tàu cao tốc G3603 đi Trường Bạch Sơn ở cửa soát vé số mấy? Mấy giờ bắt đầu soát vé?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẫu câu:</strong> Khi hỏi số hiệu chuyến tàu, đọc từng chữ số: G3603 đọc là <em>G sān-liù-líng-sān cì (G tam lục linh tam thứ)</em>.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="kiem tra an ninh sac du phong pin may bay">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('这是我的无人机电池和充电宝，容量是两万毫安，符合带上高铁的规定。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('这是我的无人机电池和充电宝，容量是两万毫安，符合带上高铁的规定。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">这是我的无人机电池和充电宝，容量是两万毫安，符合带上高铁的规定。</div>
+        <div class="chinese-pinyin">Zhè shì wǒ de wúrénjī diànchí hé chōngdiànbǎo, róngliàng shì liǎng wàn háo'ān, fúhé dài shàng gāotiě de guīdìng.</div>
+        <div class="chinese-meaning">Đây là pin máy bay flycam và sạc dự phòng của tôi, dung lượng 20.000mAh, hoàn toàn phù hợp với quy định mang lên tàu cao tốc.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Quy định an ninh:</strong> Sạc dự phòng (充电宝) qua an ninh TQ tối đa 100Wh (tương đương 27.000mAh) và bắt buộc phải có in thông số rõ ràng trên thân pin!</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🚐</span> Bối Cảnh 2.2: Ghép Xe & Bao Xe Từ Yabuli Đi Tuyết Hương (WeChat Chat)
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="ghep xe bao xe hoi gia wechat chu khach san">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách (Nhắn WeChat)</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('老板您好，我们两个人想了解一下后天从亚布力到雪乡的拼车费用大概是多少？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('老板您好，我们两个人想了解一下后天从亚布力到雪乡的拼车费用大概是多少？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">老板您好，我们两个人想了解一下后天从亚布力到雪乡的拼车费用大概是多少？</div>
+        <div class="chinese-pinyin">Lǎobǎn nín hǎo, wǒmen liǎng gè rén xiǎng liǎojiě yíxià hòutiān cóng Yàbùlì dào Xuěxiāng de pīnchē fèiyong dàgài shì duōshao?</div>
+        <div class="chinese-meaning">Chào ông chủ, 2 người chúng tôi muốn tìm hiểu một chút xem chi phí xe ghép ngày kia từ Yabuli đi Tuyết Hương khoảng bao nhiêu ạ?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Khẩu ngữ WeChat:</strong> <em>想了解一下... (muốn tìm hiểu một chút...)</em> là cách mở lời lịch sự, nhẹ nhàng, không gây áp lực.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="so sanh gia canh tranh toi uu chi phi">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách (Đàm phán giá)</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('我们也想控制一下预算，如果在您这儿预订价格合适、服务靠谱的话，我们就优先找您安排。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('我们也想控制一下预算，如果在您这儿预订价格合适、服务靠谱的话，我们就优先找您安排。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">我们也想控制一下预算，如果在您这儿预订价格合适、服务靠谱的话，我们就优先找您安排。</div>
+        <div class="chinese-pinyin">Wǒmen yě xiǎng kòngzhì yíxià yùsuàn, rúguǒ zài nín zhèr yùdìng jiàgé héshì, fúwù kàopǔ de huà, wǒmen jiù yōuxiān zhǎo nín ānpái.</div>
+        <div class="chinese-meaning">Chúng tôi cũng muốn kiểm soát ngân sách, nếu đặt ở chỗ bạn giá cả hợp lý, dịch vụ uy tín thì chúng tôi sẽ ưu tiên nhờ bạn sắp xếp luôn.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ HSK4 & Khẩu ngữ:</strong> <em>控制预算 (kòngzhì yùsuàn)</em> = kiểm soát ngân sách; <em>靠谱 (kàopǔ)</em> = uy tín, đáng tin cậy; <em>优先 (yōuxiān)</em> = ưu tiên.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="dung doc duong chup anh deo a tuyet dai thoc dinh tu">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('去雪乡路上能不能在大秃顶子山停留玩雪地摩托？大概能停多长时间？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('去雪乡路上能不能在大秃顶子山停留玩雪地摩托？大概能停多长时间？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">去雪乡路上能不能在大秃顶子山停留玩雪地摩托？大概能停多长时间？</div>
+        <div class="chinese-pinyin">Qù Xuěxiāng lùshang néng bu néng zài Dà Tūdǐngzǐ Shān tíngliú wán xuědì mótuō? Dàgài néng tíng duō cháng shíjiān?</div>
+        <div class="chinese-meaning">Trên đường đi Tuyết Hương có thể ghé dừng ở núi Đại Thốc Đỉnh Tử chơi xe moto tuyết không? Dự kiến có thể dừng lại bao lâu?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẫu câu HSK3:</strong> <em>能...多长时间?</em> hỏi về độ dài thời gian của hành động. Thường các xe ghép cho dừng 1.5 - 2 tiếng tại trạm này.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="cop xe hanh ly vali 28 inch">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('我们有两个二十八寸的大行李箱，请问后备箱装得下吗？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('我们有两个二十八寸的大行李箱，请问后备箱装得下吗？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">我们有两个二十八寸的大行李箱，请问后备箱装得下吗？</div>
+        <div class="chinese-pinyin">Wǒmen yǒu liǎng gè èrshíbā cùn de dà xínglǐxiāng, qǐngwèn hòubèixiāng zhuāng de xià ma?</div>
+        <div class="chinese-meaning">Chúng tôi có 2 chiếc vali lớn kích thước 28 inch, cho hỏi cốp sau xe có chứa vừa không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Bổ ngữ khả năng HSK3:</strong> <em>装得下 (zhuāng de xià)</em> = chứa vừa; phủ định là <em>装不下 (zhuāng bú xià)</em> = không chứa vừa.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOCABULARY BANK FOR TRANSIT -->
+  <div class="chinese-vocab-section">
+    <div class="chinese-group-title">
+      <span>📚</span> Tổng Hợp Từ Vựng Trọng Tâm: Tàu Cao Tốc & Xe Ghép
+    </div>
+    <div class="chinese-vocab-grid">
+      
+      <div class="chinese-vocab-card" data-search="gaotie tau cao toc crh">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">高铁 / 动车</span>
+          <span class="vocab-badge">HSK3</span>
+        </div>
+        <div class="vocab-pinyin">Gāotiě / Dòngchē</div>
+        <div class="vocab-meaning">Tàu cao tốc (G-train tốc độ 300km/h / D-train tốc độ 200km/h).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('高铁动车')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('高铁动车')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="jianpiaokou cua soat ve">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">检票口</span>
+          <span class="vocab-badge">Quan trọng</span>
+        </div>
+        <div class="vocab-pinyin">Jiǎnpiàokǒu</div>
+        <div class="vocab-meaning">Cửa soát vé trước khi xuống sân ga (ví dụ: 12A, 12B).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('检票口')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('检票口')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="zhantai san ga">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">站台 / 车厢</span>
+          <span class="vocab-badge">HSK3</span>
+        </div>
+        <div class="vocab-pinyin">Zhàntái / Chēxiāng</div>
+        <div class="vocab-meaning">Sân ga đường ray / Toa tàu số... (ví dụ: 5车 = Toa 5).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('站台车厢')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('站台车厢')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="pinche ghep xe giam chi phi">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">拼车</span>
+          <span class="vocab-badge">HSK4</span>
+        </div>
+        <div class="vocab-pinyin">Pīnchē</div>
+        <div class="vocab-meaning">Ghép xe (chia sẻ xe với khách khác để tiết kiệm chi phí).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('拼车')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('拼车')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="baoche bao xe tron goi">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">包车</span>
+          <span class="vocab-badge">HSK4</span>
+        </div>
+        <div class="vocab-pinyin">Bāochē</div>
+        <div class="vocab-meaning">Bao xe riêng trọn gói (tự do chọn giờ xuất phát và điểm dừng).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('包车')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('包车')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="houbeixiang cop sau xe">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">后备箱</span>
+          <span class="vocab-badge">Thực tế</span>
+        </div>
+        <div class="vocab-pinyin">Hòubèixiāng</div>
+        <div class="vocab-meaning">Cốp đựng hành lý phía sau xe ô tô.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('后备箱')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('后备箱')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="xuedimotuo xe moto tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雪地摩托</span>
+          <span class="vocab-badge">Dịch vụ</span>
+        </div>
+        <div class="vocab-pinyin">Xuědì mótuō</div>
+        <div class="vocab-meaning">Xe trượt tuyết phân khối lớn vượt đỉnh núi dốc.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雪地摩托')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雪地摩托')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="chongdianbao sac du phong pin">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">充电宝</span>
+          <span class="vocab-badge">HSK4</span>
+        </div>
+        <div class="vocab-pinyin">Chōngdiànbǎo</div>
+        <div class="vocab-meaning">Sạc dự phòng cho điện thoại / máy quay.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('充电宝')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('充电宝')">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUB-PANEL 3: TRƯỢT TUYẾT YABULI & THUÊ ĐỒ -->
+<div class="sub-tab-panel" data-sub-group="chinese" data-sub="chinese-ski">
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🎿</span> Bối Cảnh 3.1: Thuê Dụng Cụ & Đổi Kích Cỡ Giày Tại Quầy Yabuli
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="thue do truot tuyet van don van doi dat coc">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('你好，我们两位要租双板全套雪具，包括雪板、雪鞋和雪杖。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('你好，我们两位要租双板全套雪具，包括雪板、雪鞋和雪杖。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">你好，我们两位要租双板全套雪具，包括雪板、雪鞋和雪杖。</div>
+        <div class="chinese-pinyin">Nǐ hǎo, wǒmen liǎng wèi yào zū shuāngbǎn quántào xuějù, bāokuò xuěbǎn, xuěxié hé xuězhàng.</div>
+        <div class="chinese-meaning">Chào bạn, hai người chúng tôi muốn thuê trọn bộ dụng cụ trượt tuyết ván đôi (Ski), bao gồm ván trượt, giày trượt và gậy trượt.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ vựng cốt lõi:</strong> <em>双板 (shuāngbǎn)</em> = ván đôi (dễ tập cho người mới); <em>单板 (dānbǎn)</em> = ván đơn snowboard (ngầu nhưng dễ ngã hơn).</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="nhan vien quay thue do snow card">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🎿 Nhân Viên Quầy Dụng Cụ</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请先在这边刷雪卡扣押金，每人五百，退装备时在服务台退卡。你们平时穿多大码的鞋？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请先在这边刷雪卡扣押金，每人五百，退装备时在服务台退卡。你们平时穿多大码的鞋？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请先在这边刷雪卡扣押金，每人五百，退装备时在服务台退卡。你们平时穿多大码的鞋？</div>
+        <div class="chinese-pinyin">Qǐng xiān zài zhèbiān shuā xuěkǎ kòu yājīn, měi rén wǔbǎi, tuì zhuāngbèi shí zài fúwùtái tuì kǎ. Nǐmen píngshí chuān duō dà mǎ de xié?</div>
+        <div class="chinese-meaning">Vui lòng quẹt thẻ tuyết (Snow Card) ở đây để trừ cọc trước, mỗi người 500 tệ, khi trả trang thiết bị thì trả thẻ tại quầy dịch vụ. Bình thường các bạn đi giày size bao nhiêu?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Quy trình thực tế:</strong> Tại Yabuli Sun Mountain hay Club Med, bạn sẽ được phát 1 chiếc thẻ từ đeo cổ tay <em>雪卡 (xuěkǎ)</em> dùng để ra vào cổng, đi cáp treo và cọc đồ.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="doi size giay chat qua dau chan">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('师傅，这双鞋稍微有点挤脚，脚趾头顶得痛，能麻烦换大一码吗？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('师傅，这双鞋稍微有点挤脚，脚趾头顶得痛，能麻烦换大一码吗？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">师傅，这双鞋稍微有点挤脚，脚趾头顶得痛，能麻烦换大一码吗？</div>
+        <div class="chinese-pinyin">Shīfu, zhè shuāng xié shāowēi yǒudiǎnr jǐ jiǎo, jiǎozhǐtóu dǐng de tòng, néng máfan huàn dà yī mǎ ma?</div>
+        <div class="chinese-meaning">Anh ơi, đôi giày này hơi chật ép chân, đầu ngón chân bị kích đau quá, có thể phiền anh đổi lớn hơn 1 cỡ không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẹo chọn giày trượt:</strong> Giày trượt tuyết vỏ nhựa rất cứng, nên chọn tăng 0.5 đến 1 size so với giày thể thao thông thường vì bạn cần đi tất len dày.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="thue mu bao hiem kinh chong loa">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('我们还需要租两个头盔和两副雪镜，请问在哪里领取？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('我们还需要租两个头盔和两副雪镜，请问在哪里领取？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">我们还需要租两个头盔和两副雪镜，请问在哪里领取？</div>
+        <div class="chinese-pinyin">Wǒmen hái xūyào zū liǎng gè tóukuī hé liǎng fù xuějìng, qǐngwèn zài nǎlǐ lǐngqǔ?</div>
+        <div class="chinese-meaning">Chúng tôi còn cần thuê 2 mũ bảo hiểm và 2 chiếc kính trượt tuyết, xin hỏi nhận đồ ở đâu?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Lượng từ HSK3:</strong> Kính mắt dùng lượng từ <em>副 (fù)</em>: 两副雪镜 (2 chiếc kính). Mũ dùng <em>个 (gè)</em>. <em>领取 (lǐngqǔ)</em> = nhận lấy đồ.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>⛷️</span> Bối Cảnh 3.2: Lên Dốc, Cáp Treo & Thuê Huấn Luyện Viên
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="bang chuyen ma thuat cap treo so cap">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请问，新手初级道是在哪边？是不是直接站上魔毯就可以上去？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请问，新手初级道是在哪边？是不是直接站上魔毯就可以上去？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请问，新手初级道是在哪边？是不是直接站上魔毯就可以上去？</div>
+        <div class="chinese-pinyin">Qǐngwèn, xīnshǒu chūjídào shì zài nǎbiān? Shì bu shì zhíjiē zhàn shàng mótǎn jiù kěyǐ shàngqu?</div>
+        <div class="chinese-meaning">Cho hỏi, dốc sơ cấp cho người mới ở phía nào? Có phải chỉ cần đứng trực tiếp lên băng chuyền ma thuật (Magic Carpet) là lên được không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Cấu trúc:</strong> <em>是不是... (có phải... không?)</em>. <em>魔毯 (mótǎn)</em> là băng tải cuốn dành riêng cho người mới, không sợ độ cao như cáp treo ghế treo.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="thue huan luyen vien day phanh chu v">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('教练，我们完全没滑过雪，能教我们怎么刹车和怎么安全摔倒吗？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('教练，我们完全没滑过雪，能教我们怎么刹车和怎么安全摔倒吗？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">教练，我们完全没滑过雪，能教我们怎么刹车和怎么安全摔倒吗？</div>
+        <div class="chinese-pinyin">Jiàoliàn, wǒmen wánquán méi huá guo xuě, néng jiāo wǒmen zěnme shāchē hé zěnme ānquán shuāidǎo ma?</div>
+        <div class="chinese-meaning">Thầy giáo ơi, chúng tôi hoàn toàn chưa từng trượt tuyết, thầy có thể dạy chúng tôi cách phanh và cách ngã an toàn không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẹo an toàn khi trượt:</strong> Khi ngã tuyệt đối không chống cổ tay mà phải ngã nghiêng người sang một bên <em>侧摔 (cèshuāi)</em> để tránh gãy cổ tay!</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="huan luyen vien huong dan phanh chu v">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">⛷️ Huấn Luyện Viên Trượt Tuyết</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('没问题！注意双脚摆成内八字，板尖留一个拳头的距离，重心向前压。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('没问题！注意双脚摆成内八字，板尖留一个拳头的距离，重心向前压。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">没问题！注意双脚摆成内八字，板尖留一个拳头的距离，重心向前压。</div>
+        <div class="chinese-pinyin">Méi wèntí! Zhùyì shuāngjiǎo bǎi chéng nèibāzì, bǎnjiān liú yí gè quántóu de jùlí, zhòngxīn xiàng qián yā.</div>
+        <div class="chinese-meaning">Không vấn đề gì! Chú ý hai chân tạo thành hình chữ V ngược (nội bát tự), hai mũi ván chừa khoảng cách một nắm đấm, trọng tâm dồn ép về phía trước.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Thuật ngữ trượt tuyết:</strong> <em>内八字 (nèibāzì)</em> = tư thế phanh cày tuyết (snowplough); <em>重心 (zhòngxīn)</em> = trọng tâm cơ thể.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOCABULARY BANK FOR SKI -->
+  <div class="chinese-vocab-section">
+    <div class="chinese-group-title">
+      <span>📚</span> Tổng Hợp Từ Vựng Trọng Tâm: Trượt Tuyết & Thiết Bị
+    </div>
+    <div class="chinese-vocab-grid">
+      
+      <div class="chinese-vocab-card" data-search="xueju dung cu truot tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雪具</span>
+          <span class="vocab-badge">Cốt lõi</span>
+        </div>
+        <div class="vocab-pinyin">Xuějù</div>
+        <div class="vocab-meaning">Dụng cụ trượt tuyết nói chung (ván, giày, gậy).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雪具')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雪具')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="danban shuangban van don van doi">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">单板 / 双板</span>
+          <span class="vocab-badge">Phân loại</span>
+        </div>
+        <div class="vocab-pinyin">Dānbǎn / Shuāngbǎn</div>
+        <div class="vocab-meaning">Ván đơn (Snowboard) / Ván đôi (Ski).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('单板双板')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('单板双板')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="xuexie giay truot tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雪鞋 / 雪杖</span>
+          <span class="vocab-badge">Trang bị</span>
+        </div>
+        <div class="vocab-pinyin">Xuěxié / Xuězhàng</div>
+        <div class="vocab-meaning">Ủng trượt tuyết cứng / Cặp gậy chống trượt tuyết.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雪鞋雪杖')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雪鞋雪杖')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="toukui xuejing mu bao hiem kinh">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">头盔 / 雪镜</span>
+          <span class="vocab-badge">Bảo hộ</span>
+        </div>
+        <div class="vocab-pinyin">Tóukuī / Xuějìng</div>
+        <div class="vocab-meaning">Mũ bảo hiểm bảo hộ đầu / Kính trượt tuyết chống tia UV & lóa tuyết.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('头盔雪镜')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('头盔雪镜')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="motan lanche bang chuyen cap treo">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">魔毯 / 缆车</span>
+          <span class="vocab-badge">Vận hành</span>
+        </div>
+        <div class="vocab-pinyin">Mótǎn / Lǎnchē</div>
+        <div class="vocab-meaning">Băng chuyền cuộn sơ cấp / Cáp treo cabin hoặc ghế treo lên đỉnh dốc.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('魔毯缆车')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('魔毯缆车')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="chujidao zhongjidao doc so cap trung cap">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">初级道 / 中级道</span>
+          <span class="vocab-badge">Cấp độ</span>
+        </div>
+        <div class="vocab-pinyin">Chūjídào / Zhōngjídào</div>
+        <div class="vocab-meaning">Đường trượt thoai thoải sơ cấp / Đường trượt trung cấp dốc hơn.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('初级道中级道')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('初级道中级道')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="shache phanh ham toc do">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">刹车 / 摔倒</span>
+          <span class="vocab-badge">Kỹ năng</span>
+        </div>
+        <div class="vocab-pinyin">Shāchē / Shuāidǎo</div>
+        <div class="vocab-meaning">Hãm phanh lại / Bị ngã té xuống tuyết.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('刹车摔倒')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('刹车摔倒')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="xueka the truot tuyet tien coc">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雪卡 / 押金</span>
+          <span class="vocab-badge">Thanh toán</span>
+        </div>
+        <div class="vocab-pinyin">Xuěkǎ / Yājīn</div>
+        <div class="vocab-meaning">Thẻ từ trượt tuyết / Tiền cọc thiết bị cần hoàn lại.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雪卡押金')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雪卡押金')">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUB-PANEL 4: ĐIỂM CHƠI & QUY ĐỊNH (TUYẾT LĨNH, RAFTING, THIÊN TRÌ) -->
+<div class="sub-tab-panel" data-sub-group="chinese" data-sub="chinese-sight">
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🦌</span> Bối Cảnh 4.1: Chơi Đùa & Cho Tuần Lộc Ăn Tại Tuyết Lĩnh (雪岭)
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="mua reu cho tuan loc an tuyet linh">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('老板，请给我两盒喂驯鹿的苔藓，一共多少钱？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('老板，请给我两盒喂驯鹿的苔藓，一共多少钱？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">老板，请给我两盒喂驯鹿的苔藓，一共多少钱？</div>
+        <div class="chinese-pinyin">Lǎobǎn, qǐng gěi wǒ liǎng hé wèi xùnlù de táixiǎn, yígòng duōshao qián?</div>
+        <div class="chinese-meaning">Ông chủ ơi, cho tôi lấy 2 hộp rêu cho tuần lộc ăn, tổng cộng bao nhiêu tiền ạ?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ vựng chuyên đề:</strong> <em>苔藓 (táixiǎn)</em> = địa y / rêu xanh tuần lộc rất thích ăn; <em>喂 (wèi)</em> = cho ăn. Hộp rêu thường 30 tệ/hộp.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="tuan loc huc dau can tay hien lanh">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('师傅，这些驯鹿温顺吗？把苔藓放在手心里喂它，会不会咬到手？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('师傅，这些驯鹿温顺吗？把苔藓放在手心里喂它，会不会咬到手？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">师傅，这些驯鹿温顺吗？把苔藓放在手心里喂它，会不会咬到手？</div>
+        <div class="chinese-pinyin">Shīfu, zhèxiē xùnlù wēnshùn ma? Bǎ táixiǎn fàng zài shǒuxīn lǐ wèi tā, huì bu huì yǎo dào shǒu?</div>
+        <div class="chinese-meaning">Anh ơi, những con tuần lộc này có hiền lành không? Đặt rêu vào lòng bàn tay cho nó ăn thì có bị cắn vào tay không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẹo cho tuần lộc ăn:</strong> Tuần lộc hàm trên không có răng cửa, chỉ dùng môi mềm quắp rêu nên cực kỳ an toàn, mở rộng phẳng lòng bàn tay là được.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🛶</span> Bối Cảnh 4.2: Rafting Băng Tuyết Ngắm Sương Muối Ma Giới (魔界漂流)
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="suong muoi rime ma gioi sang som may gio dep nhat">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('师傅，请问今天早上河面上有雾凇吗？大概几点漂流光线最好看？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('师傅，请问今天早上河面上有雾凇吗？大概几点漂流光线最好看？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">师傅，请问今天早上河面上有雾凇吗？大概几点漂流光线最好看？</div>
+        <div class="chinese-pinyin">Shīfu, qǐngwèn jīntiān zǎoshang hémiàn shang yǒu wùsōng ma? Dàgài jǐ diǎn piāoliú guāngxiàn zuì hǎokàn?</div>
+        <div class="chinese-meaning">Bác ơi, cho hỏi sáng nay trên mặt sông có xuất hiện sương muối rime không? Khoảng mấy giờ đi chèo thuyền thì ánh sáng đẹp nhất?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Thời điểm vàng:</strong> Khung giờ vàng ngắm sương muối rime và bình minh xuyên qua làn khói nước mờ ảo là từ 6:30 đến 7:45 sáng khi nhiệt độ dưới -20°C.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="nhan vien chèo thuyen ao phao quan chong nuoc">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">👨‍✈️ Nhân Viên Bến Thuyền</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('今天雾凇非常壮观！穿好救生衣和防水裤，相机挂在脖子上，抓紧船沿把手。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('今天雾凇非常壮观！穿好救生衣和防水裤，相机挂在脖子上，抓紧船沿把手。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">今天雾凇非常壮观！穿好救生衣和防水裤，相机挂在脖子上，抓紧船沿把手。</div>
+        <div class="chinese-pinyin">Jīntiān wùsōng fēicháng zhuàngguān! Chuān hǎo jiùshēngyī hé fángshuǐkù, xiàngjī guà zài bózishang, zhuājǐn chuányán bǎshou.</div>
+        <div class="chinese-meaning">Hôm nay sương muối rime cực kỳ tráng lệ! Mặc kỹ áo phao và quần chống nước, máy ảnh đeo quanh cổ, bám chặt vào tay vịn mép thuyền nhé.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🏔️</span> Bối Cảnh 4.3: Đỉnh Thiên Trì Trường Bạch Sơn & Quy Định Flycam
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="dinh thien tri co mo cua khong xe leo dinh">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请问今天天池主峰开放了吗？倒站车票现在能买吗？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请问今天天池主峰开放了吗？倒站车票现在能买吗？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请问今天天池主峰开放了吗？倒站车票现在能买吗？</div>
+        <div class="chinese-pinyin">Qǐngwèn jīntiān Tiānchí zhǔfēng kāifàng le ma? Dàozhàn chēpiào xiànzài néng mǎi ma?</div>
+        <div class="chinese-meaning">Cho hỏi hôm nay đỉnh chính Thiên Trì có mở cửa không? Vé xe chuyên dụng leo đỉnh (đảo trạm xa) bây giờ đã mua được chưa?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Thuật ngữ Trường Bạch Sơn:</strong> <em>倒站车 (dàozhànchē)</em> là loại xe 7-9 chỗ gắn lốp xích chuyên dụng vượt đèo hiểm trở lên sát mép hồ Thiên Trì (giá 80 tệ).</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="flycam may bay khong nguoi lai vung cam bay">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('请问景区内允许飞无人机吗？有明确的禁飞区域吗？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('请问景区内允许飞无人机吗？有明确的禁飞区域吗？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">请问景区内允许飞无人机吗？有明确的禁飞区域吗？</div>
+        <div class="chinese-pinyin">Qǐngwèn jǐngqū nèi yǔnxǔ fēi wúrénjī ma? Yǒu míngquè de jìnfēi qūyù ma?</div>
+        <div class="chinese-meaning">Cho hỏi trong khuôn viên khu du lịch có cho phép bay flycam không? Có khu vực cấm bay quy định rõ ràng nào không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Quy định Flycam TQ:</strong> Hồ Thiên Trì giáp ranh biên giới Triều Tiên nên thuộc <em>禁飞区 (jìnfēiqū - vùng cấm bay nghiêm ngặt)</em>. Ở Tuyết Lĩnh và Làng Tuyết có thể bay nếu đăng ký.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOCABULARY BANK FOR SIGHTSEEING -->
+  <div class="chinese-vocab-section">
+    <div class="chinese-group-title">
+      <span>📚</span> Tổng Hợp Từ Vựng Trọng Tâm: Điểm Chơi & Quy Định Mùa Đông
+    </div>
+    <div class="chinese-vocab-grid">
+      
+      <div class="chinese-vocab-card" data-search="xunlu tuan loc huou tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">驯鹿</span>
+          <span class="vocab-badge">Động vật</span>
+        </div>
+        <div class="vocab-pinyin">Xùnlù</div>
+        <div class="vocab-meaning">Con tuần lộc (loài hươu tuyết kéo xe ở Bắc cực & Tuyết Lĩnh).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('驯鹿')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('驯鹿')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="taixian reu dia y cho tuan loc an">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">苔藓</span>
+          <span class="vocab-badge">Mồi ăn</span>
+        </div>
+        <div class="vocab-pinyin">Táixiǎn</div>
+        <div class="vocab-meaning">Rêu / địa y thức ăn khoái khẩu của tuần lộc.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('苔藓')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('苔藓')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="wusong suong muoi rime bang phu canh cay">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">雾凇</span>
+          <span class="vocab-badge">Kỳ quan</span>
+        </div>
+        <div class="vocab-pinyin">Wùsōng</div>
+        <div class="vocab-meaning">Hiện tượng sương muối rime kết tinh trắng xóa trên cành cây.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('雾凇')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('雾凇')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="piaoliu rafting cheo thuyen phao">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">漂流</span>
+          <span class="vocab-badge">Hoạt động</span>
+        </div>
+        <div class="vocab-pinyin">Piāoliú</div>
+        <div class="vocab-meaning">Đi thuyền trôi dạt theo dòng nước / chèo thuyền phao mùa đông.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('漂流')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('漂流')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="daozhanche xe leo dinh chuyen dung truong bach son">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">倒站车</span>
+          <span class="vocab-badge">Đặc thù</span>
+        </div>
+        <div class="vocab-pinyin">Dàozhànchē</div>
+        <div class="vocab-meaning">Xe chuyên dụng chở khách vượt đường đèo tuyết lên đỉnh Thiên Trì.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('倒站车')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('倒站车')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="wurenji flycam may bay khong nguoi lai">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">无人机 / 航拍</span>
+          <span class="vocab-badge">Công nghệ</span>
+        </div>
+        <div class="vocab-pinyin">Wúrénjī / Hángpāi</div>
+        <div class="vocab-meaning">Flycam (máy bay không người lái) / Quay chụp trên không.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('无人机航拍')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('无人机航拍')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="jinfeiqu vung cam bay an ninh">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">禁飞区</span>
+          <span class="vocab-badge">Quy định</span>
+        </div>
+        <div class="vocab-pinyin">Jìnfēiqū</div>
+        <div class="vocab-meaning">Vùng cấm bay flycam (biên giới, sân bay, khu quân sự).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('禁飞区')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('禁飞区')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="wenquandong thac nuoc suoi nuoc nong">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">温泉 / 瀑布</span>
+          <span class="vocab-badge">Cảnh quan</span>
+        </div>
+        <div class="vocab-pinyin">Wēnquán / Pùbù</div>
+        <div class="vocab-meaning">Suối khoáng nóng tự nhiên / Thác nước (Thác Trường Bạch 68m).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('温泉瀑布')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('温泉瀑布')">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUB-PANEL 5: ẨM THỰC ĐÔNG BẮC & GỌI MÓN -->
+<div class="sub-tab-panel" data-sub-group="chinese" data-sub="chinese-food">
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🍲</span> Bối Cảnh 5.1: Thưởng Thức Thiết Oa Độn (铁锅炖 - Lẩu Nồi Gang Khổng Lồ)
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="thiet oa don lau noi gang goi mon hai nguoi an">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('服务员，我们两个人吃，推荐点排骨锅还是大鹅锅？分量会不会太大？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('服务员，我们两个人吃，推荐点排骨锅还是大鹅锅？分量会不会太大？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">服务员，我们两个人吃，推荐点排骨锅还是大鹅锅？分量会不会太大？</div>
+        <div class="chinese-pinyin">Fúwùyuán, wǒmen liǎng gè rén chī, tuījiàn diǎn páigǔ guō háishì dà'é guō? Fènliàng huì bu huì tài dà?</div>
+        <div class="chinese-meaning">Phục vụ ơi, 2 người chúng tôi ăn thì nên gọi nồi sườn hầm hay nồi ngỗng hầm? Khẩu phần có bị nhiều quá không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Văn hoá Đông Bắc:</strong> Đồ ăn Đông Bắc nổi tiếng với đĩa to và nồi to ngập tràn <em>(量大管饱 - liàng dà guǎn bǎo)</em>. 2 người chỉ nên gọi 1 nồi nhỏ và 1 món rau là no căng.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="nhan vien nha hang phuc vu lau noi gang">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">👨‍🍳 Phục Vụ Nhà Hàng</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('两人点排骨炖豆角正好，锅边再贴六个玉米饼子，等汤汁收浓了蘸着吃特别香！')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('两人点排骨炖豆角正好，锅边再贴六个玉米饼子，等汤汁收浓了蘸着吃特别香！')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">两人点排骨炖豆角正好，锅边再贴六个玉米饼子，等汤汁收浓了蘸着吃特别香！</div>
+        <div class="chinese-pinyin">Liǎng rén diǎn páigǔ dùn dòujiǎo zhènghǎo, guōbiān zài tiē liù gè yùmǐ bǐngzi, děng tāngzhī shōu nóng le zhànzhe chī tèbié xiāng!</div>
+        <div class="chinese-meaning">Hai người thì gọi sườn hầm đậu cô ve là vừa xinh, bên vành nồi ốp thêm 6 chiếc bánh bột ngô vàng ươm, đợi nước cốt sánh lại rồi chấm ăn thơm nức nở!</div>
+        <div class="chinese-grammar-tip">💡 <strong>Đặc sản:</strong> <em>贴玉米饼子 (tiē yùmǐ bǐngzi)</em> = ốp bánh bột ngô vào thành nồi gang nóng rực, vỏ ngoài giòn rụm, bên trong dẻo ngọt.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="it man bot man it cay nuoc soi">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('麻烦师傅少放点盐，做微辣就好，我们吃不太惯太咸。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('麻烦师傅少放点盐，做微辣就好，我们吃不太惯太咸。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">麻烦师傅少放点盐，做微辣就好，我们吃不太惯太咸。</div>
+        <div class="chinese-pinyin">Máfan shīfu shǎo fàng diǎn yán, zuò wēilà jiù hǎo, wǒmen chī bú tài guàn tài xián.</div>
+        <div class="chinese-meaning">Làm phiền đầu bếp cho bớt muối một chút, làm vị hơi cay nhẹ (vi lạt) là được, chúng tôi ăn không quen vị mặn gắt.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Mẹo gọi món Trung Quốc:</strong> <em>少放盐 (shǎo fàng yán)</em> = bớt muối; <em>微辣 (wēilà)</em> = cay nhẹ; <em>不要辣 (bú yào là)</em> = không lấy ớt; <em>吃不惯 (chī bu guàn)</em> = ăn không quen miệng.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🥢</span> Bối Cảnh 5.2: Quoa Bao Nhục, Ăn Vặt Phố Đi Bộ & Thanh Toán
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-traveler" data-search="quoa bao nhuc thit chua ngot kem madieer pho trung uong">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('老板，来一份老式锅包肉，要酸甜汁脆皮的，再拿两根经典原味马迭尔冰棍！')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('老板，来一份老式锅包肉，要酸甜汁脆皮的，再拿两根经典原味马迭尔冰棍！')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">老板，来一份老式锅包肉，要酸甜汁脆皮的，再拿两根经典原味马迭尔冰棍！</div>
+        <div class="chinese-pinyin">Lǎobǎn, lái yí fèn lǎoshì guōbāoròu, yào suāntián zhī cuìpí de, zài ná liǎng gēn jīngdiǎn yuánwèi Mǎdié'ěr bīnggùn!</div>
+        <div class="chinese-meaning">Ông chủ, cho 1 đĩa Quoa Bao Nhục kiểu cổ truyền, lấy loại vỏ giòn sốt chua ngọt, và lấy thêm 2 que kem Modern/Madie'er vị truyền thống!</div>
+        <div class="chinese-grammar-tip">💡 <strong>Đặc sản Cáp Nhĩ Tân:</strong> Quoa Bao Nhục chuẩn Harbin <em>(老式锅包肉)</em> dùng đường và giấm tạo vị chua thanh ngọt dịu, ăn giòn rụm sảng khoái.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="tinh tien thanh toan quet ma wechat alipay goi mang ve">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('结账，请问扫微信还是支付宝？吃不完的菜可以帮我们打包吗？')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('结账，请问扫微信还是支付宝？吃不完的菜可以帮我们打包吗？')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">结账，请问扫微信还是支付宝？吃不完的菜可以帮我们打包吗？</div>
+        <div class="chinese-pinyin">Jiézhàng, qǐngwèn sǎo Wēixìn háishì Zhīfùbǎo? Chī bù wán de cài kěyǐ bāng wǒmen dǎbāo ma?</div>
+        <div class="chinese-meaning">Tính tiền ạ, cho hỏi là quét mã WeChat hay Alipay? Món ăn chưa hết có thể giúp chúng tôi gói mang về (takeaway) được không?</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ HSK3:</strong> <em>结账 (jiézhàng)</em> / <em>买单 (mǎidān)</em> = tính tiền; <em>打包 (dǎbāo)</em> = đóng hộp mang về (thường tính phí hộp 1-2 tệ).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOCABULARY BANK FOR FOOD -->
+  <div class="chinese-vocab-section">
+    <div class="chinese-group-title">
+      <span>📚</span> Tổng Hợp Từ Vựng Trọng Tâm: Món Ăn & Ẩm Thực Đông Bắc
+    </div>
+    <div class="chinese-vocab-grid">
+      
+      <div class="chinese-vocab-card" data-search="tieguodun thiet oa don lau noi gang">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">铁锅炖</span>
+          <span class="vocab-badge">Quốc hồn</span>
+        </div>
+        <div class="vocab-pinyin">Tiěguōdùn</div>
+        <div class="vocab-meaning">Lẩu hầm nồi gang to đun bằng củi / bếp từ kiểu Đông Bắc.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('铁锅炖')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('铁锅炖')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="guobaorou quoa bao nhuc thit chien chua ngot">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">锅包肉</span>
+          <span class="vocab-badge">Trứ danh</span>
+        </div>
+        <div class="vocab-pinyin">Guōbāoròu</div>
+        <div class="vocab-meaning">Thịt thăn heo tẩm bột chiên phồng sốt chua ngọt giòn rụm.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('锅包肉')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('锅包肉')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="madieer binggun kem madieer pho trung uong">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">马迭尔冰棍</span>
+          <span class="vocab-badge">Biểu tượng</span>
+        </div>
+        <div class="vocab-pinyin">Mǎdié'ěr bīnggùn</div>
+        <div class="vocab-meaning">Kem que thương hiệu Modern từ 1906, ăn béo ngậy giữa trời âm 20°C.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('马迭尔冰棍')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('马迭尔冰棍')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="tangchaobanli hat de nuong duong nong hoi">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">糖炒板栗</span>
+          <span class="vocab-badge">Ăn vặt</span>
+        </div>
+        <div class="vocab-pinyin">Tángchǎo bǎnlì</div>
+        <div class="vocab-meaning">Hạt dẻ rang đường nóng hổi cầm sưởi ấm tay trên phố lạnh.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('糖炒板栗')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('糖炒板栗')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="shaokao nuong xien thit kieu dong bac">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">东北烧烤 / 哈啤</span>
+          <span class="vocab-badge">Đêm lạnh</span>
+        </div>
+        <div class="vocab-pinyin">Dōngběi shāokǎo / Hāpí</div>
+        <div class="vocab-meaning">Xiên que nướng rắc bột ớt thì là / Bia Cáp Nhĩ Tân trứ danh.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('东北烧烤哈啤')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('东北烧烤哈啤')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="shuijiao sui cao dong bac">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">水饺 (猪肉酸菜)</span>
+          <span class="vocab-badge">HSK3</span>
+        </div>
+        <div class="vocab-pinyin">Shuǐjiǎo (zhūròu suāncài)</div>
+        <div class="vocab-meaning">Sủi cảo luộc nhân thịt heo dưa cải chua Đông Bắc thơm bùi.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('水饺')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('水饺')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="saoma quet ma thanh toan wechat alipay">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">扫码支付 / 买单</span>
+          <span class="vocab-badge">Giao dịch</span>
+        </div>
+        <div class="vocab-pinyin">Sǎomǎ zhīfù / Mǎidān</div>
+        <div class="vocab-meaning">Quét mã thanh toán điện tử / Tính tiền hóa đơn.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('扫码支付买单')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('扫码支付买单')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="dabao goi mang ve hop xop">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">打包 / 餐盒</span>
+          <span class="vocab-badge">HSK3</span>
+        </div>
+        <div class="vocab-pinyin">Dǎbāo / Cānhé</div>
+        <div class="vocab-meaning">Gói thức ăn thừa mang về / Hộp đựng thức ăn.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('打包餐盒')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('打包餐盒')">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUB-PANEL 6: KHẨU NGỮ ĐÔNG BẮC THOẠI (东北话) -->
+<div class="sub-tab-panel" data-sub-group="chinese" data-sub="chinese-slang">
+  <div class="chinese-dialogue-group">
+    <div class="chinese-group-title">
+      <span>🗣️</span> Bối Cảnh 6.1: Tán Gẫu "Nấu Cháo Điện Thoại" (唠嗑) Với Người Bản Địa Đông Bắc
+    </div>
+    <div class="chinese-dialogue-cards">
+      
+      <div class="chinese-phrase-card speaker-local" data-search="bac tai taxi tro chuyen nhiet tinh dong bac">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🚕 Bác Tài Đông Bắc</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('老弟，从南方来的吧？东北这天儿贼冷，羽绒服拉链拉紧点，别嘚瑟！')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('老弟，从南方来的吧？东北这天儿贼冷，羽绒服拉链拉紧点，别嘚瑟！')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">老弟，从南方来的吧？东北这天儿贼冷，羽绒服拉链拉紧点，别嘚瑟！</div>
+        <div class="chinese-pinyin">Lǎodì, cóng nánfāng lái de ba? Dōngběi zhè tiānr zéi lěng, yǔróngfú lāliàn lā jǐn diǎn, bié dèse!</div>
+        <div class="chinese-meaning">Em trai, từ phương Nam tới đúng không? Trời Đông Bắc dạo này rét buốt cực kỳ (zéi lěng), khoá kéo áo lông vũ kéo kín vào, đừng có phong phanh làm màu (dèse) nghe chưa!</div>
+        <div class="chinese-grammar-tip">💡 <strong>Tiếng lóng kinh điển:</strong> <em>贼 (zéi)</em> = cực kỳ / rất; <em>嘚瑟 (dèse)</em> = làm màu, ăn mặc điệu đà mỏng manh giữa thời tiết giá buốt rồi run rẩy.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="dap loi than thien di dao tan bo thong tha pho trung uong">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('哈哈，大哥说得对！我们吃饱了正打算去中央大街溜达溜达，整根马迭尔冰棍尝尝。')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('哈哈，大哥说得对！我们吃饱了正打算去中央大街溜达溜达，整根马迭尔冰棍尝尝。')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">哈哈，大哥说得对！我们吃饱了正打算去中央大街溜达溜达，整根马迭尔冰棍尝尝。</div>
+        <div class="chinese-pinyin">Hāhā, dàgē shuō de duì! Wǒmen chī bǎo le zhèng dǎsuàn qù Zhōngyāng Dàjiē liūda liūda, zhěng gēn Mǎdié'ěr bīnggùn chángchang.</div>
+        <div class="chinese-meaning">Haha, đại ca nói quá đúng! Tụi em ăn no xong đang tính ra Phố Trung Ương lượn lờ dạo phố (liūda), chén (zhěng) một que kem que Madie'er nếm thử xem sao.</div>
+        <div class="chinese-grammar-tip">💡 <strong>Động từ ma thuật:</strong> <em>溜达 (liūda)</em> = đi dạo thong thả; <em>整 (zhěng)</em> = động từ vạn năng của Đông Bắc (ở đây <em>整根冰棍</em> = ăn một que kem).</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-traveler" data-search="uy tin dung chem gio du khach ngoai tinh">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🧑 Du Khách</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('大哥，听说您开车技术贼靠谱，路上可别忽悠我们外地人多花钱啊！')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('大哥，听说您开车技术贼靠谱，路上可别忽悠我们外地人多花钱啊！')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">大哥，听说您开车技术贼靠谱，路上可别忽悠我们外地人多花钱啊！</div>
+        <div class="chinese-pinyin">Dàgē, tīngshuō nín kāichē jìshù zéi kàopǔ, lùshang kě bié hūyou wǒmen wàidì rén duō huā qián a!</div>
+        <div class="chinese-meaning">Đại ca ơi, nghe nói tay lái bác cực kỳ uy tín (zéi kàopǔ), trên đường chớ có chém gió dụ dỗ (hūyou) khách phương xa bọn em tiêu thêm tiền oan nha!</div>
+        <div class="chinese-grammar-tip">💡 <strong>Từ siêu chuẩn:</strong> <em>靠谱 (kàopǔ)</em> = đáng tin cậy; <em>忽悠 (hūyou)</em> = chém gió, dụ dỗ, vẽ vời mua đồ giá đắt.</div>
+      </div>
+
+      <div class="chinese-phrase-card speaker-local" data-search="bac tai khang dinh uy tin nhiet tinh">
+        <div class="phrase-header-row">
+          <span class="phrase-speaker-tag">🚕 Bác Tài Đông Bắc</span>
+          <div class="phrase-action-buttons">
+            <button type="button" class="btn-chinese-action" onclick="playChineseAudio('放心吧老弟！咱东北人讲究仗义，绝不扯犊子！保准把你们平平安安送到地方！')">🔊 Nghe</button>
+            <button type="button" class="btn-chinese-action" onclick="copyChineseText('放心吧老弟！咱东北人讲究仗义，绝不扯犊子！保准把你们平平安安送到地方！')">📋 Sao chép</button>
+          </div>
+        </div>
+        <div class="chinese-hanzi">放心吧老弟！咱东北人讲究仗义，绝不扯犊子！保准把你们平平安安送到地方！</div>
+        <div class="chinese-pinyin">Fàngxīn ba lǎodì! Zán Dōngběi rén jiǎngjiu zhàngyì, jué bù chě dúzi! Bǎozhǔn bǎ nǐmen píngpíng-ān'ān sòng dào dìfang!</div>
+        <div class="chinese-meaning">Yên tâm đi em trai! Người Đông Bắc chúng tao trọng chữ nghĩa khí, tuyệt đối không bốc phét xàm xí (chě dúzi)! Đảm bảo đưa các bạn đến nơi bình bình an an!</div>
+        <div class="chinese-grammar-tip">💡 <strong>Khẩu ngữ:</strong> <em>绝不扯犊子 (jué bù chě dúzi)</em> = tuyệt đối không ba hoa xàm xí; <em>保准 (bǎozhǔn)</em> = đảm bảo 100%.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOCABULARY BANK FOR SLANG -->
+  <div class="chinese-vocab-section">
+    <div class="chinese-group-title">
+      <span>📚</span> Top 10 Từ Lóng Đông Bắc Kinh Điển (Nâng Trình Giao Tiếp Bản Xứ)
+    </div>
+    <div class="chinese-vocab-grid">
+      
+      <div class="chinese-vocab-card" data-search="zei cuc ky rat">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">贼</span>
+          <span class="vocab-badge slang">Top 1 Lóng</span>
+        </div>
+        <div class="vocab-pinyin">Zéi</div>
+        <div class="vocab-meaning">Cực kỳ, vô cùng (thay cho 非常, 特别). Ví dụ: 贼好看 (đẹp dã man), 贼冷 (lạnh cóng).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('贼好')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('贼')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="zheng dong tu van nang lam an uong">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">整</span>
+          <span class="vocab-badge slang">Động từ vạn năng</span>
+        </div>
+        <div class="vocab-pinyin">Zhěng</div>
+        <div class="vocab-meaning">Làm, xơi, xử lý, lấy, ăn, uống... Ví dụ: 整点吃的 (kiếm tí gì ăn), 整一口 (làm 1 ngụm).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('整一个')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('整')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="liuda di dao tan bo thong tha">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">溜达</span>
+          <span class="vocab-badge slang">Thói quen</span>
+        </div>
+        <div class="vocab-pinyin">Liūda</div>
+        <div class="vocab-meaning">Đi dạo, tản bộ thong dong ngắm cảnh phố phường.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('溜达溜达')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('溜达')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="huyou chem gio du do lua gat">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">忽悠</span>
+          <span class="vocab-badge slang">Cảnh giác</span>
+        </div>
+        <div class="vocab-pinyin">Hūyou</div>
+        <div class="vocab-meaning">Chém gió, lươn lẹo dụ dỗ để người khác mua hàng hoặc tin theo lời vẽ vời.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('忽悠')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('忽悠')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="kaopu uy tin dang tin cay">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">靠谱</span>
+          <span class="vocab-badge slang">Khen ngợi</span>
+        </div>
+        <div class="vocab-pinyin">Kàopǔ</div>
+        <div class="vocab-meaning">Đáng tin cậy, làm ăn uy tín, chuẩn mực (ngược lại là 不靠谱).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('靠谱')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('靠谱')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="laoke buon chuyen tam gau">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">唠嗑</span>
+          <span class="vocab-badge slang">Giao lưu</span>
+        </div>
+        <div class="vocab-pinyin">Làokē</div>
+        <div class="vocab-meaning">Tám chuyện, trò chuyện rôm rả thân tình (đặc sản tính cách người Đông Bắc).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('唠嗑')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('唠嗑')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="cheduzi boc phet noi xam noi linh tinh">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">扯犊子</span>
+          <span class="vocab-badge slang">Nói đùa</span>
+        </div>
+        <div class="vocab-pinyin">Chě dúzi</div>
+        <div class="vocab-meaning">Nói nhảm, ba hoa xàm xí không thực tế (thường nói đùa bạn bè).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('扯犊子')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('扯犊子')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="dese lam mau pho truong an mac phong phanh">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">嘚瑟</span>
+          <span class="vocab-badge slang">Màu mè</span>
+        </div>
+        <div class="vocab-pinyin">Dèse</div>
+        <div class="vocab-meaning">Làm màu, phô trương, ăn mặc mỏng phong phanh ngoài trời rét để chụp ảnh.</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('嘚瑟')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('嘚瑟')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="bolenggai dau goi chan">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">波棱盖</span>
+          <span class="vocab-badge slang">Bộ phận</span>
+        </div>
+        <div class="vocab-pinyin">Bōlenggài</div>
+        <div class="vocab-meaning">Khớp đầu gối chân (Tiếng phổ thông là 膝盖 - xīgài).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('波棱盖')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('波棱盖')">📋</button>
+        </div>
+      </div>
+
+      <div class="chinese-vocab-card" data-search="maitai ban thu bun tuyet">
+        <div class="vocab-top-line">
+          <span class="vocab-hanzi">埋汰</span>
+          <span class="vocab-badge slang">Tính từ</span>
+        </div>
+        <div class="vocab-pinyin">Máitai</div>
+        <div class="vocab-meaning">Bẩn thỉu, lấm lem bùn tuyết (Tiếng phổ thông là 脏 - zāng).</div>
+        <div class="phrase-action-buttons" style="margin-top:6px;">
+          <button type="button" class="btn-chinese-action" onclick="playChineseAudio('埋汰')">🔊</button>
+          <button type="button" class="btn-chinese-action" onclick="copyChineseText('埋汰')">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+
+
     <!-- ==================== GLOBAL MODALS & TOASTS ==================== -->
     <!-- Floating Day Detail Modal Popup -->
     <div id="map-detail-modal" class="map-detail-modal" onclick="closeMapModal(event)">
@@ -10991,7 +12698,7 @@
     let itineraryViewMode = 'cards';
 
     function switchMainTab(tabId, skipHash) {
-      const validTabs = ['itinerary', 'budget', 'transit', 'photo', 'packing'];
+      const validTabs = ['itinerary', 'budget', 'transit', 'photo', 'packing', 'chinese'];
       if (!validTabs.includes(tabId)) tabId = 'itinerary';
 
       document.querySelectorAll('.primary-tab-btn').forEach(btn => {
@@ -12760,7 +14467,7 @@
       renderItinerarySummaryTable();
 
       const hash = window.location.hash || '';
-      const tabMatch = hash.match(/tab=(itinerary|budget|transit|photo|packing)/);
+      const tabMatch = hash.match(/tab=(itinerary|budget|transit|photo|packing|chinese)/);
       if (tabMatch) {
         switchMainTab(tabMatch[1], true);
       } else {
@@ -14809,6 +16516,107 @@
       initDailyBudgetTracker();
     }
 
-  </script>
+  
+/* ==========================================================
+   CHINESE LEARNING SYSTEM JAVASCRIPT
+   ========================================================== */
+function copyChineseText(text) {
+  if (!text) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showClipboardToast(`Đã sao chép chữ Hán: "${text}" (Dán sang WeChat hoặc app dịch)`);
+    }).catch(() => {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showClipboardToast(`Đã sao chép: "${text}"`);
+  } catch (e) {
+    showClipboardToast(`Vui lòng chọn thủ công để sao chép.`);
+  }
+}
+
+function playChineseAudio(text) {
+  if (!('speechSynthesis' in window)) {
+    showClipboardToast('⚠️ Trình duyệt không hỗ trợ phát âm trực tiếp (Web Speech API).');
+    return;
+  }
+  try {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'zh-CN';
+    const speed = parseFloat(localStorage.getItem('harbin_chinese_speed') || '0.85');
+    utterance.rate = speed;
+    window.speechSynthesis.speak(utterance);
+    showClipboardToast(`🔊 Đang đọc: "${text}" (${speed}x)`);
+  } catch (e) {
+    showClipboardToast('Lỗi khi phát âm: ' + e.message);
+  }
+}
+
+function togglePinyinDisplay() {
+  const panel = document.getElementById('panel-chinese');
+  const btn = document.getElementById('btn-toggle-pinyin');
+  const lbl = document.getElementById('lbl-toggle-pinyin');
+  if (!panel) return;
+  const isHidden = panel.classList.toggle('hide-pinyin');
+  if (btn) btn.classList.toggle('active-mode', isHidden);
+  if (lbl) lbl.textContent = isHidden ? 'Hiện Pinyin' : 'Ẩn Pinyin (Tự luyện đọc)';
+  showClipboardToast(isHidden ? '🙈 Đã ẩn Pinyin để bạn tự luyện nhìn chữ Hán!' : '👁️ Đã hiển thị lại phiên âm Pinyin!');
+}
+
+function toggleMeaningDisplay() {
+  const panel = document.getElementById('panel-chinese');
+  const btn = document.getElementById('btn-toggle-meaning');
+  const lbl = document.getElementById('lbl-toggle-meaning');
+  if (!panel) return;
+  const isHidden = panel.classList.toggle('hide-meaning');
+  if (btn) btn.classList.toggle('active-mode', isHidden);
+  if (lbl) lbl.textContent = isHidden ? 'Hiện Dịch' : 'Ẩn Dịch (Tự kiểm tra)';
+  showClipboardToast(isHidden ? '📕 Đã ẩn nghĩa tiếng Việt để bạn tự kiểm tra trí nhớ!' : '📖 Đã hiển thị lại dịch nghĩa tiếng Việt!');
+}
+
+function toggleSpeechSpeed() {
+  const speeds = [0.85, 0.7, 1.0];
+  let cur = parseFloat(localStorage.getItem('harbin_chinese_speed') || '0.85');
+  let nextIdx = (speeds.indexOf(cur) + 1) % speeds.length;
+  if (nextIdx < 0) nextIdx = 0;
+  const nextSpeed = speeds[nextIdx];
+  localStorage.setItem('harbin_chinese_speed', nextSpeed.toString());
+  const lbl = document.getElementById('lbl-audio-speed');
+  if (lbl) lbl.textContent = `Tốc độ đọc: ${nextSpeed}x`;
+  showClipboardToast(`⚡ Tốc độ giọng đọc đã đổi sang: ${nextSpeed}x`);
+}
+
+function filterChineseCards() {
+  const input = document.getElementById('chinese-search-input');
+  if (!input) return;
+  const q = input.value.trim().toLowerCase();
+  
+  const cards = document.querySelectorAll('#panel-chinese .chinese-phrase-card, #panel-chinese .chinese-vocab-card');
+  cards.forEach(card => {
+    if (!q) {
+      card.style.display = '';
+      return;
+    }
+    const searchData = (card.getAttribute('data-search') || '').toLowerCase();
+    const textContent = card.innerText.toLowerCase();
+    const matched = searchData.includes(q) || textContent.includes(q);
+    card.style.display = matched ? '' : 'none';
+  });
+}
+
+</script>
 </body>
 </html>
