@@ -12,7 +12,7 @@
 - **Chuyến bay đã book (Air China):**
   - **Chiều đi:** Hà Nội (12:25, 30/12) ➔ Thượng Hải (16:30, 30/12 - transit 21h15m) ➔ Cáp Nhĩ Tân (16:40, 31/12)
   - **Chiều về:** Trường Xuân (12:40, 10/01) ➔ Bắc Kinh (14:40, 10/01 - transit 9h30m) ➔ Hà Nội (03:15, 11/01)
-- **Tuyến đường:** Thượng Hải (transit) ➔ Cáp Nhĩ Tân ➔ Tuyến Xe Trực Thông Á Tuyết ➔ Làng Tuyết Hương (Xuexiang - Nghỉ dưỡng 2 đêm khang sưởi) ➔ Núi Trường Bạch (Changbaishan - Onsen 2 đêm & Trượt tuyết Hòa Bình) ➔ Trường Xuân (Changchun) ➔ Bắc Kinh (transit) ➔ Hà Nội.
+- **Tuyến đường:** Thượng Hải (transit 1 đêm) ➔ Cáp Nhĩ Tân (2 đêm) ➔ Á Bố Lực Yabuli (2 đêm trượt tuyết & suối khoáng nóng) ➔ Làng Tuyết Hương (1 đêm khang sưởi) ➔ Núi Trường Bạch (3 đêm Jinfeng Hotel, Bắc Dốc Núi Trường Bạch, Ma Giới Rafting & Rừng Tuyết Lĩnh Tuần Lộc) ➔ Trường Xuân (2 đêm City Select Hotel, TTTM '这有山' & Hồ băng Tịnh Nguyệt Đàm) ➔ Bắc Kinh (transit) ➔ Hà Nội.
 
 ---
 
@@ -22,10 +22,10 @@
 - **Bộ lọc phân loại ghim (Category Filters):**
   - `🌟 Tất Cả Điểm Mốc`: Toàn cảnh lộ trình ngày.
   - `🚆 Ga Tàu CRH & Bến Xe Bus`: Định vị chính xác các ga tàu cao tốc CRH, trạm metro và bến xe buýt tuyết.
-  - `🏨 Khách Sạn Dự Kiến (11 Đêm)`: Ghim tím viền dạ quang cho 11 khách sạn tối ưu cự ly ga tàu.
+  - `🏨 Khách Sạn Đã Chốt (11 Đêm 100% Trip.com)`: Ghim tím viền dạ quang cho 11 đêm chỗ ở đã thanh toán, tối ưu tiết kiệm ~6,85 triệu đồng (~33,5%).
   - `🏰 Điểm Tham Quan Trọng Yếu`: Ghim xanh băng cho 8 đại kỳ quan.
-- **Bảng tra cứu toạ độ ngăn kéo (Collapsible Quick Reference):** Bảng tổng hợp toạ độ GPS, tên tiếng Trung, cự ly và mức giá của 11 khách sạn + 19 đầu mối giao thông, hỗ trợ nút copy tên chữ Hán 1 chạm để tra cứu Amap / Baidu Maps / gọi xe Didi.
-- **Thẻ chỗ ở dự kiến theo ngày (`.day-hotel-box`):** Đặt ngay dưới hướng dẫn di chuyển của từng ngày với badge trạng thái, giá tham khảo, tiện nghi mùa đông và placeholder mã booking để cập nhật sau khi chốt thực tế.
+- **Bảng tra cứu toạ độ ngăn kéo (Collapsible Quick Reference):** Bảng tổng hợp toạ độ GPS, tên tiếng Trung, cự ly và mức giá của 11 đêm khách sạn đã xác nhận + 19 đầu mối giao thông, hỗ trợ nút copy tên chữ Hán 1 chạm để tra cứu Amap / Baidu Maps / gọi xe Didi.
+- **Thẻ chỗ ở thực tế theo ngày (`.day-hotel-box`):** Đặt ngay dưới hướng dẫn di chuyển của từng ngày với badge đã xác nhận, mã đơn Trip.com, giá thực tế, tiện nghi mùa đông và hướng dẫn đón tàu/xe.
 
 ---
 
@@ -38,9 +38,9 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 3. **🥖 Phố Cổ Trung Ương (Zhongyang Dajie):** Ngày 2, Ngày 3 & Ngày 4 (phố đi bộ lát đá Baroque Nga, kem que Madie'er giữa trời -20°C, xúc xích Harbin).
 4. **🌊 Sông Tùng Hoa (Songhua River):** Sáng Ngày 3 (trượt phao trên mặt băng dày 1m) & Chiều Ngày 4 (hoàng hôn rực lửa trên Cầu sắt thế kỷ Trung Đông lát sàn kính).
 5. **☀️ Đảo Mặt Trời (Sun Island - 太阳岛雪博会):** Sáng Ngày 3 (Metro Line 2 qua ga Thái Dương Đảo, Triển lãm điêu khắc tượng tuyết trắng quốc tế khổng lồ 30m).
-6. **🏰 Trang Viên Volga (Volga Manor - 伏尔加庄园):** Trọn vẹn Ngày 4 (Lâu đài Pavlov tuyết trắng, quán bar hầm rượu Vodka bằng băng nguyên khối, máng trượt phao từ tháp lâu đài Nga).
+6. **⛷️ Sân Trượt Tuyết Á Bố Lực (Yabuli Ski Resort):** Trọn vẹn 2 ngày (Ngày 4 & Ngày 5) học trượt tuyết bài bản với HLV, quay clip hành động giờ vàng, máng trượt alpine coaster 2.680m, thăm Nhà Gấu Trúc tuyết và ngâm suối khoáng nóng ngoài trời -20°C.
 7. **🐅 Công Viên Hổ Siberia (Siberian Tiger Park - 东北虎林园):** Trưa Ngày 3 (xe lồng bọc thép đặc chủng khám phá bầy hổ tuyết Siberia dũng mãnh nhảy vồ mồi giữa bão tuyết).
-8. **🍄 Làng Tuyết Hương (China Snow Town - 中国雪乡):** Trọn vẹn 2 đêm liên tiếp (Ngày 5 & Ngày 6) nghỉ ngơi thư thái trong cùng homestay khang sưởi ấm áp, KHÔNG vác vali đổi phòng: ngắm mái nấm tuyết bồng bềnh, đêm rước đuốc đèn lồng đỏ, săn bình minh đỉnh Dương Thảo Sơn 1.235m bằng mô tô tuyết, té nước sôi thành băng, dạo sàn gỗ Bổng Chùy Sơn và Thập Lý Họa Lang.
+8. **🍄 Làng Tuyết Hương & Rừng Tuần Lộc Tuyết Lĩnh:** Làng cổ tích Tuyết Hương (Ngày 6, mái nấm tuyết bồng bềnh, rước đuốc lồng đèn đỏ, té nước sôi thành băng) và Rừng Tuyết Lĩnh (Ngày 9, Ma Giới Rafting sương muối bình minh & cho tuần lộc ăn rêu giữa rừng thông tuyết).
 
 ---
 
@@ -60,9 +60,9 @@ Toàn bộ 8 danh thắng kinh điển đã được nghiên cứu và tối ưu
 1. **🎬 Rạp Chiếu Phim Mini 4K & YouTube Shorts Tuyển Tập:**
    - Trình phát video 4K tương tác với 6 clip danh lam thắng cảnh.
    - 5 video YouTube Shorts dạng đứng (9:16) quay trải nghiệm thực tế: Máng trượt 500m, Băng đăng đêm, Làng Tuyết Hương, Rafting Ma Giới, Té nước sôi thành băng.
-2. **🎨 Graphic Tips Chuẩn Bị:** Infographic mặc ấm 3 lớp, dáng đi chim cánh cụt chống trượt, mẹo pin sập nguồn, mẹo đi xe lồng xem hổ và check-in Volga Manor.
+2. **🎨 Graphic Tips Chuẩn Bị:** Infographic mặc ấm 3 lớp, dáng đi chim cánh cụt chống trượt, mẹo pin sập nguồn, mẹo đi xe lồng xem hổ và quay phim trượt tuyết.
 3. **👗 Lookbook Outfit & 8 Ý Tưởng Chụp Ảnh & Video Couple:** 4 bảng phối màu thời trang mùa đông & 8 concept tạo dáng đôi viral kèm bộ sưu tập thumbnail ảnh mẫu trực quan với tính năng swipe cảm ứng / kéo chuột mượt mà để tra cứu nhanh khi đi thực tế.
-4. **⛷️ Hướng Dẫn Trượt Tuyết Tại Núi Trường Bạch:** Khóa trải nghiệm & trượt tuyết trọn ngày tại Sân Trượt Tuyết Hòa Bình (Peace Ski Resort) chân núi Trường Bạch giữa rừng thông cổ thụ, tuyết bột champagne cực mịn và an toàn.
+4. **⛷️ Trượt Tuyết Á Bố Lực & Rafting Sương Muối Ma Giới:** Khóa học trượt tuyết bài bản 2 ca với HLV chuyên nghiệp tại Yabuli, ngâm khoáng nóng rừng tuyết -20°C, chèo bè Ma Giới bình minh và khám phá Rừng tuần lộc Tuyết Lĩnh.
 5. **💰 Quản Lý Chi Tiêu Thực Tế Theo Từng Ngày (Daily & Phase-Based Expense Tracker):** Tích hợp ứng dụng quản lý tài chính thông minh cấu trúc chuyên nghiệp theo thực tế chuyến đi:
    - **Giai đoạn trước chuyến đi:** Quản lý vé máy bay khứ hồi, lệ phí visa, mua sắm trang phục giữ nhiệt, eSIM data, quỹ tiền mặt RMB đổi sẵn tại VN.
    - **12 Ngày trong hành trình:** Mỗi ngày là 1 thẻ accordion trực quan quản lý chi tiết các khoản chi con phát sinh (khách sạn/homestay theo đêm, vé tàu cao tốc/bus/taxi, vé tham quan, trải nghiệm onsen/trượt tuyết, ăn uống đặc sản).
