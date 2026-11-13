@@ -3976,9 +3976,15 @@
 
     .trip-glance-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1px;
       background: var(--border-ice);
+    }
+
+    @media (max-width: 1100px) {
+      .trip-glance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     .trip-glance-shell.collapsed .trip-glance-grid {
@@ -4738,6 +4744,261 @@
       overflow-wrap: anywhere;
     }
 
+    /* Smart D-Day Milestone Tracker Styles */
+    .glance-today-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      white-space: nowrap;
+    }
+
+    .glance-today-badge.urgent {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.45);
+      animation: pulseAlert 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+      50% { box-shadow: 0 0 12px rgba(239, 68, 68, 0.45); }
+    }
+
+    .milestone-sim-box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 14px;
+      padding: 14px 18px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-ice);
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    .milestone-sim-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .milestone-sim-select {
+      background: #0f172a;
+      border: 1px solid var(--border-glow);
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 7px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .milestone-timeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .milestone-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-ice);
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .milestone-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .milestone-card.active-phase {
+      border-color: #38bdf8 !important;
+      background: linear-gradient(135deg, rgba(16, 29, 66, 0.95), rgba(15, 23, 42, 0.98)) !important;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+    .milestone-card.active-phase::before {
+      content: '👉 GIAI ĐOẠN ĐANG HOẠT ĐỘNG';
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+      color: #0b1120;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+    }
+
+    .milestone-card.urgent-phase.active-phase::before {
+      content: '🚨 CẦN XỬ LÝ HÔM NAY / TUẦN NÀY';
+      background: linear-gradient(90deg, #dc2626, #f87171);
+      color: #fff;
+    }
+
+    .milestone-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .milestone-title-group h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .milestone-dates {
+      font-size: 0.82rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .milestone-status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .milestone-status-badge.critical {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
+    .milestone-status-badge.warning {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .milestone-status-badge.info {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .milestone-status-badge.success {
+      background: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+
+    .milestone-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .milestone-task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: #e2e8f0;
+      transition: background 0.15s;
+    }
+
+    .milestone-task-item:hover {
+      background: rgba(30, 41, 59, 0.6);
+    }
+
+    .milestone-task-item input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: #38bdf8;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .milestone-task-item.done span {
+      text-decoration: line-through;
+      color: #64748b;
+    }
+
+    .milestone-action-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .btn-ms-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .btn-ms-link.trip {
+      background: rgba(16, 185, 129, 0.14);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.4);
+    }
+    .btn-ms-link.trip:hover {
+      background: #34d399;
+      color: #0b1120;
+    }
+
+    .btn-ms-link.wechat {
+      background: rgba(7, 193, 96, 0.14);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.4);
+    }
+    .btn-ms-link.wechat:hover {
+      background: #4ade80;
+      color: #0b1120;
+    }
+
+    .btn-ms-link.info {
+      background: rgba(56, 189, 248, 0.14);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+    .btn-ms-link.info:hover {
+      background: #38bdf8;
+      color: #0b1120;
+    }
+
     /* Mobile Responsive Tuning */
     @media (max-width: 900px) {
       html, body {
@@ -4812,6 +5073,26 @@
 
       .app-brand-sub {
         display: none;
+      }
+
+      /* 1-Line Swipeable Sub-Tab Nav */
+      .sub-tab-nav {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 5px !important;
+        gap: 6px !important;
+        margin: 8px 0 12px !important;
+      }
+      .sub-tab-nav::-webkit-scrollbar {
+        display: none;
+      }
+      .sub-tab-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-size: 0.74rem !important;
+        padding: 6px 10px !important;
       }
 
       /* Section Header Spacing Reduction */
@@ -5568,9 +5849,16 @@
     <!-- Collapsible Quick-Glance Strip: Flights • Hotels • Live Budget -->
     <div class="trip-glance-shell" id="trip-glance-shell">
       <div class="trip-glance-topbar">
-        <div>✈️ <strong>Tra cứu nhanh 2 người:</strong> Vé khứ hồi Air China • Lưu trú 9/11 đêm khớp lịch (cần chốt Đ1 SH &amp; gia hạn Đ4 Yabuli) • Ngân sách realtime</div>
-        <button type="button" class="glance-toggle-btn" id="glance-toggle-btn" onclick="toggleGlanceBar()">Thu gọn
-          ▲</button>
+        <div class="trip-glance-topbar-info" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; min-width:0; flex:1;">
+          <span class="glance-today-badge" id="topbar-today-badge">⏳ D-47</span>
+          <span id="topbar-today-alert" style="font-size:0.8rem; color:#e2e8f0; line-height:1.35;">
+            <strong>Mốc hôm nay:</strong> Đang ở giai đoạn D-60. Mốc canh vé tàu CRH: 19/12 lúc 08:00!
+          </span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+          <button type="button" class="glance-link-btn" onclick="openMilestoneTab()" style="font-size:0.75rem; font-weight:700;">Lộ trình mốc ↗</button>
+          <button type="button" class="glance-toggle-btn" id="glance-toggle-btn" onclick="toggleGlanceBar()">Thu gọn ▲</button>
+        </div>
       </div>
       <div class="trip-glance-grid">
         <div class="glance-card">
@@ -5618,6 +5906,25 @@
             <div class="glance-budget-sub" style="margin-top:3px;">
               Thực chi: <strong id="glance-act-vnd" style="color:#34d399;">0 ₫</strong> • Đã thanh toán: <strong
                 id="glance-paid" style="color:#e2e8f0;">0/0</strong> khoản
+            </div>
+          </div>
+        </div>
+
+        <div class="glance-card" id="glance-milestone-card">
+          <div class="glance-card-head">
+            <span style="color:#fbbf24;">⏱️ Mốc Việc Hôm Nay</span>
+            <button type="button" class="glance-link-btn" onclick="openMilestoneTab()">Toàn Bộ 9 Mốc ↗</button>
+          </div>
+          <div>
+            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+              <span class="glance-budget-main" id="glance-dday-count" style="color:#fbbf24; font-size:1.05rem;">D-47</span>
+              <span style="font-size:0.75rem; color:#94a3b8;" id="glance-today-date-str">Hôm nay</span>
+            </div>
+            <div style="font-size:0.78rem; color:#cbd5e1; margin-top:3px; line-height:1.35;" id="glance-ms-active-desc">
+              Đang ở giai đoạn: Sắm đồ chống rét & chuẩn bị hồ sơ visa.
+            </div>
+            <div style="margin-top:4px; font-size:0.72rem; color:#34d399;" id="glance-ms-progress-summary">
+              Tiến độ: 0 / 24 việc hoàn tất
             </div>
           </div>
         </div>
@@ -9706,12 +10013,14 @@
     <!-- ==================== TAB 5: MẶC ĐỒ & CHUẨN BỊ ==================== -->
     <div class="tab-panel" id="panel-packing" data-tab="packing" role="tabpanel">
       <div class="sub-tab-nav" data-sub-group="packing" role="tablist">
-        <button type="button" class="sub-tab-btn active" data-sub="outfit"
+        <button type="button" class="sub-tab-btn active" data-sub-group="packing" data-sub="outfit"
           onclick="switchSubTab('packing', 'outfit')">👗 Outfit Couple (4 Set)</button>
-        <button type="button" class="sub-tab-btn" data-sub="tips" onclick="switchSubTab('packing', 'tips')">🌡️ Tips Mặc
+        <button type="button" class="sub-tab-btn" data-sub-group="packing" data-sub="tips" onclick="switchSubTab('packing', 'tips')">🌡️ Tips Mặc
           3 Lớp & Sinh Tồn</button>
-        <button type="button" class="sub-tab-btn" data-sub="checklist" onclick="switchSubTab('packing', 'checklist')">🎒
+        <button type="button" class="sub-tab-btn" data-sub-group="packing" data-sub="checklist" onclick="switchSubTab('packing', 'checklist')">🎒
           Checklist & Câu Giao Tiếp</button>
+        <button type="button" class="sub-tab-btn" data-sub-group="packing" data-sub="timeline" id="sub-tab-btn-timeline" onclick="switchSubTab('packing', 'timeline')">⏱️
+          Lịch Canh Vé & Mốc Việc</button>
       </div>
       <div class="sub-tab-panel active" id="sub-packing-outfit" data-sub-group="packing" data-sub="outfit">
         <!-- SECTION 4: COUPLE OUTFIT LOOKBOOK -->
@@ -10082,6 +10391,58 @@
                 <button type="button" class="btn-mini-copy" onclick="copyHotelCn('这里允许飞无人机航拍吗？', this)">📋 Copy</button>
               </div>
             </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SUB-TAB 4: D-DAY MILESTONE TRACKER & BOOKING SCHEDULE -->
+      <div class="sub-tab-panel" id="sub-packing-timeline" data-sub-group="packing" data-sub="timeline">
+        <section id="milestones-timeline-section">
+          <div class="section-header">
+            <span class="section-tag">Tiến Độ & Canh Vé</span>
+            <h2 class="section-title">⏱️ Lộ Trình Mốc Chuẩn Bị & Canh Vé Du Lịch</h2>
+            <p class="section-desc">Hệ thống tự động đối soát ngày hiện tại của bạn với 9 mốc quan trọng nhất từ D-60 đến D-Day. Mở trang web lên là biết ngay hôm nay cần xử lý công việc gì.</p>
+          </div>
+
+          <!-- Date Simulation & Active Milestone Bar -->
+          <div class="milestone-sim-box">
+            <div class="milestone-sim-left">
+              <div>
+                <span style="font-size:0.75rem; color:#94a3b8; text-transform:uppercase; font-weight:700; letter-spacing:0.5px;">Trạng Thái Thời Gian:</span>
+                <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                  <span class="glance-today-badge" id="ms-sim-badge">⏳ D-47</span>
+                  <span id="ms-sim-date-display" style="font-size:0.92rem; font-weight:700; color:#f8fafc;">Hôm nay: Thứ Sáu, 13/11/2026</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+              <label for="ms-date-sim-select" style="font-size:0.78rem; color:#94a3b8;">Mô phỏng ngày xem cảnh báo:</label>
+              <select id="ms-date-sim-select" class="milestone-sim-select" onchange="onMilestoneSimulateChange(this.value)">
+                <option value="today">📅 Ngày Thực Tế Hôm Nay</option>
+                <option value="2026-11-13">13/11/2026 (D-47) - Giai đoạn Sắm Đồ & Hồ Sơ</option>
+                <option value="2026-11-30">30/11/2026 (D-30) - Mua Bảo Hiểm & Ví Alipay/WeChat</option>
+                <option value="2026-12-10">10/12/2026 (D-20) - Mua Đồ Âm 30°C & Túi Ấm Flycam</option>
+                <option value="2026-12-19">🚨 19/12/2026 (D-14) - 08:00 Canh Vé Tàu Harbin ➔ Yabuli</option>
+                <option value="2026-12-21">🚨 21/12/2026 (D-14) - 08:00 Canh Vé Tàu Mudanjiang ➔ Trường Bạch</option>
+                <option value="2026-12-29">🚨 29/12/2026 (D-7) - Đặt Vé Thiên Trì WeChat 长白山</option>
+                <option value="2026-12-30">✈️ 30/12/2026 (D-Day) - Khởi Hành Hà Nội ➔ Thượng Hải</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Overall Progress Bar -->
+          <div class="checklist-progress-bar" style="margin-bottom:18px;">
+            <div>⏱️ Tiến độ hoàn thành công việc: <strong id="milestone-progress-text" style="color:#34d399;">0 / 24 mục (0%)</strong></div>
+            <div class="checklist-progress-track">
+              <div class="checklist-progress-fill" id="milestone-progress-fill"></div>
+            </div>
+            <button type="button" class="btn-mini-copy" onclick="resetMilestonesProgress()"
+              style="border-color:rgba(248,113,113,0.35); color:#fca5a5;">↺ Đặt lại</button>
+          </div>
+
+          <!-- Milestone Cards Container -->
+          <div class="milestone-timeline-container" id="milestone-timeline-container">
+            <!-- Dynamically populated by renderMilestoneTimeline() -->
           </div>
         </section>
       </div>
@@ -11917,6 +12278,469 @@
     });
 
     /* ========================================================
+       SMART D-DAY MILESTONE TRACKER & CANH VÉ DU LỊCH
+       ======================================================== */
+    const HARBIN_MILESTONES = [
+      {
+        id: 'ms-d60',
+        dDay: 60,
+        name: 'Mốc 1: Hồ Sơ Hộ Chiếu, Visa & Chốt 11 Đêm Khách Sạn',
+        phaseName: 'Giai đoạn D-60: Hồ sơ & Khách sạn',
+        urgency: 'info',
+        datesStr: 'Trước 31/10/2026 (D-60)',
+        shortDesc: 'Đã chốt 11/11 đêm khách sạn. Cần kiểm tra hạn hộ chiếu > 6 tháng & nộp visa du lịch.',
+        tasks: [
+          {
+            id: 't-passport',
+            text: 'Kiểm tra hạn Hộ chiếu (phải còn hạn ít nhất đến 11/07/2027, tức > 6 tháng sau ngày kết thúc chuyến đi).'
+          },
+          {
+            id: 't-hotels',
+            text: 'Chốt 11 đêm khách sạn trên Trip.com (Hiện đã chốt 11/11 đêm 100% khớp lịch, mã booking đã lưu).',
+            defaultChecked: true,
+            linkText: 'Xem Bảng Khách Sạn ↗',
+            linkAction: "switchMainTab('transit'); switchSubTab('transit', 'coords');"
+          },
+          {
+            id: 't-visa',
+            text: 'Chuẩn bị hồ sơ xin Visa du lịch Trung Quốc (Visa L) hoặc liên hệ trung tâm visa CVS Hà Nội.'
+          }
+        ]
+      },
+      {
+        id: 'ms-d30',
+        dDay: 30,
+        name: 'Mốc 2: Bảo Hiểm Thể Thao Tuyết & Cài Ví Điện Tử Không Tiền Mặt',
+        phaseName: 'Giai đoạn D-30: Bảo hiểm & Ví Alipay/WeChat',
+        urgency: 'warning',
+        datesStr: '21/11/2026 – 05/12/2026 (Khoảng D-30)',
+        shortDesc: 'Mua bảo hiểm du lịch thể thao mạo hiểm trượt tuyết, cài và xác thực hộ chiếu ví Alipay + WeChat Pay.',
+        tasks: [
+          {
+            id: 't-insurance',
+            text: 'Mua Bảo hiểm Du lịch Quốc tế (BẮT BUỘC chọn gói có bảo hiểm môn thể thao mùa đông/trượt tuyết và cứu hộ vùng cao).'
+          },
+          {
+            id: 't-alipay',
+            text: 'Cài đặt và xác thực danh tính ví Alipay (quét hộ chiếu, liên kết thẻ Visa/Mastercard Việt Nam).'
+          },
+          {
+            id: 't-wechat',
+            text: 'Cài đặt và xác thực ví WeChat Pay (kích hoạt thẻ ngân hàng quốc tế hoặc nạp tiền ví TourCard).'
+          },
+          {
+            id: 't-amap',
+            text: 'Cài đặt app Amap (Bản đồ Cao Đức 高德地图) và tải bản đồ offline Cáp Nhĩ Tân, Cát Lâm.'
+          }
+        ]
+      },
+      {
+        id: 'ms-d20',
+        dDay: 20,
+        name: 'Mốc 3: Mua Sắm Trang Phục Âm 30°C & Túi Sưởi Ấm Pin Flycam',
+        phaseName: 'Giai đoạn D-20: Sắm đồ chống rét & Flycam',
+        urgency: 'info',
+        datesStr: '06/12/2026 – 15/12/2026 (Khoảng D-20)',
+        shortDesc: 'Sắm đủ combo 3 lớp giữ nhiệt, giày tuyết đế gai sâu, 50 miếng dán nhiệt và túi giữ nhiệt cho pin drone.',
+        tasks: [
+          {
+            id: 't-outfit-3layer',
+            text: 'Trang phục 3 lớp: Áo phao lông vũ chống nước 800+ FP, quần tuyết chống thấm, 2-3 bộ Heattech Ultra Warm.',
+            linkText: 'Xem Lookbook Outfit ↗',
+            linkAction: "switchMainTab('packing'); switchSubTab('packing', 'outfit');"
+          },
+          {
+            id: 't-boots-crampons',
+            text: 'Giày tuyết cao cổ lót lông đế cao su gai sâu + bộ đinh gài giày đi trên băng tuyết trơn (crampons).'
+          },
+          {
+            id: 't-heat-patches',
+            text: 'Mua 40 – 60 miếng dán giữ nhiệt (dán lưng, dán lòng bàn chân và dán mặt sau điện thoại chống sập nguồn âm độ).'
+          },
+          {
+            id: 't-drone-prep',
+            text: 'Chuẩn bị túi ủ ấm pin flycam, kiểm tra công suất pin sạc dự phòng (phải in rõ thông số dưới 100Wh).',
+            linkText: 'Xem Cẩm Nang Flycam ↗',
+            linkAction: "switchMainTab('photo'); switchSubTab('photo', 'media');"
+          }
+        ]
+      },
+      {
+        id: 'ms-d14',
+        dDay: 14,
+        name: 'Mốc 4: CHIẾN DỊCH CANH VÉ TÀU CAO TỐC CRH 12306 (Trip.com / 12306)',
+        phaseName: '🚨 GIAI ĐOẠN D-14: CANH VÉ TÀU CRH 12306 (08:00 SÁNG)',
+        urgency: 'critical',
+        datesStr: '16/12/2026 – 27/12/2026 (Mở bán trước đúng 14 ngày lúc 08:00)',
+        shortDesc: 'Mở bán vé tàu CRH chặng Yabuli (19/12) & chặng Trường Bạch Sơn (21/12). Canh đặt lúc 08:00 sáng kẻo cháy vé!',
+        tasks: [
+          {
+            id: 't-crh-pvg',
+            text: '16/12/2026 (08:00): Mở bán vé tàu đệm từ Maglev PVG hoặc vé tàu chặng PVG/Thượng Hải (cho ngày 30/12).'
+          },
+          {
+            id: 't-crh-yabuli',
+            text: '19/12/2026 (08:00 SÁNG): 🔴 CỰC NÓNG - Canh vé tàu CRH Harbin Tây ➔ Yabuli Tây (tàu D8511 lúc 08:32 hoặc D8515) cho ngày 02/01/2027.',
+            linkText: 'Mở Trip.com Đặt Trước Vé Tàu ↗',
+            linkHref: 'https://vn.trip.com/trains/'
+          },
+          {
+            id: 't-crh-changbai',
+            text: '21/12/2026 (08:00 SÁNG): 🔴 CỰC NÓNG - Canh vé tàu CRH Mẫu Đơn Giang / Hải Lâm ➔ Ga Trường Bạch Sơn (cho ngày 04/01/2027). Tuyến tàu cảnh đẹp xuyên rừng tuyết.',
+            linkText: 'Mở Trip.com Đặt Trước Vé Tàu ↗',
+            linkHref: 'https://vn.trip.com/trains/'
+          },
+          {
+            id: 't-crh-changchun',
+            text: '23/12/2026 (08:00): Canh vé tàu CRH Ga Trường Bạch Sơn ➔ Ga Trường Xuân (cho ngày 06/01/2027).',
+            linkText: 'Mở Trip.com Đặt Trước Vé Tàu ↗',
+            linkHref: 'https://vn.trip.com/trains/'
+          },
+          {
+            id: 't-crh-return',
+            text: '27/12/2026 (08:00): Canh vé tàu CRH Trường Xuân ➔ Thượng Hải (hoặc vé máy bay chặng về ngày 10/01).'
+          }
+        ]
+      },
+      {
+        id: 'ms-d7',
+        dDay: 7,
+        name: 'Mốc 5: CHIẾN DỊCH VÉ THIÊN TRÌ TRƯỜNG BẠCH SƠN (WeChat mini-program 长白山)',
+        phaseName: '🚨 GIAI ĐOẠN D-7: ĐẶT VÉ NÚI TRƯỜNG BẠCH (THIÊN TRÌ)',
+        urgency: 'critical',
+        datesStr: '23/12/2026 – 29/12/2026 (Mở bán trước đúng 7 ngày lúc 00:00 hoặc 07:00)',
+        shortDesc: 'Đặt vé Cổng Bắc Trường Bạch Sơn kèm xe chuyên dụng 4x4 lên đỉnh Thiên Trì trên WeChat/Trip.com.',
+        tasks: [
+          {
+            id: 't-cbs-ticket',
+            text: '29/12/2026 (00:00 hoặc 07:00 sáng): 🔴 Mở WeChat mini program "长白山" (hoặc Trip.com) nhập số Passport đặt vé Cổng Bắc (Bắc Khu 北景区) cho ngày 05/01/2027.',
+            linkText: 'Trip.com Trường Bạch Sơn ↗',
+            linkHref: 'https://vn.trip.com/travel-guide/attraction/antug/changbai-mountain-scenic-area-10524278/'
+          },
+          {
+            id: 't-cbs-peak-bus',
+            text: 'Đặt kèm vé xe buýt sinh thái trung chuyển + vé xe SUV địa hình vượt dốc lên đỉnh ngắm hồ Thiên Trì (80 RMB/người).'
+          },
+          {
+            id: 't-cbs-weather',
+            text: 'Kiểm tra thông báo dự báo thời tiết đỉnh núi trên mini program xem hồ Thiên Trì có mở cửa bình thường không.'
+          }
+        ]
+      },
+      {
+        id: 'ms-d5',
+        dDay: 5,
+        name: 'Mốc 6: Đặt Vé Băng Tuyết Đại Thế Giới & Giữ Chỗ Xe Ghép Làng Tuyết',
+        phaseName: 'Giai đoạn D-5: Vé Danh Thắng & Xe Ghép',
+        urgency: 'warning',
+        datesStr: '24/12/2026 – 26/12/2026 (D-5)',
+        shortDesc: 'Mua vé Băng Tuyết Đại Thế Giới, vé cổng Làng Tuyết và nhắn tin khách sạn Yabuli giữ chỗ xe ghép 7 chỗ.',
+        tasks: [
+          {
+            id: 't-ice-world',
+            text: 'Mua vé Băng Tuyết Đại Thế Giới Cáp Nhĩ Tân (Ice & Snow World) trên Trip.com hoặc Klook (khung giờ vào cửa 15:00 - 16:00).',
+            linkText: 'Trip.com Ice & Snow World ↗',
+            linkHref: 'https://vn.trip.com/travel-guide/attraction/harbin/harbin-ice-and-snow-world-10524277/'
+          },
+          {
+            id: 't-snow-town-ticket',
+            text: 'Mua vé vào cổng Làng Tuyết Hương (China Snow Town) kèm vé xe shuttle bus trung chuyển 2 chiều.',
+            linkText: 'Trip.com Làng Tuyết ↗',
+            linkHref: 'https://vn.trip.com/travel-guide/attraction/mudanjiang/china-snow-town-10524280/'
+          },
+          {
+            id: 't-pinche-yabuli-snow',
+            text: 'Nhắn tin lễ tân khách sạn Yabuli (Wild & Ancient) nhờ giữ 2 chỗ xe ghép 7 chỗ (Pinche) từ Yabuli sang Làng Tuyết vào sáng 04/01.',
+            linkText: 'Xem Chi Tiết Di Chuyển Ngày 6 ↗',
+            linkAction: "switchMainTab('itinerary'); jumpToTimelineDayDirect(6);"
+          }
+        ]
+      },
+      {
+        id: 'ms-d3',
+        dDay: 3,
+        name: 'Mốc 7: Kích Hoạt eSIM Du Lịch & Đổi Tiền Mặt Nhân Dân Tệ',
+        phaseName: 'Giai đoạn D-3: eSIM & Tiền Mặt',
+        urgency: 'info',
+        datesStr: '26/12/2026 – 28/12/2026 (D-3)',
+        shortDesc: 'Kích hoạt eSIM data không chặn mạng (dùng Google/Zalo/FB mượt) và đổi 500-1000 RMB tiền mặt dự phòng.',
+        tasks: [
+          {
+            id: 't-esim',
+            text: 'Mua và quét sẵn mã QR eSIM Trung Quốc (chọn gói data không chặn mạng / roaming VPN sẵn để dùng Google Maps, Facebook, Zalo).'
+          },
+          {
+            id: 't-cash',
+            text: 'Đổi sẵn 500 – 1.000 RMB tiền mặt mệnh giá nhỏ (10, 20, 50, 100 RMB) cất ví phòng trường hợp mất sóng vùng núi hoặc mua đồ ăn vặt.'
+          },
+          {
+            id: 't-card-limit',
+            text: 'Kiểm tra số dư thẻ Visa/Mastercard liên kết ví Alipay/WeChat và bật hạn mức thanh toán quốc tế trên app ngân hàng.'
+          }
+        ]
+      },
+      {
+        id: 'ms-d1',
+        dDay: 1,
+        name: 'Mốc 8: Check-in Online & Đóng Gói Hành Lý Cuối Cùng',
+        phaseName: 'Giai đoạn D-1: Check-in & Đóng Gói',
+        urgency: 'warning',
+        datesStr: '28/12/2026 – 29/12/2026 (D-1)',
+        shortDesc: 'Check-in chuyến bay Air China, gom toàn bộ pin sạc/flycam vào hành lý xách tay và lưu offline giấy tờ.',
+        tasks: [
+          {
+            id: 't-checkin-flight',
+            text: 'Check-in trực tuyến chuyến bay Air China CA-704 (chọn ghế ngồi cạnh nhau gần cửa sổ để ngắm tuyết khi hạ cánh).'
+          },
+          {
+            id: 't-pack-batteries',
+            text: 'Kiểm tra lại toàn bộ pin sạc dự phòng, pin flycam, máy ảnh: BẮT BUỘC ĐỂ TRONG BALO XÁCH TAY (hải quan sân bay tịch thu nếu để trong vali ký gửi).'
+          },
+          {
+            id: 't-save-offline',
+            text: 'Chụp ảnh lưu offline trong album điện thoại: Hộ chiếu, Visa, hợp đồng bảo hiểm, vé máy bay, mã đặt phòng 11 đêm và vé tàu CRH.'
+          },
+          {
+            id: 't-charge-all',
+            text: 'Sạc đầy pin cho toàn bộ điện thoại, sạc dự phòng, flycam và bật chế độ sưởi ấm pin nếu có.'
+          }
+        ]
+      },
+      {
+        id: 'ms-d0',
+        dDay: 0,
+        name: 'Mốc 9: KHỞI HÀNH! HÀ NỘI ➔ THƯỢNG HẢI (TRANSIT ĐÊM)',
+        phaseName: '✈️ D-DAY: XUẤT PHÁT HÀNH TRÌNH ĐÔNG BẮC!',
+        urgency: 'critical',
+        datesStr: '30/12/2026 (Ngày 1)',
+        shortDesc: '09:25 sáng có mặt tại Sân bay Nội Bài T2 làm thủ tục bay CA-704. Bắt đầu hành trình 12 ngày 11 đêm!',
+        tasks: [
+          {
+            id: 't-airport-noi-bai',
+            text: '09:25 sáng: Có mặt tại Sân bay Quốc tế Nội Bài (T2) trước 3 tiếng để làm thủ tục ký gửi hành lý chuyến bay CA-704.',
+            linkText: 'Xem Chi Tiết Lịch Trình Ngày 1 ↗',
+            linkAction: "switchMainTab('itinerary'); jumpToTimelineDayDirect(1);"
+          },
+          {
+            id: 't-boarding',
+            text: '12:25: Cất cánh chuyến bay CA-704 bay đến Thượng Hải (PVG 16:30). Bắt đầu hành trình 12 ngày 11 đêm!'
+          }
+        ]
+      }
+    ];
+
+    let currentSimulatedMilestoneDate = null;
+
+    function getMilestoneActiveStatus(targetDate) {
+      const tripStart = new Date(2026, 11, 30, 0, 0, 0); // Dec 30, 2026
+      const diffTime = tripStart - targetDate;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      let activeMsId = 'ms-d60';
+      if (diffDays > 45) {
+        activeMsId = 'ms-d60';
+      } else if (diffDays > 25) {
+        activeMsId = 'ms-d30';
+      } else if (diffDays > 16) {
+        activeMsId = 'ms-d20';
+      } else if (diffDays > 8) {
+        activeMsId = 'ms-d14';
+      } else if (diffDays > 5) {
+        activeMsId = 'ms-d7';
+      } else if (diffDays > 3) {
+        activeMsId = 'ms-d5';
+      } else if (diffDays > 1) {
+        activeMsId = 'ms-d3';
+      } else if (diffDays > 0) {
+        activeMsId = 'ms-d1';
+      } else {
+        activeMsId = 'ms-d0';
+      }
+
+      const activeMs = HARBIN_MILESTONES.find(m => m.id === activeMsId) || HARBIN_MILESTONES[0];
+      const isUrgent = (diffDays <= 16 && diffDays >= 0);
+      return { diffDays, activeMsId, activeMs, isUrgent };
+    }
+
+    function renderMilestoneTimeline(simDate) {
+      const container = document.getElementById('milestone-timeline-container');
+      if (!container) return;
+
+      const evalDate = simDate instanceof Date ? simDate : new Date();
+      const status = getMilestoneActiveStatus(evalDate);
+
+      let savedStates = {};
+      try {
+        savedStates = JSON.parse(localStorage.getItem('harbin_milestones_state_v1') || '{}');
+      } catch (e) { savedStates = {}; }
+
+      let totalTasks = 0;
+      let completedTasks = 0;
+
+      container.innerHTML = HARBIN_MILESTONES.map(ms => {
+        const isActive = (ms.id === status.activeMsId);
+        const cardClass = 'milestone-card' +
+          (isActive ? ' active-phase' : '') +
+          (ms.urgency === 'critical' ? ' urgent-phase' : '');
+
+        const statusBadgeClass = 'milestone-status-badge ' + (ms.urgency === 'critical' ? 'critical' : ms.urgency === 'warning' ? 'warning' : 'info');
+        const badgeLabel = ms.urgency === 'critical' ? '🔴 Bắt Buộc / Cực Nóng' : ms.urgency === 'warning' ? '🟡 Quan Trọng' : '🟢 Chuẩn Bị Sớm';
+
+        const taskRows = ms.tasks.map(task => {
+          totalTasks++;
+          const isChecked = savedStates[task.id] !== undefined ? savedStates[task.id] : (task.defaultChecked || false);
+          if (isChecked) completedTasks++;
+
+          let linkHtml = '';
+          if (task.linkHref) {
+            linkHtml = '<a href="' + task.linkHref + '" target="_blank" rel="noopener" class="btn-ms-link trip">' + task.linkText + '</a>';
+          } else if (task.linkAction) {
+            linkHtml = '<button type="button" onclick="' + task.linkAction + '" class="btn-ms-link info">' + task.linkText + '</button>';
+          }
+
+          return '<div class="milestone-task-item' + (isChecked ? ' done' : '') + '">' +
+            '<input type="checkbox" id="' + task.id + '" ' + (isChecked ? 'checked' : '') + ' onchange="onMilestoneTaskToggle(\'' + task.id + '\', this.checked)">' +
+            '<div style="flex:1; min-width:0;">' +
+            '<span>' + task.text + '</span>' +
+            (linkHtml ? '<div class="milestone-action-links">' + linkHtml + '</div>' : '') +
+            '</div>' +
+            '</div>';
+        }).join('');
+
+        return '<div class="' + cardClass + '" id="' + ms.id + '">' +
+          '<div class="milestone-card-top">' +
+          '<div class="milestone-title-group">' +
+          '<h4>' + ms.name + '</h4>' +
+          '<div class="milestone-dates">🗓️ ' + ms.datesStr + '</div>' +
+          '</div>' +
+          '<span class="' + statusBadgeClass + '">' + badgeLabel + '</span>' +
+          '</div>' +
+          '<div style="font-size:0.82rem; color:#cbd5e1; margin-bottom:10px; line-height:1.4;">' + ms.shortDesc + '</div>' +
+          '<div class="milestone-items-list">' + taskRows + '</div>' +
+          '</div>';
+      }).join('');
+
+      // Update progress bar
+      const pct = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+      const progText = document.getElementById('milestone-progress-text');
+      const progFill = document.getElementById('milestone-progress-fill');
+      if (progText) progText.textContent = completedTasks + ' / ' + totalTasks + ' mục (' + pct + '%)';
+      if (progFill) progFill.style.width = pct + '%';
+
+      // Update glance card progress summary
+      const glanceProg = document.getElementById('glance-ms-progress-summary');
+      if (glanceProg) glanceProg.textContent = 'Tiến độ: ' + completedTasks + ' / ' + totalTasks + ' việc hoàn tất (' + pct + '%)';
+    }
+
+    function onMilestoneTaskToggle(taskId, isChecked) {
+      let savedStates = {};
+      try {
+        savedStates = JSON.parse(localStorage.getItem('harbin_milestones_state_v1') || '{}');
+      } catch (e) { savedStates = {}; }
+      savedStates[taskId] = isChecked;
+      try {
+        localStorage.setItem('harbin_milestones_state_v1', JSON.stringify(savedStates));
+      } catch (e) { }
+
+      const evalDate = currentSimulatedMilestoneDate instanceof Date ? currentSimulatedMilestoneDate : new Date();
+      renderMilestoneTimeline(evalDate);
+    }
+
+    function resetMilestonesProgress() {
+      try {
+        localStorage.removeItem('harbin_milestones_state_v1');
+      } catch (e) { }
+      const evalDate = currentSimulatedMilestoneDate instanceof Date ? currentSimulatedMilestoneDate : new Date();
+      renderMilestoneTimeline(evalDate);
+    }
+
+    function updateTodayMilestoneTracker(customDate) {
+      const evalDate = customDate instanceof Date ? customDate : new Date();
+      const status = getMilestoneActiveStatus(evalDate);
+
+      const days = status.diffDays;
+      const dDayBadgeText = days > 0 ? ('⏳ D-' + days) : days === 0 ? '✈️ D-Day' : ('Đang đi N' + Math.abs(days) + 1);
+
+      // Date string formatted
+      const dayNames = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+      const dayOfWeek = dayNames[evalDate.getDay()];
+      const dd = String(evalDate.getDate()).padStart(2, '0');
+      const mm = String(evalDate.getMonth() + 1).padStart(2, '0');
+      const yyyy = evalDate.getFullYear();
+      const dateFormattedStr = dayOfWeek + ', ' + dd + '/' + mm + '/' + yyyy;
+
+      // Topbar elements
+      const topBadge = document.getElementById('topbar-today-badge');
+      const topAlert = document.getElementById('topbar-today-alert');
+      if (topBadge) {
+        topBadge.textContent = dDayBadgeText;
+        topBadge.className = 'glance-today-badge' + (status.isUrgent ? ' urgent' : '');
+      }
+      if (topAlert) {
+        if (days > 16) {
+          topAlert.innerHTML = '<strong>Hôm nay:</strong> ' + status.activeMs.phaseName + '. Mốc canh vé tàu CRH: <strong>19/12</strong> lúc 08:00 sáng!';
+        } else if (days >= 8) {
+          topAlert.innerHTML = '<strong style=\"color:#f87171;\">🚨 HÔM NAY CẦN CANH VÉ TÀU CRH 12306:</strong> ' + status.activeMs.shortDesc;
+        } else if (days >= 5) {
+          topAlert.innerHTML = '<strong style=\"color:#f87171;\">🚨 HÔM NAY ĐẶT VÉ TRƯỜNG BẠCH SƠN:</strong> ' + status.activeMs.shortDesc;
+        } else if (days > 0) {
+          topAlert.innerHTML = '<strong>Gần ngày bay:</strong> ' + status.activeMs.shortDesc;
+        } else {
+          topAlert.innerHTML = '✈️ <strong>Hôm nay khởi hành:</strong> Hà Nội ➔ Thượng Hải (Transit Đêm Huyền Ảo)!';
+        }
+      }
+
+      // Glance Card elements
+      const glanceDDay = document.getElementById('glance-dday-count');
+      const glanceDate = document.getElementById('glance-today-date-str');
+      const glanceDesc = document.getElementById('glance-ms-active-desc');
+      if (glanceDDay) glanceDDay.textContent = dDayBadgeText;
+      if (glanceDate) glanceDate.textContent = dateFormattedStr;
+      if (glanceDesc) glanceDesc.textContent = status.activeMs.shortDesc;
+
+      // Sim Box in Tab 5
+      const simBadge = document.getElementById('ms-sim-badge');
+      const simDateDisplay = document.getElementById('ms-sim-date-display');
+      if (simBadge) {
+        simBadge.textContent = dDayBadgeText;
+        simBadge.className = 'glance-today-badge' + (status.isUrgent ? ' urgent' : '');
+      }
+      if (simDateDisplay) {
+        simDateDisplay.textContent = 'Ngày khảo sát: ' + dateFormattedStr;
+      }
+    }
+
+    function onMilestoneSimulateChange(val) {
+      if (!val || val === 'today') {
+        currentSimulatedMilestoneDate = null;
+      } else {
+        currentSimulatedMilestoneDate = new Date(val + 'T09:00:00');
+      }
+      const evalDate = currentSimulatedMilestoneDate instanceof Date ? currentSimulatedMilestoneDate : new Date();
+      updateTodayMilestoneTracker(evalDate);
+      renderMilestoneTimeline(evalDate);
+    }
+
+    function openMilestoneTab(milestoneId) {
+      switchMainTab('packing');
+      switchSubTab('packing', 'timeline');
+
+      const targetId = milestoneId || (getMilestoneActiveStatus(currentSimulatedMilestoneDate || new Date()).activeMsId);
+      setTimeout(() => {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 250);
+    }
+
+    function initMilestonePersistence() {
+      const evalDate = new Date();
+      updateTodayMilestoneTracker(evalDate);
+      renderMilestoneTimeline(evalDate);
+    }
+
+    /* ========================================================
        7. INITIALIZATION, HASH RESTORE & RESIZE
        ======================================================== */
     function initRevampApp() {
@@ -11930,6 +12754,7 @@
         }
       } catch (e) { }
 
+      initMilestonePersistence();
       initChecklistPersistence();
       enhanceTransitPhraseBoxes();
       renderItinerarySummaryTable();
@@ -11940,6 +12765,10 @@
         switchMainTab(tabMatch[1], true);
       } else {
         switchMainTab('itinerary', true);
+      }
+      const subMatch = hash.match(/sub=([a-z0-9_-]+)/);
+      if (subMatch && tabMatch) {
+        switchSubTab(tabMatch[1], subMatch[1]);
       }
     }
 
